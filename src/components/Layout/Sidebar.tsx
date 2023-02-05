@@ -1,7 +1,9 @@
+import Link from "next/link";
+
 const Sidebar = () => {
   return (
     <div className="fixed inset-y-0 left-0 w-64">
-      <div className="flex min-h-screen flex-col border-r border-gray-300 p-4 dark:border-gray-700">
+      <div className="flex min-h-screen flex-col  bg-zinc-100 p-4 dark:bg-zinc-900">
         <div className="flex items-center gap-3">
           <svg
             width="50"
