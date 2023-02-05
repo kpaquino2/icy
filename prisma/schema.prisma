@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-    provider = "sqlite"
+    provider = "mysql"
     // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
     // Further reading:
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
@@ -14,10 +14,61 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model Program {
+    id        String @id @default(cuid())
+    name      String
+    shorthand String
+    college   String
+    univ      String
+    major     String
+    users     User[]
+}
+
+model Curriculum {
+    id          String     @id @default(cuid())
+    curricUnits Int
+    userId      String
+    user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+    sems        Semester[]
+}
+
+model Semester {
+    id           String           @id @default(cuid())
+    year         Int
+    semNo        Int
+    semUnits     Int
+    curriculum   Curriculum?      @relation(fields: [curriculumId], references: [id])
+    curriculumId String
+    semCourses   SemseterCourse[]
+}
+
+model SemseterCourse {
+    semesterId String
+    courseId   String
+    course     Course       @relation(fields: [courseId], references: [id])
+    semester   Semester     @relation(fields: [semesterId], references: [id])
+    status     CourseStatus
+
+    @@id([semesterId, courseId])
+}
+
+model Course {
+    id           String           @id @default(cuid())
+    code         String
+    title        String?          @db.Text
+    course_units String
+    semCourses   SemseterCourse[]
+    prereqs      Prerequisite[]   @relation("post")
+    postreqs     Prerequisite[]   @relation("pre")
+}
+
+model Prerequisite {
+    postreqId String
+    prereqId  String
+    postreq   Course @relation(name: "post", fields: [postreqId], references: [id])
+    prereq    Course @relation(name: "pre", fields: [prereqId], references: [id])
+
+    @@id([postreqId, prereqId])
 }
 
 // Necessary for Next auth
@@ -27,12 +78,12 @@ model Account {
     type              String
     provider          String
     providerAccountId String
-    refresh_token     String? // @db.Text
-    access_token      String? // @db.Text
+    refresh_token     String? @db.Text
+    access_token      String? @db.Text
     expires_at        Int?
     token_type        String?
     scope             String?
-    id_token          String? // @db.Text
+    id_token          String? @db.Text
     session_state     String?
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -48,13 +99,16 @@ model Session {
 }
 
 model User {
-    id            String    @id @default(cuid())
+    id            String       @id @default(cuid())
     name          String?
-    email         String?   @unique
+    email         String?      @unique
     emailVerified DateTime?
     image         String?
     accounts      Account[]
     sessions      Session[]
+    programId     String
+    program       Program      @relation(fields: [programId], references: [id], onDelete: Cascade)
+    Curriculum    Curriculum[]
 }
 
 model VerificationToken {
@@ -63,4 +117,11 @@ model VerificationToken {
     expires    DateTime
 
     @@unique([identifier, token])
+}
+
+enum CourseStatus {
+    TAKING
+    FAILED
+    PASSED
+    INCOMPLETE
 }
