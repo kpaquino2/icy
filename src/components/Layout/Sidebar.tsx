@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const Sidebar = () => {
   return (
     <div className="fixed inset-y-0 left-0 w-64">
