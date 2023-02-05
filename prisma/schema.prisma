@@ -21,7 +21,6 @@ model Program {
     shorthand String
     college   String
     univ      String
-    major     String
     users     User[]
 }
 
