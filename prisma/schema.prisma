@@ -6,12 +6,13 @@ generator client {
 }
 
 datasource db {
-    provider = "mysql"
+    provider     = "mysql"
     // NOTE: When using postgresql, mysql or sqlserver, uncomment the @db.Text annotations in model Account below
     // Further reading:
     // https://next-auth.js.org/adapters/prisma#create-the-prisma-schema
     // https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference#string
-    url      = env("DATABASE_URL")
+    url          = env("DATABASE_URL")
+    relationMode = "prisma"
 }
 
 model Program {
@@ -30,6 +31,8 @@ model Curriculum {
     userId      String
     user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
     sems        Semester[]
+
+    @@index([userId])
 }
 
 model Semester {
@@ -40,6 +43,8 @@ model Semester {
     curriculum   Curriculum?      @relation(fields: [curriculumId], references: [id])
     curriculumId String
     semCourses   SemseterCourse[]
+
+    @@index([curriculumId])
 }
 
 model SemseterCourse {
@@ -50,6 +55,8 @@ model SemseterCourse {
     status     CourseStatus
 
     @@id([semesterId, courseId])
+    @@index([semesterId])
+    @@index([courseId])
 }
 
 model Course {
@@ -69,6 +76,8 @@ model Prerequisite {
     prereq    Course @relation(name: "pre", fields: [prereqId], references: [id])
 
     @@id([postreqId, prereqId])
+    @@index([postreqId])
+    @@index([prereqId])
 }
 
 // Necessary for Next auth
@@ -88,6 +97,7 @@ model Account {
     user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
     @@unique([provider, providerAccountId])
+    @@index([userId])
 }
 
 model Session {
@@ -96,6 +106,8 @@ model Session {
     userId       String
     expires      DateTime
     user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    @@index([userId])
 }
 
 model User {
@@ -109,6 +121,8 @@ model User {
     programId     String
     program       Program      @relation(fields: [programId], references: [id], onDelete: Cascade)
     Curriculum    Curriculum[]
+
+    @@index([programId])
 }
 
 model VerificationToken {
