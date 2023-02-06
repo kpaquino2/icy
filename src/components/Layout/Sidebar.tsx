@@ -1,25 +1,47 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Switch } from "@headlessui/react";
-import { IoMdMoon, IoMdSunny } from "react-icons/io";
+import { Gear, Sparkle, SquareHalf, User } from "phosphor-react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Sidebar = () => {
+  const router = useRouter();
   const [dark, setDark] = useState(false);
 
-  const handleSwitch = (value: boolean) => {
+  const sidebarItems = [
+    { label: "curricula", url: "/", icon: <SquareHalf size={32} /> },
+    {
+      label: "tools",
+      url: "/tools",
+      icon: <Sparkle size={32} />,
+    },
+    {
+      label: "account",
+      url: "/account",
+      icon: <User size={32} />,
+    },
+    {
+      label: "settings",
+      url: "/settings",
+      icon: <Gear size={32} />,
+    },
+  ];
+
+  const handleTheme = (value: boolean) => {
     document.documentElement.className = value ? "dark" : "light";
     setDark(value);
   };
 
   return (
-    <div className="fixed inset-y-0 left-0 w-64">
-      <div className="flex min-h-screen flex-col  justify-between bg-zinc-100 p-4 dark:bg-zinc-900">
-        <div className="flex items-center gap-3">
+    <div className="fixed inset-y-0 left-0 w-52">
+      <div className="flex min-h-screen flex-col justify-between gap-4 border-r-2 border-zinc-200 dark:border-zinc-800">
+        <div className="flex items-center gap-2 border-b-2 border-zinc-200 p-4 dark:border-zinc-800">
           <svg
-            width="50"
-            height="50"
+            width="30"
+            height="30"
             viewBox="0 0 100 100"
             xmlns="http://www.w3.org/2000/svg"
-            className="fill-teal-400"
+            className="fill-teal-600 dark:fill-teal-400"
           >
             <g clipPath="url(#clip0_0_1)">
               <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />
@@ -37,28 +59,62 @@ const Sidebar = () => {
               </clipPath>
             </defs>
           </svg>
-          <span className="text-3xl">icy</span>
+          <span className="text-xl font-thin">icy planner</span>
         </div>
-        <div className="grid place-items-center">
-          <Switch checked={dark} onChange={handleSwitch} as={Fragment}>
-            {({ checked }) => (
-              /* Use the `checked` state to conditionally style the button. */
-              <button
+        <div className="flex grow flex-col gap-2">
+          {sidebarItems.map((item, index) => (
+            <Link
+              href={item.url}
+              key={index}
+              className={`${
+                item.url === router.asPath
+                  ? "border-r-2 border-teal-600 dark:border-teal-400"
+                  : "text-zinc-600 dark:text-zinc-400"
+              } my-1 flex items-center gap-3 px-4 py-1 hover:border-r-2 hover:border-zinc-400 hover:dark:border-zinc-600`}
+            >
+              {item.icon}
+              {item.label}
+            </Link>
+          ))}
+        </div>
+        <div className="flex flex-col border-t-2 border-zinc-200 py-4 text-sm dark:border-zinc-800">
+          <Link
+            href="help"
+            className={`${
+              "/signin" === router.asPath
+                ? "text-zinc-700 dark:text-zinc-300"
+                : "text-zinc-600 dark:text-zinc-400"
+            } px-4 py-1 hover:text-zinc-700 hover:dark:text-zinc-300`}
+          >
+            help
+          </Link>
+          <Link
+            href="contactus"
+            className={`${
+              "/signin" === router.asPath
+                ? "text-zinc-700 dark:text-zinc-300"
+                : "text-zinc-600 dark:text-zinc-400"
+            } px-4 py-1 hover:text-zinc-700 hover:dark:text-zinc-300`}
+          >
+            contact us
+          </Link>
+          <div className="flex items-center justify-between px-4 py-1 text-zinc-600 dark:text-zinc-400">
+            dark mode
+            <Switch
+              checked={dark}
+              onChange={handleTheme}
+              className={`${
+                dark ? "dark:bg-teal-400" : "bg-zinc-400"
+              } relative inline-flex h-6 w-11 items-center rounded-full`}
+            >
+              <span className="sr-only">Enable notifications</span>
+              <span
                 className={`${
-                  checked ? "bg-zinc-600" : "bg-zinc-400"
-                } relative inline-flex h-12 w-full items-center rounded-lg`}
-              >
-                <span className="sr-only">Dark Theme</span>
-                <span
-                  className={`${
-                    checked ? "translate-x-[11.25rem]" : "translate-x-1"
-                  } grid h-10 w-10 transform place-items-center rounded-lg bg-white text-2xl text-teal-600 transition`}
-                >
-                  {checked ? <IoMdMoon /> : <IoMdSunny />}
-                </span>
-              </button>
-            )}
-          </Switch>
+                  dark ? "translate-x-6" : "translate-x-1"
+                } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+              />
+            </Switch>
+          </div>
         </div>
       </div>
     </div>
