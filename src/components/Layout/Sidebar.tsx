@@ -1,7 +1,18 @@
+import { Fragment, useState } from "react";
+import { Switch } from "@headlessui/react";
+import { IoMdMoon, IoMdSunny } from "react-icons/io";
+
 const Sidebar = () => {
+  const [dark, setDark] = useState(false);
+
+  const handleSwitch = (value: boolean) => {
+    document.documentElement.className = value ? "dark" : "light";
+    setDark(value);
+  };
+
   return (
     <div className="fixed inset-y-0 left-0 w-64">
-      <div className="flex min-h-screen flex-col  bg-zinc-100 p-4 dark:bg-zinc-900">
+      <div className="flex min-h-screen flex-col  justify-between bg-zinc-100 p-4 dark:bg-zinc-900">
         <div className="flex items-center gap-3">
           <svg
             width="50"
@@ -10,7 +21,7 @@ const Sidebar = () => {
             xmlns="http://www.w3.org/2000/svg"
             className="fill-teal-400"
           >
-            <g clip-path="url(#clip0_0_1)">
+            <g clipPath="url(#clip0_0_1)">
               <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />
               <path d="M22.0858 26.0858L39.5858 43.5858C40.8457 44.8457 39.9534 47 38.1716 47H22.3284C21.798 47 21.2893 46.7893 20.9142 46.4142L3.41422 28.9142C2.15429 27.6543 3.04662 25.5 4.82843 25.5L20.6716 25.5C21.202 25.5 21.7107 25.7107 22.0858 26.0858Z" />
               <path d="M79.0858 53.5858L96.5858 71.0858C97.8457 72.3457 96.9534 74.5 95.1716 74.5H79.3284C78.798 74.5 78.2893 74.2893 77.9142 73.9142L60.4142 56.4142C59.1543 55.1543 60.0466 53 61.8284 53H77.6716C78.202 53 78.7107 53.2107 79.0858 53.5858Z" />
@@ -27,6 +38,27 @@ const Sidebar = () => {
             </defs>
           </svg>
           <span className="text-3xl">icy</span>
+        </div>
+        <div className="grid place-items-center">
+          <Switch checked={dark} onChange={handleSwitch} as={Fragment}>
+            {({ checked }) => (
+              /* Use the `checked` state to conditionally style the button. */
+              <button
+                className={`${
+                  checked ? "bg-zinc-600" : "bg-zinc-400"
+                } relative inline-flex h-12 w-full items-center rounded-lg`}
+              >
+                <span className="sr-only">Dark Theme</span>
+                <span
+                  className={`${
+                    checked ? "translate-x-[11.25rem]" : "translate-x-1"
+                  } grid h-10 w-10 transform place-items-center rounded-lg bg-white text-2xl text-teal-600 transition`}
+                >
+                  {checked ? <IoMdMoon /> : <IoMdSunny />}
+                </span>
+              </button>
+            )}
+          </Switch>
         </div>
       </div>
     </div>
