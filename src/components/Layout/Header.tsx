@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { CaretRight } from "phosphor-react";
 
 interface HeaderProps {
@@ -6,8 +5,6 @@ interface HeaderProps {
 }
 
 const Header = ({ crumbs }: HeaderProps) => {
-  const router = useRouter();
-
   return (
     <div className="h-16 border-b-2 border-zinc-200 dark:border-zinc-800">
       <div className="flex h-full items-center gap-2 px-4">
