@@ -68,9 +68,9 @@ const Sidebar = () => {
               key={index}
               className={`${
                 item.url === router.asPath
-                  ? "border-r-2 border-teal-600 dark:border-teal-400"
-                  : "text-zinc-600 dark:text-zinc-400"
-              } my-1 flex items-center gap-3 px-4 py-1 hover:border-r-2 hover:border-zinc-400 hover:dark:border-zinc-600`}
+                  ? "text-zinc-900 dark:text-zinc-100"
+                  : "text-zinc-500 "
+              } my-1 flex items-center gap-3 px-4 py-1 hover:text-teal-600 hover:dark:text-teal-400`}
             >
               {item.icon}
               {item.label}
