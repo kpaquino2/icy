@@ -35,7 +35,7 @@ const Sidebar = () => {
   return (
     <div className="fixed inset-y-0 left-0 w-52">
       <div className="flex min-h-screen flex-col justify-between gap-4 border-r-2 border-zinc-200 dark:border-zinc-800">
-        <div className="flex items-center gap-2 border-b-2 border-zinc-200 p-4 dark:border-zinc-800">
+        <div className="flex items-center gap-3 border-zinc-200 px-4 pt-4 dark:border-zinc-800">
           <svg
             width="30"
             height="30"
