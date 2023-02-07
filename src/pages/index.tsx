@@ -4,12 +4,8 @@ import Layout from "../components/Layout/Layout";
 const Home: NextPage = () => {
   return (
     <>
-      <Layout
-        title="curricula"
-        description="list of all curricula made by the user"
-        crumbs="curricula"
-      >
-        <div className="p-2">hello world</div>
+      <Layout title="Home" description="Home of icy application">
+        hello world
       </Layout>
     </>
   );
