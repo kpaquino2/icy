@@ -37,38 +37,28 @@ model Curriculum {
 }
 
 model Semester {
-    id           String           @id @default(cuid())
+    id           String      @id @default(cuid())
     semUnits     Int
-    curriculum   Curriculum?      @relation(fields: [curriculumId], references: [id])
+    curriculum   Curriculum? @relation(fields: [curriculumId], references: [id])
     curriculumId String
-    semCourses   SemesterCourse[]
-    createdAt    DateTime         @default(now())
+    courses      Course[]
+    createdAt    DateTime    @default(now())
 
     @@index([curriculumId])
 }
 
-model SemesterCourse {
-    semesterId String
-    courseId   String
-    course     Course       @relation(fields: [courseId], references: [id])
-    semester   Semester     @relation(fields: [semesterId], references: [id])
-    status     CourseStatus
-    createdAt  DateTime     @default(now())
-
-    @@id([semesterId, courseId])
-    @@index([semesterId])
-    @@index([courseId])
-}
-
 model Course {
-    id           String           @id @default(cuid())
+    id           String         @id @default(cuid())
     code         String
-    title        String?          @db.Text
+    title        String?        @db.Text
     course_units String
-    semCourses   SemesterCourse[]
-    prereqs      Prerequisite[]   @relation("post")
-    postreqs     Prerequisite[]   @relation("pre")
-    createdAt    DateTime         @default(now())
+    prereqs      Prerequisite[] @relation("post")
+    postreqs     Prerequisite[] @relation("pre")
+    createdAt    DateTime       @default(now())
+    semester     Semester?      @relation(fields: [semesterId], references: [id])
+    semesterId   String?
+
+    @@index([semesterId])
 }
 
 model Prerequisite {
