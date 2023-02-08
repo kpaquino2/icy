@@ -27,7 +27,7 @@ model Program {
 model Curriculum {
     id          String     @id @default(cuid())
     curricUnits Int
-    userId      String
+    userId      String     @unique
     user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
     sems        Semester[]
 
@@ -41,12 +41,12 @@ model Semester {
     semUnits     Int
     curriculum   Curriculum?      @relation(fields: [curriculumId], references: [id])
     curriculumId String
-    semCourses   SemseterCourse[]
+    semCourses   SemesterCourse[]
 
     @@index([curriculumId])
 }
 
-model SemseterCourse {
+model SemesterCourse {
     semesterId String
     courseId   String
     course     Course       @relation(fields: [courseId], references: [id])
@@ -63,7 +63,7 @@ model Course {
     code         String
     title        String?          @db.Text
     course_units String
-    semCourses   SemseterCourse[]
+    semCourses   SemesterCourse[]
     prereqs      Prerequisite[]   @relation("post")
     postreqs     Prerequisite[]   @relation("pre")
 }
@@ -110,16 +110,16 @@ model Session {
 }
 
 model User {
-    id            String       @id @default(cuid())
+    id            String      @id @default(cuid())
     name          String?
-    email         String?      @unique
+    email         String?     @unique
     emailVerified DateTime?
     image         String?
     accounts      Account[]
     sessions      Session[]
     programId     String?
-    program       Program?     @relation(fields: [programId], references: [id], onDelete: Cascade)
-    Curriculum    Curriculum[]
+    program       Program?    @relation(fields: [programId], references: [id], onDelete: Cascade)
+    Curriculum    Curriculum?
 
     @@index([programId])
 }
