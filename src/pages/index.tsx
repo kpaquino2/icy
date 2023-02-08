@@ -15,8 +15,14 @@ const Home: NextPage = () => {
   const tctx = api.useContext();
   const { mutate: createNewCurriculumMutation } =
     api.curriculum.createCurriculum.useMutation({
-      onSuccess: (data) => {
-        tctx.curriculum.getCurriculum.setData(undefined, data);
+      onSuccess: async () => {
+        await tctx.curriculum.getCurriculum.fetch();
+      },
+    });
+  const { mutate: createSemesterMutation } =
+    api.semester.createSemester.useMutation({
+      onSuccess: async () => {
+        await tctx.curriculum.getCurriculum.fetch();
       },
     });
 
@@ -27,6 +33,11 @@ const Home: NextPage = () => {
   const handleNewCurric = () => {
     if (sessionStatus === "unauthenticated") return;
     createNewCurriculumMutation();
+  };
+
+  const handleNewSem = () => {
+    if (sessionStatus === "unauthenticated") return;
+    createSemesterMutation({ curricId: curriculum?.id || "" });
   };
 
   return (
@@ -79,11 +90,48 @@ const Home: NextPage = () => {
                 </Link>
               </div>
             )}
-            <div className="flex flex-col place-items-center p-4">
+            <div className="relative flex flex-1 flex-col overflow-auto p-4">
               {curriculum ? (
-                <>yes</>
+                <div className="flex min-w-max flex-1 flex-nowrap">
+                  {curriculum.sems?.map((sem, index) => (
+                    <div
+                      key={index}
+                      className="flex h-full w-48 flex-col justify-between border-y-2 border-l-2 border-zinc-200 first:rounded-l-lg last:rounded-r-lg last:border-r-2 dark:border-zinc-800"
+                    >
+                      <div className="flex items-center justify-between border-b-2 border-zinc-200 p-2 dark:border-zinc-800">
+                        year {Math.floor(index / 2) + 1} sem {(index % 2) + 1}
+                        <button type="button">
+                          <X weight="bold" />
+                        </button>
+                      </div>
+                      <div className="flex flex-1 flex-col p-2">
+                        {sem.semCourses?.map((course, index) => (
+                          <>a</>
+                        ))}
+                        <button
+                          type="button"
+                          className="flex items-center justify-center gap-2 rounded border-2 border-dashed border-zinc-200 p-2 text-zinc-500 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+                        >
+                          <Plus weight="bold" />
+                          new course
+                        </button>
+                      </div>
+                      <div className="w-full border-t-2 border-zinc-200 py-2 text-center text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+                        total units: {sem.semUnits}
+                      </div>
+                    </div>
+                  ))}
+                  <button
+                    type="button"
+                    onClick={handleNewSem}
+                    className="flex h-full w-48 flex-col items-center justify-center border-y-2 border-l-2 border-dashed border-zinc-200 text-zinc-500 first:rounded-l-lg last:rounded-r-lg last:border-r-2 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+                  >
+                    <Plus size={32} />
+                    new sem
+                  </button>
+                </div>
               ) : (
-                <div className="flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
+                <div className="m-auto flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
                   <div className="text-3xl">no curriculum</div>
                   <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
                     create a new curriculum to start planning
