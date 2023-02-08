@@ -18,12 +18,12 @@ const Layout = ({ title, description, crumbs, children }: LayoutProps) => {
         <meta name="description" content={description} />
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <div className="ml-52 flex min-h-screen">
+      <div className="flex min-h-screen">
         <Sidebar />
-        <div className="flex flex-1 flex-col">
+        <main className="flex w-full flex-1 flex-col overflow-hidden">
           <Header crumbs={crumbs} />
           {children}
-        </div>
+        </main>
       </div>
     </>
   );
