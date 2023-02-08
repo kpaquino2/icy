@@ -16,9 +16,9 @@ const Home: NextPage = () => {
   return (
     <>
       <Layout
-        title="curricula"
-        description="list of all curricula made by the user"
-        crumbs="curricula"
+        title="curriculum"
+        description="list of all curriculum made by the user"
+        crumbs="curriculum"
       >
         {showNotice && (
           <div className="flex gap-2 bg-teal-600 p-1 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
@@ -29,14 +29,14 @@ const Home: NextPage = () => {
             >
               <X size={20} />
             </button>
-            create an account to access your curricula from other devices.
+            create an account to access your curriculum from other devices.
             <Link href="sign-up" className="underline">
               click here to sign up
             </Link>
           </div>
         )}
         <div className="grid grid-cols-1 p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          <div className="col-span-full text-2xl font-light">curricula</div>
+          <div className="col-span-full text-2xl font-light">curriculum</div>
         </div>
       </Layout>
     </>

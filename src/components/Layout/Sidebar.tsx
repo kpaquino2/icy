@@ -11,7 +11,7 @@ const Sidebar = () => {
   const [dark, setDark] = useState(false);
 
   const sidebarItems = [
-    { label: "curricula", url: "/", icon: <SquareHalf size={32} /> },
+    { label: "curriculum", url: "/", icon: <SquareHalf size={32} /> },
     {
       label: "tools",
       url: "/tools",
