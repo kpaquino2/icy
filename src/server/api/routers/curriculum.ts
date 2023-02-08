@@ -2,8 +2,22 @@ import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
 
 export const curriculumRouter = createTRPCRouter({
   getCurriculum: publicProcedure.query(async ({ ctx }) => {
-    const curric = ctx.prisma.curriculum.findFirst({
-      where: { userId: ctx.session?.user.id },
+    const curric = await ctx.prisma.curriculum.findUnique({
+      where: { userId: ctx.session?.user.id || "" },
+      include: {
+        sems: {
+          orderBy: {
+            createdAt: "asc",
+          },
+          include: {
+            semCourses: {
+              orderBy: {
+                createdAt: "asc",
+              },
+            },
+          },
+        },
+      },
     });
     return curric;
   }),
