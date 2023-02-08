@@ -39,7 +39,7 @@ model Curriculum {
 model Semester {
     id           String      @id @default(cuid())
     semUnits     Int
-    curriculum   Curriculum? @relation(fields: [curriculumId], references: [id])
+    curriculum   Curriculum? @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
     curriculumId String
     courses      Course[]
     createdAt    DateTime    @default(now())
@@ -55,7 +55,7 @@ model Course {
     prereqs      Prerequisite[] @relation("post")
     postreqs     Prerequisite[] @relation("pre")
     createdAt    DateTime       @default(now())
-    semester     Semester?      @relation(fields: [semesterId], references: [id])
+    semester     Semester?      @relation(fields: [semesterId], references: [id], onDelete: Cascade)
     semesterId   String?
 
     @@index([semesterId])
@@ -64,8 +64,8 @@ model Course {
 model Prerequisite {
     postreqId String
     prereqId  String
-    postreq   Course   @relation(name: "post", fields: [postreqId], references: [id])
-    prereq    Course   @relation(name: "pre", fields: [prereqId], references: [id])
+    postreq   Course   @relation(name: "post", fields: [postreqId], references: [id], onDelete: Cascade)
+    prereq    Course   @relation(name: "pre", fields: [prereqId], references: [id], onDelete: Cascade)
     createdAt DateTime @default(now())
 
     @@id([postreqId, prereqId])
