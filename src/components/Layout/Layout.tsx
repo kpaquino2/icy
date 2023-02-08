@@ -16,7 +16,6 @@ const Layout = ({ title, description, crumbs, children }: LayoutProps) => {
         <title>{title} | icy</title>
         <meta name="title" content={title} />
         <meta name="description" content={description} />
-
         <link rel="icon" href="/logo.svg" />
       </Head>
       <div className="ml-52 min-h-screen">
