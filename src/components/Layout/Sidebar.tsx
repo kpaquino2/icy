@@ -3,8 +3,10 @@ import { Switch } from "@headlessui/react";
 import { Gear, Sparkle, SquareHalf, User } from "phosphor-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { signOut, useSession } from "next-auth/react";
 
 const Sidebar = () => {
+  const { data: session } = useSession();
   const router = useRouter();
   const [dark, setDark] = useState(false);
 
@@ -35,7 +37,7 @@ const Sidebar = () => {
   return (
     <div className="fixed inset-y-0 left-0 w-52">
       <div className="flex min-h-screen flex-col justify-between gap-4 border-r-2 border-zinc-200 dark:border-zinc-800">
-        <div className="flex items-center gap-3 border-zinc-200 px-4 pt-4 dark:border-zinc-800">
+        <div className="flex items-center gap-3 px-4 pt-4">
           <svg
             width="30"
             height="30"
@@ -78,6 +80,15 @@ const Sidebar = () => {
           ))}
         </div>
         <div className="flex flex-col border-t-2 border-zinc-200 py-4 text-sm dark:border-zinc-800">
+          {session && (
+            <button
+              type="button"
+              className={`w-max px-4 py-1 text-zinc-600 hover:text-zinc-700 dark:text-zinc-400 hover:dark:text-zinc-300`}
+              onClick={() => void signOut()}
+            >
+              sign out
+            </button>
+          )}
           <Link
             href="help"
             className={`${
