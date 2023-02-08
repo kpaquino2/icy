@@ -12,9 +12,22 @@ const Home: NextPage = () => {
   const { data: curriculum, status: curriculumStatus } =
     api.curriculum.getCurriculum.useQuery();
 
+  const tctx = api.useContext();
+  const { mutate: createNewCurriculumMutation } =
+    api.curriculum.createCurriculum.useMutation({
+      onSuccess: (data) => {
+        tctx.curriculum.getCurriculum.setData(undefined, data);
+      },
+    });
+
   useEffect(() => {
     if (sessionStatus === "unauthenticated") setShowNotice(true);
   }, [sessionStatus]);
+
+  const handleNewCurric = () => {
+    if (sessionStatus === "unauthenticated") return;
+    createNewCurriculumMutation();
+  };
 
   return (
     <>
@@ -78,6 +91,7 @@ const Home: NextPage = () => {
                   <button
                     type="button"
                     className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-200 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-800"
+                    onClick={handleNewCurric}
                   >
                     <Plus size={16} />
                     new curriculum

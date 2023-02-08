@@ -7,4 +7,10 @@ export const curriculumRouter = createTRPCRouter({
     });
     return curric;
   }),
+  createCurriculum: protectedProcedure.mutation(async ({ ctx }) => {
+    const curric = await ctx.prisma.curriculum.create({
+      data: { userId: ctx.session?.user.id, curricUnits: 0 },
+    });
+    return curric;
+  }),
 });
