@@ -80,7 +80,7 @@ const Sidebar = () => {
           ))}
         </div>
         <div className="flex flex-col border-t-2 border-zinc-200 py-4 text-sm dark:border-zinc-800">
-          {session && (
+          {session ? (
             <button
               type="button"
               className={`w-max px-4 py-1 text-zinc-600 hover:text-zinc-700 dark:text-zinc-400 hover:dark:text-zinc-300`}
@@ -88,11 +88,18 @@ const Sidebar = () => {
             >
               sign out
             </button>
+          ) : (
+            <Link
+              href="sign-up"
+              className="px-4 py-1 text-zinc-600 hover:text-zinc-700 dark:text-zinc-400 hover:dark:text-zinc-300"
+            >
+              sign in
+            </Link>
           )}
           <Link
             href="help"
             className={`${
-              "/signin" === router.asPath
+              "/help" === router.asPath
                 ? "text-zinc-700 dark:text-zinc-300"
                 : "text-zinc-600 dark:text-zinc-400"
             } px-4 py-1 hover:text-zinc-700 hover:dark:text-zinc-300`}
@@ -100,9 +107,9 @@ const Sidebar = () => {
             help
           </Link>
           <Link
-            href="contactus"
+            href="contact-us"
             className={`${
-              "/signin" === router.asPath
+              "/contact-us" === router.asPath
                 ? "text-zinc-700 dark:text-zinc-300"
                 : "text-zinc-600 dark:text-zinc-400"
             } px-4 py-1 hover:text-zinc-700 hover:dark:text-zinc-300`}
@@ -114,9 +121,7 @@ const Sidebar = () => {
             <Switch
               checked={dark}
               onChange={handleTheme}
-              className={`${
-                dark ? "dark:bg-teal-400" : "bg-zinc-400"
-              } relative inline-flex h-6 w-11 items-center rounded-full`}
+              className="relative inline-flex h-6 w-11 items-center rounded-full bg-zinc-400 dark:bg-teal-400"
             >
               <span className="sr-only">Enable notifications</span>
               <span
