@@ -18,9 +18,9 @@ const Layout = ({ title, description, crumbs, children }: LayoutProps) => {
         <meta name="description" content={description} />
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <div className="ml-52 min-h-screen">
+      <div className="ml-52 flex min-h-screen">
         <Sidebar />
-        <div className="flex flex-col">
+        <div className="flex flex-1 flex-col">
           <Header crumbs={crumbs} />
           {children}
         </div>
