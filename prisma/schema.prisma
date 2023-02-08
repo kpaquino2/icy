@@ -16,12 +16,13 @@ datasource db {
 }
 
 model Program {
-    id        String @id @default(cuid())
+    id        String   @id @default(cuid())
     name      String
     shorthand String
     college   String
     univ      String
     users     User[]
+    createdAt DateTime @default(now())
 }
 
 model Curriculum {
@@ -30,18 +31,18 @@ model Curriculum {
     userId      String     @unique
     user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
     sems        Semester[]
+    createdAt   DateTime   @default(now())
 
     @@index([userId])
 }
 
 model Semester {
     id           String           @id @default(cuid())
-    year         Int
-    semNo        Int
     semUnits     Int
     curriculum   Curriculum?      @relation(fields: [curriculumId], references: [id])
     curriculumId String
     semCourses   SemesterCourse[]
+    createdAt    DateTime         @default(now())
 
     @@index([curriculumId])
 }
@@ -52,6 +53,7 @@ model SemesterCourse {
     course     Course       @relation(fields: [courseId], references: [id])
     semester   Semester     @relation(fields: [semesterId], references: [id])
     status     CourseStatus
+    createdAt  DateTime     @default(now())
 
     @@id([semesterId, courseId])
     @@index([semesterId])
@@ -66,13 +68,15 @@ model Course {
     semCourses   SemesterCourse[]
     prereqs      Prerequisite[]   @relation("post")
     postreqs     Prerequisite[]   @relation("pre")
+    createdAt    DateTime         @default(now())
 }
 
 model Prerequisite {
     postreqId String
     prereqId  String
-    postreq   Course @relation(name: "post", fields: [postreqId], references: [id])
-    prereq    Course @relation(name: "pre", fields: [prereqId], references: [id])
+    postreq   Course   @relation(name: "post", fields: [postreqId], references: [id])
+    prereq    Course   @relation(name: "pre", fields: [prereqId], references: [id])
+    createdAt DateTime @default(now())
 
     @@id([postreqId, prereqId])
     @@index([postreqId])
@@ -133,8 +137,8 @@ model VerificationToken {
 }
 
 enum CourseStatus {
-    TAKING
-    FAILED
-    PASSED
-    INCOMPLETE
+    taking
+    failed
+    passed
+    incomplete
 }
