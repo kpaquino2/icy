@@ -1,17 +1,20 @@
 import { type NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { X } from "phosphor-react";
+import { Plus, X } from "phosphor-react";
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout/Layout";
+import { api } from "../utils/api";
 
 const Home: NextPage = () => {
-  const { data: session } = useSession();
-  const [showNotice, setShowNotice] = useState(true);
+  const { status: sessionStatus } = useSession();
+  const [showNotice, setShowNotice] = useState(false);
+  const { data: curriculum, status: curriculumStatus } =
+    api.curriculum.getCurriculum.useQuery();
 
   useEffect(() => {
-    if (session) setShowNotice(false);
-  }, [session]);
+    if (sessionStatus === "unauthenticated") setShowNotice(true);
+  }, [sessionStatus]);
 
   return (
     <>
@@ -20,24 +23,70 @@ const Home: NextPage = () => {
         description="list of all curriculum made by the user"
         crumbs="curriculum"
       >
-        {showNotice && (
-          <div className="flex gap-2 bg-teal-600 p-1 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
-            <button
-              type="button"
-              onClick={() => setShowNotice(false)}
-              className="place-self-end"
+        {curriculumStatus === "loading" ? (
+          <div className="grid h-full w-full place-items-center">
+            <svg
+              width="72"
+              height="72"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+              className="animate-load fill-teal-600 dark:fill-teal-400"
             >
-              <X size={20} />
-            </button>
-            create an account to access your curriculum from other devices.
-            <Link href="sign-up" className="underline">
-              click here to sign up
-            </Link>
+              <g clipPath="url(#clip0_0_1)">
+                <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />
+                <path d="M22.0858 26.0858L39.5858 43.5858C40.8457 44.8457 39.9534 47 38.1716 47H22.3284C21.798 47 21.2893 46.7893 20.9142 46.4142L3.41422 28.9142C2.15429 27.6543 3.04662 25.5 4.82843 25.5L20.6716 25.5C21.202 25.5 21.7107 25.7107 22.0858 26.0858Z" />
+                <path d="M79.0858 53.5858L96.5858 71.0858C97.8457 72.3457 96.9534 74.5 95.1716 74.5H79.3284C78.798 74.5 78.2893 74.2893 77.9142 73.9142L60.4142 56.4142C59.1543 55.1543 60.0466 53 61.8284 53H77.6716C78.202 53 78.7107 53.2107 79.0858 53.5858Z" />
+                <path d="M79.0858 46.4142L96.5858 28.9142C97.8457 27.6543 96.9534 25.5 95.1716 25.5H79.3284C78.798 25.5 78.2893 25.7107 77.9142 26.0858L60.4142 43.5858C59.1543 44.8457 60.0466 47 61.8284 47H77.6716C78.202 47 78.7107 46.7893 79.0858 46.4142Z" />
+                <path d="M22.0858 73.9142L39.5858 56.4142C40.8457 55.1543 39.9534 53 38.1716 53H22.3284C21.798 53 21.2893 53.2107 20.9142 53.5858L3.41422 71.0858C2.15429 72.3457 3.04662 74.5 4.82843 74.5H20.6716C21.202 74.5 21.7107 74.2893 22.0858 73.9142Z" />
+                <path d="M26.0858 77.9142L43.5858 60.4142C44.8457 59.1543 47 60.0466 47 61.8284V77.6716C47 78.202 46.7893 78.7107 46.4142 79.0858L28.9142 96.5858C27.6543 97.8457 25.5 96.9534 25.5 95.1716V79.3284C25.5 78.798 25.7107 78.2893 26.0858 77.9142Z" />
+                <path d="M53.5858 20.9142L71.0858 3.41421C72.3457 2.15428 74.5 3.04662 74.5 4.82843V20.6716C74.5 21.202 74.2893 21.7107 73.9142 22.0858L56.4142 39.5858C55.1543 40.8457 53 39.9534 53 38.1716V22.3284C53 21.798 53.2107 21.2893 53.5858 20.9142Z" />
+                <path d="M46.4142 20.9142L28.9142 3.41421C27.6543 2.15428 25.5 3.04662 25.5 4.82843V20.6716C25.5 21.202 25.7107 21.7107 26.0858 22.0858L43.5858 39.5858C44.8457 40.8457 47 39.9534 47 38.1716V22.3284C47 21.798 46.7893 21.2893 46.4142 20.9142Z" />
+              </g>
+              <defs>
+                <clipPath id="clip0_0_1">
+                  <rect width="100" height="100" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
           </div>
+        ) : (
+          <>
+            {showNotice && (
+              <div className="flex gap-2 bg-teal-600 p-1 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
+                <button
+                  type="button"
+                  onClick={() => setShowNotice(false)}
+                  className="place-self-end"
+                >
+                  <X size={20} />
+                </button>
+                create an account to access your curriculum from other devices.
+                <Link href="sign-up" className="underline">
+                  click here to sign up
+                </Link>
+              </div>
+            )}
+            <div className="flex flex-col place-items-center p-4">
+              {curriculum ? (
+                <>yes</>
+              ) : (
+                <div className="flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
+                  <div className="text-3xl">no curriculum</div>
+                  <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
+                    create a new curriculum to start planning
+                  </div>
+                  <button
+                    type="button"
+                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-200 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-800"
+                  >
+                    <Plus size={16} />
+                    new curriculum
+                  </button>
+                </div>
+              )}
+            </div>
+          </>
         )}
-        <div className="grid grid-cols-1 p-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-          <div className="col-span-full text-2xl font-light">curriculum</div>
-        </div>
       </Layout>
     </>
   );
