@@ -3,6 +3,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Plus, X } from "phosphor-react";
 import { useEffect, useState } from "react";
+import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
 import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
 
@@ -13,12 +14,7 @@ const Home: NextPage = () => {
     api.curriculum.getCurriculum.useQuery();
 
   const tctx = api.useContext();
-  const { mutate: createNewCurriculumMutation } =
-    api.curriculum.createCurriculum.useMutation({
-      onSuccess: async () => {
-        await tctx.curriculum.getCurriculum.fetch();
-      },
-    });
+
   const { mutate: createSemesterMutation } =
     api.semester.createSemester.useMutation({
       onSuccess: async () => {
@@ -26,14 +22,11 @@ const Home: NextPage = () => {
       },
     });
 
+  const [newCurricOpen, setNewCurricOpen] = useState(false);
+
   useEffect(() => {
     if (sessionStatus === "unauthenticated") setShowNotice(true);
   }, [sessionStatus]);
-
-  const handleNewCurric = () => {
-    if (sessionStatus === "unauthenticated") return;
-    createNewCurriculumMutation();
-  };
 
   const handleNewSem = () => {
     if (sessionStatus === "unauthenticated") return;
@@ -42,6 +35,12 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <AddCurriculumModal
+        newCurricOpen={newCurricOpen}
+        setNewCurricOpen={setNewCurricOpen}
+        title="new curriculum"
+      />
+
       <Layout
         title="curriculum"
         description="list of all curriculum made by the user"
@@ -105,7 +104,7 @@ const Home: NextPage = () => {
                         </button>
                       </div>
                       <div className="flex flex-1 flex-col p-2">
-                        {sem.semCourses?.map((course, index) => (
+                        {sem.courses?.map(() => (
                           <>a</>
                         ))}
                         <button
@@ -138,10 +137,10 @@ const Home: NextPage = () => {
                   </div>
                   <button
                     type="button"
-                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-200 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-800"
-                    onClick={handleNewCurric}
+                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                    onClick={() => setNewCurricOpen(true)}
                   >
-                    <Plus size={16} />
+                    <Plus weight="bold" size={20} />
                     new curriculum
                   </button>
                 </div>
