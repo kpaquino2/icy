@@ -37,26 +37,27 @@ model Curriculum {
 }
 
 model Semester {
-    id           String      @id @default(cuid())
+    id           String     @id @default(cuid())
     semUnits     Int
-    curriculum   Curriculum? @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
+    curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
     curriculumId String
+    createdAt    DateTime   @default(now())
     courses      Course[]
-    createdAt    DateTime    @default(now())
 
     @@index([curriculumId])
 }
 
 model Course {
-    id           String         @id @default(cuid())
-    code         String
-    title        String?        @db.Text
-    course_units String
-    prereqs      Prerequisite[] @relation("post")
-    postreqs     Prerequisite[] @relation("pre")
-    createdAt    DateTime       @default(now())
-    semester     Semester?      @relation(fields: [semesterId], references: [id], onDelete: Cascade)
-    semesterId   String?
+    id          String         @id @default(cuid())
+    code        String
+    title       String?        @db.Text
+    description String?        @db.Text
+    courseUnits Int
+    prereqs     Prerequisite[] @relation("post")
+    postreqs    Prerequisite[] @relation("pre")
+    semesterId  String
+    sem         Semester       @relation(fields: [semesterId], references: [id], onDelete: Cascade)
+    createdAt   DateTime       @default(now())
 
     @@index([semesterId])
 }
