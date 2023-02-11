@@ -10,7 +10,7 @@ export const curriculumRouter = createTRPCRouter({
             createdAt: "asc",
           },
           include: {
-            semCourses: {
+            courses: {
               orderBy: {
                 createdAt: "asc",
               },
