@@ -1,7 +1,16 @@
 import { type NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { Plus, X } from "phosphor-react";
+import {
+  ArrowsOutCardinal,
+  ArrowUUpLeft,
+  ArrowUUpRight,
+  Export,
+  FloppyDisk,
+  FlowArrow,
+  Plus,
+  X,
+} from "phosphor-react";
 import { useEffect, useState } from "react";
 import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
 import Layout from "../components/Layout/Layout";
@@ -89,63 +98,89 @@ const Home: NextPage = () => {
                 </Link>
               </div>
             )}
-            <div className="relative flex flex-1 flex-col overflow-auto p-4">
-              {curriculum ? (
-                <div className="flex min-w-max flex-1 flex-nowrap">
-                  {curriculum.sems?.map((sem, index) => (
-                    <div
-                      key={index}
-                      className="flex h-full w-48 flex-col justify-between border-y-2 border-l-2 border-zinc-200 first:rounded-l-lg last:rounded-r-lg last:border-r-2 dark:border-zinc-800"
-                    >
-                      <div className="flex items-center justify-between border-b-2 border-zinc-200 p-2 dark:border-zinc-800">
-                        year {Math.floor(index / 2) + 1} sem {(index % 2) + 1}
-                        <button type="button">
-                          <X weight="bold" />
-                        </button>
-                      </div>
-                      <div className="flex flex-1 flex-col p-2">
-                        {sem.courses?.map(() => (
-                          <>a</>
-                        ))}
-                        <button
-                          type="button"
-                          className="flex items-center justify-center gap-2 rounded border-2 border-dashed border-zinc-200 p-2 text-zinc-500 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
-                        >
-                          <Plus weight="bold" />
-                          new course
-                        </button>
-                      </div>
-                      <div className="w-full border-t-2 border-zinc-200 py-2 text-center text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-                        total units: {sem.semUnits}
-                      </div>
-                    </div>
-                  ))}
-                  <button
-                    type="button"
-                    onClick={handleNewSem}
-                    className="flex h-full w-48 flex-col items-center justify-center border-y-2 border-l-2 border-dashed border-zinc-200 text-zinc-500 first:rounded-l-lg last:rounded-r-lg last:border-r-2 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
-                  >
-                    <Plus size={32} />
-                    new sem
-                  </button>
-                </div>
-              ) : (
-                <div className="m-auto flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
-                  <div className="text-3xl">no curriculum</div>
-                  <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
-                    create a new curriculum to start planning
+            {curriculum ? (
+              <>
+                <div className="flex justify-between px-4 pt-2">
+                  <div className="flex gap-2">
+                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                      <ArrowUUpLeft size={20} weight="bold" />
+                    </button>
+                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                      <ArrowUUpRight size={20} weight="bold" />
+                    </button>
+                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                      <ArrowsOutCardinal size={20} weight="bold" />
+                    </button>
+                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                      <FlowArrow size={20} weight="bold" />
+                    </button>
                   </div>
-                  <button
-                    type="button"
-                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
-                    onClick={() => setNewCurricOpen(true)}
-                  >
-                    <Plus weight="bold" size={20} />
-                    new curriculum
-                  </button>
+                  <div className="flex gap-2">
+                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                      <Export size={20} weight="bold" />
+                    </button>
+                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                      <FloppyDisk size={20} weight="bold" />
+                    </button>
+                  </div>
                 </div>
-              )}
-            </div>
+                <div className="relative flex flex-1 flex-col overflow-auto">
+                  <div className="flex min-w-max flex-1 flex-nowrap px-4 pb-4 pt-2">
+                    {curriculum.sems?.map((sem, index) => (
+                      <div
+                        key={index}
+                        className="flex h-full w-48 flex-col justify-between border-y-2 border-l-2 border-zinc-200 first:rounded-l-lg last:rounded-r-lg last:border-r-2 dark:border-zinc-800"
+                      >
+                        <div className="flex items-center justify-between border-b-2 border-zinc-200 p-2 dark:border-zinc-800">
+                          year {Math.floor(index / 2) + 1} sem {(index % 2) + 1}
+                          <button type="button">
+                            <X weight="bold" />
+                          </button>
+                        </div>
+                        <div className="flex flex-1 flex-col p-2">
+                          {sem.courses?.map(() => (
+                            <>a</>
+                          ))}
+                          <button
+                            type="button"
+                            className="flex items-center justify-center gap-2 rounded border-2 border-dashed border-zinc-200 p-2 text-zinc-500 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+                          >
+                            <Plus weight="bold" />
+                            new course
+                          </button>
+                        </div>
+                        <div className="w-full border-t-2 border-zinc-200 py-2 text-center text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+                          total units: {sem.semUnits}
+                        </div>
+                      </div>
+                    ))}
+                    <button
+                      type="button"
+                      onClick={handleNewSem}
+                      className="flex h-full w-48 flex-col items-center justify-center border-y-2 border-l-2 border-dashed border-zinc-200 text-zinc-500 first:rounded-l-lg last:rounded-r-lg last:border-r-2 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+                    >
+                      <Plus size={32} />
+                      new sem
+                    </button>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="m-auto flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
+                <div className="text-3xl">no curriculum</div>
+                <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
+                  create a new curriculum to start planning
+                </div>
+                <button
+                  type="button"
+                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                  onClick={() => setNewCurricOpen(true)}
+                >
+                  <Plus weight="bold" size={20} />
+                  new curriculum
+                </button>
+              </div>
+            )}
           </>
         )}
       </Layout>
