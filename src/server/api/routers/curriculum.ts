@@ -1,4 +1,4 @@
-import { createTRPCRouter, protectedProcedure, publicProcedure } from "../trpc";
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const curriculumRouter = createTRPCRouter({
   getCurriculum: publicProcedure.query(async ({ ctx }) => {
@@ -19,12 +19,15 @@ export const curriculumRouter = createTRPCRouter({
         },
       },
     });
+
     return curric;
   }),
-  createCurriculum: protectedProcedure.mutation(async ({ ctx }) => {
-    const curric = await ctx.prisma.curriculum.create({
-      data: { userId: ctx.session?.user.id, curricUnits: 0 },
-    });
-    return curric;
+  createCurriculum: publicProcedure.mutation(async ({ ctx }) => {
+    if (ctx.session) {
+      await ctx.prisma.curriculum.create({
+        data: { userId: ctx.session?.user.id, curricUnits: 0 },
+      });
+      return;
+    }
   }),
 });

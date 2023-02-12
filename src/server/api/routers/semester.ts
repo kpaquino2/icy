@@ -1,19 +1,21 @@
 import { z } from "zod";
-import { createTRPCRouter, protectedProcedure } from "../trpc";
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const semesterRouter = createTRPCRouter({
-  createSemester: protectedProcedure
+  createSemester: publicProcedure
     .input(
       z.object({
         curricId: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
-      const sem = await ctx.prisma.semester.create({
-        data: {
-          curriculumId: input.curricId,
-          semUnits: 0,
-        },
-      });
+      if (ctx.session) {
+        await ctx.prisma.semester.create({
+          data: {
+            curriculumId: input.curricId,
+            semUnits: 0,
+          },
+        });
+      }
     }),
 });
