@@ -37,8 +37,16 @@ const AddCurriculumModal = ({
   const tctx = api.useContext();
   const { mutate: createNewCurriculumMutation } =
     api.curriculum.createCurriculum.useMutation({
-      onSuccess: async () => {
-        await tctx.curriculum.getCurriculum.fetch();
+      onMutate: () => {
+        tctx.curriculum.getCurriculum.setData(undefined, () => {
+          return {
+            id: "",
+            curricUnits: 0,
+            userId: "",
+            createdAt: new Date(),
+            sems: [],
+          };
+        });
         setNewCurricOpen(false);
       },
     });

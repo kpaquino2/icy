@@ -2,6 +2,7 @@ import { type NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import {
+  ArrowRight,
   ArrowsOutCardinal,
   ArrowUUpLeft,
   ArrowUUpRight,
@@ -26,8 +27,23 @@ const Home: NextPage = () => {
 
   const { mutate: createSemesterMutation } =
     api.semester.createSemester.useMutation({
-      onSuccess: async () => {
-        await tctx.curriculum.getCurriculum.fetch();
+      onMutate: () => {
+        tctx.curriculum.getCurriculum.setData(undefined, (old) => {
+          if (old)
+            return {
+              ...old,
+              sems: [
+                ...old.sems,
+                {
+                  id: old.sems.length.toString(),
+                  semUnits: 0,
+                  curriculumId: "0",
+                  createdAt: new Date(),
+                  courses: [],
+                },
+              ],
+            };
+        });
       },
     });
 
@@ -38,7 +54,6 @@ const Home: NextPage = () => {
   }, [sessionStatus]);
 
   const handleNewSem = () => {
-    if (sessionStatus === "unauthenticated") return;
     createSemesterMutation({ curricId: curriculum?.id || "" });
   };
 
@@ -84,18 +99,25 @@ const Home: NextPage = () => {
         ) : (
           <>
             {showNotice && (
-              <div className="flex gap-2 bg-teal-600 p-1 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
+              <div className="relative flex items-center justify-center bg-teal-600 p-2 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
+                <Link
+                  className="group flex gap-2 hover:underline"
+                  href="sign-up"
+                >
+                  create an account to access your curriculum from other devices
+                  <ArrowRight
+                    className="transition group-hover:translate-x-2"
+                    weight="bold"
+                    size={20}
+                  />
+                </Link>
                 <button
                   type="button"
                   onClick={() => setShowNotice(false)}
-                  className="place-self-end"
+                  className="absolute right-4"
                 >
-                  <X size={20} />
+                  <X weight="bold" size={20} />
                 </button>
-                create an account to access your curriculum from other devices.
-                <Link href="sign-up" className="underline">
-                  click here to sign up
-                </Link>
               </div>
             )}
             {curriculum ? (
