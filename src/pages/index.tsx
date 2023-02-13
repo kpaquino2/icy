@@ -1,3 +1,4 @@
+import { createId } from "@paralleldrive/cuid2";
 import { type NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -14,6 +15,7 @@ import {
 } from "phosphor-react";
 import { useEffect, useState } from "react";
 import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
+import Semester from "../components/Curriculum/Semester";
 import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
 
@@ -27,7 +29,9 @@ const Home: NextPage = () => {
 
   const { mutate: createSemesterMutation } =
     api.semester.createSemester.useMutation({
-      onMutate: () => {
+      onMutate: async (input) => {
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
         tctx.curriculum.getCurriculum.setData(undefined, (old) => {
           if (old)
             return {
@@ -35,15 +39,22 @@ const Home: NextPage = () => {
               sems: [
                 ...old.sems,
                 {
-                  id: old.sems.length.toString(),
+                  id: input.id,
                   semUnits: 0,
-                  curriculumId: "0",
+                  curriculumId: input.curricId,
                   createdAt: new Date(),
                   courses: [],
                 },
               ],
             };
         });
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: async () => {
+        await tctx.curriculum.getCurriculum.refetch();
       },
     });
 
@@ -54,7 +65,7 @@ const Home: NextPage = () => {
   }, [sessionStatus]);
 
   const handleNewSem = () => {
-    createSemesterMutation({ curricId: curriculum?.id || "" });
+    createSemesterMutation({ id: createId(), curricId: curriculum?.id || "" });
   };
 
   return (
@@ -149,32 +160,7 @@ const Home: NextPage = () => {
                 <div className="relative flex flex-1 flex-col overflow-auto">
                   <div className="flex min-w-max flex-1 flex-nowrap px-4 pb-4 pt-2">
                     {curriculum.sems?.map((sem, index) => (
-                      <div
-                        key={index}
-                        className="flex h-full w-48 flex-col justify-between border-y-2 border-l-2 border-zinc-200 first:rounded-l-lg last:rounded-r-lg last:border-r-2 dark:border-zinc-800"
-                      >
-                        <div className="flex items-center justify-between border-b-2 border-zinc-200 p-2 dark:border-zinc-800">
-                          year {Math.floor(index / 2) + 1} sem {(index % 2) + 1}
-                          <button type="button">
-                            <X weight="bold" />
-                          </button>
-                        </div>
-                        <div className="flex flex-1 flex-col p-2">
-                          {sem.courses?.map(() => (
-                            <>a</>
-                          ))}
-                          <button
-                            type="button"
-                            className="flex items-center justify-center gap-2 rounded border-2 border-dashed border-zinc-200 p-2 text-zinc-500 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
-                          >
-                            <Plus weight="bold" />
-                            new course
-                          </button>
-                        </div>
-                        <div className="w-full border-t-2 border-zinc-200 py-2 text-center text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-                          total units: {sem.semUnits}
-                        </div>
-                      </div>
+                      <Semester key={index} sem={sem} index={index} />
                     ))}
                     <button
                       type="button"

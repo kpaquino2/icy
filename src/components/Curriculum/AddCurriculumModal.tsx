@@ -6,6 +6,7 @@ import { api } from "../../utils/api";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { createId } from "@paralleldrive/cuid2";
 
 interface ModalProps {
   newCurricOpen: boolean;
@@ -37,10 +38,12 @@ const AddCurriculumModal = ({
   const tctx = api.useContext();
   const { mutate: createNewCurriculumMutation } =
     api.curriculum.createCurriculum.useMutation({
-      onMutate: () => {
+      onMutate: async (input) => {
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
         tctx.curriculum.getCurriculum.setData(undefined, () => {
           return {
-            id: "",
+            id: input.id,
             curricUnits: 0,
             userId: "",
             createdAt: new Date(),
@@ -48,6 +51,13 @@ const AddCurriculumModal = ({
           };
         });
         setNewCurricOpen(false);
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: async () => {
+        await tctx.curriculum.getCurriculum.refetch();
       },
     });
 
@@ -77,7 +87,7 @@ const AddCurriculumModal = ({
 
   const onSubmit = (data: Schema, e?: BaseSyntheticEvent) => {
     e?.preventDefault();
-    createNewCurriculumMutation();
+    createNewCurriculumMutation({ id: createId() });
   };
 
   return (

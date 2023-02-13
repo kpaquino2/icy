@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const curriculumRouter = createTRPCRouter({
@@ -22,12 +23,18 @@ export const curriculumRouter = createTRPCRouter({
 
     return curric;
   }),
-  createCurriculum: publicProcedure.mutation(async ({ ctx }) => {
-    if (ctx.session) {
-      await ctx.prisma.curriculum.create({
-        data: { userId: ctx.session?.user.id, curricUnits: 0 },
-      });
-      return;
-    }
-  }),
+  createCurriculum: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      if (ctx.session) {
+        await ctx.prisma.curriculum.create({
+          data: { id: input.id, userId: ctx.session?.user.id, curricUnits: 0 },
+        });
+        return;
+      }
+    }),
 });
