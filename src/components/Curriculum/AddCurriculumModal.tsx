@@ -2,9 +2,7 @@ import { type BaseSyntheticEvent, useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import Modal from "../Modal";
 import {
-  Article,
   CaretLeft,
-  Placeholder,
   ProjectorScreen,
   ProjectorScreenChart,
 } from "phosphor-react";
