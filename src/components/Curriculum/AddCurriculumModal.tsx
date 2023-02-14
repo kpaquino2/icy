@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
 
-interface ModalProps {
+interface AddCurriculumModalProps {
   newCurricOpen: boolean;
   setNewCurricOpen: Dispatch<SetStateAction<boolean>>;
   title: string;
@@ -24,7 +24,7 @@ const AddCurriculumModal = ({
   newCurricOpen,
   setNewCurricOpen,
   title,
-}: ModalProps) => {
+}: AddCurriculumModalProps) => {
   const {
     register,
     handleSubmit,
