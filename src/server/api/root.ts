@@ -1,3 +1,4 @@
+import { courseRouter } from "./routers/course";
 import { curriculumRouter } from "./routers/curriculum";
 import { semesterRouter } from "./routers/semester";
 import { createTRPCRouter } from "./trpc";
@@ -10,6 +11,7 @@ import { createTRPCRouter } from "./trpc";
 export const appRouter = createTRPCRouter({
   curriculum: curriculumRouter,
   semester: semesterRouter,
+  course: courseRouter,
 });
 
 // export type definition of API
