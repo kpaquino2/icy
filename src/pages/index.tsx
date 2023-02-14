@@ -157,8 +157,8 @@ const Home: NextPage = () => {
                     </button>
                   </div>
                 </div>
-                <div className="relative flex flex-1 flex-col overflow-auto">
-                  <div className="flex min-w-max flex-1 flex-nowrap px-4 pb-4 pt-2">
+                <div className="relative flex flex-1 flex-col overflow-x-auto">
+                  <div className="flex h-full min-w-max flex-1 flex-nowrap px-4 pb-4 pt-2">
                     {curriculum.sems?.map((sem, index) => (
                       <Semester key={index} sem={sem} index={index} />
                     ))}
