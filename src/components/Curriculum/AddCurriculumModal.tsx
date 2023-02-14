@@ -1,7 +1,13 @@
 import { type BaseSyntheticEvent, useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import Modal from "../Modal";
-import { Article, CaretLeft, Placeholder } from "phosphor-react";
+import {
+  Article,
+  CaretLeft,
+  Placeholder,
+  ProjectorScreen,
+  ProjectorScreenChart,
+} from "phosphor-react";
 import { api } from "../../utils/api";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -116,7 +122,7 @@ const AddCurriculumModal = ({
                   htmlFor="scratch"
                   className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 peer-checked:border-teal-600 peer-checked:text-teal-600 dark:border-zinc-600 dark:text-zinc-600 dark:peer-checked:border-teal-400 dark:peer-checked:text-teal-400"
                 >
-                  <Placeholder size={32} />
+                  <ProjectorScreen size={32} />
                   create from scratch
                 </label>
                 <button
@@ -124,7 +130,7 @@ const AddCurriculumModal = ({
                   onClick={handleNext}
                   className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 active:border-teal-600 active:text-teal-600 dark:border-zinc-600 dark:text-zinc-600 active:dark:border-teal-400 active:dark:text-teal-400"
                 >
-                  <Article size={32} />
+                  <ProjectorScreenChart size={32} />
                   use a template
                 </button>
               </div>
