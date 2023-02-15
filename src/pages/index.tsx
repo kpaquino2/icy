@@ -135,24 +135,24 @@ const Home: NextPage = () => {
               <>
                 <div className="flex justify-between px-4 pt-2">
                   <div className="flex gap-2">
-                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
                       <ArrowUUpLeft size={20} weight="bold" />
                     </button>
-                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
                       <ArrowUUpRight size={20} weight="bold" />
                     </button>
-                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
                       <ArrowsOutCardinal size={20} weight="bold" />
                     </button>
-                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
                       <FlowArrow size={20} weight="bold" />
                     </button>
                   </div>
                   <div className="flex gap-2">
-                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
                       <Export size={20} weight="bold" />
                     </button>
-                    <button className="rounded-lg border-2 border-zinc-200 p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
+                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
                       <FloppyDisk size={20} weight="bold" />
                     </button>
                   </div>
