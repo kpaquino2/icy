@@ -1,11 +1,7 @@
-import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
-import { type Dispatch, type SetStateAction, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { type Dispatch, type SetStateAction } from "react";
 import { api } from "../../utils/api";
-import InputField from "../Forms/InputField";
-import TextArea from "../Forms/TextArea";
+import CourseDetailsForm from "../Forms/CourseDetailsForm";
 import Modal from "../Modal";
 
 interface AddCourseModalProps {
@@ -15,33 +11,12 @@ interface AddCourseModalProps {
   title: string;
 }
 
-const schema = z.object({
-  code: z.string().min(1, "course code is required"),
-  title: z.string(),
-  description: z.string(),
-  courseUnits: z.coerce
-    .number({ invalid_type_error: "expected a number" })
-    .int("must be an integer")
-    .gte(0, "can not be negative"),
-});
-
-type Schema = z.infer<typeof schema>;
-
 const AddCourseModal = ({
   semesterId,
   newCourseOpen,
   setNewCourseOpen,
   title,
 }: AddCourseModalProps) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<Schema>({
-    resolver: zodResolver(schema),
-  });
-
   const tctx = api.useContext();
   const { mutate: createNewCourseMutation } =
     api.course.createCourse.useMutation({
@@ -86,11 +61,12 @@ const AddCourseModal = ({
       },
     });
 
-  useEffect(() => {
-    if (newCourseOpen) reset();
-  }, [newCourseOpen, reset]);
-
-  const onSubmit = (data: Schema) => {
+  const submitData = (data: {
+    title: string;
+    code: string;
+    description: string;
+    courseUnits: number;
+  }) => {
     createNewCourseMutation({
       ...data,
       id: createId(),
@@ -105,49 +81,12 @@ const AddCourseModal = ({
       width="w-96"
       title={title}
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-3 gap-x-2 gap-y-1 pb-3">
-          <InputField
-            {...register("code")}
-            label="course code"
-            width="col-span-2"
-            error={errors.code?.message}
-          />
-          <InputField
-            {...register("courseUnits")}
-            label="units"
-            width="col-span-1"
-            error={errors.courseUnits?.message}
-          />
-          <InputField
-            {...register("title")}
-            label="course title"
-            width="col-span-3"
-            error={errors.title?.message}
-          />
-          <TextArea
-            {...register("description")}
-            label="description"
-            width="col-span-3"
-            error={errors.description?.message}
-          />
-        </div>
-        <div className="flex justify-end gap-3">
-          <button
-            type="button"
-            onClick={() => setNewCourseOpen(false)}
-            className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition hover:brightness-125 dark:border-teal-400 dark:text-teal-400"
-          >
-            cancel
-          </button>
-          <button
-            type="submit"
-            className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-125 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
-          >
-            submit
-          </button>
-        </div>
-      </form>
+      <CourseDetailsForm
+        open={newCourseOpen}
+        setOpen={setNewCourseOpen}
+        submitData={submitData}
+        defaultData={{ code: "", courseUnits: 0, title: "", description: "" }}
+      />
     </Modal>
   );
 };
