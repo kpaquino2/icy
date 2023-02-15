@@ -92,9 +92,13 @@ const Course = ({ course }: CourseProps) => {
             </div>
 
             <div className="text-sm leading-none text-zinc-600 dark:text-zinc-400">
-              {course.title}
+              {course.title || <p className="italic">no course title</p>}
             </div>
-            <div className="mt-1 leading-tight">{course.description}</div>
+            <div className="mt-1 leading-tight">
+              {course.description || (
+                <p className="italic">no course description</p>
+              )}
+            </div>
           </Popover.Panel>
         </Transition>
       </Popover>
