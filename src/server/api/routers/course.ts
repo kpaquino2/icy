@@ -27,6 +27,29 @@ export const courseRouter = createTRPCRouter({
         });
       }
     }),
+  updateCourse: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        code: z.string(),
+        title: z.string(),
+        description: z.string(),
+        courseUnits: z.number(),
+        semesterId: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      if (!ctx.session) return;
+      await ctx.prisma.course.update({
+        where: { id: input.id },
+        data: {
+          code: input.code,
+          title: input.title,
+          description: input.description,
+          courseUnits: input.courseUnits,
+        },
+      });
+    }),
   deleteCourse: publicProcedure
     .input(
       z.object({
