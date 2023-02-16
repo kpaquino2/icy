@@ -15,6 +15,14 @@ datasource db {
     relationMode = "prisma"
 }
 
+model Templates {
+    id         Int    @id @default(autoincrement())
+    program    String @db.Text
+    code       String @unique
+    totalUnits Int
+    sems       Json
+}
+
 model Program {
     id        String   @id @default(cuid())
     name      String
@@ -41,6 +49,7 @@ model Semester {
     semUnits     Int
     curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
     curriculumId String
+    midyear      Boolean    @default(false)
     createdAt    DateTime   @default(now())
     courses      Course[]
 
