@@ -11,6 +11,7 @@ type CurricWithSemsAndCourses = Prisma.CurriculumGetPayload<{
 interface CurriculumState {
   curriculum: CurricWithSemsAndCourses | null;
   createCurriculum: (currric: CurricWithSemsAndCourses) => void;
+  deleteCurriculum: () => void;
   createSemester: (sem: SemWithCourses) => void;
   deleteSemester: (semId: string) => void;
   createCourse: (course: Course) => void;
@@ -23,6 +24,7 @@ export const useCurriculumStore = create<CurriculumState>()(
     (set) => ({
       curriculum: null,
       createCurriculum: (curric) => set({ curriculum: curric }),
+      deleteCurriculum: () => set({ curriculum: null }),
       createSemester: (sem) =>
         set((state) => {
           if (!state.curriculum) return state;

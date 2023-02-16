@@ -49,4 +49,21 @@ export const curriculumRouter = createTRPCRouter({
         sems: [],
       });
     }),
+  deleteCurriculum: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      if (ctx.session) {
+        await ctx.prisma.curriculum.delete({
+          where: {
+            id: input.id,
+          },
+        });
+      }
+      const deleteCurriculum = useCurriculumStore.getState().deleteCurriculum;
+      deleteCurriculum();
+    }),
 });

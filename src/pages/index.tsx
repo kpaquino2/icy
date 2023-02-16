@@ -11,6 +11,7 @@ import {
   FloppyDisk,
   FlowArrow,
   Plus,
+  TrashSimple,
   X,
 } from "phosphor-react";
 import { useEffect, useState } from "react";
@@ -60,12 +61,32 @@ const Home: NextPage = () => {
 
   const [newCurricOpen, setNewCurricOpen] = useState(false);
 
+  const { mutate: deleteCurriculumMutation } =
+    api.curriculum.deleteCurriculum.useMutation({
+      onMutate: async () => {
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        tctx.curriculum.getCurriculum.setData(undefined, () => null);
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: async () => {
+        await tctx.curriculum.getCurriculum.refetch();
+      },
+    });
+
   useEffect(() => {
     if (sessionStatus === "unauthenticated") setShowNotice(true);
   }, [sessionStatus]);
 
   const handleNewSem = () => {
     createSemesterMutation({ id: createId(), curricId: curriculum?.id || "" });
+  };
+
+  const handleDeleteCurriculum = () => {
+    deleteCurriculumMutation({ id: curriculum?.id || "" });
   };
 
   return (
@@ -154,6 +175,12 @@ const Home: NextPage = () => {
                     </button>
                     <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
                       <FloppyDisk size={20} weight="bold" />
+                    </button>
+                    <button
+                      onClick={handleDeleteCurriculum}
+                      className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+                    >
+                      <TrashSimple size={20} weight="bold" />
                     </button>
                   </div>
                 </div>
