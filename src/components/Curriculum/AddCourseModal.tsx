@@ -44,7 +44,6 @@ const AddCourseModal = ({
                 }
               : s
           );
-          console.log(newsems);
           return {
             ...old,
             sems: newsems,
