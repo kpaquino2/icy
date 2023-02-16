@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const courseRouter = createTRPCRouter({
@@ -26,6 +27,8 @@ export const courseRouter = createTRPCRouter({
           },
         });
       }
+      const createCourse = useCurriculumStore.getState().createCourse;
+      createCourse({ ...input, createdAt: new Date() });
     }),
   updateCourse: publicProcedure
     .input(
@@ -39,16 +42,19 @@ export const courseRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ ctx, input }) => {
-      if (!ctx.session) return;
-      await ctx.prisma.course.update({
-        where: { id: input.id },
-        data: {
-          code: input.code,
-          title: input.title,
-          description: input.description,
-          courseUnits: input.courseUnits,
-        },
-      });
+      if (ctx.session) {
+        await ctx.prisma.course.update({
+          where: { id: input.id },
+          data: {
+            code: input.code,
+            title: input.title,
+            description: input.description,
+            courseUnits: input.courseUnits,
+          },
+        });
+      }
+      const updateCourse = useCurriculumStore.getState().updateCourse;
+      updateCourse({ ...input, createdAt: new Date() });
     }),
   deleteCourse: publicProcedure
     .input(
@@ -64,5 +70,7 @@ export const courseRouter = createTRPCRouter({
           },
         });
       }
+      const deleteCourse = useCurriculumStore.getState().deleteCourse;
+      deleteCourse(input.id);
     }),
 });

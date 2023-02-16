@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const semesterRouter = createTRPCRouter({
@@ -19,6 +20,14 @@ export const semesterRouter = createTRPCRouter({
           },
         });
       }
+      const createSemester = useCurriculumStore.getState().createSemester;
+      createSemester({
+        id: input.id,
+        curriculumId: input.curricId,
+        semUnits: 0,
+        createdAt: new Date(),
+        courses: [],
+      });
     }),
   deleteSemester: publicProcedure
     .input(
@@ -34,5 +43,7 @@ export const semesterRouter = createTRPCRouter({
           },
         });
       }
+      const deleteSemester = useCurriculumStore.getState().deleteSemester;
+      deleteSemester(input.id);
     }),
 });

@@ -1,26 +1,30 @@
 import { z } from "zod";
+import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const curriculumRouter = createTRPCRouter({
   getCurriculum: publicProcedure.query(async ({ ctx }) => {
-    const curric = await ctx.prisma.curriculum.findUnique({
-      where: { userId: ctx.session?.user.id || "" },
-      include: {
-        sems: {
-          orderBy: {
-            createdAt: "asc",
-          },
-          include: {
-            courses: {
-              orderBy: {
-                createdAt: "asc",
+    if (ctx.session) {
+      const curric = await ctx.prisma.curriculum.findUnique({
+        where: { userId: ctx.session.user.id },
+        include: {
+          sems: {
+            orderBy: {
+              createdAt: "asc",
+            },
+            include: {
+              courses: {
+                orderBy: {
+                  createdAt: "asc",
+                },
               },
             },
           },
         },
-      },
-    });
-
+      });
+      return curric;
+    }
+    const curric = useCurriculumStore.getState().curriculum;
     return curric;
   }),
   createCurriculum: publicProcedure
@@ -36,5 +40,13 @@ export const curriculumRouter = createTRPCRouter({
         });
         return;
       }
+      const createCurriculum = useCurriculumStore.getState().createCurriculum;
+      createCurriculum({
+        id: input.id,
+        userId: "anon",
+        curricUnits: 0,
+        createdAt: new Date(),
+        sems: [],
+      });
     }),
 });
