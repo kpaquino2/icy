@@ -7,6 +7,8 @@ export const semesterRouter = createTRPCRouter({
     .input(
       z.object({
         id: z.string(),
+        year: z.number(),
+        sem: z.number(),
         curricId: z.string(),
       })
     )
@@ -15,6 +17,8 @@ export const semesterRouter = createTRPCRouter({
         await ctx.prisma.semester.create({
           data: {
             id: input.id,
+            year: input.year,
+            sem: input.sem,
             curriculumId: input.curricId,
             semUnits: 0,
           },
@@ -25,7 +29,8 @@ export const semesterRouter = createTRPCRouter({
         id: input.id,
         curriculumId: input.curricId,
         semUnits: 0,
-        midyear: false,
+        year: input.year,
+        sem: input.sem,
         createdAt: new Date(),
         courses: [],
       });

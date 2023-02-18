@@ -9,9 +9,12 @@ export const curriculumRouter = createTRPCRouter({
         where: { userId: ctx.session.user.id },
         include: {
           sems: {
-            orderBy: {
-              createdAt: "asc",
-            },
+            orderBy: [
+              {
+                year: "asc",
+              },
+              { sem: "asc" },
+            ],
             include: {
               courses: {
                 orderBy: {
@@ -84,7 +87,8 @@ export const curriculumRouter = createTRPCRouter({
             curricUnits: template.curriculum.curricUnits,
             sems: {
               create: template.curriculum.sems.map((sem) => ({
-                midyear: sem.midyear,
+                year: sem.year,
+                sem: sem.sem,
                 semUnits: sem.semUnits,
                 courses: {
                   create: sem.courses.map((course) => ({
