@@ -5,9 +5,35 @@ const prisma = new PrismaClient();
 
 const main = async () => {
   const input = templates;
-  await prisma.templates.createMany({
-    data: input,
-  });
+  for (const template of input) {
+    const { program, code, totalUnits, sems } = template;
+
+     await prisma.template.create({
+      data: {
+        program,
+        code,
+        curriculum: {
+          create: {
+            curricUnits: totalUnits,
+            sems: {
+              create: sems.map((sem) => ({
+                midyear: sem.midyear,
+                semUnits: sem.semUnits,
+                courses: {
+                  create: sem.courses.map((course) => ({
+                    code: course.code,
+                    title: course.title,
+                    description: course.description,
+                    courseUnits: course.courseUnits,
+                  })),
+                },
+              })),
+            },
+          },
+        },
+      },
+    });
+  }
 };
 
 main()

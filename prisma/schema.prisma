@@ -15,12 +15,14 @@ datasource db {
     relationMode = "prisma"
 }
 
-model Templates {
-    id         Int    @id @default(autoincrement())
-    program    String @db.Text
-    code       String @unique
-    totalUnits Int
-    sems       Json
+model Template {
+    id           Int        @id @default(autoincrement())
+    program      String     @db.Text
+    code         String     @unique
+    curriculum   Curriculum @relation(fields: [curriculumId], references: [id])
+    curriculumId String     @unique
+
+    @@index([curriculumId])
 }
 
 model Program {
@@ -36,10 +38,11 @@ model Program {
 model Curriculum {
     id          String     @id @default(cuid())
     curricUnits Int
-    userId      String     @unique
-    user        User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId      String?    @unique
+    user        User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
     sems        Semester[]
     createdAt   DateTime   @default(now())
+    template    Template?
 
     @@index([userId])
 }
