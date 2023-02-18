@@ -42,6 +42,7 @@ const Home: NextPage = () => {
                 {
                   id: input.id,
                   semUnits: 0,
+                  midyear: false,
                   curriculumId: input.curricId,
                   createdAt: new Date(),
                   courses: [],

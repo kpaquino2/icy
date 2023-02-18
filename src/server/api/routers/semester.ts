@@ -25,6 +25,7 @@ export const semesterRouter = createTRPCRouter({
         id: input.id,
         curriculumId: input.curricId,
         semUnits: 0,
+        midyear: false,
         createdAt: new Date(),
         courses: [],
       });
