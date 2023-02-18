@@ -72,7 +72,7 @@ const Semester = ({ sem }: SemesterProps) => {
             <X weight="bold" />
           </button>
         </div>
-        <Popover.Group className="flex h-full flex-col justify-evenly gap-3 overflow-y-auto overflow-x-hidden p-2">
+        <Popover.Group className="flex h-full w-full flex-col items-center justify-around gap-3 overflow-y-auto overflow-x-hidden p-2">
           {sem.courses?.map((course, index) => (
             <Course key={index} course={course} />
           ))}

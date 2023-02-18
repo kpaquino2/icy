@@ -63,7 +63,7 @@ const Course = ({ course }: CourseProps) => {
         course={course}
         title="edit course"
       />
-      <Popover>
+      <Popover className="w-3/4">
         <Popover.Button
           type="button"
           className="w-full rounded bg-teal-600 py-2 text-zinc-100 hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
@@ -78,7 +78,7 @@ const Course = ({ course }: CourseProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Popover.Panel className="absolute z-10 ml-1 w-64 -translate-y-10 translate-x-44 overflow-auto rounded border-2 border-zinc-200 bg-zinc-100 p-3 dark:border-zinc-800 dark:bg-zinc-900">
+          <Popover.Panel className="absolute z-10 ml-2 w-64 -translate-y-10 translate-x-32 overflow-auto rounded border-2 border-zinc-200 bg-zinc-100 p-3 dark:border-zinc-800 dark:bg-zinc-900">
             <div className="flex justify-end gap-3">
               <button
                 onClick={() => setEditCourseOpen(true)}
