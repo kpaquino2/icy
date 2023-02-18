@@ -10,6 +10,7 @@ interface CourseProps {
 }
 
 const Course = ({ course }: CourseProps) => {
+  let refetchTimeout: NodeJS.Timeout;
   const tctx = api.useContext();
   const { mutate: deleteCourseMutation } = api.course.deleteCourse.useMutation({
     onMutate: async (input) => {
@@ -35,8 +36,16 @@ const Course = ({ course }: CourseProps) => {
     onError: (err, input, ctx) => {
       tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
     },
-    onSettled: async () => {
-      await tctx.curriculum.getCurriculum.refetch();
+    onSettled: () => {
+      // Cancel previous timeout, if any
+      clearTimeout(refetchTimeout);
+
+      // Set a new timeout to refetch after 500ms
+      refetchTimeout = setTimeout(() => {
+        async () => {
+          await tctx.curriculum.getCurriculum.refetch();
+        };
+      }, 500); // adjust the delay time as needed
     },
   });
 
