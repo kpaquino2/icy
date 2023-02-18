@@ -8,13 +8,13 @@ import Course from "./Course";
 
 interface SemesterProps {
   sem: Prisma.SemesterGetPayload<{ include: { courses: true } }>;
-  index: number;
 }
 
-const Semester = ({ sem, index }: SemesterProps) => {
+const Semester = ({ sem }: SemesterProps) => {
   let refetchTimeout: NodeJS.Timeout;
 
   const tctx = api.useContext();
+
   const { mutate: deleteSemesterMutation } =
     api.semester.deleteSemester.useMutation({
       onMutate: async (input) => {
@@ -61,12 +61,12 @@ const Semester = ({ sem, index }: SemesterProps) => {
         setNewCourseOpen={setNewCourseOpen}
         title="add a course"
       />
-      <div className="flex h-full w-48 flex-col justify-between border-y-2 border-l-2 border-zinc-200 first:rounded-l-lg last:rounded-r-lg last:border-r-2 dark:border-zinc-800">
+      <div className="group/sem peer flex h-full w-48 flex-col justify-between border-y-2 border-l-2 border-zinc-200 first:rounded-l-lg last-of-type:rounded-r-lg last-of-type:border-r-2 dark:border-zinc-800">
         <div className="flex items-center justify-between border-b-2 border-zinc-200 p-2 dark:border-zinc-800">
-          year {Math.floor(index / 2) + 1} sem {(index % 2) + 1}
+          {sem.sem > 2 ? "midyear" : `year ${sem.year} sem ${sem.sem}`}
           <button
             type="button"
-            className="text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+            className="hidden text-zinc-400 hover:text-teal-600 group-last-of-type/sem:block hover:dark:text-teal-400"
             onClick={handleDelete}
           >
             <X weight="bold" />

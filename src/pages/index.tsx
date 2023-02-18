@@ -4,11 +4,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import {
   ArrowRight,
-  ArrowsOutCardinal,
-  ArrowUUpLeft,
-  ArrowUUpRight,
   Export,
-  FloppyDisk,
   FlowArrow,
   Plus,
   TrashSimple,
@@ -27,7 +23,7 @@ const Home: NextPage = () => {
     api.curriculum.getCurriculum.useQuery();
 
   const tctx = api.useContext();
-
+  let refetchTimeout: NodeJS.Timeout;
   const { mutate: createSemesterMutation } =
     api.semester.createSemester.useMutation({
       onMutate: async (input) => {
@@ -42,7 +38,8 @@ const Home: NextPage = () => {
                 {
                   id: input.id,
                   semUnits: 0,
-                  midyear: false,
+                  year: input.year,
+                  sem: input.sem,
                   curriculumId: input.curricId,
                   createdAt: new Date(),
                   courses: [],
@@ -55,8 +52,16 @@ const Home: NextPage = () => {
       onError: (err, input, ctx) => {
         tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
       },
-      onSettled: async () => {
-        await tctx.curriculum.getCurriculum.refetch();
+      onSettled: () => {
+        // Cancel previous timeout, if any
+        clearTimeout(refetchTimeout);
+
+        // Set a new timeout to refetch after 500ms
+        refetchTimeout = setTimeout(() => {
+          async () => {
+            await tctx.curriculum.getCurriculum.refetch();
+          };
+        }, 500); // adjust the delay time as needed
       },
     });
 
@@ -83,7 +88,15 @@ const Home: NextPage = () => {
   }, [sessionStatus]);
 
   const handleNewSem = () => {
-    createSemesterMutation({ id: createId(), curricId: curriculum?.id || "" });
+    createSemesterMutation({
+      id: createId(),
+      curricId: curriculum?.id || "",
+      year: Math.floor(
+        (curriculum?.sems[curriculum?.sems.length - 1]?.sem || 0) / 2 +
+          (curriculum?.sems[curriculum?.sems.length - 1]?.year || 1)
+      ),
+      sem: ((curriculum?.sems[curriculum?.sems.length - 1]?.sem || 0) % 2) + 1,
+    });
   };
 
   const handleDeleteCurriculum = () => {
@@ -157,47 +170,56 @@ const Home: NextPage = () => {
               <>
                 <div className="flex justify-between px-4 pt-2">
                   <div className="flex gap-2">
-                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
-                      <ArrowUUpLeft size={20} weight="bold" />
-                    </button>
-                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
-                      <ArrowUUpRight size={20} weight="bold" />
-                    </button>
-                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
-                      <ArrowsOutCardinal size={20} weight="bold" />
-                    </button>
-                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
-                      <FlowArrow size={20} weight="bold" />
-                    </button>
-                  </div>
-                  <div className="flex gap-2">
-                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
-                      <Export size={20} weight="bold" />
-                    </button>
-                    <button className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400">
-                      <FloppyDisk size={20} weight="bold" />
-                    </button>
-                    <button
-                      onClick={handleDeleteCurriculum}
-                      className="rounded p-1 text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
-                    >
-                      <TrashSimple size={20} weight="bold" />
-                    </button>
-                  </div>
-                </div>
-                <div className="relative flex flex-1 flex-col overflow-x-auto">
-                  <div className="flex h-full min-w-max flex-1 flex-nowrap px-4 pb-4 pt-2">
-                    {curriculum.sems?.map((sem, index) => (
-                      <Semester key={index} sem={sem} index={index} />
-                    ))}
                     <button
                       type="button"
                       onClick={handleNewSem}
-                      className="flex h-full w-48 flex-col items-center justify-center border-y-2 border-l-2 border-dashed border-zinc-200 text-zinc-500 first:rounded-l-lg last:rounded-r-lg last:border-r-2 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
                     >
-                      <Plus size={32} />
-                      new sem
+                      <Plus size={20} weight="bold" />
+                      new semester
                     </button>
+                    <button
+                      type="button"
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <FlowArrow size={20} weight="bold" />
+                      connect prerequisites
+                    </button>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <Export size={20} weight="bold" />
+                      export curriculum
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleDeleteCurriculum}
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <TrashSimple size={20} weight="bold" />
+                      delete curriculum
+                    </button>
+                  </div>
+                </div>
+                <div className="relative flex flex-1 flex-col overflow-x-scroll">
+                  <div className="flex h-full min-w-max flex-1 flex-nowrap px-4 pb-4 pt-2">
+                    {curriculum.sems.length ? (
+                      curriculum.sems.map((sem, index) => (
+                        <Semester key={index} sem={sem} />
+                      ))
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={handleNewSem}
+                        className="flex h-full w-48 flex-col items-center justify-center border-y-2 border-l-2 border-dashed border-zinc-200 text-zinc-500 first:rounded-l-lg last:rounded-r-lg last:border-r-2 only:flex hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+                      >
+                        <Plus size={32} />
+                        new sem
+                      </button>
+                    )}
                   </div>
                 </div>
               </>
