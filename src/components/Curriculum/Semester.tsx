@@ -12,6 +12,8 @@ interface SemesterProps {
 }
 
 const Semester = ({ sem, index }: SemesterProps) => {
+  let refetchTimeout: NodeJS.Timeout;
+
   const tctx = api.useContext();
   const { mutate: deleteSemesterMutation } =
     api.semester.deleteSemester.useMutation({
@@ -32,8 +34,16 @@ const Semester = ({ sem, index }: SemesterProps) => {
       onError: (err, input, ctx) => {
         tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
       },
-      onSettled: async () => {
-        await tctx.curriculum.getCurriculum.refetch();
+      onSettled: () => {
+        // Cancel previous timeout, if any
+        clearTimeout(refetchTimeout);
+
+        // Set a new timeout to refetch after 500ms
+        refetchTimeout = setTimeout(() => {
+          async () => {
+            await tctx.curriculum.getCurriculum.refetch();
+          };
+        }, 500); // adjust the delay time as needed
       },
     });
 
