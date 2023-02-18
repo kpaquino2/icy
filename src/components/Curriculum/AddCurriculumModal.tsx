@@ -1,11 +1,7 @@
-import { type BaseSyntheticEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import Modal from "../Modal";
-import {
-  CaretLeft,
-  ProjectorScreen,
-  ProjectorScreenChart,
-} from "phosphor-react";
+import { Check, ProjectorScreen, ProjectorScreenChart } from "phosphor-react";
 import { api } from "../../utils/api";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -19,7 +15,7 @@ interface AddCurriculumModalProps {
 }
 
 const schema = z.object({
-  mode: z.string({ required_error: "need this" }),
+  template: z.string({ required_error: "need this" }),
 });
 
 type Schema = z.infer<typeof schema>;
@@ -39,7 +35,17 @@ const AddCurriculumModal = ({
   });
   const [stepIndex, setStepIndex] = useState(0);
 
+  const { data: templates } = api.template_curriculum.getTemplates.useQuery();
+
   const tctx = api.useContext();
+  const { mutate: createNewCurriculumFromTemplateMutation, isLoading } =
+    api.curriculum.createCurriculumFromTemplate.useMutation({
+      onSettled: async () => {
+        await tctx.curriculum.getCurriculum.refetch();
+        setNewCurricOpen(false);
+      },
+    });
+
   const { mutate: createNewCurriculumMutation } =
     api.curriculum.createCurriculum.useMutation({
       onMutate: async (input) => {
@@ -81,6 +87,10 @@ const AddCurriculumModal = ({
     reset();
   }, [newCurricOpen, reset]);
 
+  const createFromScratch = () => {
+    createNewCurriculumMutation({ id: createId() });
+  };
+
   const handleNext = () => {
     setStepIndex(1);
   };
@@ -89,82 +99,109 @@ const AddCurriculumModal = ({
     setStepIndex(0);
   };
 
-  const onSubmit = (data: Schema, e?: BaseSyntheticEvent) => {
-    e?.preventDefault();
-    createNewCurriculumMutation({ id: createId() });
+  const onSubmit = (data: Schema) => {
+    createNewCurriculumFromTemplateMutation({
+      id: createId(),
+      code: data.template,
+    });
   };
 
   return (
     <Modal
       isOpen={newCurricOpen}
       setIsOpen={setNewCurricOpen}
-      width="w-[500px]"
+      width="w-[600px]"
       title={title}
     >
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-col overflow-x-hidden pb-3">
-          <div className="flex min-w-max flex-1 flex-nowrap gap-2">
-            <div id="form0" className="flex w-[468px] flex-col gap-1">
-              <div className="text-lg font-light">
-                how would you like to make your curriculum?
-              </div>
-              <div className="mx-8 flex gap-8">
-                <input
-                  type="radio"
-                  className="peer hidden"
-                  id="scratch"
-                  value="scratch"
-                  {...register("mode")}
-                />
-                <label
-                  htmlFor="scratch"
-                  className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 peer-checked:border-teal-600 peer-checked:text-teal-600 dark:border-zinc-600 dark:text-zinc-600 dark:peer-checked:border-teal-400 dark:peer-checked:text-teal-400"
-                >
-                  <ProjectorScreen size={32} />
-                  create from scratch
-                </label>
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 active:border-teal-600 active:text-teal-600 dark:border-zinc-600 dark:text-zinc-600 active:dark:border-teal-400 active:dark:text-teal-400"
-                >
-                  <ProjectorScreenChart size={32} />
-                  use a template
-                </button>
-              </div>
+      <div className="flex h-96 max-h-96 flex-col overflow-x-hidden pb-3">
+        <div className="flex min-w-max flex-1 flex-nowrap gap-2 overflow-hidden">
+          <div
+            id="form0"
+            className="flex w-[568px] flex-col justify-center gap-5"
+          >
+            <div className="text-center text-lg font-light">
+              how would you like to make your curriculum?
             </div>
-            <div
-              id="form1"
-              className="relative grid w-[468px] flex-col place-items-center"
-            >
+            <div className="mx-8 flex gap-8">
               <button
-                onClick={handleBack}
                 type="button"
-                className="absolute top-4 left-0"
+                onClick={createFromScratch}
+                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-600 dark:text-zinc-600 dark:hover:border-teal-400 dark:hover:text-teal-400"
               >
-                <CaretLeft size={32} />
+                <ProjectorScreen size={32} />
+                create from scratch
               </button>
-              not implemented yet
+              <button
+                type="button"
+                onClick={handleNext}
+                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-600 dark:text-zinc-600 hover:dark:border-teal-400 hover:dark:text-teal-400"
+              >
+                <ProjectorScreenChart size={32} />
+                use a template
+              </button>
             </div>
           </div>
-        </div>
-        <div className="flex justify-end gap-3">
-          <button
-            type="button"
-            onClick={() => setNewCurricOpen(false)}
-            className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition hover:brightness-125 dark:border-teal-400 dark:text-teal-400"
+          <form
+            id="form1"
+            onSubmit={handleSubmit(onSubmit)}
+            className="flex h-full w-[568px] flex-col gap-3"
           >
-            cancel
-          </button>
-          <button
-            type="submit"
-            className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-125 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
-            disabled={isSubmitting || !isDirty}
-          >
-            confirm
-          </button>
+            <div className="overflow-y-auto rounded border-2 border-zinc-200 dark:border-zinc-800">
+              <div className="rounded border-r-2 border-zinc-200 dark:border-zinc-800">
+                {templates?.map((p, index) => (
+                  <div key={index} className="group flex flex-col">
+                    <div className="sticky top-0 border-b-2 border-zinc-200 bg-zinc-100 p-2 text-lg dark:border-zinc-800 dark:bg-zinc-900">
+                      {p.program.toLowerCase()}
+                    </div>
+                    {p.currics.map((c, index) => (
+                      <label
+                        htmlFor={c}
+                        tabIndex={0}
+                        key={index}
+                        className="flex justify-between border-zinc-200 px-4 py-1.5 last:border-b-2 hover:bg-teal-600 dark:border-zinc-800 dark:hover:bg-teal-400"
+                      >
+                        <input
+                          type="radio"
+                          className="peer hidden"
+                          id={c}
+                          value={c}
+                          {...register("template")}
+                        />
+                        <div className="text-sm peer-checked:text-teal-600 peer-hover:text-zinc-100  dark:peer-checked:text-teal-400 dark:peer-hover:text-zinc-900">
+                          {c.toLowerCase()}
+                        </div>
+                        <Check
+                          size={20}
+                          weight="bold"
+                          className="hidden text-teal-600 peer-checked:block peer-hover:text-zinc-100 dark:text-teal-400 dark:peer-hover:text-zinc-900"
+                        />
+                      </label>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="text-end text-xs italic text-zinc-500">
+              source: https://amis.uplb.edu.ph/curriculums-management/
+            </div>
+            <div className="flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={handleBack}
+                className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition hover:brightness-125 dark:border-teal-400 dark:text-teal-400"
+              >
+                back
+              </button>
+              <button
+                className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-125 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
+                disabled={isSubmitting || !isDirty || isLoading}
+              >
+                confirm
+              </button>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     </Modal>
   );
 };

@@ -49,6 +49,59 @@ export const curriculumRouter = createTRPCRouter({
         sems: [],
       });
     }),
+  createCurriculumFromTemplate: publicProcedure
+    .input(
+      z.object({
+        id: z.string(),
+        code: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const template = await ctx.prisma.template.findUnique({
+        where: {
+          code: input.code,
+        },
+        include: {
+          curriculum: {
+            include: {
+              sems: {
+                include: {
+                  courses: true,
+                },
+              },
+            },
+          },
+        },
+      });
+
+      if (!template) return;
+
+      if (ctx.session) {
+        await ctx.prisma.curriculum.create({
+          data: {
+            id: input.id,
+            userId: ctx.session.user.id,
+            curricUnits: template.curriculum.curricUnits,
+            sems: {
+              create: template.curriculum.sems.map((sem) => ({
+                midyear: sem.midyear,
+                semUnits: sem.semUnits,
+                courses: {
+                  create: sem.courses.map((course) => ({
+                    code: course.code,
+                    title: course.title,
+                    description: course.description,
+                    courseUnits: course.courseUnits,
+                  })),
+                },
+              })),
+            },
+          },
+        });
+        return;
+      }
+    }),
+
   deleteCurriculum: publicProcedure
     .input(
       z.object({
