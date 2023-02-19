@@ -57,6 +57,7 @@ const Semester = ({ sem }: SemesterProps) => {
     <>
       <AddCourseModal
         semesterId={sem.id}
+        lastPosition={sem.courses[sem.courses.length - 1]?.position || "aaa"}
         newCourseOpen={newCourseOpen}
         setNewCourseOpen={setNewCourseOpen}
         title="add a course"

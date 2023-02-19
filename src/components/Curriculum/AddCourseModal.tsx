@@ -1,11 +1,13 @@
 import { createId } from "@paralleldrive/cuid2";
 import { type Dispatch, type SetStateAction } from "react";
 import { api } from "../../utils/api";
+import { getPosition } from "../../utils/position";
 import CourseDetailsForm from "../Forms/CourseDetailsForm";
 import Modal from "../Modal";
 
 interface AddCourseModalProps {
   semesterId: string;
+  lastPosition: string;
   newCourseOpen: boolean;
   setNewCourseOpen: Dispatch<SetStateAction<boolean>>;
   title: string;
@@ -13,6 +15,7 @@ interface AddCourseModalProps {
 
 const AddCourseModal = ({
   semesterId,
+  lastPosition,
   newCourseOpen,
   setNewCourseOpen,
   title,
@@ -38,6 +41,7 @@ const AddCourseModal = ({
                       title: input.title,
                       description: input.description,
                       units: input.units,
+                      position: input.position,
                       semesterId: input.semesterId,
                       createdAt: new Date(),
                     },
@@ -78,6 +82,7 @@ const AddCourseModal = ({
     createNewCourseMutation({
       ...data,
       id: createId(),
+      position: getPosition(lastPosition),
       semesterId: semesterId,
     });
   };
