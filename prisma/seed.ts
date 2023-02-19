@@ -7,7 +7,6 @@ const main = async () => {
   const input = templates;
   for (const template of input) {
     const { program, code, sems } = template;
-
     await prisma.template.create({
       data: {
         program,
@@ -19,11 +18,12 @@ const main = async () => {
                 year: sem.year,
                 sem: sem.sem,
                 courses: {
-                  create: sem.courses.map((course) => ({
+                  create: sem.courses.map((course, i) => ({
                     code: course.code,
                     title: course.title,
                     description: course.description,
                     units: course.courseUnits,
+                    position: String.fromCharCode(i + 98).repeat(3),
                   })),
                 },
               })),
