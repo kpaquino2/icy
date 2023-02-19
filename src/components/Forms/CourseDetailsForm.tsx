@@ -12,7 +12,7 @@ const schema = z.object({
   units: z.coerce
     .number({ invalid_type_error: "expected a number" })
     .int("must be an integer")
-    .gt(0, "can not be 0 or less"),
+    .gte(0, "can not be negative"),
 });
 
 type Schema = z.infer<typeof schema>;
