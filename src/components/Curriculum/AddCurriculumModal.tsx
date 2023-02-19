@@ -156,6 +156,7 @@ const AddCurriculumModal = ({
             <div className="relative p-0.5">
               <input
                 type="text"
+                disabled={isLoading}
                 className="peer w-full rounded border-2 border-zinc-200 bg-inherit px-3 py-1 pl-8 focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600 dark:border-zinc-800 focus:dark:border-teal-400 focus:dark:ring-teal-400"
                 onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
               />
@@ -165,8 +166,18 @@ const AddCurriculumModal = ({
                 className="absolute bottom-0 top-0 left-2 my-auto text-zinc-500 peer-focus:text-teal-600 dark:peer-focus:text-teal-400 "
               />
             </div>
-            <div className="overflow-y-auto rounded border-2 border-zinc-200 dark:border-zinc-800">
-              <div className="rounded border-r-2 border-zinc-200 dark:border-zinc-800">
+            <div
+              className={
+                (isLoading ? "overflow-y-hidden" : "overflow-y-auto") +
+                " relative overflow-y-auto rounded border-2 border-zinc-200 dark:border-zinc-800"
+              }
+            >
+              <div
+                className={
+                  (isLoading ? "opacity-50" : "opacity-100") +
+                  " rounded border-r-2 border-zinc-200 dark:border-zinc-800"
+                }
+              >
                 {templates
                   ?.filter(
                     (p) =>
@@ -191,22 +202,26 @@ const AddCurriculumModal = ({
                             htmlFor={c}
                             tabIndex={0}
                             key={index}
-                            className="flex justify-between border-zinc-200 px-4 py-1.5 last:border-b-2 hover:bg-teal-600 dark:border-zinc-800 dark:hover:bg-teal-400"
+                            className={
+                              (isLoading
+                                ? ""
+                                : "hover:bg-teal-600 hover:text-zinc-100 dark:hover:bg-teal-400 dark:hover:text-zinc-900") +
+                              " flex justify-between border-zinc-200 px-4 py-1.5 last:border-b-2  peer-checked:text-teal-600 dark:border-zinc-800 dark:peer-checked:text-teal-400"
+                            }
                           >
                             <input
                               type="radio"
                               className="peer hidden"
+                              disabled={isLoading}
                               id={c}
                               value={c}
                               {...register("template")}
                             />
-                            <div className="text-sm peer-checked:text-teal-600 peer-hover:text-zinc-100  dark:peer-checked:text-teal-400 dark:peer-hover:text-zinc-900">
-                              {c.toLowerCase()}
-                            </div>
+                            <div className="text-sm   ">{c.toLowerCase()}</div>
                             <Check
                               size={20}
                               weight="bold"
-                              className="hidden text-teal-600 peer-checked:block peer-hover:text-zinc-100 dark:text-teal-400 dark:peer-hover:text-zinc-900"
+                              className="hidden peer-checked:block "
                             />
                           </label>
                         ))}
@@ -221,7 +236,8 @@ const AddCurriculumModal = ({
               <button
                 type="button"
                 onClick={handleBack}
-                className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition hover:brightness-125 dark:border-teal-400 dark:text-teal-400"
+                className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition hover:brightness-125 disabled:opacity-50 dark:border-teal-400 dark:text-teal-400"
+                disabled={isLoading}
               >
                 back
               </button>
