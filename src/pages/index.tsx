@@ -109,7 +109,6 @@ const Home: NextPage = () => {
         setNewCurricOpen={setNewCurricOpen}
         title="new curriculum"
       />
-
       <Layout
         title="curriculum"
         description="list of all curriculum made by the user"
@@ -220,6 +219,14 @@ const Home: NextPage = () => {
                       </button>
                     )}
                   </div>
+                </div>
+                <div className="flex border-t-2 border-zinc-200 px-4 py-3 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+                  total units:{" "}
+                  {curriculum.sems
+                    .map((s) =>
+                      s.courses.map((c) => c.units).reduce((a, b) => a + b, 0)
+                    )
+                    .reduce((a, b) => a + b, 0)}
                 </div>
               </>
             ) : (
