@@ -19,7 +19,7 @@ model Template {
     id           Int        @id @default(autoincrement())
     program      String     @db.Text
     code         String     @unique
-    curriculum   Curriculum @relation(fields: [curriculumId], references: [id])
+    curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
     curriculumId String     @unique
 
     @@index([curriculumId])
