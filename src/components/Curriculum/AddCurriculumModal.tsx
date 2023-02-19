@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import Modal from "../Modal";
-import { Check, ProjectorScreen, ProjectorScreenChart } from "phosphor-react";
+import {
+  Check,
+  MagnifyingGlass,
+  ProjectorScreen,
+  ProjectorScreenChart,
+} from "phosphor-react";
 import { api } from "../../utils/api";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -34,6 +39,7 @@ const AddCurriculumModal = ({
     resolver: zodResolver(schema),
   });
   const [stepIndex, setStepIndex] = useState(0);
+  const [search, setSearch] = useState("");
 
   const { data: templates } = api.template_curriculum.getTemplates.useQuery();
 
@@ -82,6 +88,7 @@ const AddCurriculumModal = ({
   useEffect(() => {
     if (newCurricOpen) {
       setStepIndex(0);
+      setSearch("");
       return;
     }
     reset();
@@ -146,39 +153,65 @@ const AddCurriculumModal = ({
             onSubmit={handleSubmit(onSubmit)}
             className="flex h-full w-[568px] flex-col gap-3"
           >
+            <div className="relative p-0.5">
+              <input
+                type="text"
+                className="peer w-full rounded border-2 border-zinc-200 bg-inherit px-3 py-1 pl-8 focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600 dark:border-zinc-800 focus:dark:border-teal-400 focus:dark:ring-teal-400"
+                onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
+              />
+              <MagnifyingGlass
+                size={20}
+                weight="bold"
+                className="absolute bottom-0 top-0 left-2 my-auto text-zinc-500 peer-focus:text-teal-600 dark:peer-focus:text-teal-400 "
+              />
+            </div>
             <div className="overflow-y-auto rounded border-2 border-zinc-200 dark:border-zinc-800">
               <div className="rounded border-r-2 border-zinc-200 dark:border-zinc-800">
-                {templates?.map((p, index) => (
-                  <div key={index} className="group flex flex-col">
-                    <div className="sticky top-0 border-b-2 border-zinc-200 bg-zinc-100 p-2 text-lg dark:border-zinc-800 dark:bg-zinc-900">
-                      {p.program.toLowerCase()}
+                {templates
+                  ?.filter(
+                    (p) =>
+                      p.program.toLowerCase().includes(search) ||
+                      p.currics
+                        .map((c) => c.toLowerCase().includes(search))
+                        .includes(true)
+                  )
+                  .map((p, index) => (
+                    <div key={index} className="group flex flex-col">
+                      <div className="sticky top-0 border-b-2 border-zinc-200 bg-zinc-100 p-2 text-lg dark:border-zinc-800 dark:bg-zinc-900">
+                        {p.program.toLowerCase()}
+                      </div>
+                      {p.currics
+                        .filter(
+                          (c) =>
+                            p.program.toLowerCase().includes(search) ||
+                            c.toLowerCase().includes(search)
+                        )
+                        .map((c, index) => (
+                          <label
+                            htmlFor={c}
+                            tabIndex={0}
+                            key={index}
+                            className="flex justify-between border-zinc-200 px-4 py-1.5 last:border-b-2 hover:bg-teal-600 dark:border-zinc-800 dark:hover:bg-teal-400"
+                          >
+                            <input
+                              type="radio"
+                              className="peer hidden"
+                              id={c}
+                              value={c}
+                              {...register("template")}
+                            />
+                            <div className="text-sm peer-checked:text-teal-600 peer-hover:text-zinc-100  dark:peer-checked:text-teal-400 dark:peer-hover:text-zinc-900">
+                              {c.toLowerCase()}
+                            </div>
+                            <Check
+                              size={20}
+                              weight="bold"
+                              className="hidden text-teal-600 peer-checked:block peer-hover:text-zinc-100 dark:text-teal-400 dark:peer-hover:text-zinc-900"
+                            />
+                          </label>
+                        ))}
                     </div>
-                    {p.currics.map((c, index) => (
-                      <label
-                        htmlFor={c}
-                        tabIndex={0}
-                        key={index}
-                        className="flex justify-between border-zinc-200 px-4 py-1.5 last:border-b-2 hover:bg-teal-600 dark:border-zinc-800 dark:hover:bg-teal-400"
-                      >
-                        <input
-                          type="radio"
-                          className="peer hidden"
-                          id={c}
-                          value={c}
-                          {...register("template")}
-                        />
-                        <div className="text-sm peer-checked:text-teal-600 peer-hover:text-zinc-100  dark:peer-checked:text-teal-400 dark:peer-hover:text-zinc-900">
-                          {c.toLowerCase()}
-                        </div>
-                        <Check
-                          size={20}
-                          weight="bold"
-                          className="hidden text-teal-600 peer-checked:block peer-hover:text-zinc-100 dark:text-teal-400 dark:peer-hover:text-zinc-900"
-                        />
-                      </label>
-                    ))}
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
             <div className="text-end text-xs italic text-zinc-500">
