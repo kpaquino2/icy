@@ -64,6 +64,7 @@ model Course {
     title       String?        @db.Text
     description String?        @db.Text
     units       Int
+    position    String
     prereqs     Prerequisite[] @relation("post")
     postreqs    Prerequisite[] @relation("pre")
     semesterId  String
