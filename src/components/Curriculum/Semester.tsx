@@ -86,7 +86,8 @@ const Semester = ({ sem }: SemesterProps) => {
           </button>
         </Popover.Group>
         <div className="w-full border-t-2 border-zinc-200 py-2 text-center text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-          total units: {sem.semUnits}
+          total units:{" "}
+          {sem.courses?.map((c) => c.courseUnits).reduce((a, b) => a + b, 0)}
         </div>
       </div>
     </>
