@@ -11,6 +11,7 @@ export const courseRouter = createTRPCRouter({
         title: z.string(),
         description: z.string(),
         units: z.number(),
+        position: z.string(),
         semesterId: z.string(),
       })
     )
@@ -23,6 +24,7 @@ export const courseRouter = createTRPCRouter({
             title: input.title,
             description: input.description,
             units: input.units,
+            position: input.position,
             semesterId: input.semesterId,
           },
         });
@@ -38,6 +40,7 @@ export const courseRouter = createTRPCRouter({
         title: z.string(),
         description: z.string(),
         units: z.number(),
+        position: z.string(),
         semesterId: z.string(),
       })
     )
@@ -50,6 +53,7 @@ export const courseRouter = createTRPCRouter({
             title: input.title,
             description: input.description,
             units: input.units,
+            position: input.position,
           },
         });
       }

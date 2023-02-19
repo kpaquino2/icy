@@ -18,7 +18,7 @@ export const curriculumRouter = createTRPCRouter({
             include: {
               courses: {
                 orderBy: {
-                  createdAt: "asc",
+                  position: "asc",
                 },
               },
             },
@@ -93,6 +93,7 @@ export const curriculumRouter = createTRPCRouter({
                     title: course.title,
                     description: course.description,
                     units: course.units,
+                    position: course.position,
                   })),
                 },
               })),
