@@ -37,7 +37,6 @@ const Home: NextPage = () => {
                 ...old.sems,
                 {
                   id: input.id,
-                  semUnits: 0,
                   year: input.year,
                   sem: input.sem,
                   curriculumId: input.curricId,

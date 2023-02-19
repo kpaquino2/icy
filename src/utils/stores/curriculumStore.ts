@@ -76,7 +76,7 @@ export const useCurriculumStore = create<CurriculumState>()(
                               code: course.code,
                               title: course.title,
                               description: course.description,
-                              courseUnits: course.courseUnits,
+                              units: course.units,
                             }
                           : c
                       ),

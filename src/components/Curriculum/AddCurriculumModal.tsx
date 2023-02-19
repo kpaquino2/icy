@@ -60,7 +60,6 @@ const AddCurriculumModal = ({
         tctx.curriculum.getCurriculum.setData(undefined, () => {
           return {
             id: input.id,
-            curricUnits: 0,
             userId: "",
             createdAt: new Date(),
             sems: [],

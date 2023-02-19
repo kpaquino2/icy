@@ -35,7 +35,7 @@ const EditCourseModal = ({
                         code: input.code,
                         title: input.title,
                         description: input.description,
-                        courseUnits: input.courseUnits,
+                        units: input.units,
                       }
                     : c
                 ),
@@ -62,14 +62,14 @@ const EditCourseModal = ({
     title: string;
     code: string;
     description: string;
-    courseUnits: number;
+    units: number;
   }) => {
     updateCourseMutation({
       ...course,
       code: data.code,
       title: data.title,
       description: data.description,
-      courseUnits: data.courseUnits,
+      units: data.units,
     });
   };
   return (
@@ -85,7 +85,7 @@ const EditCourseModal = ({
         submitData={submitData}
         defaultData={{
           code: course.code,
-          courseUnits: course.courseUnits,
+          units: course.units,
           title: course.title || "",
           description: course.description || "",
         }}

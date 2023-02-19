@@ -37,7 +37,7 @@ const AddCourseModal = ({
                       code: input.code,
                       title: input.title,
                       description: input.description,
-                      courseUnits: input.courseUnits,
+                      units: input.units,
                       semesterId: input.semesterId,
                       createdAt: new Date(),
                     },
@@ -73,7 +73,7 @@ const AddCourseModal = ({
     title: string;
     code: string;
     description: string;
-    courseUnits: number;
+    units: number;
   }) => {
     createNewCourseMutation({
       ...data,
@@ -93,7 +93,7 @@ const AddCourseModal = ({
         open={newCourseOpen}
         setOpen={setNewCourseOpen}
         submitData={submitData}
-        defaultData={{ code: "", courseUnits: 0, title: "", description: "" }}
+        defaultData={{ code: "", units: 0, title: "", description: "" }}
       />
     </Modal>
   );

@@ -36,20 +36,18 @@ model Program {
 }
 
 model Curriculum {
-    id          String     @id @default(cuid())
-    curricUnits Int
-    userId      String?    @unique
-    user        User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
-    sems        Semester[]
-    createdAt   DateTime   @default(now())
-    template    Template?
+    id        String     @id @default(cuid())
+    userId    String?    @unique
+    user      User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
+    sems      Semester[]
+    createdAt DateTime   @default(now())
+    template  Template?
 
     @@index([userId])
 }
 
 model Semester {
     id           String     @id @default(cuid())
-    semUnits     Int
     curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
     curriculumId String
     year         Int
@@ -65,7 +63,7 @@ model Course {
     code        String
     title       String?        @db.Text
     description String?        @db.Text
-    courseUnits Int
+    units       Int
     prereqs     Prerequisite[] @relation("post")
     postreqs    Prerequisite[] @relation("pre")
     semesterId  String

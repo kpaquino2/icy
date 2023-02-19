@@ -39,7 +39,7 @@ export const curriculumRouter = createTRPCRouter({
     .mutation(async ({ ctx, input }) => {
       if (ctx.session) {
         await ctx.prisma.curriculum.create({
-          data: { id: input.id, userId: ctx.session?.user.id, curricUnits: 0 },
+          data: { id: input.id, userId: ctx.session?.user.id },
         });
         return;
       }
@@ -47,7 +47,6 @@ export const curriculumRouter = createTRPCRouter({
       createCurriculum({
         id: input.id,
         userId: "anon",
-        curricUnits: 0,
         createdAt: new Date(),
         sems: [],
       });
@@ -84,18 +83,16 @@ export const curriculumRouter = createTRPCRouter({
           data: {
             id: input.id,
             userId: ctx.session.user.id,
-            curricUnits: template.curriculum.curricUnits,
             sems: {
               create: template.curriculum.sems.map((sem) => ({
                 year: sem.year,
                 sem: sem.sem,
-                semUnits: sem.semUnits,
                 courses: {
                   create: sem.courses.map((course) => ({
                     code: course.code,
                     title: course.title,
                     description: course.description,
-                    courseUnits: course.courseUnits,
+                    units: course.units,
                   })),
                 },
               })),

@@ -96,7 +96,7 @@ const Course = ({ course }: CourseProps) => {
             <div className="flex items-center justify-between">
               <div className="text-xl leading-none">{course.code}</div>
               <div>
-                {course.courseUnits} unit{course.courseUnits !== 1 && "s"}
+                {course.units} unit{course.units !== 1 && "s"}
               </div>
             </div>
 

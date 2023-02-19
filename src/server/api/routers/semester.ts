@@ -20,7 +20,6 @@ export const semesterRouter = createTRPCRouter({
             year: input.year,
             sem: input.sem,
             curriculumId: input.curricId,
-            semUnits: 0,
           },
         });
       }
@@ -28,7 +27,6 @@ export const semesterRouter = createTRPCRouter({
       createSemester({
         id: input.id,
         curriculumId: input.curricId,
-        semUnits: 0,
         year: input.year,
         sem: input.sem,
         createdAt: new Date(),

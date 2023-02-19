@@ -9,7 +9,7 @@ const schema = z.object({
   code: z.string().min(1, "course code is required"),
   title: z.string(),
   description: z.string(),
-  courseUnits: z.coerce
+  units: z.coerce
     .number({ invalid_type_error: "expected a number" })
     .int("must be an integer")
     .gt(0, "can not be 0 or less"),
@@ -58,10 +58,10 @@ const CourseDetailsForm = ({
           error={errors.code?.message}
         />
         <InputField
-          {...register("courseUnits")}
+          {...register("units")}
           label="units"
           width="col-span-1"
-          error={errors.courseUnits?.message}
+          error={errors.units?.message}
         />
         <InputField
           {...register("title")}
