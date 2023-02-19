@@ -62,7 +62,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -111,7 +111,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -172,7 +172,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -184,7 +184,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -223,7 +223,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -235,7 +235,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "MAJOR",
@@ -494,7 +494,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -543,7 +543,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -604,7 +604,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -616,7 +616,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -655,7 +655,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -667,7 +667,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "MAJOR",
@@ -951,7 +951,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -1000,7 +1000,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -1061,7 +1061,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -1073,7 +1073,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -1112,7 +1112,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -1124,7 +1124,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "MAJOR",
@@ -1408,7 +1408,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -1457,7 +1457,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -1518,7 +1518,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -1530,7 +1530,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -1569,7 +1569,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -1581,7 +1581,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "MAJOR",
@@ -2215,7 +2215,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -2270,7 +2270,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -2324,13 +2324,13 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -2376,13 +2376,13 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -2602,7 +2602,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -2657,7 +2657,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -2711,13 +2711,13 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -2763,13 +2763,13 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -2976,7 +2976,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -3018,7 +3018,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -3092,7 +3092,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -3104,7 +3104,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -3151,13 +3151,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "ELECTIVE",
@@ -3434,7 +3434,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -3476,7 +3476,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -3550,7 +3550,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -3562,7 +3562,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -3603,7 +3603,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -3615,7 +3615,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "ELECTIVE",
@@ -3904,7 +3904,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -3946,7 +3946,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -4020,7 +4020,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -4032,7 +4032,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -4073,7 +4073,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -4085,7 +4085,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "ELECTIVE",
@@ -35270,7 +35270,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -35319,7 +35319,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -35398,7 +35398,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -35410,7 +35410,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -35469,7 +35469,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -35481,7 +35481,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -35846,7 +35846,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -35895,7 +35895,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -35975,7 +35975,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -36039,7 +36039,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -36051,7 +36051,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -36106,7 +36106,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -49441,7 +49441,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -49496,7 +49496,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -49553,7 +49553,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -49565,7 +49565,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -49624,7 +49624,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -49636,7 +49636,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -50324,7 +50324,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -50366,7 +50366,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -50451,7 +50451,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -50463,7 +50463,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -50584,7 +50584,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "ELECTIVE",
@@ -50790,7 +50790,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -50845,7 +50845,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -50900,7 +50900,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -50912,7 +50912,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -50961,7 +50961,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -50973,7 +50973,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -53548,13 +53548,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -53601,13 +53601,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -53675,7 +53675,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -53736,7 +53736,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -54436,13 +54436,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -54489,13 +54489,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -54563,7 +54563,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -54624,7 +54624,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -54901,13 +54901,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -54954,13 +54954,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -55028,7 +55028,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -55089,7 +55089,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -55366,13 +55366,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -55419,13 +55419,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -55493,7 +55493,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -55554,7 +55554,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -56254,13 +56254,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -56307,13 +56307,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -56381,7 +56381,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -56442,7 +56442,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -56719,13 +56719,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -56772,13 +56772,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -56846,7 +56846,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -56907,7 +56907,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -57192,13 +57192,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "MATH 28",
@@ -57223,13 +57223,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -57285,7 +57285,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -57346,7 +57346,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -58048,13 +58048,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "MATH 28",
@@ -58079,13 +58079,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -58141,7 +58141,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -58202,7 +58202,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -58481,13 +58481,13 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "MATH 28",
@@ -58512,13 +58512,13 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -58574,7 +58574,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -58635,7 +58635,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -62049,7 +62049,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -62105,7 +62105,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -62153,7 +62153,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -62165,7 +62165,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -62226,7 +62226,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -62238,7 +62238,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -62493,7 +62493,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -62549,13 +62549,13 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -62603,13 +62603,13 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -62676,7 +62676,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -70243,7 +70243,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -70304,7 +70304,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -70366,13 +70366,13 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -70413,7 +70413,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -70425,7 +70425,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
         ],
       },
@@ -70648,7 +70648,7 @@ const templates = [
             title: "Wellness and Basic Injury Management",
             description:
               "Theoretical and practical concepts of physical conditioning and injury prevention as applied to stress management, first aid, and safety.",
-            courseUnits: 2,
+            courseUnits: 0,
           },
         ],
       },
@@ -70695,7 +70695,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -70756,7 +70756,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -70768,7 +70768,7 @@ const templates = [
             code: "NSTP 1",
             title: "National Service Training Program I",
             description: "Natl Service Training Prog I",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
@@ -70823,7 +70823,7 @@ const templates = [
             code: "HK 12",
             title: "Human Kinetics Activities (for",
             description: "Human Kinetics Activities (for",
-            courseUnits: 2,
+            courseUnits: 0,
           },
           {
             code: "HK 13",
@@ -70835,7 +70835,7 @@ const templates = [
             code: "NSTP 2",
             title: "National Service Training Program II",
             description: "Natl Service Training Prog II",
-            courseUnits: 3,
+            courseUnits: 0,
           },
           {
             code: "GE ELECTIVE",
