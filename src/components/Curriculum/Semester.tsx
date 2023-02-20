@@ -65,13 +65,22 @@ const Semester = ({ sem }: SemesterProps) => {
       <div className="group/sem peer flex h-full w-48 flex-col justify-between border-y-2 border-l-2 border-zinc-200 first:rounded-l-lg last-of-type:rounded-r-lg last-of-type:border-r-2 dark:border-zinc-800">
         <div className="flex items-center justify-between border-b-2 border-zinc-200 p-2 dark:border-zinc-800">
           {sem.sem > 2 ? "midyear" : `year ${sem.year} sem ${sem.sem}`}
-          <button
-            type="button"
-            className="hidden text-zinc-400 hover:text-teal-600 group-last-of-type/sem:block hover:dark:text-teal-400"
-            onClick={handleDelete}
-          >
-            <X weight="bold" />
-          </button>
+          <div className="flex gap-1">
+            <button
+              type="button"
+              className="text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+              onClick={() => setNewCourseOpen(true)}
+            >
+              <Plus weight="bold" />
+            </button>
+            <button
+              type="button"
+              className="hidden text-zinc-400 hover:text-teal-600 group-last-of-type/sem:block hover:dark:text-teal-400"
+              onClick={handleDelete}
+            >
+              <X weight="bold" />
+            </button>
+          </div>
         </div>
         <Popover.Group className="flex h-full w-full flex-col items-center justify-around gap-3 overflow-y-auto overflow-x-hidden p-2">
           {sem.courses?.map((course, index) => (
@@ -80,7 +89,7 @@ const Semester = ({ sem }: SemesterProps) => {
           <button
             type="button"
             onClick={() => setNewCourseOpen(true)}
-            className="flex items-center justify-center gap-2 rounded border-2 border-dashed border-zinc-200 p-2 text-zinc-500 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+            className="hidden items-center justify-center gap-2 rounded border-2 border-dashed border-zinc-200 p-2 text-zinc-500 only:flex hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
           >
             <Plus weight="bold" />
             new course
