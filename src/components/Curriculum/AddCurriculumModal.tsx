@@ -12,6 +12,7 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
+import { useCurriculumStore } from "../../utils/stores/curriculumStore";
 
 interface AddCurriculumModalProps {
   newCurricOpen: boolean;
@@ -52,29 +53,9 @@ const AddCurriculumModal = ({
       },
     });
 
-  const { mutate: createNewCurriculumMutation } =
-    api.curriculum.createCurriculum.useMutation({
-      onMutate: async (input) => {
-        await tctx.curriculum.getCurriculum.cancel();
-        const prev = tctx.curriculum.getCurriculum.getData();
-        tctx.curriculum.getCurriculum.setData(undefined, () => {
-          return {
-            id: input.id,
-            userId: "",
-            createdAt: new Date(),
-            sems: [],
-          };
-        });
-        setNewCurricOpen(false);
-        return { prev };
-      },
-      onError: (err, input, ctx) => {
-        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
-      },
-      onSettled: async () => {
-        await tctx.curriculum.getCurriculum.refetch();
-      },
-    });
+  const createCurriculum = useCurriculumStore(
+    (state) => state.createCurriculum
+  );
 
   useEffect(() => {
     const el = document.getElementById(`form${stepIndex}`);
@@ -94,7 +75,13 @@ const AddCurriculumModal = ({
   }, [newCurricOpen, reset]);
 
   const createFromScratch = () => {
-    createNewCurriculumMutation({ id: createId() });
+    createCurriculum({
+      id: createId(),
+      userId: "anon",
+      createdAt: new Date(),
+      sems: [],
+    });
+    setNewCurricOpen(false);
   };
 
   const handleNext = () => {

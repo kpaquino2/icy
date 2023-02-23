@@ -15,91 +15,62 @@ import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
 import Semester from "../components/Curriculum/Semester";
 import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
+import { useCurriculumStore } from "../utils/stores/curriculumStore";
 
 const Home: NextPage = () => {
-  const { status: sessionStatus } = useSession();
+  const { data: session, status: sessionStatus } = useSession();
   const [showNotice, setShowNotice] = useState(false);
-  const { data: curriculum, status: curriculumStatus } =
+  const { data: curriculumData, status: curriculumStatus } =
     api.curriculum.getCurriculum.useQuery();
+  const curriculum = useCurriculumStore((state) => state.curriculum);
+  const createCurriculum = useCurriculumStore(
+    (state) => state.createCurriculum
+  );
+  const deleteCurriculum = useCurriculumStore(
+    (state) => state.deleteCurriculum
+  );
 
-  const tctx = api.useContext();
-  let refetchTimeout: NodeJS.Timeout;
-  const { mutate: createSemesterMutation } =
-    api.semester.createSemester.useMutation({
-      onMutate: async (input) => {
-        await tctx.curriculum.getCurriculum.cancel();
-        const prev = tctx.curriculum.getCurriculum.getData();
-        tctx.curriculum.getCurriculum.setData(undefined, (old) => {
-          if (old)
-            return {
-              ...old,
-              sems: [
-                ...old.sems,
-                {
-                  id: input.id,
-                  year: input.year,
-                  sem: input.sem,
-                  curriculumId: input.curricId,
-                  createdAt: new Date(),
-                  courses: [],
-                },
-              ],
-            };
-        });
-        return { prev };
-      },
-      onError: (err, input, ctx) => {
-        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
-      },
-      onSettled: () => {
-        // Cancel previous timeout, if any
-        clearTimeout(refetchTimeout);
+  const createSemester = useCurriculumStore((state) => state.createSemester);
 
-        // Set a new timeout to refetch after 500ms
-        refetchTimeout = setTimeout(() => {
-          async () => {
-            await tctx.curriculum.getCurriculum.refetch();
-          };
-        }, 500); // adjust the delay time as needed
-      },
-    });
+  const userId = useCurriculumStore((state) => state.userId);
+  const setUserId = useCurriculumStore((state) => state.setUserId);
 
   const [newCurricOpen, setNewCurricOpen] = useState(false);
 
   const { mutate: deleteCurriculumMutation } =
-    api.curriculum.deleteCurriculum.useMutation({
-      onMutate: async () => {
-        await tctx.curriculum.getCurriculum.cancel();
-        const prev = tctx.curriculum.getCurriculum.getData();
-        tctx.curriculum.getCurriculum.setData(undefined, () => null);
-        return { prev };
-      },
-      onError: (err, input, ctx) => {
-        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
-      },
-      onSettled: async () => {
-        await tctx.curriculum.getCurriculum.refetch();
-      },
-    });
+    api.curriculum.deleteCurriculum.useMutation();
 
   useEffect(() => {
     if (sessionStatus === "unauthenticated") setShowNotice(true);
-  }, [sessionStatus]);
+
+    if ((session?.user.id || "") !== userId) {
+      deleteCurriculum();
+      setUserId(session?.user.id || "");
+    }
+  }, [sessionStatus, deleteCurriculum, setUserId, userId, session?.user.id]);
+
+  useEffect(() => {
+    if (curriculumStatus === "success" && sessionStatus === "authenticated")
+      createCurriculum(curriculumData);
+  }, [curriculumStatus, curriculumData, createCurriculum, sessionStatus]);
 
   const handleNewSem = () => {
-    createSemesterMutation({
+    createSemester({
       id: createId(),
-      curricId: curriculum?.id || "",
+      curriculumId: curriculum?.id || "",
       year: Math.floor(
         (curriculum?.sems[curriculum?.sems.length - 1]?.sem || 0) / 2 +
           (curriculum?.sems[curriculum?.sems.length - 1]?.year || 1)
       ),
       sem: ((curriculum?.sems[curriculum?.sems.length - 1]?.sem || 0) % 2) + 1,
+      createdAt: new Date(),
+      courses: [],
     });
   };
 
   const handleDeleteCurriculum = () => {
     deleteCurriculumMutation({ id: curriculum?.id || "" });
+    deleteCurriculum();
   };
 
   return (

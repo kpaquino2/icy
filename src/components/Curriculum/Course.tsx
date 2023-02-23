@@ -2,7 +2,7 @@ import { Popover, Transition } from "@headlessui/react";
 import { Course } from "@prisma/client";
 import { PencilSimpleLine, TrashSimple } from "phosphor-react";
 import { useState } from "react";
-import { api } from "../../utils/api";
+import { useCurriculumStore } from "../../utils/stores/curriculumStore";
 import EditCourseModal from "./EditCourseModal";
 
 interface CourseProps {
@@ -10,49 +10,11 @@ interface CourseProps {
 }
 
 const Course = ({ course }: CourseProps) => {
-  let refetchTimeout: NodeJS.Timeout;
-  const tctx = api.useContext();
-  const { mutate: deleteCourseMutation } = api.course.deleteCourse.useMutation({
-    onMutate: async (input) => {
-      await tctx.curriculum.getCurriculum.cancel();
-      const prev = tctx.curriculum.getCurriculum.getData();
-      tctx.curriculum.getCurriculum.setData(undefined, (old) => {
-        if (!old) return;
-        const newsems = old.sems.map((s) =>
-          s.id === course.semesterId
-            ? {
-                ...s,
-                courses: s.courses.filter((c) => c.id !== input.id),
-              }
-            : s
-        );
-        return {
-          ...old,
-          sems: newsems,
-        };
-      });
-      return { prev };
-    },
-    onError: (err, input, ctx) => {
-      tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
-    },
-    onSettled: () => {
-      // Cancel previous timeout, if any
-      clearTimeout(refetchTimeout);
-
-      // Set a new timeout to refetch after 500ms
-      refetchTimeout = setTimeout(() => {
-        async () => {
-          await tctx.curriculum.getCurriculum.refetch();
-        };
-      }, 500); // adjust the delay time as needed
-    },
-  });
-
+  const deleteCourse = useCurriculumStore((state) => state.deleteCourse);
   const [editCourseOpen, setEditCourseOpen] = useState(false);
 
   const handleDelete = () => {
-    deleteCourseMutation({ id: course.id });
+    deleteCourse(course.id);
   };
 
   return (

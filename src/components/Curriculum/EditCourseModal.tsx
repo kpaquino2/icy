@@ -1,6 +1,6 @@
 import type { Course } from "@prisma/client";
 import type { Dispatch, SetStateAction } from "react";
-import { api } from "../../utils/api";
+import { useCurriculumStore } from "../../utils/stores/curriculumStore";
 import CourseDetailsForm from "../Forms/CourseDetailsForm";
 import Modal from "../Modal";
 
@@ -17,46 +17,7 @@ const EditCourseModal = ({
   setEditCourseOpen,
   title,
 }: EditCourseModalProps) => {
-  const tctx = api.useContext();
-  const { mutate: updateCourseMutation } = api.course.updateCourse.useMutation({
-    onMutate: async (input) => {
-      await tctx.curriculum.getCurriculum.cancel();
-      const prev = tctx.curriculum.getCurriculum.getData();
-      tctx.curriculum.getCurriculum.setData(undefined, (old) => {
-        if (!old) return;
-        const newsems = old.sems.map((s) =>
-          s.id === input.semesterId
-            ? {
-                ...s,
-                courses: s.courses.map((c) =>
-                  c.id === input.id
-                    ? {
-                        ...c,
-                        code: input.code,
-                        title: input.title,
-                        description: input.description,
-                        units: input.units,
-                      }
-                    : c
-                ),
-              }
-            : s
-        );
-        return {
-          ...old,
-          sems: newsems,
-        };
-      });
-      setEditCourseOpen(false);
-      return { prev };
-    },
-    onError: (err, input, ctx) => {
-      tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
-    },
-    onSettled: async () => {
-      await tctx.curriculum.getCurriculum.refetch();
-    },
-  });
+  const updateCourse = useCurriculumStore((state) => state.updateCourse);
 
   const submitData = (data: {
     title: string;
@@ -64,13 +25,14 @@ const EditCourseModal = ({
     description: string;
     units: number;
   }) => {
-    updateCourseMutation({
+    updateCourse({
       ...course,
       code: data.code,
       title: data.title,
       description: data.description,
       units: data.units,
     });
+    setEditCourseOpen(false);
   };
   return (
     <Modal
