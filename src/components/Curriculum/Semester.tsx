@@ -82,14 +82,14 @@ const Semester = ({ sem }: SemesterProps) => {
             </button>
           </div>
         </div>
-        <Popover.Group className="flex h-full w-full flex-col items-center justify-around gap-3 overflow-y-auto overflow-x-hidden p-2">
+        <Popover.Group className="flex h-full w-full flex-col items-center overflow-y-auto overflow-x-hidden p-2">
           {sem.courses?.map((course, index) => (
             <Course key={index} course={course} />
           ))}
           <button
             type="button"
             onClick={() => setNewCourseOpen(true)}
-            className="hidden items-center justify-center gap-2 rounded border-2 border-dashed border-zinc-200 p-2 text-zinc-500 only:flex hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+            className="my-auto hidden items-center justify-center gap-2 rounded border-2 border-dashed border-zinc-200 p-2 text-zinc-500 only:flex hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
           >
             <Plus weight="bold" />
             new course

@@ -63,7 +63,7 @@ const Course = ({ course }: CourseProps) => {
         course={course}
         title="edit course"
       />
-      <Popover className="w-3/4">
+      <Popover className="my-auto w-3/4">
         <Popover.Button
           type="button"
           className="w-full rounded bg-teal-600 py-2 text-zinc-100 hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
