@@ -1,6 +1,7 @@
 import type { Course, Prisma, Semester } from "@prisma/client";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { getPosition } from "../position";
 
 type SemWithCourses = Prisma.SemesterGetPayload<{ include: { courses: true } }>;
 
@@ -24,6 +25,12 @@ interface CurriculumState {
   createCourse: (course: Course) => void;
   updateCourse: (course: Course) => void;
   deleteCourse: (courseId: string) => void;
+  moveCourse: (
+    sourceCourseIndex: number,
+    destinationCourseIndex: number,
+    sourceSemIndex: number,
+    destinationSemIndex: number
+  ) => void;
 }
 
 export const useCurriculumStore = create<CurriculumState>()(
@@ -142,6 +149,40 @@ export const useCurriculumStore = create<CurriculumState>()(
             },
             saved: false,
           };
+        }),
+      moveCourse: (
+        sourceCourseIndex,
+        destinationCourseIndex,
+        sourceSemIndex,
+        destinationSemIndex
+      ) =>
+        set((state) => {
+          if (!state.curriculum) return state;
+          const sourceSem = state.curriculum.sems[sourceSemIndex];
+          const destinationSem = state.curriculum.sems[destinationSemIndex];
+          if (!sourceSem || !destinationSem) return state;
+          const sourceCourse = sourceSem.courses[sourceCourseIndex];
+          if (!sourceCourse) return state;
+          sourceSem.courses.splice(sourceCourseIndex, 1);
+          const newCourse = {
+            ...sourceCourse,
+            position: getPosition(
+              destinationSem.courses[destinationCourseIndex - 1]?.position ||
+                "aaa",
+              destinationSem.courses[destinationCourseIndex]?.position || "zzz"
+            ),
+          };
+          destinationSem.courses.push(newCourse);
+          destinationSem.courses.sort((a, b) =>
+            a.position < b.position ? -1 : 1
+          );
+          return state;
+          // return {
+          //   curriculum: {
+          //     ...state.curriculum,
+          //     sems: [...state.curriculum.sems.slice(0, destinationCourseIndex), ],
+          //   },
+          // };
         }),
     }),
     { name: "curric-storage", storage: createJSONStorage(() => localStorage) }
