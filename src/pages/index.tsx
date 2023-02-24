@@ -47,7 +47,7 @@ const Home: NextPage = () => {
 
   const [newCurricOpen, setNewCurricOpen] = useState(false);
 
-  const { mutate: deleteCurriculumMutation } =
+  const { mutateAsync: deleteCurriculumMutation } =
     api.curriculum.deleteCurriculum.useMutation();
 
   const { mutateAsync: createSemestersMutation } =
@@ -98,8 +98,8 @@ const Home: NextPage = () => {
   };
 
   const tctx = api.useContext();
-  const handleDeleteCurriculum = () => {
-    deleteCurriculumMutation({ id: curriculum?.id || "" });
+  const handleDeleteCurriculum = async () => {
+    await deleteCurriculumMutation({ id: curriculum?.id || "" });
     deleteCurriculum();
     tctx.curriculum.getCurriculum.setData(undefined, () => null);
   };
