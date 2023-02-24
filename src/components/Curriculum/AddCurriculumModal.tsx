@@ -91,6 +91,7 @@ const AddCurriculumModal = ({
         id: createId(),
         userId: "anon",
         createdAt: new Date(),
+        updatedAt: new Date(),
         sems: [],
       });
     } finally {

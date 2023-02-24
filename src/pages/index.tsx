@@ -72,16 +72,30 @@ const Home: NextPage = () => {
   useEffect(() => {
     if (sessionStatus === "unauthenticated") setShowNotice(true);
 
-    if ((session?.user.id || "") !== userId) {
+    if (sessionStatus !== "loading" && (session?.user.id || "") !== userId) {
       deleteCurriculum();
       setUserId(session?.user.id || "");
     }
   }, [sessionStatus, deleteCurriculum, setUserId, userId, session?.user.id]);
 
   useEffect(() => {
-    if (curriculumStatus === "success" && sessionStatus === "authenticated")
+    if (curriculumStatus === "success" && sessionStatus === "authenticated") {
+      if (
+        curriculum &&
+        curriculumData &&
+        new Date(curriculumData.updatedAt) < new Date(curriculum.updatedAt)
+      )
+        return;
       createCurriculum(curriculumData);
-  }, [curriculumStatus, curriculumData, createCurriculum, sessionStatus]);
+      // if (!curriculumData) createCurriculum(curriculumData);
+    }
+  }, [
+    curriculumStatus,
+    curriculumData,
+    createCurriculum,
+    sessionStatus,
+    curriculum,
+  ]);
 
   const handleNewSem = () => {
     createSemester({

@@ -50,7 +50,14 @@ export const useCurriculumStore = create<CurriculumState>()(
           updated: { courses: [] },
         }),
       setUserId: (userId) => set({ userId: userId }),
-      createCurriculum: (curric) => set({ curriculum: curric, saved: true }),
+      createCurriculum: (curric) =>
+        set({
+          curriculum: curric,
+          saved: true,
+          deleted: { courses: [], sems: [] },
+          created: { courses: [], sems: [] },
+          updated: { courses: [] },
+        }),
       deleteCurriculum: () => set({ curriculum: null }),
       createSemester: (sem) =>
         set((state) => {
@@ -59,6 +66,7 @@ export const useCurriculumStore = create<CurriculumState>()(
             curriculum: {
               ...state.curriculum,
               sems: [...state.curriculum.sems, sem],
+              updatedAt: new Date(),
             },
             created: {
               ...state.created,
@@ -74,6 +82,7 @@ export const useCurriculumStore = create<CurriculumState>()(
             curriculum: {
               ...state.curriculum,
               sems: state.curriculum.sems.filter((s) => s.id !== semId),
+              updatedAt: new Date(),
             },
             deleted: {
               ...state.deleted,
@@ -93,6 +102,7 @@ export const useCurriculumStore = create<CurriculumState>()(
                   ? { ...s, courses: [...s.courses, course] }
                   : s
               ),
+              updatedAt: new Date(),
             },
             created: {
               ...state.created,
@@ -125,6 +135,7 @@ export const useCurriculumStore = create<CurriculumState>()(
                     }
                   : s
               ),
+              updatedAt: new Date(),
             },
             updated: {
               courses: [...state.updated.courses, course],
@@ -142,6 +153,7 @@ export const useCurriculumStore = create<CurriculumState>()(
                 ...s,
                 courses: s.courses.filter((c) => c.id !== courseId),
               })),
+              updatedAt: new Date(),
             },
             deleted: {
               ...state.deleted,
@@ -176,13 +188,12 @@ export const useCurriculumStore = create<CurriculumState>()(
           destinationSem.courses.sort((a, b) =>
             a.position < b.position ? -1 : 1
           );
-          return state;
-          // return {
-          //   curriculum: {
-          //     ...state.curriculum,
-          //     sems: [...state.curriculum.sems.slice(0, destinationCourseIndex), ],
-          //   },
-          // };
+          return {
+            curriculum: {
+              ...state.curriculum,
+              updatedAt: new Date(),
+            },
+          };
         }),
     }),
     { name: "curric-storage", storage: createJSONStorage(() => localStorage) }
