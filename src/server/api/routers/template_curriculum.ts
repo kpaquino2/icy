@@ -1,3 +1,4 @@
+import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 
 export const templateCurriculumRouter = createTRPCRouter({
@@ -27,4 +28,29 @@ export const templateCurriculumRouter = createTRPCRouter({
       []
     );
   }),
+  getTemplateByCode: publicProcedure
+    .input(
+      z.object({
+        code: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const template = await ctx.prisma.template.findUnique({
+        where: {
+          code: input.code,
+        },
+        include: {
+          curriculum: {
+            include: {
+              sems: {
+                include: {
+                  courses: true,
+                },
+              },
+            },
+          },
+        },
+      });
+      return template;
+    }),
 });

@@ -1,80 +1,68 @@
 import { z } from "zod";
-import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
-import { createTRPCRouter, publicProcedure } from "../trpc";
+import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const courseRouter = createTRPCRouter({
-  createCourse: publicProcedure
+  createCourses: protectedProcedure
     .input(
-      z.object({
-        id: z.string(),
-        code: z.string(),
-        title: z.string(),
-        description: z.string(),
-        units: z.number(),
-        position: z.string(),
-        semesterId: z.string(),
-      })
+      z
+        .object({
+          id: z.string(),
+          code: z.string(),
+          title: z.string().nullable(),
+          description: z.string().nullable(),
+          units: z.number(),
+          position: z.string(),
+          semesterId: z.string(),
+        })
+        .array()
     )
     .mutation(async ({ ctx, input }) => {
-      if (ctx.session) {
-        await ctx.prisma.course.create({
-          data: {
-            id: input.id,
-            code: input.code,
-            title: input.title,
-            description: input.description,
-            units: input.units,
-            position: input.position,
-            semesterId: input.semesterId,
-          },
-        });
-      }
-      const createCourse = useCurriculumStore.getState().createCourse;
-      createCourse({ ...input, createdAt: new Date() });
+      await ctx.prisma.course.createMany({
+        data: input,
+      });
     }),
-  updateCourse: publicProcedure
+  updateCourses: protectedProcedure
     .input(
-      z.object({
-        id: z.string(),
-        code: z.string(),
-        title: z.string(),
-        description: z.string(),
-        units: z.number(),
-        position: z.string(),
-        semesterId: z.string(),
-      })
+      z
+        .object({
+          id: z.string(),
+          code: z.string(),
+          title: z.string().nullable(),
+          description: z.string().nullable(),
+          units: z.number(),
+        })
+        .array()
     )
     .mutation(async ({ ctx, input }) => {
-      if (ctx.session) {
-        await ctx.prisma.course.update({
-          where: { id: input.id },
-          data: {
-            code: input.code,
-            title: input.title,
-            description: input.description,
-            units: input.units,
-            position: input.position,
-          },
-        });
-      }
-      const updateCourse = useCurriculumStore.getState().updateCourse;
-      updateCourse({ ...input, createdAt: new Date() });
+      await ctx.prisma.$transaction(
+        input.map((c) =>
+          ctx.prisma.course.update({
+            where: {
+              id: c.id,
+            },
+            data: {
+              code: c.code,
+              title: c.title,
+              description: c.description,
+              units: c.units,
+            },
+          })
+        )
+      );
     }),
-  deleteCourse: publicProcedure
+  deleteCourses: protectedProcedure
     .input(
       z.object({
-        id: z.string(),
+        ids: z.string().array(),
       })
     )
     .mutation(async ({ ctx, input }) => {
-      if (ctx.session) {
-        await ctx.prisma.course.delete({
-          where: {
-            id: input.id,
+      await ctx.prisma.course.deleteMany({
+        where: {
+          id: {
+            in: input.ids,
           },
-        });
-      }
-      const deleteCourse = useCurriculumStore.getState().deleteCourse;
-      deleteCourse(input.id);
+        },
+      });
     }),
 });

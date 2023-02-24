@@ -1,4 +1,4 @@
-import type { Course, Prisma } from "@prisma/client";
+import type { Course, Prisma, Semester } from "@prisma/client";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -9,8 +9,13 @@ type CurricWithSemsAndCourses = Prisma.CurriculumGetPayload<{
 }>;
 
 interface CurriculumState {
+  saved: boolean;
   userId: string;
   curriculum: CurricWithSemsAndCourses | null;
+  deleted: { courses: string[]; sems: string[] };
+  created: { courses: Course[]; sems: Semester[] };
+  updated: { courses: Course[] };
+  saveCurriculum: () => void;
   setUserId: (userId: string) => void;
   createCurriculum: (currric: CurricWithSemsAndCourses | null) => void;
   deleteCurriculum: () => void;
@@ -24,10 +29,21 @@ interface CurriculumState {
 export const useCurriculumStore = create<CurriculumState>()(
   persist(
     (set) => ({
+      saved: false,
       userId: "",
       curriculum: null,
+      deleted: { courses: [], sems: [] },
+      created: { courses: [], sems: [] },
+      updated: { courses: [] },
+      saveCurriculum: () =>
+        set({
+          saved: true,
+          deleted: { courses: [], sems: [] },
+          created: { courses: [], sems: [] },
+          updated: { courses: [] },
+        }),
       setUserId: (userId) => set({ userId: userId }),
-      createCurriculum: (curric) => set({ curriculum: curric }),
+      createCurriculum: (curric) => set({ curriculum: curric, saved: true }),
       deleteCurriculum: () => set({ curriculum: null }),
       createSemester: (sem) =>
         set((state) => {
@@ -37,6 +53,11 @@ export const useCurriculumStore = create<CurriculumState>()(
               ...state.curriculum,
               sems: [...state.curriculum.sems, sem],
             },
+            created: {
+              ...state.created,
+              sems: [...state.created.sems, sem],
+            },
+            saved: false,
           };
         }),
       deleteSemester: (semId) =>
@@ -47,6 +68,11 @@ export const useCurriculumStore = create<CurriculumState>()(
               ...state.curriculum,
               sems: state.curriculum.sems.filter((s) => s.id !== semId),
             },
+            deleted: {
+              ...state.deleted,
+              sems: [...state.deleted.sems, semId],
+            },
+            saved: false,
           };
         }),
       createCourse: (course) =>
@@ -61,6 +87,11 @@ export const useCurriculumStore = create<CurriculumState>()(
                   : s
               ),
             },
+            created: {
+              ...state.created,
+              courses: [...state.created.courses, course],
+            },
+            saved: false,
           };
         }),
       updateCourse: (course) =>
@@ -88,6 +119,10 @@ export const useCurriculumStore = create<CurriculumState>()(
                   : s
               ),
             },
+            updated: {
+              courses: [...state.updated.courses, course],
+            },
+            saved: false,
           };
         }),
       deleteCourse: (courseId) =>
@@ -101,6 +136,11 @@ export const useCurriculumStore = create<CurriculumState>()(
                 courses: s.courses.filter((c) => c.id !== courseId),
               })),
             },
+            deleted: {
+              ...state.deleted,
+              courses: [...state.deleted.courses, courseId],
+            },
+            saved: false,
           };
         }),
     }),

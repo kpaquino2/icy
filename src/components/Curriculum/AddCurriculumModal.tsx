@@ -43,9 +43,13 @@ const AddCurriculumModal = ({
   const [search, setSearch] = useState("");
 
   const { data: templates } = api.template_curriculum.getTemplates.useQuery();
+  const { mutateAsync: getTemplateByCode } =
+    api.template_curriculum.getTemplateByCode.useMutation();
 
   const tctx = api.useContext();
-  const { mutate: createNewCurriculumFromTemplateMutation, isLoading } =
+  const { mutateAsync: createCurriculumMutation } =
+    api.curriculum.createCurriculum.useMutation();
+  const { mutateAsync: createNewCurriculumFromTemplateMutation, isLoading } =
     api.curriculum.createCurriculumFromTemplate.useMutation({
       onSettled: async () => {
         await tctx.curriculum.getCurriculum.refetch();
@@ -74,14 +78,19 @@ const AddCurriculumModal = ({
     reset();
   }, [newCurricOpen, reset]);
 
-  const createFromScratch = () => {
-    createCurriculum({
-      id: createId(),
-      userId: "anon",
-      createdAt: new Date(),
-      sems: [],
-    });
-    setNewCurricOpen(false);
+  const createFromScratch = async () => {
+    try {
+      await createCurriculumMutation({ id: createId() });
+    } catch (error) {
+      createCurriculum({
+        id: createId(),
+        userId: "anon",
+        createdAt: new Date(),
+        sems: [],
+      });
+    } finally {
+      setNewCurricOpen(false);
+    }
   };
 
   const handleNext = () => {
@@ -92,11 +101,18 @@ const AddCurriculumModal = ({
     setStepIndex(0);
   };
 
-  const onSubmit = (data: Schema) => {
-    createNewCurriculumFromTemplateMutation({
-      id: createId(),
-      code: data.template,
-    });
+  const onSubmit = async (data: Schema) => {
+    try {
+      await createNewCurriculumFromTemplateMutation({
+        id: createId(),
+        code: data.template,
+      });
+    } catch (error) {
+      const template = await getTemplateByCode({ code: data.template });
+      if (template) createCurriculum(template.curriculum);
+    } finally {
+      setNewCurricOpen(false);
+    }
   };
 
   return (

@@ -5,8 +5,10 @@ import Link from "next/link";
 import {
   ArrowRight,
   Export,
+  FloppyDisk,
   FlowArrow,
   Plus,
+  SpinnerGap,
   TrashSimple,
   X,
 } from "phosphor-react";
@@ -32,6 +34,13 @@ const Home: NextPage = () => {
 
   const createSemester = useCurriculumStore((state) => state.createSemester);
 
+  const saved = useCurriculumStore((state) => state.saved);
+  const saveCurriculum = useCurriculumStore((state) => state.saveCurriculum);
+  const deleted = useCurriculumStore((state) => state.deleted);
+  const created = useCurriculumStore((state) => state.created);
+  const updated = useCurriculumStore((state) => state.updated);
+  const [isSaving, setIsSaving] = useState(false);
+
   const userId = useCurriculumStore((state) => state.userId);
   const setUserId = useCurriculumStore((state) => state.setUserId);
 
@@ -39,6 +48,18 @@ const Home: NextPage = () => {
 
   const { mutate: deleteCurriculumMutation } =
     api.curriculum.deleteCurriculum.useMutation();
+
+  const { mutateAsync: createSemestersMutation } =
+    api.semester.createSemesters.useMutation();
+  const { mutateAsync: deleteSemestersMutation } =
+    api.semester.deleteSemesters.useMutation();
+
+  const { mutateAsync: createCoursesMutation } =
+    api.course.createCourses.useMutation();
+  const { mutateAsync: updateCoursesMutation } =
+    api.course.updateCourses.useMutation();
+  const { mutateAsync: deleteCoursesMutation } =
+    api.course.deleteCourses.useMutation();
 
   useEffect(() => {
     if (sessionStatus === "unauthenticated") setShowNotice(true);
@@ -68,9 +89,23 @@ const Home: NextPage = () => {
     });
   };
 
+  const tctx = api.useContext();
   const handleDeleteCurriculum = () => {
     deleteCurriculumMutation({ id: curriculum?.id || "" });
     deleteCurriculum();
+    tctx.curriculum.getCurriculum.setData(undefined, () => null);
+  };
+
+  const handleSave = async () => {
+    if (!curriculum) return;
+    setIsSaving(true);
+    await deleteSemestersMutation({ ids: deleted.sems });
+    await deleteCoursesMutation({ ids: deleted.courses });
+    await createSemestersMutation(created.sems);
+    await createCoursesMutation(created.courses);
+    await updateCoursesMutation(updated.courses);
+    saveCurriculum();
+    setIsSaving(false);
   };
 
   return (
@@ -142,34 +177,58 @@ const Home: NextPage = () => {
                     <button
                       type="button"
                       onClick={handleNewSem}
-                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                     >
-                      <Plus size={20} weight="bold" />
+                      <Plus size={16} weight="bold" />
                       new semester
                     </button>
                     <button
                       type="button"
-                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                     >
-                      <FlowArrow size={20} weight="bold" />
+                      <FlowArrow size={16} weight="bold" />
                       connect prerequisites
                     </button>
                   </div>
                   <div className="flex gap-2">
                     <button
                       type="button"
-                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                      onClick={handleSave}
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                      disabled={
+                        sessionStatus === "unauthenticated" || saved || isSaving
+                      }
                     >
-                      <Export size={20} weight="bold" />
-                      export curriculum
+                      {isSaving ? (
+                        <>
+                          <SpinnerGap
+                            className="animate-spin"
+                            size={16}
+                            weight="bold"
+                          />
+                          saving
+                        </>
+                      ) : (
+                        <>
+                          <FloppyDisk size={16} weight="bold" />
+                          save
+                        </>
+                      )}
+                    </button>
+                    <button
+                      type="button"
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <Export size={16} weight="bold" />
+                      export
                     </button>
                     <button
                       type="button"
                       onClick={handleDeleteCurriculum}
-                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                     >
-                      <TrashSimple size={20} weight="bold" />
-                      delete curriculum
+                      <TrashSimple size={16} weight="bold" />
+                      delete
                     </button>
                   </div>
                 </div>
