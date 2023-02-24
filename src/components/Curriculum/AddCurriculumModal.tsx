@@ -48,7 +48,12 @@ const AddCurriculumModal = ({
 
   const tctx = api.useContext();
   const { mutateAsync: createCurriculumMutation } =
-    api.curriculum.createCurriculum.useMutation();
+    api.curriculum.createCurriculum.useMutation({
+      onSettled: async () => {
+        await tctx.curriculum.getCurriculum.refetch();
+        setNewCurricOpen(false);
+      },
+    });
   const { mutateAsync: createNewCurriculumFromTemplateMutation, isLoading } =
     api.curriculum.createCurriculumFromTemplate.useMutation({
       onSettled: async () => {
