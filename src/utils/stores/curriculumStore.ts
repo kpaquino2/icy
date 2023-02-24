@@ -183,6 +183,7 @@ export const useCurriculumStore = create<CurriculumState>()(
                 "aaa",
               destinationSem.courses[destinationCourseIndex]?.position || "zzz"
             ),
+            semesterId: destinationSem.id,
           };
           destinationSem.courses.push(newCourse);
           destinationSem.courses.sort((a, b) =>
@@ -193,6 +194,21 @@ export const useCurriculumStore = create<CurriculumState>()(
               ...state.curriculum,
               updatedAt: new Date(),
             },
+            deleted: {
+              ...state.deleted,
+              courses: [
+                ...state.deleted.courses.filter((c) => c !== newCourse.id),
+                newCourse.id,
+              ],
+            },
+            created: {
+              ...state.created,
+              courses: [
+                ...state.created.courses.filter((c) => c.id !== newCourse.id),
+                newCourse,
+              ],
+            },
+            saved: false,
           };
         }),
     }),
