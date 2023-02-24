@@ -99,11 +99,13 @@ const Home: NextPage = () => {
   const handleSave = async () => {
     if (!curriculum) return;
     setIsSaving(true);
-    await deleteSemestersMutation({ ids: deleted.sems });
-    await deleteCoursesMutation({ ids: deleted.courses });
-    await createSemestersMutation(created.sems);
-    await createCoursesMutation(created.courses);
-    await updateCoursesMutation(updated.courses);
+    if (created.sems.length) await createSemestersMutation(created.sems);
+    if (deleted.sems.length)
+      await deleteSemestersMutation({ ids: deleted.sems });
+    if (created.courses.length) await createCoursesMutation(created.courses);
+    if (updated.courses.length) await updateCoursesMutation(updated.courses);
+    if (deleted.courses.length)
+      await deleteCoursesMutation({ ids: deleted.courses });
     saveCurriculum();
     setIsSaving(false);
   };
