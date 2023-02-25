@@ -46,25 +46,75 @@ const AddCurriculumModal = ({
   const { mutateAsync: getTemplateByCode } =
     api.template_curriculum.getTemplateByCode.useMutation();
 
-  const tctx = api.useContext();
-  const { mutateAsync: createCurriculumMutation } =
-    api.curriculum.createCurriculum.useMutation({
-      onSettled: async () => {
-        await tctx.curriculum.getCurriculum.refetch();
-        setNewCurricOpen(false);
-      },
-    });
-  const { mutateAsync: createNewCurriculumFromTemplateMutation, isLoading } =
-    api.curriculum.createCurriculumFromTemplate.useMutation({
-      onSettled: async () => {
-        await tctx.curriculum.getCurriculum.refetch();
-        setNewCurricOpen(false);
-      },
-    });
+  const userId = useCurriculumStore((state) => state.userId);
+  const setCurriculum = useCurriculumStore((state) => state.setCurriculum);
 
-  const createCurriculum = useCurriculumStore(
-    (state) => state.createCurriculum
-  );
+  const tctx = api.useContext();
+  const { mutate: createCurriculumMutation } =
+    api.curriculum.createCurriculum.useMutation({
+      onMutate: async (input) => {
+        setNewCurricOpen(false);
+        setCurriculum({
+          id: input.id,
+          userId: userId,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          sems: [],
+        });
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: async () => {
+        await tctx.curriculum.getCurriculum.refetch();
+      },
+    });
+  const { mutate: createNewCurriculumFromTemplateMutation, isLoading } =
+    api.curriculum.createCurriculumFromTemplate.useMutation({
+      onMutate: async (input) => {
+        setNewCurricOpen(false);
+        setCurriculum({
+          id: input.curriculum.id,
+          userId: userId,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          sems: input.curriculum.sems.map((sem) => {
+            const semId = createId();
+            return {
+              id: semId,
+              year: sem.year,
+              sem: sem.sem,
+              curriculumId: input.curriculum.id,
+              createdAt: new Date(),
+              courses: sem.courses.map((course) => ({
+                id: createId(),
+                code: course.code,
+                title: course.title,
+                description: course.description,
+                units: course.units,
+                position: course.position,
+                semesterId: semId,
+                createdAt: new Date(),
+              })),
+            };
+          }),
+        });
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: async () => {
+        await tctx.curriculum.getCurriculum.refetch();
+      },
+    });
 
   useEffect(() => {
     const el = document.getElementById(`form${stepIndex}`);
@@ -83,20 +133,8 @@ const AddCurriculumModal = ({
     reset();
   }, [newCurricOpen, reset]);
 
-  const createFromScratch = async () => {
-    try {
-      await createCurriculumMutation({ id: createId() });
-    } catch (error) {
-      createCurriculum({
-        id: createId(),
-        userId: "anon",
-        createdAt: new Date(),
-        updatedAt: new Date(),
-        sems: [],
-      });
-    } finally {
-      setNewCurricOpen(false);
-    }
+  const createFromScratch = () => {
+    createCurriculumMutation({ id: createId() });
   };
 
   const handleNext = () => {
@@ -107,18 +145,16 @@ const AddCurriculumModal = ({
     setStepIndex(0);
   };
 
+  // dont just copy from template
   const onSubmit = async (data: Schema) => {
-    try {
-      await createNewCurriculumFromTemplateMutation({
+    const template = await getTemplateByCode({ code: data.template });
+    if (!template) return;
+    createNewCurriculumFromTemplateMutation({
+      curriculum: {
+        ...template.curriculum,
         id: createId(),
-        code: data.template,
-      });
-    } catch (error) {
-      const template = await getTemplateByCode({ code: data.template });
-      if (template) createCurriculum(template.curriculum);
-    } finally {
-      setNewCurricOpen(false);
-    }
+      },
+    });
   };
 
   return (

@@ -1,7 +1,6 @@
-import type { Course, Prisma, Semester } from "@prisma/client";
+import type { Course, Prisma } from "@prisma/client";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
-import { getPosition } from "../position";
 
 type SemWithCourses = Prisma.SemesterGetPayload<{ include: { courses: true } }>;
 
@@ -10,24 +9,18 @@ type CurricWithSemsAndCourses = Prisma.CurriculumGetPayload<{
 }>;
 
 interface CurriculumState {
-  saved: boolean;
   userId: string;
   curriculum: CurricWithSemsAndCourses | null;
-  deleted: { courses: string[]; sems: string[] };
-  created: { courses: Course[]; sems: Semester[] };
-  updated: { courses: Course[] };
-  saveCurriculum: () => void;
   setUserId: (userId: string) => void;
-  createCurriculum: (currric: CurricWithSemsAndCourses | null) => void;
-  deleteCurriculum: () => void;
+  setCurriculum: (currric: CurricWithSemsAndCourses | null) => void;
   createSemester: (sem: SemWithCourses) => void;
   deleteSemester: (semId: string) => void;
   createCourse: (course: Course) => void;
   updateCourse: (course: Course) => void;
   deleteCourse: (courseId: string) => void;
   moveCourse: (
+    course: Course,
     sourceCourseIndex: number,
-    destinationCourseIndex: number,
     sourceSemIndex: number,
     destinationSemIndex: number
   ) => void;
@@ -36,29 +29,13 @@ interface CurriculumState {
 export const useCurriculumStore = create<CurriculumState>()(
   persist(
     (set) => ({
-      saved: false,
       userId: "",
       curriculum: null,
-      deleted: { courses: [], sems: [] },
-      created: { courses: [], sems: [] },
-      updated: { courses: [] },
-      saveCurriculum: () =>
-        set({
-          saved: true,
-          deleted: { courses: [], sems: [] },
-          created: { courses: [], sems: [] },
-          updated: { courses: [] },
-        }),
       setUserId: (userId) => set({ userId: userId }),
-      createCurriculum: (curric) =>
+      setCurriculum: (curric) =>
         set({
           curriculum: curric,
-          saved: true,
-          deleted: { courses: [], sems: [] },
-          created: { courses: [], sems: [] },
-          updated: { courses: [] },
         }),
-      deleteCurriculum: () => set({ curriculum: null }),
       createSemester: (sem) =>
         set((state) => {
           if (!state.curriculum) return state;
@@ -68,11 +45,6 @@ export const useCurriculumStore = create<CurriculumState>()(
               sems: [...state.curriculum.sems, sem],
               updatedAt: new Date(),
             },
-            created: {
-              ...state.created,
-              sems: [...state.created.sems, sem],
-            },
-            saved: false,
           };
         }),
       deleteSemester: (semId) =>
@@ -84,11 +56,6 @@ export const useCurriculumStore = create<CurriculumState>()(
               sems: state.curriculum.sems.filter((s) => s.id !== semId),
               updatedAt: new Date(),
             },
-            deleted: {
-              ...state.deleted,
-              sems: [...state.deleted.sems, semId],
-            },
-            saved: false,
           };
         }),
       createCourse: (course) =>
@@ -104,11 +71,6 @@ export const useCurriculumStore = create<CurriculumState>()(
               ),
               updatedAt: new Date(),
             },
-            created: {
-              ...state.created,
-              courses: [...state.created.courses, course],
-            },
-            saved: false,
           };
         }),
       updateCourse: (course) =>
@@ -137,10 +99,6 @@ export const useCurriculumStore = create<CurriculumState>()(
               ),
               updatedAt: new Date(),
             },
-            updated: {
-              courses: [...state.updated.courses, course],
-            },
-            saved: false,
           };
         }),
       deleteCourse: (courseId) =>
@@ -155,16 +113,11 @@ export const useCurriculumStore = create<CurriculumState>()(
               })),
               updatedAt: new Date(),
             },
-            deleted: {
-              ...state.deleted,
-              courses: [...state.deleted.courses, courseId],
-            },
-            saved: false,
           };
         }),
       moveCourse: (
+        course,
         sourceCourseIndex,
-        destinationCourseIndex,
         sourceSemIndex,
         destinationSemIndex
       ) =>
@@ -173,19 +126,8 @@ export const useCurriculumStore = create<CurriculumState>()(
           const sourceSem = state.curriculum.sems[sourceSemIndex];
           const destinationSem = state.curriculum.sems[destinationSemIndex];
           if (!sourceSem || !destinationSem) return state;
-          const sourceCourse = sourceSem.courses[sourceCourseIndex];
-          if (!sourceCourse) return state;
-          sourceSem.courses.splice(sourceCourseIndex, 1);
-          const newCourse = {
-            ...sourceCourse,
-            position: getPosition(
-              destinationSem.courses[destinationCourseIndex - 1]?.position ||
-                "aaa",
-              destinationSem.courses[destinationCourseIndex]?.position || "zzz"
-            ),
-            semesterId: destinationSem.id,
-          };
-          destinationSem.courses.push(newCourse);
+          // sourceSem.courses.splice(sourceCourseIndex, 1);
+          destinationSem.courses.push(course);
           destinationSem.courses.sort((a, b) =>
             a.position < b.position ? -1 : 1
           );
@@ -194,21 +136,6 @@ export const useCurriculumStore = create<CurriculumState>()(
               ...state.curriculum,
               updatedAt: new Date(),
             },
-            deleted: {
-              ...state.deleted,
-              courses: [
-                ...state.deleted.courses.filter((c) => c !== newCourse.id),
-                newCourse.id,
-              ],
-            },
-            created: {
-              ...state.created,
-              courses: [
-                ...state.created.courses.filter((c) => c.id !== newCourse.id),
-                newCourse,
-              ],
-            },
-            saved: false,
           };
         }),
     }),

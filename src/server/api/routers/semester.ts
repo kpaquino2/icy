@@ -2,34 +2,30 @@ import { z } from "zod";
 import { createTRPCRouter, protectedProcedure } from "../trpc";
 
 export const semesterRouter = createTRPCRouter({
-  createSemesters: protectedProcedure
-    .input(
-      z
-        .object({
-          id: z.string(),
-          year: z.number(),
-          sem: z.number(),
-          curriculumId: z.string(),
-        })
-        .array()
-    )
-    .mutation(async ({ ctx, input }) => {
-      await ctx.prisma.semester.createMany({
-        data: input,
-      });
-    }),
-  deleteSemesters: protectedProcedure
+  createSemester: protectedProcedure
     .input(
       z.object({
-        ids: z.string().array(),
+        id: z.string(),
+        year: z.number(),
+        sem: z.number(),
+        curriculumId: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
-      await ctx.prisma.semester.deleteMany({
+      await ctx.prisma.semester.create({
+        data: input,
+      });
+    }),
+  deleteSemester: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      await ctx.prisma.semester.delete({
         where: {
-          id: {
-            in: input.ids,
-          },
+          id: input.id,
         },
       });
     }),

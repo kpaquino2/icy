@@ -3,6 +3,7 @@ import { Droppable } from "@hello-pangea/dnd";
 import { type Prisma } from "@prisma/client";
 import { Plus, X } from "phosphor-react";
 import { useState } from "react";
+import { api } from "../../utils/api";
 import { useCurriculumStore } from "../../utils/stores/curriculumStore";
 import AddCourseModal from "./AddCourseModal";
 import Course from "./Course";
@@ -14,10 +15,37 @@ interface SemesterProps {
 const Semester = ({ sem }: SemesterProps) => {
   const deleteSemester = useCurriculumStore((state) => state.deleteSemester);
 
+  let refetchTimeout: NodeJS.Timeout;
+  const tctx = api.useContext();
+  const { mutate: deleteSemesterMutation } =
+    api.semester.deleteSemester.useMutation({
+      onMutate: async (input) => {
+        deleteSemester(input.id);
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: () => {
+        // Cancel previous timeout, if any
+        clearTimeout(refetchTimeout);
+
+        // Set a new timeout to refetch after 500ms
+        refetchTimeout = setTimeout(() => {
+          async () => {
+            await tctx.curriculum.getCurriculum.refetch();
+          };
+        }, 500); // adjust the delay time as needed
+      },
+    });
+
   const [newCourseOpen, setNewCourseOpen] = useState(false);
 
   const handleDelete = () => {
-    deleteSemester(sem.id);
+    deleteSemesterMutation({ id: sem.id });
   };
 
   return (

@@ -6,10 +6,8 @@ import Link from "next/link";
 import {
   ArrowRight,
   Export,
-  FloppyDisk,
   FlowArrow,
   Plus,
-  SpinnerGap,
   TrashSimple,
   X,
 } from "phosphor-react";
@@ -18,121 +16,142 @@ import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
 import Semester from "../components/Curriculum/Semester";
 import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
+import { getPosition } from "../utils/position";
 import { useCurriculumStore } from "../utils/stores/curriculumStore";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
   const [showNotice, setShowNotice] = useState(false);
-  const { data: curriculumData, status: curriculumStatus } =
-    api.curriculum.getCurriculum.useQuery();
+
   const curriculum = useCurriculumStore((state) => state.curriculum);
-  const createCurriculum = useCurriculumStore(
-    (state) => state.createCurriculum
-  );
-  const deleteCurriculum = useCurriculumStore(
-    (state) => state.deleteCurriculum
-  );
+  const setCurriculum = useCurriculumStore((state) => state.setCurriculum);
+
+  const { isLoading: isCurriculumLoading } =
+    api.curriculum.getCurriculum.useQuery(undefined, {
+      onSuccess: (data) => {
+        if (!data) return;
+        setCurriculum(data);
+      },
+    });
 
   const createSemester = useCurriculumStore((state) => state.createSemester);
-
-  const saved = useCurriculumStore((state) => state.saved);
-  const saveCurriculum = useCurriculumStore((state) => state.saveCurriculum);
-  const deleted = useCurriculumStore((state) => state.deleted);
-  const created = useCurriculumStore((state) => state.created);
-  const updated = useCurriculumStore((state) => state.updated);
-  const [isSaving, setIsSaving] = useState(false);
 
   const userId = useCurriculumStore((state) => state.userId);
   const setUserId = useCurriculumStore((state) => state.setUserId);
 
   const [newCurricOpen, setNewCurricOpen] = useState(false);
 
-  const { mutateAsync: deleteCurriculumMutation } =
-    api.curriculum.deleteCurriculum.useMutation();
+  const { mutate: deleteCurriculumMutation } =
+    api.curriculum.deleteCurriculum.useMutation({
+      onMutate: async () => {
+        setCurriculum(null);
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        tctx.curriculum.getCurriculum.setData(undefined, () => undefined);
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: async () => {
+        await tctx.curriculum.getCurriculum.refetch();
+      },
+    });
 
-  const { mutateAsync: createSemestersMutation } =
-    api.semester.createSemesters.useMutation();
-  const { mutateAsync: deleteSemestersMutation } =
-    api.semester.deleteSemesters.useMutation();
+  let refetchTimeout: NodeJS.Timeout;
+  const { mutate: createSemesterMutation } =
+    api.semester.createSemester.useMutation({
+      onMutate: async (input) => {
+        createSemester({
+          ...input,
+          createdAt: new Date(),
+          courses: [],
+        });
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: () => {
+        // Cancel previous timeout, if any
+        clearTimeout(refetchTimeout);
 
-  const { mutateAsync: createCoursesMutation } =
-    api.course.createCourses.useMutation();
-  const { mutateAsync: updateCoursesMutation } =
-    api.course.updateCourses.useMutation();
-  const { mutateAsync: deleteCoursesMutation } =
-    api.course.deleteCourses.useMutation();
-
-  // const { mutate: updateCoursePotisitionMutation } =
-  //   api.course.updateCoursePosition.useMutation({
-  //     onSettled: async () => {
-  //       await tctx.curriculum.getCurriculum.refetch();
-  //     },
-  //   });
+        // Set a new timeout to refetch after 500ms
+        refetchTimeout = setTimeout(() => {
+          async () => {
+            await tctx.curriculum.getCurriculum.refetch();
+          };
+        }, 500); // adjust the delay time as needed
+      },
+    });
 
   useEffect(() => {
     if (sessionStatus === "unauthenticated") setShowNotice(true);
 
     if (sessionStatus !== "loading" && (session?.user.id || "") !== userId) {
-      deleteCurriculum();
+      setCurriculum(null);
       setUserId(session?.user.id || "");
     }
-  }, [sessionStatus, deleteCurriculum, setUserId, userId, session?.user.id]);
-
-  useEffect(() => {
-    if (curriculumStatus === "success" && sessionStatus === "authenticated") {
-      if (
-        curriculum &&
-        curriculumData &&
-        new Date(curriculumData.updatedAt) < new Date(curriculum.updatedAt)
-      )
-        return;
-      createCurriculum(curriculumData);
-      // if (!curriculumData) createCurriculum(curriculumData);
-    }
-  }, [
-    curriculumStatus,
-    curriculumData,
-    createCurriculum,
-    sessionStatus,
-    curriculum,
-  ]);
+  }, [sessionStatus, setCurriculum, setUserId, userId, session?.user.id]);
 
   const handleNewSem = () => {
-    createSemester({
+    if (!curriculum) return;
+    const lastsem = curriculum.sems.at(-1);
+    if (!lastsem) {
+      createSemesterMutation({
+        id: createId(),
+        curriculumId: curriculum.id,
+        year: 1,
+        sem: 1,
+      });
+      return;
+    }
+    createSemesterMutation({
       id: createId(),
-      curriculumId: curriculum?.id || "",
-      year: Math.floor(
-        (curriculum?.sems[curriculum?.sems.length - 1]?.sem || 0) / 2 +
-          (curriculum?.sems[curriculum?.sems.length - 1]?.year || 1)
-      ),
-      sem: ((curriculum?.sems[curriculum?.sems.length - 1]?.sem || 0) % 2) + 1,
-      createdAt: new Date(),
-      courses: [],
+      curriculumId: curriculum.id,
+      year: Math.floor(lastsem.sem / 2 + lastsem.year),
+      sem: (lastsem.sem % 2) + 1,
     });
   };
 
   const tctx = api.useContext();
-  const handleDeleteCurriculum = async () => {
-    await deleteCurriculumMutation({ id: curriculum?.id || "" });
-    deleteCurriculum();
-    tctx.curriculum.getCurriculum.setData(undefined, () => null);
-  };
-
-  const handleSave = async () => {
+  const handleDeleteCurriculum = () => {
     if (!curriculum) return;
-    setIsSaving(true);
-    if (deleted.sems.length)
-      await deleteSemestersMutation({ ids: deleted.sems });
-    if (created.sems.length) await createSemestersMutation(created.sems);
-    if (deleted.courses.length)
-      await deleteCoursesMutation({ ids: deleted.courses });
-    if (created.courses.length) await createCoursesMutation(created.courses);
-    if (updated.courses.length) await updateCoursesMutation(updated.courses);
-    saveCurriculum();
-    setIsSaving(false);
+    deleteCurriculumMutation({ id: curriculum.id });
   };
-
   const moveCourse = useCurriculumStore((state) => state.moveCourse);
+  const { mutate: moveCourseMutation } = api.course.moveCourse.useMutation({
+    onMutate: async (input) => {
+      moveCourse(
+        input.course,
+        input.sourceIndex,
+        input.sourceSemIndex,
+        input.destinationSemIndex
+      );
+      await tctx.curriculum.getCurriculum.cancel();
+      const prev = tctx.curriculum.getCurriculum.getData();
+      return { prev };
+    },
+    onError: (err, input, ctx) => {
+      if (err.data?.code === "UNAUTHORIZED") return;
+      tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+    },
+    onSettled: () => {
+      // Cancel previous timeout, if any
+      clearTimeout(refetchTimeout);
+
+      // Set a new timeout to refetch after 500ms
+      refetchTimeout = setTimeout(() => {
+        async () => {
+          await tctx.curriculum.getCurriculum.refetch();
+        };
+      }, 500); // adjust the delay time as needed
+    },
+  });
 
   const handleDragEnd = (result: DropResult) => {
     if (!curriculum) return;
@@ -142,51 +161,32 @@ const Home: NextPage = () => {
       result.source.index === result.destination.index
     )
       return;
-    const sourseSemIndex = curriculum.sems.findIndex(
-      (s) => s.id === result.source?.droppableId
+    const sourceSemIndex = curriculum.sems.findIndex(
+      (s) => s.id === result.source.droppableId
     );
     const destinationSemIndex = curriculum.sems.findIndex(
       (s) => s.id === result.destination?.droppableId
     );
-    moveCourse(
-      result.source.index,
-      result.destination.index,
-      sourseSemIndex,
-      destinationSemIndex
-    );
-    // if (result.destination) {
-    //   if (
-    //     result.source.droppableId === result.destination.droppableId &&
-    //     result.source.index === result.destination.index
-    //   )
-    //     return;
-    //   const destinationSem = curriculum.sems.find(
-    //     (s) => s.id === result.destination?.droppableId
-    //   );
-    //   if (destinationSem) {
-    //     const prev =
-    //       result.destination?.index === 0
-    //         ? "aaa"
-    //         : destinationSem?.courses[result.destination.index - 1]?.position ||
-    //           "aaa";
-    //     const next =
-    //       result.destination?.index === destinationSem.courses.length - 1
-    //         ? "zzz"
-    //         : destinationSem?.courses[result.destination.index]?.position ||
-    //           "zzz";
-    // updateCoursePotisitionMutation({
-    //   id: result.draggableId,
-    //   position: getPosition(prev, next),
-    // });
-    // }
-    // if (result.destination?.index === 0) {
-    //   const newPosition = getPosition(
-    //     "aaa",
-    //     destinationSem?.courses[0]?.position
-    //   );
-
-    // }
-    // }
+    const sourceSem = curriculum.sems[sourceSemIndex];
+    const destinationSem = curriculum.sems[destinationSemIndex];
+    if (!sourceSem || !destinationSem) return;
+    const sourceCourse = sourceSem.courses[result.source.index];
+    if (!sourceCourse) return;
+    sourceSem.courses.splice(result.source.index, 1);
+    moveCourseMutation({
+      course: {
+        ...sourceCourse,
+        position: getPosition(
+          destinationSem.courses[result.destination.index - 1]?.position ||
+            "aaa",
+          destinationSem.courses[result.destination.index]?.position || "zzz"
+        ),
+        semesterId: result.destination.droppableId,
+      },
+      sourceIndex: result.source.index,
+      sourceSemIndex: sourceSemIndex,
+      destinationSemIndex: destinationSemIndex,
+    });
   };
 
   return (
@@ -202,7 +202,7 @@ const Home: NextPage = () => {
           description="list of all curriculum made by the user"
           crumbs="curriculum"
         >
-          {curriculumStatus === "loading" ? (
+          {isCurriculumLoading ? (
             <div className="grid h-full w-full place-items-center">
               <svg
                 width="72"
@@ -274,32 +274,6 @@ const Home: NextPage = () => {
                       </button>
                     </div>
                     <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={handleSave}
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                        disabled={
-                          sessionStatus === "unauthenticated" ||
-                          saved ||
-                          isSaving
-                        }
-                      >
-                        {isSaving ? (
-                          <>
-                            <SpinnerGap
-                              className="animate-spin"
-                              size={16}
-                              weight="bold"
-                            />
-                            saving
-                          </>
-                        ) : (
-                          <>
-                            <FloppyDisk size={16} weight="bold" />
-                            save
-                          </>
-                        )}
-                      </button>
                       <button
                         type="button"
                         className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
