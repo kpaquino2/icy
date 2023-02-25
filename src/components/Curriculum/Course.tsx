@@ -58,7 +58,7 @@ const Course = ({ course, index }: CourseProps) => {
       <Draggable draggableId={course.id} index={index}>
         {(provided) => (
           <Popover
-            className="mb-8 w-3/4"
+            className="my-2 w-3/4"
             ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}

@@ -80,7 +80,7 @@ const Semester = ({ sem }: SemesterProps) => {
         <Droppable droppableId={sem.id}>
           {(provided) => (
             <Popover.Group
-              className="flex h-full w-full flex-col items-center p-2"
+              className="flex h-full w-full flex-col items-center overflow-hidden p-2"
               ref={provided.innerRef}
               {...provided.droppableProps}
             >
