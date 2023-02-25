@@ -5,6 +5,8 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowsOutCardinal,
+  Cursor,
   Export,
   FlowArrow,
   Plus,
@@ -18,6 +20,7 @@ import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
 import { getPosition } from "../utils/position";
 import { useCurriculumStore } from "../utils/stores/curriculumStore";
+import { useModeStore } from "../utils/stores/modeStore";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
@@ -189,6 +192,8 @@ const Home: NextPage = () => {
     });
   };
 
+  const setMode = useModeStore((state) => state.setMode);
+
   return (
     <>
       <AddCurriculumModal
@@ -260,23 +265,64 @@ const Home: NextPage = () => {
                       <button
                         type="button"
                         onClick={handleNewSem}
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                       >
                         <Plus size={16} weight="bold" />
                         new semester
                       </button>
-                      <button
-                        type="button"
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                      >
-                        <FlowArrow size={16} weight="bold" />
-                        connect prerequisites
-                      </button>
+                      <div className="flex">
+                        <button type="button">
+                          <input
+                            type="radio"
+                            className="peer hidden"
+                            id="select"
+                            name="mode"
+                            defaultChecked
+                            onChange={() => setMode("SELECT")}
+                          />
+                          <label
+                            htmlFor="select"
+                            className="flex h-full items-center gap-2 rounded-l bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                          >
+                            <Cursor size={16} weight="bold" />
+                          </label>
+                        </button>
+                        <button type="button">
+                          <input
+                            type="radio"
+                            className="peer hidden"
+                            id="move"
+                            name="mode"
+                            onChange={() => setMode("MOVE")}
+                          />
+                          <label
+                            htmlFor="move"
+                            className="flex h-full items-center gap-2 bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                          >
+                            <ArrowsOutCardinal size={16} weight="bold" />
+                          </label>
+                        </button>
+                        <button type="button">
+                          <input
+                            type="radio"
+                            className="peer hidden"
+                            id="connect"
+                            name="mode"
+                            onChange={() => setMode("CONNECT")}
+                          />
+                          <label
+                            htmlFor="connect"
+                            className="flex h-full items-center gap-2 rounded-r bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                          >
+                            <FlowArrow size={16} weight="bold" />
+                          </label>
+                        </button>
+                      </div>
                     </div>
                     <div className="flex gap-2">
                       <button
                         type="button"
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                       >
                         <Export size={16} weight="bold" />
                         export
@@ -284,7 +330,7 @@ const Home: NextPage = () => {
                       <button
                         type="button"
                         onClick={handleDeleteCurriculum}
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                       >
                         <TrashSimple size={16} weight="bold" />
                         delete
@@ -326,7 +372,7 @@ const Home: NextPage = () => {
                   </div>
                   <button
                     type="button"
-                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
                     onClick={() => setNewCurricOpen(true)}
                   >
                     <Plus weight="bold" size={20} />

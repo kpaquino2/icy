@@ -6,6 +6,7 @@ import { PencilSimpleLine, TrashSimple } from "phosphor-react";
 import { useRef, useState } from "react";
 import { api } from "../../utils/api";
 import { useCurriculumStore } from "../../utils/stores/curriculumStore";
+import { useModeStore } from "../../utils/stores/modeStore";
 import EditCourseModal from "./EditCourseModal";
 
 interface CourseProps {
@@ -76,6 +77,8 @@ const Course = ({ course, index }: CourseProps) => {
   });
   const hackRef = useRef<HTMLDivElement>(null);
 
+  const mode = useModeStore((state) => state.mode);
+
   return (
     <>
       <EditCourseModal
@@ -84,8 +87,12 @@ const Course = ({ course, index }: CourseProps) => {
         course={course}
         title="edit course"
       />
-      <Draggable draggableId={course.id} index={index}>
-        {(provided, snapshot) => (
+      <Draggable
+        draggableId={course.id}
+        index={index}
+        isDragDisabled={mode !== "MOVE"}
+      >
+        {(provided) => (
           <Popover
             className="my-2 w-3/4"
             ref={provided.innerRef}
@@ -93,9 +100,10 @@ const Course = ({ course, index }: CourseProps) => {
             {...provided.dragHandleProps}
           >
             <Popover.Button
-              as="div"
+              as={mode === "SELECT" ? "button" : "div"}
               ref={reference}
-              className="flex w-full justify-center rounded bg-teal-600 py-2 text-zinc-100 hover:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+              className="flex w-full justify-center rounded bg-teal-600 py-2 text-zinc-100 hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
+              {...(mode !== "SELECT" && { disabled: true })}
             >
               {course.code}
             </Popover.Button>
@@ -118,46 +126,35 @@ const Course = ({ course, index }: CourseProps) => {
                 afterLeave={() => floating(null)}
               >
                 <Popover.Panel className="rounded border-2 border-zinc-200 bg-zinc-100 p-3 dark:border-zinc-800 dark:bg-zinc-900">
-                  {({ close }) => {
-                    if (snapshot.isDragging) close();
-                    return (
-                      <>
-                        <div className="flex justify-end gap-3">
-                          <button
-                            onClick={() => setEditCourseOpen(true)}
-                            className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
-                          >
-                            <PencilSimpleLine size={16} weight="bold" />
-                          </button>
-                          <button
-                            onClick={handleDelete}
-                            className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
-                          >
-                            <TrashSimple size={16} weight="bold" />
-                          </button>
-                        </div>
-                        <div className="flex items-center justify-between">
-                          <div className="text-xl leading-none">
-                            {course.code}
-                          </div>
-                          <div>
-                            {course.units} unit{course.units !== 1 && "s"}
-                          </div>
-                        </div>
+                  <div className="flex justify-end gap-3">
+                    <button
+                      onClick={() => setEditCourseOpen(true)}
+                      className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+                    >
+                      <PencilSimpleLine size={16} weight="bold" />
+                    </button>
+                    <button
+                      onClick={handleDelete}
+                      className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+                    >
+                      <TrashSimple size={16} weight="bold" />
+                    </button>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <div className="text-xl leading-none">{course.code}</div>
+                    <div>
+                      {course.units} unit{course.units !== 1 && "s"}
+                    </div>
+                  </div>
 
-                        <div className="text-sm leading-none text-zinc-600 dark:text-zinc-400">
-                          {course.title || (
-                            <p className="italic">no course title</p>
-                          )}
-                        </div>
-                        <div className="mt-1 leading-tight">
-                          {course.description || (
-                            <p className="italic">no course description</p>
-                          )}
-                        </div>
-                      </>
-                    );
-                  }}
+                  <div className="text-sm leading-none text-zinc-600 dark:text-zinc-400">
+                    {course.title || <p className="italic">no course title</p>}
+                  </div>
+                  <div className="mt-1 leading-tight">
+                    {course.description || (
+                      <p className="italic">no course description</p>
+                    )}
+                  </div>
                 </Popover.Panel>
               </Transition>
             </div>
