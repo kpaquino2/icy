@@ -75,44 +75,46 @@ const AddCurriculumModal = ({
     });
   const { mutate: createNewCurriculumFromTemplateMutation, isLoading } =
     api.curriculum.createCurriculumFromTemplate.useMutation({
-      onMutate: async (input) => {
-        setNewCurricOpen(false);
-        setCurriculum({
-          id: input.curriculum.id,
-          userId: userId,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          sems: input.curriculum.sems.map((sem) => {
-            const semId = createId();
-            return {
-              id: semId,
-              year: sem.year,
-              sem: sem.sem,
-              curriculumId: input.curriculum.id,
-              createdAt: new Date(),
-              courses: sem.courses.map((course) => ({
-                id: createId(),
-                code: course.code,
-                title: course.title,
-                description: course.description,
-                units: course.units,
-                position: course.position,
-                semesterId: semId,
-                createdAt: new Date(),
-              })),
-            };
-          }),
-        });
+      onMutate: async () => {
         await tctx.curriculum.getCurriculum.cancel();
         const prev = tctx.curriculum.getCurriculum.getData();
         return { prev };
       },
       onError: (err, input, ctx) => {
-        if (err.data?.code === "UNAUTHORIZED") return;
+        if (err.data?.code === "UNAUTHORIZED") {
+          setCurriculum({
+            id: input.curriculum.id,
+            userId: userId,
+            createdAt: new Date(),
+            updatedAt: new Date(),
+            sems: input.curriculum.sems.map((sem) => {
+              const semId = createId();
+              return {
+                id: semId,
+                year: sem.year,
+                sem: sem.sem,
+                curriculumId: input.curriculum.id,
+                createdAt: new Date(),
+                courses: sem.courses.map((course) => ({
+                  id: createId(),
+                  code: course.code,
+                  title: course.title,
+                  description: course.description,
+                  units: course.units,
+                  position: course.position,
+                  semesterId: semId,
+                  createdAt: new Date(),
+                })),
+              };
+            }),
+          });
+          return;
+        }
         tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
       },
       onSettled: async () => {
         await tctx.curriculum.getCurriculum.refetch();
+        setNewCurricOpen(false);
       },
     });
 
