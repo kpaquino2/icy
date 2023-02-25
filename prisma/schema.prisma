@@ -41,7 +41,7 @@ model Curriculum {
     user      User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
     sems      Semester[]
     createdAt DateTime   @default(now())
-    updatedAt DateTime   @default(now())
+    updatedAt DateTime   @updatedAt
     template  Template?
 
     @@index([userId])
