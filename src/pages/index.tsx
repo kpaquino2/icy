@@ -309,7 +309,7 @@ const Home: NextPage = () => {
                       )}
                     </div>
                   </div>
-                  <div className="flex border-t-2 border-zinc-200 px-4 py-3 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+                  <div className="flex border-t-2 border-zinc-200 px-4 py-2 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
                     total units:{" "}
                     {curriculum.sems
                       .map((s) =>
