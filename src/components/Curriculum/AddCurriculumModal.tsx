@@ -75,12 +75,7 @@ const AddCurriculumModal = ({
     });
   const { mutate: createNewCurriculumFromTemplateMutation, isLoading } =
     api.curriculum.createCurriculumFromTemplate.useMutation({
-      onMutate: async () => {
-        await tctx.curriculum.getCurriculum.cancel();
-        const prev = tctx.curriculum.getCurriculum.getData();
-        return { prev };
-      },
-      onError: (err, input, ctx) => {
+      onError: (err, input) => {
         if (err.data?.code === "UNAUTHORIZED") {
           setCurriculum({
             id: input.curriculum.id,
@@ -108,9 +103,7 @@ const AddCurriculumModal = ({
               };
             }),
           });
-          return;
         }
-        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
       },
       onSettled: async () => {
         await tctx.curriculum.getCurriculum.refetch();
