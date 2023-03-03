@@ -51,8 +51,8 @@ model Semester {
     id           String     @id @default(cuid())
     curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
     curriculumId String
-    year         Int
-    sem          Int
+    hidden       Boolean    @default(false)
+    number       Int
     createdAt    DateTime   @default(now())
     courses      Course[]
 
