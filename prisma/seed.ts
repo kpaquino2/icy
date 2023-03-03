@@ -15,8 +15,8 @@ const main = async () => {
           create: {
             sems: {
               create: sems.map((sem) => ({
-                year: sem.year,
-                sem: sem.sem,
+                hidden: sem.hidden,
+                number: sem.number,
                 courses: {
                   create: sem.courses.map((course, i) => ({
                     code: course.code,
