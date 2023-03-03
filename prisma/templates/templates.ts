@@ -4,10 +4,8 @@ const templates = [
     code: "BACA_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -67,10 +65,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -128,10 +124,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ENG 101",
@@ -195,10 +194,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "SPCM 104",
@@ -258,10 +255,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMA 190",
@@ -302,10 +302,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 0,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "MAJOR",
@@ -328,17 +326,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "THEA 103",
@@ -382,10 +376,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HUM 104",
@@ -427,6 +419,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 98,
@@ -436,10 +433,8 @@ const templates = [
     code: "BACA_2018_SPCM",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -499,10 +494,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -560,10 +553,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ENG 101",
@@ -627,10 +623,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "SPCM 104",
@@ -690,10 +684,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMA 190",
@@ -734,10 +731,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMA 193",
@@ -778,10 +773,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "COMA 200A",
@@ -792,10 +785,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "THEA 103",
@@ -839,10 +830,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HUM 104",
@@ -884,6 +873,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 106,
@@ -893,10 +887,8 @@ const templates = [
     code: "BACA_2018_THEA",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -956,10 +948,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -1017,10 +1007,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ENG 101",
@@ -1084,10 +1077,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "SPCM 104",
@@ -1147,10 +1138,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMA 190",
@@ -1191,10 +1185,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMA 193",
@@ -1235,10 +1227,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "COMA 200A",
@@ -1249,10 +1239,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "THEA 103",
@@ -1296,10 +1284,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HUM 104",
@@ -1341,6 +1327,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 106,
@@ -1350,10 +1341,8 @@ const templates = [
     code: "BACA_2018_WRITING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -1413,10 +1402,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -1474,10 +1461,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ENG 101",
@@ -1541,10 +1531,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "SPCM 104",
@@ -1604,10 +1592,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMA 190",
@@ -1648,10 +1639,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMA 193",
@@ -1692,10 +1681,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "COMA 200A",
@@ -1706,10 +1693,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "THEA 103",
@@ -1753,10 +1738,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HUM 104",
@@ -1799,6 +1782,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 106,
   },
@@ -1807,10 +1795,8 @@ const templates = [
     code: "BAPHLO_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ETHICS 1",
@@ -1862,10 +1848,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "PI 10",
@@ -1916,64 +1900,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
-        courses: [
-          {
-            code: "PHLO 111",
-            title: "Medieval Philosophy",
-            description:
-              "Major philosophical ideas from Augustine to William of Ockham.",
-            courseUnits: 3,
-          },
-          {
-            code: "PHLO 120",
-            title: "Philosophical Reasoning",
-            description:
-              "Methods and techniques as applied to philosophical problems.",
-            courseUnits: 3,
-          },
-          {
-            code: "PHLO 111",
-            title: "Medieval Philosophy",
-            description:
-              "Major philosophical ideas from Augustine to William of Ockham.",
-            courseUnits: 3,
-          },
-          {
-            code: "PHLO 120",
-            title: "Philosophical Reasoning",
-            description:
-              "Methods and techniques as applied to philosophical problems.",
-            courseUnits: 3,
-          },
-          {
-            code: "GE ELECTIVE",
-            title: "",
-            description: "",
-            courseUnits: 0,
-          },
-          {
-            code: "ELECTIVE",
-            title: "",
-            description: "",
-            courseUnits: 0,
-          },
-          {
-            code: "ELECTIVE",
-            title: "",
-            description: "",
-            courseUnits: 0,
-          },
-        ],
+        hidden: true,
+        number: 2,
+        courses: [],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "COMM 10",
@@ -2018,10 +1951,65 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 4,
+        courses: [
+          {
+            code: "PHLO 111",
+            title: "Medieval Philosophy",
+            description:
+              "Major philosophical ideas from Augustine to William of Ockham.",
+            courseUnits: 3,
+          },
+          {
+            code: "PHLO 120",
+            title: "Philosophical Reasoning",
+            description:
+              "Methods and techniques as applied to philosophical problems.",
+            courseUnits: 3,
+          },
+          {
+            code: "PHLO 111",
+            title: "Medieval Philosophy",
+            description:
+              "Major philosophical ideas from Augustine to William of Ockham.",
+            courseUnits: 3,
+          },
+          {
+            code: "PHLO 120",
+            title: "Philosophical Reasoning",
+            description:
+              "Methods and techniques as applied to philosophical problems.",
+            courseUnits: 3,
+          },
+          {
+            code: "GE ELECTIVE",
+            title: "",
+            description: "",
+            courseUnits: 0,
+          },
+          {
+            code: "ELECTIVE",
+            title: "",
+            description: "",
+            courseUnits: 0,
+          },
+          {
+            code: "ELECTIVE",
+            title: "",
+            description: "",
+            courseUnits: 0,
+          },
+        ],
+      },
+      {
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "PHLO 197",
@@ -2057,10 +2045,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PHLO 113",
@@ -2096,10 +2082,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 6,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "PHLO 178",
@@ -2123,10 +2112,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PHLO 184",
@@ -2149,6 +2136,11 @@ const templates = [
             courseUnits: 3,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 96,
@@ -2158,10 +2150,8 @@ const templates = [
     code: "BAPHLO_2018_SP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ETHICS 1",
@@ -2220,10 +2210,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "PI 10",
@@ -2287,10 +2275,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "COMM 10",
@@ -2353,10 +2344,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHLO 111",
@@ -2411,10 +2400,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "PHLO 197",
@@ -2450,10 +2442,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PHLO 113",
@@ -2471,10 +2461,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "PHLO 178",
@@ -2504,10 +2497,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PHLO 160",
@@ -2537,6 +2528,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 110,
   },
@@ -2545,10 +2541,8 @@ const templates = [
     code: "BAPHLO_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ETHICS 1",
@@ -2607,10 +2601,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "PI 10",
@@ -2674,10 +2666,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "COMM 10",
@@ -2740,10 +2735,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHLO 111",
@@ -2798,10 +2791,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "PHLO 197",
@@ -2837,10 +2833,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PHLO 113",
@@ -2858,10 +2852,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 6,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "PHLO 178",
@@ -2885,10 +2882,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PHLO 184",
@@ -2918,6 +2913,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 105,
   },
@@ -2926,10 +2926,8 @@ const templates = [
     code: "BASOC_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "HIST 1",
@@ -2981,10 +2979,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "HIST 10",
@@ -3041,10 +3037,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ARTS 1",
@@ -3115,10 +3114,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "AERS 160",
@@ -3180,10 +3177,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "SOC 107",
@@ -3232,10 +3232,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "SOC 120",
@@ -3273,10 +3271,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "SOC 198",
@@ -3287,10 +3283,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "SOC 199",
@@ -3327,10 +3321,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "SOC 112",
@@ -3368,6 +3360,11 @@ const templates = [
             courseUnits: 3,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 123,
@@ -3377,10 +3374,8 @@ const templates = [
     code: "BASOC_2018_PRACTICUM",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -3439,10 +3434,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "HIST 10",
@@ -3499,10 +3492,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ARTS 1",
@@ -3573,10 +3569,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "AERS 160",
@@ -3638,10 +3632,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "SOC 107",
@@ -3690,10 +3687,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "SOC 120",
@@ -3731,10 +3726,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "SOC 198",
@@ -3745,10 +3738,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "SOC 199",
@@ -3791,10 +3782,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "SOC 112",
@@ -3838,6 +3827,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 128,
@@ -3847,10 +3841,8 @@ const templates = [
     code: "BASOC_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -3909,10 +3901,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "HIST 10",
@@ -3969,10 +3959,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ARTS 1",
@@ -4043,10 +4036,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "AERS 160",
@@ -4108,10 +4099,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "SOC 107",
@@ -4160,10 +4154,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "SOC 120",
@@ -4201,10 +4193,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "SOC 198",
@@ -4215,10 +4205,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "SOC 199",
@@ -4261,10 +4249,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "SOC 112",
@@ -4309,6 +4295,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 128,
   },
@@ -4317,10 +4308,8 @@ const templates = [
     code: "BSA_2018_AERS_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -4373,10 +4362,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -4427,10 +4414,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -4476,10 +4466,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -4530,10 +4518,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -4577,10 +4568,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -4620,10 +4609,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AERS 200A",
@@ -4634,10 +4621,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -4687,10 +4672,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AERS 200A",
@@ -4705,6 +4688,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 118,
@@ -4714,10 +4702,8 @@ const templates = [
     code: "BSA_2018_AERS_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -4770,10 +4756,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -4824,10 +4808,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -4873,10 +4860,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -4927,10 +4912,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -4974,10 +4962,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -5017,10 +5003,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AERS 190",
@@ -5031,10 +5015,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -5084,10 +5066,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AERS 200",
@@ -5103,6 +5083,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 118,
   },
@@ -5111,10 +5096,8 @@ const templates = [
     code: "BSA_2018_AGR_CRP_PROD_MGMT_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -5167,10 +5150,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -5221,10 +5202,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -5270,10 +5254,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -5324,10 +5306,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -5371,10 +5356,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -5413,10 +5396,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AGR 200A",
@@ -5427,10 +5408,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -5495,10 +5474,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AGR 200A",
@@ -5514,6 +5491,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 124,
   },
@@ -5522,10 +5504,8 @@ const templates = [
     code: "BSA_2018_AGR_CRP_PROD_MGMT_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -5578,10 +5558,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -5632,10 +5610,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -5681,10 +5662,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -5735,10 +5714,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -5782,10 +5764,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -5824,10 +5804,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AGR 198",
@@ -5838,10 +5816,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -5906,10 +5882,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AGR 200",
@@ -5925,6 +5899,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 124,
   },
@@ -5933,10 +5912,8 @@ const templates = [
     code: "BSA_2018_AGR_PLNT_BRDNG_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -5989,10 +5966,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 24,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -6050,10 +6025,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABME 10",
@@ -6092,10 +6070,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -6146,10 +6122,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -6193,10 +6172,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -6235,10 +6212,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AGR 200A",
@@ -6249,10 +6224,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -6263,10 +6236,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AGR 200A",
@@ -6282,6 +6253,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 104,
   },
@@ -6290,10 +6266,8 @@ const templates = [
     code: "BSA_2018_AGR_PLNT_BRDNG_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -6346,10 +6320,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -6400,10 +6372,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -6449,10 +6424,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -6503,10 +6476,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -6550,10 +6526,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -6592,10 +6566,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AGR 198",
@@ -6606,10 +6578,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -6674,10 +6644,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AGR 200",
@@ -6693,6 +6661,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 121,
   },
@@ -6701,10 +6674,8 @@ const templates = [
     code: "BSA_2018_AGR_SEED_SCI_TECH_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -6757,10 +6728,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -6811,10 +6780,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -6860,10 +6832,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -6914,10 +6884,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -6961,10 +6934,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -7003,10 +6974,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AGR 200A",
@@ -7017,10 +6986,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGR 199",
@@ -7085,10 +7052,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AGR 200A",
@@ -7104,6 +7069,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 124,
   },
@@ -7112,10 +7082,8 @@ const templates = [
     code: "BSA_2018_AGR_SEED_SCI_TECH_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -7168,10 +7136,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -7222,10 +7188,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -7271,10 +7240,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -7325,10 +7292,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -7372,10 +7342,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -7414,17 +7382,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -7489,10 +7453,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AGR 200",
@@ -7508,6 +7470,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 123,
   },
@@ -7516,10 +7483,8 @@ const templates = [
     code: "BSA_2018_ANSC_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -7578,10 +7543,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -7626,10 +7589,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -7675,10 +7641,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -7729,10 +7693,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -7776,10 +7743,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -7818,10 +7783,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ANSC 200A",
@@ -7832,10 +7795,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -7892,10 +7853,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ANSC 200A",
@@ -7911,6 +7870,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 121,
   },
@@ -7919,10 +7883,8 @@ const templates = [
     code: "BSA_2018_ANSC_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -7975,10 +7937,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -8029,10 +7989,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -8078,10 +8041,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -8132,10 +8093,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -8179,10 +8143,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -8221,10 +8183,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ANSC 198",
@@ -8235,10 +8195,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -8295,10 +8253,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ANSC 200",
@@ -8314,6 +8270,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 123,
   },
@@ -8322,10 +8283,8 @@ const templates = [
     code: "BSA_2018_ASYS_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -8378,10 +8337,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -8432,10 +8389,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -8481,10 +8441,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -8535,10 +8493,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -8582,10 +8543,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -8624,10 +8583,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "SOIL 200A",
@@ -8638,10 +8595,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -8692,10 +8647,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "SOIL 200A",
@@ -8711,6 +8664,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 118,
   },
@@ -8719,10 +8677,8 @@ const templates = [
     code: "BSA_2018_ASYS_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -8775,10 +8731,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -8829,10 +8783,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -8878,10 +8835,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -8932,10 +8887,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -8979,10 +8937,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -9021,10 +8977,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "SOIL 198",
@@ -9035,10 +8989,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -9089,10 +9041,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "SOIL 200",
@@ -9108,6 +9058,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 120,
   },
@@ -9116,10 +9071,8 @@ const templates = [
     code: "BSA_2018_ENT_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -9172,10 +9125,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -9226,10 +9177,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -9275,10 +9229,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -9329,10 +9281,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -9376,10 +9331,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -9418,10 +9371,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ENT 200A",
@@ -9432,10 +9383,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -9486,10 +9435,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ENT 200A",
@@ -9505,6 +9452,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 118,
   },
@@ -9513,10 +9465,8 @@ const templates = [
     code: "BSA_2018_ENT_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -9569,10 +9519,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -9623,10 +9571,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -9672,10 +9623,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -9726,10 +9675,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -9773,10 +9725,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -9815,10 +9765,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ENT 198",
@@ -9829,10 +9777,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -9883,10 +9829,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200A",
@@ -9902,6 +9846,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 120,
   },
@@ -9910,10 +9859,8 @@ const templates = [
     code: "BSA_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -9966,10 +9913,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -10020,10 +9965,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -10069,10 +10017,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -10123,10 +10069,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -10169,10 +10118,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -10210,17 +10157,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -10256,10 +10199,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 0,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ELECTIVE",
@@ -10268,6 +10209,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 93,
@@ -10277,10 +10223,8 @@ const templates = [
     code: "BSA_2018_HORT_CPM_FRUITS_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -10333,10 +10277,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -10387,10 +10329,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -10436,10 +10381,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -10490,10 +10433,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -10537,10 +10483,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -10579,10 +10523,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 200A",
@@ -10593,10 +10535,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -10654,10 +10594,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200A",
@@ -10672,6 +10610,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -10681,10 +10624,8 @@ const templates = [
     code: "BSA_2018_HORT_CPM_FRUITS_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -10744,10 +10685,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 51",
@@ -10791,10 +10730,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -10840,10 +10782,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -10894,10 +10834,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -10941,10 +10884,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -10983,10 +10924,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 198",
@@ -10997,10 +10936,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -11058,10 +10995,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200",
@@ -11076,6 +11011,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 119,
@@ -11085,10 +11025,8 @@ const templates = [
     code: "BSA_2018_HORT_CPM_ORN_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -11141,10 +11079,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -11195,10 +11131,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -11244,10 +11183,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -11298,10 +11235,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -11345,10 +11285,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -11387,10 +11325,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 200A",
@@ -11401,10 +11337,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -11462,10 +11396,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200A",
@@ -11480,6 +11412,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -11489,10 +11426,8 @@ const templates = [
     code: "BSA_2018_HORT_CPM_ORN_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -11552,10 +11487,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 51",
@@ -11599,10 +11532,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -11648,10 +11584,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -11702,10 +11636,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -11749,10 +11686,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -11791,10 +11726,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 198",
@@ -11805,10 +11738,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -11866,10 +11797,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200",
@@ -11884,6 +11813,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 119,
@@ -11893,10 +11827,8 @@ const templates = [
     code: "BSA_2018_HORT_CPM_VEG_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -11949,10 +11881,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -12003,10 +11933,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -12052,10 +11985,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -12106,10 +12037,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -12153,10 +12087,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -12195,10 +12127,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 200A",
@@ -12209,10 +12139,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -12270,10 +12198,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200A",
@@ -12288,6 +12214,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -12297,10 +12228,8 @@ const templates = [
     code: "BSA_2018_HORT_CPM_VEG_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -12360,10 +12289,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 51",
@@ -12407,10 +12334,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -12456,10 +12386,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -12510,10 +12438,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -12557,10 +12488,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -12599,10 +12528,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 198",
@@ -12613,10 +12540,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -12674,10 +12599,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200",
@@ -12692,6 +12615,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 119,
@@ -12701,10 +12629,8 @@ const templates = [
     code: "BSA_2018_HORT_LANDSCAPE_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -12757,10 +12683,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -12811,10 +12735,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -12860,10 +12787,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -12914,10 +12839,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -12961,10 +12889,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -13003,10 +12929,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 200A",
@@ -13017,10 +12941,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -13078,10 +13000,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200",
@@ -13096,6 +13016,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -13105,10 +13030,8 @@ const templates = [
     code: "BSA_2018_HORT_LANDSCAPE_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -13161,10 +13084,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -13215,10 +13136,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -13264,10 +13188,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -13318,10 +13240,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -13365,10 +13290,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -13407,10 +13330,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 198",
@@ -13421,10 +13342,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -13482,10 +13401,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200",
@@ -13500,6 +13417,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -13509,10 +13431,8 @@ const templates = [
     code: "BSA_2018_HORT_PB_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -13565,10 +13485,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -13619,10 +13537,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -13668,10 +13589,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -13722,10 +13641,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -13769,10 +13691,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -13811,10 +13731,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 200A",
@@ -13825,10 +13743,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -13886,10 +13802,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200A",
@@ -13904,6 +13818,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -13913,10 +13832,8 @@ const templates = [
     code: "BSA_2018_HORT_PB_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -13969,10 +13886,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -14023,10 +13938,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -14072,10 +13990,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -14126,10 +14042,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -14173,10 +14092,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -14215,10 +14132,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 198",
@@ -14229,10 +14144,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -14290,10 +14203,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 0,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ELECTIVE",
@@ -14302,6 +14213,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 120,
@@ -14311,10 +14227,8 @@ const templates = [
     code: "BSA_2018_HORT_PH_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -14367,10 +14281,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -14421,10 +14333,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -14470,10 +14385,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -14524,10 +14437,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -14571,10 +14487,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -14613,10 +14527,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 200A",
@@ -14627,10 +14539,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -14688,10 +14598,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200A",
@@ -14706,6 +14614,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -14715,10 +14628,8 @@ const templates = [
     code: "BSA_2018_HORT_PH_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -14778,10 +14689,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 51",
@@ -14825,10 +14734,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -14874,10 +14786,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -14928,10 +14838,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -14975,10 +14888,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -15017,10 +14928,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 198",
@@ -15031,10 +14940,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -15092,10 +14999,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200",
@@ -15110,6 +15015,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 119,
@@ -15119,10 +15029,8 @@ const templates = [
     code: "BSA_2018_HORT_PHYSIO_TISSUE_CULTURE",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -15175,10 +15083,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -15229,10 +15135,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -15278,10 +15187,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -15332,10 +15239,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -15379,10 +15289,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -15421,10 +15329,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 198",
@@ -15435,10 +15341,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -15496,10 +15400,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200",
@@ -15515,6 +15417,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 121,
   },
@@ -15523,10 +15430,8 @@ const templates = [
     code: "BSA_2018_LAF_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -15579,10 +15484,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -15633,10 +15536,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -15682,10 +15588,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -15736,10 +15640,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -15783,10 +15690,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -15825,10 +15730,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "LAF 200A",
@@ -15839,10 +15742,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -15894,10 +15795,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "LAF 200A",
@@ -15913,6 +15812,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 120,
   },
@@ -15921,10 +15825,8 @@ const templates = [
     code: "BSA_2018_LAF_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -15977,10 +15879,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -16031,10 +15931,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -16080,10 +15983,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -16134,10 +16035,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -16181,10 +16085,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -16223,10 +16125,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "LAF 198",
@@ -16237,10 +16137,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -16292,10 +16190,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "LAF 200",
@@ -16311,6 +16207,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 120,
   },
@@ -16319,10 +16220,8 @@ const templates = [
     code: "BSA_2018_PPTH_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -16375,10 +16274,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -16429,10 +16326,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -16478,10 +16378,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -16532,10 +16430,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -16579,10 +16480,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -16621,10 +16520,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "PPTH 200A",
@@ -16635,10 +16532,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -16689,10 +16584,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PPTH 200A",
@@ -16708,6 +16601,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 118,
   },
@@ -16716,10 +16614,8 @@ const templates = [
     code: "BSA_2018_PPTH_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 36,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -16820,10 +16716,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 42,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -16920,10 +16814,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 30,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -17004,10 +16901,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 34,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -17098,10 +16993,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 30,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -17178,10 +17076,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 30,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -17254,10 +17150,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 4,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ENT 200A",
@@ -17274,10 +17168,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 32,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -17375,10 +17267,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 2,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ENT 200A",
@@ -17400,6 +17290,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 240,
   },
@@ -17408,10 +17303,8 @@ const templates = [
     code: "BSA_2018_SOIL_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -17464,10 +17357,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -17518,10 +17409,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -17567,10 +17461,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -17621,10 +17513,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -17668,10 +17563,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -17710,10 +17603,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "SOIL 200A",
@@ -17724,10 +17615,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -17778,10 +17667,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "SOIL 200A",
@@ -17797,6 +17684,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 118,
   },
@@ -17805,10 +17697,8 @@ const templates = [
     code: "BSA_2018_SOIL_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -17861,10 +17751,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -17915,10 +17803,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -17964,10 +17855,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -18018,10 +17907,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -18065,10 +17957,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -18107,10 +17997,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "SOIL 198",
@@ -18121,10 +18009,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -18175,10 +18061,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "SOIL 200",
@@ -18194,6 +18078,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 120,
   },
@@ -18202,10 +18091,8 @@ const templates = [
     code: "BSA_2018_WEEDS_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -18258,10 +18145,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -18312,10 +18197,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -18361,10 +18249,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -18415,10 +18301,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -18462,10 +18351,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -18504,10 +18391,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "WSC 200A",
@@ -18518,10 +18403,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -18573,10 +18456,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "WSC 200A",
@@ -18591,6 +18472,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 115,
@@ -18600,10 +18486,8 @@ const templates = [
     code: "BSA_2018_WEEDS_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -18656,10 +18540,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -18710,10 +18592,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -18759,10 +18644,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -18813,10 +18696,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -18860,10 +18746,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -18902,10 +18786,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "WSC 190",
@@ -18916,10 +18798,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -18971,10 +18851,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "WSC 200",
@@ -18990,6 +18868,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 115,
   },
@@ -18998,10 +18881,8 @@ const templates = [
     code: "BSAAE_2018_AMP_MP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -19060,10 +18941,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -19110,10 +18989,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -19160,10 +19042,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -19209,10 +19089,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -19260,10 +19143,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -19303,10 +19184,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -19317,10 +19196,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -19363,10 +19240,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -19401,6 +19276,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -19410,10 +19290,8 @@ const templates = [
     code: "BSAAE_2018_AMP_TH",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -19472,10 +19350,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -19522,10 +19398,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -19572,10 +19451,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -19621,10 +19498,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -19672,10 +19552,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -19715,10 +19593,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -19729,10 +19605,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -19775,10 +19649,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -19813,6 +19685,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -19822,10 +19699,8 @@ const templates = [
     code: "BSAAE_2018_FNE_MP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -19884,10 +19759,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -19934,10 +19807,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -19984,10 +19860,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -20033,10 +19907,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -20084,10 +19961,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -20127,10 +20002,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -20141,10 +20014,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -20187,10 +20058,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -20225,6 +20094,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -20234,10 +20108,8 @@ const templates = [
     code: "BSAAE_2018_FNE_TH",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -20296,10 +20168,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -20346,10 +20216,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -20396,10 +20269,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -20445,10 +20316,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -20496,10 +20370,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -20539,10 +20411,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -20553,10 +20423,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -20599,10 +20467,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -20637,6 +20503,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -20646,10 +20517,8 @@ const templates = [
     code: "BSAAE_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -20708,10 +20577,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -20758,10 +20625,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -20808,10 +20678,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -20857,10 +20725,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -20908,10 +20779,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -20951,10 +20820,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -20965,10 +20832,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -21005,10 +20870,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -21037,6 +20900,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 114,
@@ -21046,10 +20914,8 @@ const templates = [
     code: "BSAAE_2018_NRE_MP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -21108,10 +20974,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -21158,10 +21022,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -21208,10 +21075,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -21257,10 +21122,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -21308,10 +21176,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -21351,10 +21217,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -21365,10 +21229,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -21411,10 +21273,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -21449,6 +21309,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -21458,10 +21323,8 @@ const templates = [
     code: "BSAAE_2018_NRE_TH",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -21520,10 +21383,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -21570,10 +21431,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -21620,10 +21484,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -21669,10 +21531,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -21720,10 +21585,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -21763,10 +21626,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -21777,10 +21638,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -21823,10 +21682,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -21861,6 +21718,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -21870,10 +21732,8 @@ const templates = [
     code: "BSAAE_2018_PEFM_MP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -21932,10 +21792,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -21982,10 +21840,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -22032,10 +21893,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -22081,10 +21940,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -22132,10 +21994,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -22175,10 +22035,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -22189,10 +22047,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -22235,10 +22091,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -22273,6 +22127,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -22282,10 +22141,8 @@ const templates = [
     code: "BSAAE_2018_PEFM_TH",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -22344,10 +22201,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -22394,10 +22249,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -22444,10 +22302,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -22493,10 +22349,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -22544,10 +22403,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -22587,10 +22444,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -22601,10 +22456,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -22647,10 +22500,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -22685,6 +22536,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -22694,10 +22550,8 @@ const templates = [
     code: "BSAAE_2018_RFC_MP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -22756,10 +22610,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -22806,10 +22658,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -22856,10 +22711,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -22905,10 +22758,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -22956,10 +22812,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -22999,10 +22853,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -23013,10 +22865,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -23059,10 +22909,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -23097,6 +22945,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 116,
@@ -23106,10 +22959,8 @@ const templates = [
     code: "BSAAE_2018_RFC_TH",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -23168,10 +23019,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ETHICS 1",
@@ -23218,10 +23067,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AAE 103",
@@ -23268,10 +23120,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ARTS 1",
@@ -23317,10 +23167,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENG 10",
@@ -23368,10 +23221,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -23411,10 +23262,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AAE 198",
@@ -23425,10 +23274,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AAE 151",
@@ -23471,10 +23318,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AAE 150",
@@ -23510,6 +23355,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 116,
   },
@@ -23518,10 +23368,8 @@ const templates = [
     code: "BSABE_2018_ABSEE_ENGINEERING_INDUSTRY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -23588,10 +23436,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -23642,10 +23488,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -23691,10 +23540,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -23741,10 +23588,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -23792,10 +23642,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -23843,17 +23691,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -23898,10 +23742,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -23945,6 +23787,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 133,
@@ -23954,10 +23801,8 @@ const templates = [
     code: "BSABE_2018_ABSEE_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -24024,10 +23869,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -24078,10 +23921,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -24127,10 +23973,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -24177,10 +24021,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "ABE 198",
@@ -24191,10 +24033,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -24242,10 +24082,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -24293,10 +24131,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -24341,10 +24182,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -24388,6 +24227,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 134,
@@ -24397,10 +24241,8 @@ const templates = [
     code: "BSABE_2018_ABSEE_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -24467,10 +24309,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -24521,10 +24361,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -24570,10 +24413,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -24620,10 +24461,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -24671,10 +24515,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -24722,17 +24564,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -24777,10 +24615,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -24824,6 +24660,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 133,
@@ -24833,10 +24674,8 @@ const templates = [
     code: "BSABE_2018_ABSEE_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -24903,10 +24742,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -24957,10 +24794,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -25006,10 +24846,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -25056,10 +24894,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -25107,10 +24948,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -25158,10 +24997,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABE 198",
@@ -25172,10 +25009,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -25220,10 +25055,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -25267,6 +25100,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 136,
@@ -25276,10 +25114,8 @@ const templates = [
     code: "BSABE_2018_AFBE_ENGINEERING_INDUSTRY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -25340,10 +25176,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -25394,10 +25228,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -25443,10 +25280,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -25493,10 +25328,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -25544,10 +25382,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -25595,17 +25431,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -25650,10 +25482,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -25697,6 +25527,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 130,
@@ -25706,10 +25541,8 @@ const templates = [
     code: "BSABE_2018_AFBE_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -25776,10 +25609,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -25830,10 +25661,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -25879,10 +25713,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -25929,10 +25761,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "ABE 198",
@@ -25943,10 +25773,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -25994,10 +25822,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -26045,10 +25871,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -26093,10 +25922,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -26140,6 +25967,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 134,
@@ -26149,10 +25981,8 @@ const templates = [
     code: "BSABE_2018_AFBE_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -26213,10 +26043,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -26267,10 +26095,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -26316,10 +26147,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -26366,10 +26195,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -26417,10 +26249,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -26468,17 +26298,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -26523,10 +26349,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -26570,6 +26394,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 130,
@@ -26579,10 +26408,8 @@ const templates = [
     code: "BSABE_2018_AFBE_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -26643,10 +26470,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -26697,10 +26522,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -26746,10 +26574,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -26796,10 +26622,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -26847,10 +26676,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -26898,17 +26725,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -26953,10 +26776,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -27000,6 +26821,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 130,
@@ -27009,10 +26835,8 @@ const templates = [
     code: "BSABE_2018_AMPE_ENGINEERING_INDUSTRY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -27073,10 +26897,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -27127,10 +26949,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -27176,10 +27001,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -27226,10 +27049,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -27277,10 +27103,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -27328,17 +27152,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -27383,10 +27203,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -27430,6 +27248,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 130,
@@ -27439,10 +27262,8 @@ const templates = [
     code: "BSABE_2018_AMPE_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -27509,10 +27330,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -27563,10 +27382,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -27612,10 +27434,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -27662,10 +27482,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "ABE 198",
@@ -27676,10 +27494,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -27727,10 +27543,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -27778,10 +27592,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -27826,10 +27643,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -27873,6 +27688,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 134,
@@ -27882,10 +27702,8 @@ const templates = [
     code: "BSABE_2018_AMPE_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -27946,10 +27764,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -28000,10 +27816,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -28049,10 +27868,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -28099,10 +27916,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -28150,10 +27970,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -28201,17 +28019,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -28256,10 +28070,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -28303,6 +28115,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 130,
@@ -28312,10 +28129,8 @@ const templates = [
     code: "BSABE_2018_AMPE_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -28376,10 +28191,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -28430,10 +28243,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -28479,10 +28295,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -28529,10 +28343,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -28580,10 +28397,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -28631,17 +28446,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -28686,10 +28497,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -28733,6 +28542,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 130,
@@ -28742,10 +28556,8 @@ const templates = [
     code: "BSABE_2018_LWRE_ENGINEERING_INDUSTRY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -28806,10 +28618,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -28860,10 +28670,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -28909,10 +28722,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -28959,10 +28770,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -29010,10 +28824,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -29061,17 +28873,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -29116,10 +28924,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -29164,6 +28970,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 130,
   },
@@ -29172,10 +28983,8 @@ const templates = [
     code: "BSABE_2018_LWRE_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 31",
@@ -29235,10 +29044,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -29289,10 +29096,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -29338,10 +29148,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -29388,10 +29196,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "ABE 198",
@@ -29402,10 +29208,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -29453,10 +29257,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -29504,10 +29306,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -29552,10 +29357,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -29599,6 +29402,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 133,
@@ -29608,10 +29416,8 @@ const templates = [
     code: "BSABE_2018_LWRE_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -29672,10 +29478,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -29726,10 +29530,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -29775,10 +29582,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -29825,10 +29630,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -29876,10 +29684,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -29927,17 +29733,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -29982,10 +29784,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -30029,6 +29829,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 130,
@@ -30038,10 +29843,8 @@ const templates = [
     code: "BSABE_2018_LWRE_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABE 30",
@@ -30102,10 +29905,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -30156,10 +29957,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABE 43",
@@ -30205,10 +30009,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 52",
@@ -30255,10 +30057,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 62",
@@ -30306,10 +30111,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABE 74",
@@ -30357,17 +30160,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ABE 80",
@@ -30412,10 +30211,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 83",
@@ -30459,6 +30256,11 @@ const templates = [
             courseUnits: 1,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 130,
@@ -30469,10 +30271,8 @@ const templates = [
     code: "BSABME_2018_AGRI_ENTRE",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABME 10",
@@ -30527,10 +30327,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -30583,10 +30381,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABME 103",
@@ -30631,10 +30432,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ECON 102",
@@ -30682,10 +30481,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ECON 101",
@@ -30737,10 +30539,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PI 10",
@@ -30784,10 +30584,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABME 198",
@@ -30798,10 +30596,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 161",
@@ -30845,10 +30641,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABME 190",
@@ -30884,6 +30678,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 119,
@@ -30894,10 +30693,8 @@ const templates = [
     code: "BSABME_2018_AGRI_MGMT",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABME 10",
@@ -30952,10 +30749,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -31008,10 +30803,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABME 103",
@@ -31056,10 +30854,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ECON 102",
@@ -31107,10 +30903,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ECON 101",
@@ -31162,10 +30961,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PI 10",
@@ -31209,10 +31006,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABME 198",
@@ -31223,10 +31018,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 161",
@@ -31270,10 +31063,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABME 190",
@@ -31310,6 +31101,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 119,
   },
@@ -31319,10 +31115,8 @@ const templates = [
     code: "BSABME_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABME 10",
@@ -31377,10 +31171,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 21",
@@ -31433,10 +31225,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABME 103",
@@ -31481,10 +31276,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ECON 102",
@@ -31532,10 +31325,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ECON 101",
@@ -31580,10 +31376,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PI 10",
@@ -31620,10 +31414,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABME 198",
@@ -31634,10 +31426,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 161",
@@ -31674,10 +31464,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABME 190",
@@ -31714,6 +31502,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 110,
   },
@@ -31722,10 +31515,8 @@ const templates = [
     code: "BSABT_2018_ANBIO_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -31778,10 +31569,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -31840,10 +31629,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -31888,10 +31680,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -31941,10 +31731,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -31996,10 +31789,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -32031,10 +31822,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABT 200A",
@@ -32045,10 +31834,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -32066,10 +31853,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -32103,6 +31888,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 112,
@@ -32112,10 +31902,8 @@ const templates = [
     code: "BSABT_2018_ANBIO_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -32168,10 +31956,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -32230,10 +32016,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -32278,10 +32067,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -32331,10 +32118,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -32386,10 +32176,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -32421,10 +32209,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABT 198",
@@ -32435,10 +32221,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -32456,10 +32240,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -32493,6 +32275,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 112,
@@ -32502,10 +32289,8 @@ const templates = [
     code: "BSABT_2018_CROPBIO_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -32558,10 +32343,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -32620,10 +32403,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -32668,10 +32454,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -32721,10 +32505,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -32776,10 +32563,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -32811,10 +32596,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABT 200A",
@@ -32825,10 +32608,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -32846,10 +32627,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -32883,6 +32662,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 112,
@@ -32892,10 +32676,8 @@ const templates = [
     code: "BSABT_2018_CROPBIO_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -32948,10 +32730,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -33010,10 +32790,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -33058,10 +32841,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -33111,10 +32892,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -33166,10 +32950,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -33201,10 +32983,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABT 198",
@@ -33215,10 +32995,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -33236,10 +33014,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -33273,6 +33049,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 112,
@@ -33282,10 +33063,8 @@ const templates = [
     code: "BSABT_2018_CRPPROTBIO_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -33338,10 +33117,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -33400,10 +33177,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -33448,10 +33228,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -33501,10 +33279,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -33556,10 +33337,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -33591,10 +33370,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABT 200A",
@@ -33605,10 +33382,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -33626,10 +33401,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -33663,6 +33436,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 112,
@@ -33672,10 +33450,8 @@ const templates = [
     code: "BSABT_2018_CRPPROTBIO_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -33728,10 +33504,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -33790,10 +33564,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -33838,10 +33615,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -33891,10 +33666,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -33946,10 +33724,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -33981,10 +33757,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABT 198",
@@ -33995,10 +33769,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -34016,10 +33788,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -34054,6 +33824,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 112,
   },
@@ -34062,10 +33837,8 @@ const templates = [
     code: "BSABT_2018_FOODBIO_MPSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -34118,10 +33891,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -34180,10 +33951,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -34228,10 +34002,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -34281,10 +34053,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -34336,10 +34111,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -34371,10 +34144,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABT 200A",
@@ -34385,10 +34156,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -34406,10 +34175,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -34444,6 +34211,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 112,
   },
@@ -34452,10 +34224,8 @@ const templates = [
     code: "BSABT_2018_FOODBIO_THPR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -34508,10 +34278,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -34570,10 +34338,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -34618,10 +34389,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -34671,10 +34440,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -34726,10 +34498,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -34761,10 +34531,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ABT 198",
@@ -34775,10 +34543,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -34796,10 +34562,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 6,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -34834,6 +34598,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 112,
   },
@@ -34842,10 +34611,8 @@ const templates = [
     code: "BSABT_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ABT 11",
@@ -34898,10 +34665,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 40",
@@ -34960,10 +34725,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABT 101",
@@ -35008,10 +34776,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABT 103",
@@ -35061,10 +34827,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABT 104",
@@ -35116,10 +34885,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ABT 106",
@@ -35151,17 +34918,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MGT 101",
@@ -35173,10 +34936,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABT 108",
@@ -35205,6 +34966,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 109,
   },
@@ -35213,10 +34979,8 @@ const templates = [
     code: "BSAC_2018",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHEM 18",
@@ -35275,10 +35039,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 19",
@@ -35336,10 +35098,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 27,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHEM 32",
@@ -35415,10 +35180,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 24,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 43",
@@ -35486,10 +35249,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHEM 44",
@@ -35547,10 +35313,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHEM 111",
@@ -35595,10 +35359,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHEM 111.1",
@@ -35644,10 +35411,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHEM 112.1",
@@ -35685,10 +35450,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 11,
         courses: [
           {
             code: "CHEM 198",
@@ -35700,10 +35463,8 @@ const templates = [
         ],
       },
       {
-        year: 5,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 12,
         courses: [
           {
             code: "CHEM 120",
@@ -35748,10 +35509,8 @@ const templates = [
         ],
       },
       {
-        year: 5,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 13,
         courses: [
           {
             code: "CHEM 180",
@@ -35787,6 +35546,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 14,
+        courses: [],
+      },
     ],
     totalUnits: 185,
   },
@@ -35795,10 +35559,8 @@ const templates = [
     code: "BSAC_2020",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -35851,10 +35613,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 19",
@@ -35912,10 +35672,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 25,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ECON 11",
@@ -35986,10 +35749,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 32",
@@ -36056,10 +35817,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHEM 44",
@@ -36117,10 +35881,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHEM 44.1",
@@ -36165,10 +35927,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHEM 111.1",
@@ -36213,10 +35978,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHEM 112.1",
@@ -36254,10 +36017,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 11,
         courses: [
           {
             code: "CHEM 198",
@@ -36269,10 +36030,8 @@ const templates = [
         ],
       },
       {
-        year: 5,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 12,
         courses: [
           {
             code: "CHEM 120",
@@ -36317,10 +36076,8 @@ const templates = [
         ],
       },
       {
-        year: 5,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 13,
         courses: [
           {
             code: "CHEM 133",
@@ -36356,6 +36113,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 14,
+        courses: [],
+      },
     ],
     totalUnits: 179,
   },
@@ -36364,10 +36126,8 @@ const templates = [
     code: "BSAM_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 36",
@@ -36413,10 +36173,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 37",
@@ -36461,10 +36219,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "MATH 38",
@@ -36504,10 +36265,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "AMAT 105",
@@ -36552,10 +36311,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "MATH 151",
@@ -36600,10 +36362,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "MATH 175",
@@ -36641,10 +36401,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AMAT 198",
@@ -36655,10 +36413,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "PI 10",
@@ -36688,10 +36444,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AMAT 199",
@@ -36719,6 +36473,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 95,
   },
@@ -36727,10 +36486,8 @@ const templates = [
     code: "BSAM_2018_SP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 36",
@@ -36776,10 +36533,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 37",
@@ -36824,10 +36579,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "MATH 38",
@@ -36867,10 +36625,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "AMAT 105",
@@ -36915,10 +36671,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "MATH 151",
@@ -36963,10 +36722,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "MATH 175",
@@ -37004,10 +36761,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AMAT 198",
@@ -37018,10 +36773,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "PI 10",
@@ -37057,10 +36810,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AMAT 190",
@@ -37094,6 +36845,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 98,
   },
@@ -37102,10 +36858,8 @@ const templates = [
     code: "BSAM_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 36",
@@ -37151,10 +36905,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 37",
@@ -37199,10 +36951,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "MATH 38",
@@ -37242,10 +36997,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "AMAT 105",
@@ -37290,10 +37043,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "MATH 151",
@@ -37338,10 +37094,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "MATH 175",
@@ -37379,10 +37133,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "AMAT 198",
@@ -37393,10 +37145,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AMAT 200",
@@ -37432,10 +37182,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 2,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "AMAT 200",
@@ -37469,6 +37217,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 97,
   },
@@ -37477,10 +37230,8 @@ const templates = [
     code: "BSAP_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -37532,10 +37283,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "COMA 150",
@@ -37572,10 +37321,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -37621,10 +37373,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 104",
@@ -37663,10 +37413,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "APHY 102",
@@ -37712,10 +37465,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PHYS 141",
@@ -37760,10 +37511,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "APHY 198",
@@ -37775,10 +37524,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "PHYS 142",
@@ -37814,10 +37561,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "APHY 199",
@@ -37845,6 +37590,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 106,
@@ -37854,10 +37604,8 @@ const templates = [
     code: "BSAP_2018_SP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -37909,10 +37657,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "COMA 150",
@@ -37949,10 +37695,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -37998,10 +37747,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 104",
@@ -38040,10 +37787,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "APHY 102",
@@ -38089,10 +37839,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PHYS 141",
@@ -38137,10 +37885,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "APHY 198",
@@ -38152,10 +37898,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "PHYS 142",
@@ -38191,10 +37935,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "APHY 191",
@@ -38228,6 +37970,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 109,
@@ -38237,10 +37984,8 @@ const templates = [
     code: "BSAP_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -38292,10 +38037,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "COMA 150",
@@ -38332,10 +38075,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -38381,10 +38127,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 104",
@@ -38423,10 +38167,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "APHY 102",
@@ -38472,10 +38219,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PHYS 141",
@@ -38520,10 +38265,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "APHY 198",
@@ -38535,10 +38278,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "APHY 200",
@@ -38580,10 +38321,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "APHY 191",
@@ -38624,6 +38363,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 111,
   },
@@ -38632,10 +38376,8 @@ const templates = [
     code: "BSBIO_2018_CELL_AND_MOLECULAR_BIOLOG",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -38694,10 +38436,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -38743,10 +38483,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -38791,10 +38534,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -38846,10 +38587,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -38894,10 +38638,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -38941,10 +38683,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -38955,10 +38695,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -39005,10 +38743,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -39029,6 +38765,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 99,
@@ -39038,10 +38779,8 @@ const templates = [
     code: "BSBIO_2018_ECOLOGY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -39100,10 +38839,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -39149,10 +38886,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -39197,10 +38937,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -39252,10 +38990,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -39300,10 +39041,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -39347,10 +39086,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -39361,10 +39098,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -39411,10 +39146,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -39435,6 +39168,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 99,
@@ -39444,10 +39182,8 @@ const templates = [
     code: "BSBIO_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -39506,10 +39242,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -39555,10 +39289,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -39603,10 +39340,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -39658,10 +39393,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -39706,10 +39444,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -39753,10 +39489,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -39767,10 +39501,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -39817,10 +39549,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -39841,6 +39571,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 99,
@@ -39850,10 +39585,8 @@ const templates = [
     code: "BSBIO_2018_GENETICS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -39912,10 +39645,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -39961,10 +39692,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -40009,10 +39743,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -40064,10 +39796,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -40112,10 +39847,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -40159,10 +39892,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -40173,10 +39904,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -40223,10 +39952,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -40247,6 +39974,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 99,
@@ -40256,10 +39988,8 @@ const templates = [
     code: "BSBIO_2018_MICROBIOLOGY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -40318,10 +40048,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -40367,10 +40095,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -40415,10 +40146,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -40470,10 +40199,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -40518,10 +40250,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -40565,10 +40295,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -40579,10 +40307,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -40629,10 +40355,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -40653,6 +40377,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 99,
@@ -40662,10 +40391,8 @@ const templates = [
     code: "BSBIO_2018_PLANT BIOLOGY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -40724,10 +40451,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -40773,10 +40498,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -40821,10 +40549,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -40876,10 +40602,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -40924,10 +40653,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -40971,10 +40698,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -40985,10 +40710,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -41035,10 +40758,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -41059,6 +40780,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 99,
@@ -41068,10 +40794,8 @@ const templates = [
     code: "BSBIO_2018_SYSTEMATICS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -41130,10 +40854,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -41179,10 +40901,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -41227,10 +40952,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -41282,10 +41005,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -41330,10 +41056,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -41377,10 +41101,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -41391,10 +41113,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -41441,10 +41161,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -41465,6 +41183,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 99,
@@ -41474,10 +41197,8 @@ const templates = [
     code: "BSBIO_2018_WILDLIFE_BIOLOGY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -41536,10 +41257,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -41585,10 +41304,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -41633,10 +41355,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -41688,10 +41408,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -41736,10 +41459,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -41783,10 +41504,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -41797,10 +41516,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -41847,10 +41564,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -41871,6 +41586,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 99,
@@ -41880,10 +41600,8 @@ const templates = [
     code: "BSBIO_2018_ZOOLOGY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "BIO 11.1",
@@ -41942,10 +41660,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "BIO 14",
@@ -41991,10 +41707,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "BOT 14",
@@ -42039,10 +41758,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "PHYS 51",
@@ -42094,10 +41811,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 164",
@@ -42142,10 +41862,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "BIO 195",
@@ -42189,10 +41907,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "BIO 198",
@@ -42203,10 +41919,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "COMA 150",
@@ -42253,10 +41967,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "BIO 200",
@@ -42278,6 +41990,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 99,
   },
@@ -42286,10 +42003,8 @@ const templates = [
     code: "BSCE_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -42348,10 +42063,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ABE 48",
@@ -42402,10 +42115,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 1",
@@ -42457,10 +42173,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 18",
@@ -42513,10 +42227,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 57",
@@ -42570,10 +42287,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CE 122",
@@ -42627,10 +42342,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CE 198",
@@ -42641,10 +42354,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CE 135",
@@ -42684,10 +42395,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 67",
@@ -42731,6 +42440,11 @@ const templates = [
             courseUnits: 3,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 147,
@@ -42740,10 +42454,8 @@ const templates = [
     code: "BSCE_2018_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -42802,10 +42514,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ABE 48",
@@ -42856,10 +42566,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 1",
@@ -42911,10 +42624,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 18",
@@ -42967,10 +42678,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 57",
@@ -43024,10 +42738,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CE 122",
@@ -43081,10 +42793,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CE 198",
@@ -43095,10 +42805,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CE 135",
@@ -43144,10 +42852,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 67",
@@ -43197,6 +42903,11 @@ const templates = [
             courseUnits: 3,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 149,
@@ -43206,10 +42917,8 @@ const templates = [
     code: "BSCE_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -43268,10 +42977,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ABE 48",
@@ -43322,10 +43029,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 1",
@@ -43377,10 +43087,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 18",
@@ -43433,10 +43141,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ABE 57",
@@ -43490,10 +43201,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CE 122",
@@ -43547,10 +43256,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CE 198",
@@ -43561,10 +43268,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CE 135",
@@ -43610,10 +43315,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ABE 67",
@@ -43664,6 +43367,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 149,
   },
@@ -43672,10 +43380,8 @@ const templates = [
     code: "BSCHE_2018_GEN_ENGINEERING_INDUSTRY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -43735,10 +43441,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -43796,10 +43500,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -43859,10 +43566,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ENSC 26",
@@ -43914,10 +43619,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -43971,10 +43679,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHE 143",
@@ -44028,10 +43734,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CHE 198",
@@ -44042,10 +43746,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -44094,10 +43796,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHE 170",
@@ -44140,6 +43840,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 157,
@@ -44149,10 +43854,8 @@ const templates = [
     code: "BSCHE_2018_GEN_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -44212,10 +43915,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -44273,10 +43974,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -44336,10 +44040,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ENSC 26",
@@ -44391,10 +44093,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -44448,10 +44153,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHE 143",
@@ -44505,10 +44208,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CHE 198",
@@ -44519,10 +44220,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -44565,10 +44264,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHE 170",
@@ -44605,6 +44302,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 145,
@@ -44614,10 +44316,8 @@ const templates = [
     code: "BSCHE_2018_GEN_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -44677,10 +44377,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -44738,10 +44436,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -44801,10 +44502,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ENSC 26",
@@ -44856,10 +44555,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -44913,10 +44615,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHE 143",
@@ -44970,10 +44670,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CHE 198",
@@ -44984,10 +44682,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -45036,10 +44732,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHE 170",
@@ -45082,6 +44776,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 157,
@@ -45091,10 +44790,8 @@ const templates = [
     code: "BSCHE_2018_GEN_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -45154,10 +44851,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -45215,10 +44910,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -45278,10 +44976,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ENSC 26",
@@ -45333,10 +45029,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -45390,10 +45089,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHE 143",
@@ -45447,10 +45144,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CHE 198",
@@ -45461,10 +45156,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -45513,10 +45206,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHE 170",
@@ -45560,6 +45251,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 147,
   },
@@ -45568,10 +45264,8 @@ const templates = [
     code: "BSCHE_2018_PPT _THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -45631,10 +45325,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -45692,10 +45384,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -45755,10 +45450,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHE 32",
@@ -45811,10 +45504,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -45868,10 +45564,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ENSC 26",
@@ -45926,10 +45620,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "PPT 198",
@@ -45940,10 +45632,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -45995,10 +45685,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PPT 193",
@@ -46046,6 +45734,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 155,
@@ -46055,10 +45748,8 @@ const templates = [
     code: "BSCHE_2018_PPT_ENGINEERING_INDUSTRY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -46118,10 +45809,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -46179,10 +45868,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -46242,10 +45934,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHE 32",
@@ -46298,10 +45988,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -46355,10 +46048,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ENSC 26",
@@ -46413,10 +46104,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "PPT 198",
@@ -46427,10 +46116,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -46482,10 +46169,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PPT 193",
@@ -46533,6 +46218,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 165,
@@ -46542,10 +46232,8 @@ const templates = [
     code: "BSCHE_2018_PPT_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -46605,10 +46293,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -46666,10 +46352,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -46729,10 +46418,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHE 32",
@@ -46785,10 +46472,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -46842,10 +46532,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ENSC 26",
@@ -46900,10 +46588,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "PPT 198",
@@ -46914,10 +46600,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -46963,10 +46647,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PPT 193",
@@ -47008,6 +46690,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 153,
@@ -47017,10 +46704,8 @@ const templates = [
     code: "BSCHE_2018_PPT_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -47080,10 +46765,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -47141,10 +46824,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -47204,10 +46890,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHE 32",
@@ -47260,10 +46944,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -47317,10 +47004,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ENSC 26",
@@ -47375,10 +47060,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "PPT 198",
@@ -47389,10 +47072,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -47444,10 +47125,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PPT 193",
@@ -47496,6 +47175,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 165,
   },
@@ -47504,10 +47188,8 @@ const templates = [
     code: "BSCHE_2018_SUTC_ENGINEERING_INDUSTRY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -47567,10 +47249,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -47628,10 +47308,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -47691,10 +47374,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ENSC 26",
@@ -47740,10 +47421,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 6,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "CHE 32",
@@ -47774,10 +47453,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -47831,10 +47508,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHE 143",
@@ -47881,17 +47556,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -47943,10 +47614,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHE 198",
@@ -47961,6 +47630,11 @@ const templates = [
             courseUnits: 6,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 158,
@@ -47970,10 +47644,8 @@ const templates = [
     code: "BSCHE_2018_SUTC_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -48033,10 +47705,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -48094,10 +47764,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 3,
-        midyear: true,
-        semUnits: 6,
+        hidden: false,
+        number: 2,
         courses: [
           {
             code: "ENSC 11",
@@ -48115,10 +47783,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -48178,10 +47844,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ENSC 26",
@@ -48239,10 +47903,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 6,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "CHE 32",
@@ -48261,10 +47923,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -48318,10 +47978,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHE 143",
@@ -48368,10 +48026,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -48417,10 +48078,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHE 198",
@@ -48429,6 +48088,11 @@ const templates = [
             courseUnits: 3,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 152,
@@ -48438,10 +48102,8 @@ const templates = [
     code: "BSCHE_2018_SUTC_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -48501,10 +48163,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -48562,10 +48222,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -48625,10 +48288,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ENSC 26",
@@ -48674,10 +48335,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 6,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "CHE 32",
@@ -48708,10 +48367,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -48765,10 +48422,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHE 143",
@@ -48815,17 +48470,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -48877,10 +48528,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHE 198",
@@ -48896,6 +48545,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 158,
   },
@@ -48904,10 +48558,8 @@ const templates = [
     code: "BSCHE_2018_SUTC_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHE 10",
@@ -48967,10 +48619,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -49028,10 +48678,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 3,
-        midyear: true,
-        semUnits: 6,
+        hidden: false,
+        number: 2,
         courses: [
           {
             code: "ENSC 11",
@@ -49049,10 +48697,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 24,
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHE 30",
@@ -49112,10 +48758,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ENSC 26",
@@ -49173,10 +48817,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 6,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "CHE 32",
@@ -49195,10 +48837,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHE 142",
@@ -49252,10 +48892,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHE 143",
@@ -49302,10 +48940,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHE 157.1",
@@ -49357,10 +48998,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHE 198",
@@ -49376,6 +49015,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 154,
   },
@@ -49384,10 +49028,8 @@ const templates = [
     code: "BSCHEM_2018",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHEM 18",
@@ -49446,10 +49088,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 32",
@@ -49507,10 +49147,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHEM 43",
@@ -49582,10 +49225,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 44",
@@ -49647,10 +49288,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "CHEM 161A",
@@ -49662,10 +49301,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHEM 111.1",
@@ -49710,10 +49347,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHEM 112.1",
@@ -49764,10 +49399,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CHEM 198",
@@ -49779,10 +49412,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHEM 120",
@@ -49820,10 +49451,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 2,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHEM 120.1",
@@ -49845,6 +49474,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 132,
   },
@@ -49853,10 +49487,8 @@ const templates = [
     code: "BSCHEM_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHEM 18",
@@ -49908,10 +49540,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 19",
@@ -49964,10 +49594,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHEM 43",
@@ -50021,10 +49654,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 44",
@@ -50068,10 +49699,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHEM 111.1",
@@ -50116,10 +49750,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHEM 112.1",
@@ -50170,10 +49802,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CHEM 198",
@@ -50185,10 +49815,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHEM 120",
@@ -50226,10 +49854,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHEM 120.1",
@@ -50265,6 +49891,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 123,
   },
@@ -50273,10 +49904,8 @@ const templates = [
     code: "BSCHEM_2020",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -50329,10 +49958,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "CHEM 18.1",
@@ -50383,10 +50010,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 3,
-        midyear: true,
-        semUnits: 5,
+        hidden: false,
+        number: 2,
         courses: [
           {
             code: "CHEM 32",
@@ -50404,10 +50029,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CHEM 43",
@@ -50474,10 +50097,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 43.1",
@@ -50521,10 +50142,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 5,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "CHEM 44",
@@ -50542,10 +50161,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHEM 111.1",
@@ -50595,10 +50212,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHEM 112.1",
@@ -50643,10 +50258,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CHEM 198",
@@ -50658,10 +50271,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CHEM 120",
@@ -50699,10 +50310,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CHEM 120.1",
@@ -50738,6 +50347,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 132,
   },
@@ -50746,10 +50360,8 @@ const templates = [
     code: "BSCS_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CMSC 12",
@@ -50795,10 +50407,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -50856,10 +50466,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CMSC 22",
@@ -50917,10 +50530,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CMSC 23",
@@ -50978,10 +50589,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -51028,10 +50642,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CMSC 128",
@@ -51077,10 +50689,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CMSC 198",
@@ -51091,10 +50701,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CMSC 199",
@@ -51130,10 +50738,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 0,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "GE ELECTIVE",
@@ -51160,6 +50766,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 117,
@@ -51169,10 +50780,8 @@ const templates = [
     code: "BSCS_2018_PRACTICUM",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ETHICS 1",
@@ -51211,10 +50820,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -51260,10 +50867,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CMSC 22",
@@ -51303,10 +50913,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CMSC 23",
@@ -51346,10 +50954,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -51396,10 +51007,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CMSC 128",
@@ -51445,10 +51054,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CMSC 198",
@@ -51459,10 +51066,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CMSC 190",
@@ -51510,10 +51115,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CMSC 190",
@@ -51546,6 +51149,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 105,
@@ -51555,10 +51163,8 @@ const templates = [
     code: "BSCS_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ETHICS 1",
@@ -51597,10 +51203,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -51646,10 +51250,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "CMSC 22",
@@ -51689,10 +51296,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CMSC 23",
@@ -51732,10 +51337,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -51782,10 +51390,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CMSC 128",
@@ -51831,10 +51437,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "CMSC 198",
@@ -51845,10 +51449,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "CMSC 199",
@@ -51890,10 +51492,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "CMSC 200",
@@ -51927,6 +51527,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 105,
   },
@@ -51935,10 +51540,8 @@ const templates = [
     code: "BSDC_2018",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -51985,10 +51588,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "HIST 1",
@@ -52041,10 +51642,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "COMM 10",
@@ -52089,10 +51693,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "DEVC 101",
@@ -52137,10 +51739,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "DEVC 126",
@@ -52184,10 +51789,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "DEVC 136",
@@ -52231,10 +51834,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "DEVC 198",
@@ -52246,10 +51847,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "DEVC 127",
@@ -52293,10 +51892,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "DEVC 128",
@@ -52339,6 +51936,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 102,
   },
@@ -52347,10 +51949,8 @@ const templates = [
     code: "BSECON_2018_DEVELOPMENT_ECON",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -52396,10 +51996,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MGT 101",
@@ -52432,10 +52030,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -52482,10 +52083,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ETHICS 1",
@@ -52524,10 +52123,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ECON 115",
@@ -52574,10 +52176,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -52623,10 +52223,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ECON 198",
@@ -52637,10 +52235,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ECON 199",
@@ -52676,10 +52272,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ECON 110",
@@ -52720,6 +52314,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 101,
@@ -52729,10 +52328,8 @@ const templates = [
     code: "BSECON_2018_ENVRMENTAL_ECON",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -52778,10 +52375,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MGT 101",
@@ -52814,10 +52409,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -52864,10 +52462,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ETHICS 1",
@@ -52906,10 +52502,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ECON 115",
@@ -52956,10 +52555,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -53005,10 +52602,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ECON 198",
@@ -53019,10 +52614,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ECON 199",
@@ -53058,10 +52651,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ECON 110",
@@ -53103,6 +52694,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 101,
   },
@@ -53111,10 +52707,8 @@ const templates = [
     code: "BSECON_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -53160,10 +52754,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MGT 101",
@@ -53208,10 +52800,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -53258,10 +52853,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ETHICS 1",
@@ -53300,10 +52893,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ECON 115",
@@ -53350,10 +52946,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -53385,10 +52979,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ECON 198",
@@ -53399,10 +52991,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 2,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ECON 199",
@@ -53437,10 +53027,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ECON 110",
@@ -53482,6 +53070,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 92,
   },
@@ -53490,10 +53083,8 @@ const templates = [
     code: "BSEE_2018_COMPUTER_ENGG_ENGINEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -53559,10 +53150,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -53624,10 +53213,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -53686,10 +53278,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -53753,10 +53343,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -53803,10 +53396,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -53859,17 +53450,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -53915,10 +53502,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -53946,6 +53531,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 145,
@@ -53955,10 +53545,8 @@ const templates = [
     code: "BSEE_2018_COMPUTER_ENGG_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -54011,10 +53599,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -54064,10 +53650,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -54114,10 +53703,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -54169,10 +53756,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "EE 198",
@@ -54183,10 +53768,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -54233,10 +53816,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -54289,10 +53870,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -54338,10 +53922,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -54369,6 +53951,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 132,
@@ -54378,10 +53965,8 @@ const templates = [
     code: "BSEE_2018_COMPUTER_ENGG_INNOVATIONEE",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -54447,10 +54032,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -54512,10 +54095,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -54574,10 +54160,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -54641,10 +54225,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -54691,10 +54278,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -54747,17 +54332,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -54803,10 +54384,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -54834,6 +54413,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 145,
@@ -54843,10 +54427,8 @@ const templates = [
     code: "BSEE_2018_COMPUTER_ENGG_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -54912,10 +54494,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -54977,10 +54557,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -55039,10 +54622,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -55106,10 +54687,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -55156,10 +54740,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -55212,17 +54794,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -55268,10 +54846,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -55299,6 +54875,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 145,
@@ -55308,10 +54889,8 @@ const templates = [
     code: "BSEE_2018_ELECTRONIC_ENGG_ENGINEERIN",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -55377,10 +54956,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -55442,10 +55019,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -55504,10 +55084,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -55571,10 +55149,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -55621,10 +55202,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -55677,17 +55256,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -55733,10 +55308,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -55764,6 +55337,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 145,
@@ -55773,10 +55351,8 @@ const templates = [
     code: "BSEE_2018_ELECTRONICS_ENGG_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -55829,10 +55405,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -55882,10 +55456,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -55932,10 +55509,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -55987,10 +55562,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "EE 198",
@@ -56001,10 +55574,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -56051,10 +55622,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -56107,10 +55676,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -56156,10 +55728,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -56187,6 +55757,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 132,
@@ -56196,10 +55771,8 @@ const templates = [
     code: "BSEE_2018_ELECTRONICS_ENGG_INNOVATIO",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -56265,10 +55838,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -56330,10 +55901,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -56392,10 +55966,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -56459,10 +56031,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -56509,10 +56084,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -56565,17 +56138,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -56621,10 +56190,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -56652,6 +56219,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 145,
@@ -56661,10 +56233,8 @@ const templates = [
     code: "BSEE_2018_ELECTRONICS_ENGG_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -56730,10 +56300,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -56795,10 +56363,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -56857,10 +56428,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -56924,10 +56493,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -56974,10 +56546,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -57030,17 +56600,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -57086,10 +56652,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -57117,6 +56681,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 145,
@@ -57126,10 +56695,8 @@ const templates = [
     code: "BSEE_2018_POWER_ENGG_ENGINEERING_IND",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -57182,10 +56749,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "HK 11",
@@ -57234,10 +56799,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -57296,10 +56864,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -57357,10 +56923,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -57407,10 +56976,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -57463,17 +57030,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -57519,10 +57082,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -57551,6 +57112,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 140,
   },
@@ -57559,10 +57125,8 @@ const templates = [
     code: "BSEE_2018_POWER_ENGG_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -57615,10 +57179,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 28",
@@ -57668,10 +57230,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -57718,10 +57283,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -57773,10 +57336,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "EE 198",
@@ -57787,10 +57348,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -57837,10 +57396,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -57893,10 +57450,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -57942,10 +57502,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -57973,6 +57531,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 132,
@@ -57982,10 +57545,8 @@ const templates = [
     code: "BSEE_2018_POWER_ENGG_INNOVATIONEERIN",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -58038,10 +57599,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "HK 11",
@@ -58090,10 +57649,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -58152,10 +57714,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -58213,10 +57773,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -58263,10 +57826,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -58319,17 +57880,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -58375,10 +57932,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -58406,6 +57961,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 140,
@@ -58415,10 +57975,8 @@ const templates = [
     code: "BSEE_2018_POWER_ENGG_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 27",
@@ -58471,10 +58029,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "HK 11",
@@ -58523,10 +58079,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "EE 40",
@@ -58585,10 +58144,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EE 50",
@@ -58646,10 +58203,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EE 60",
@@ -58696,10 +58256,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "EE 70",
@@ -58752,17 +58310,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "EE 80",
@@ -58808,10 +58362,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "EE 91",
@@ -58840,6 +58392,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 140,
   },
@@ -58848,10 +58405,8 @@ const templates = [
     code: "BSF_2018_ENVIRONMENTAL FORESTRY",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "FOR 1",
@@ -58898,10 +58453,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "SFFG 101",
@@ -58946,10 +58499,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "SFFG 123",
@@ -59002,10 +58558,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "NRC 170",
@@ -59051,10 +58605,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "FRM 61",
@@ -59094,10 +58651,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "FPPS 128",
@@ -59130,10 +58685,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "FOR 198",
@@ -59144,10 +58697,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "FOR 200",
@@ -59193,10 +58744,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "FOR 200",
@@ -59226,6 +58775,11 @@ const templates = [
             courseUnits: 3,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -59235,10 +58789,8 @@ const templates = [
     code: "BSF_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "FOR 1",
@@ -59285,10 +58837,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "SFFG 101",
@@ -59333,10 +58883,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "SFFG 123",
@@ -59389,10 +58942,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "NRC 170",
@@ -59438,10 +58989,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "FRM 61",
@@ -59481,10 +59035,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "FPPS 128",
@@ -59517,10 +59069,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "FOR 198",
@@ -59531,10 +59081,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "FOR 200",
@@ -59580,10 +59128,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "FOR 200",
@@ -59613,6 +59159,11 @@ const templates = [
             courseUnits: 3,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -59622,10 +59173,8 @@ const templates = [
     code: "BSF_2018_PRODUCTION AND INDUSTRIAL F",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "FOR 1",
@@ -59672,10 +59221,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "SFFG 101",
@@ -59720,10 +59267,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "SFFG 123",
@@ -59776,10 +59326,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "NRC 170",
@@ -59825,10 +59373,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "FRM 61",
@@ -59868,10 +59419,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "FPPS 128",
@@ -59904,10 +59453,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "FOR 198",
@@ -59918,10 +59465,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "FOR 200",
@@ -59967,10 +59512,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "FOR 200",
@@ -60000,6 +59543,11 @@ const templates = [
             courseUnits: 3,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
@@ -60009,10 +59557,8 @@ const templates = [
     code: "BSF_2018_SOCIAL FORESTRY AND AGROFOR",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "FOR 1",
@@ -60059,10 +59605,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "SFFG 101",
@@ -60107,10 +59651,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "SFFG 123",
@@ -60163,10 +59710,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "NRC 170",
@@ -60212,10 +59757,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "FRM 61",
@@ -60255,10 +59803,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "FPPS 128",
@@ -60291,10 +59837,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "FOR 198",
@@ -60305,10 +59849,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "FOR 200",
@@ -60354,10 +59896,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "FOR 200",
@@ -60388,6 +59928,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 121,
   },
@@ -60396,10 +59941,8 @@ const templates = [
     code: "BSFT_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "FST 11",
@@ -60452,10 +59995,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "KAS 1",
@@ -60514,10 +60055,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABME 10",
@@ -60561,10 +60105,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "STS 1",
@@ -60611,10 +60153,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -60661,10 +60206,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PI 10",
@@ -60708,17 +60251,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "FST 165",
@@ -60749,10 +60288,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "FST 147",
@@ -60794,6 +60331,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 117,
   },
@@ -60802,10 +60344,8 @@ const templates = [
     code: "BSFT_2018_PRSP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHEM 18.1",
@@ -60858,10 +60398,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "KAS 1",
@@ -60920,10 +60458,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABME 10",
@@ -60967,10 +60508,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "STS 1",
@@ -61017,10 +60556,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -61067,10 +60609,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PI 10",
@@ -61113,10 +60653,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "FST 198",
@@ -61127,10 +60665,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "FST 165",
@@ -61167,10 +60703,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "FST 147",
@@ -61212,6 +60746,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 126,
   },
@@ -61220,10 +60759,8 @@ const templates = [
     code: "BSFT_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "CHEM 18.1",
@@ -61276,10 +60813,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "KAS 1",
@@ -61338,10 +60873,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABME 10",
@@ -61385,10 +60923,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "STS 1",
@@ -61435,10 +60971,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -61485,10 +61024,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "PI 10",
@@ -61531,10 +61068,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "FST 165",
@@ -61571,10 +61111,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "FST 147",
@@ -61616,6 +61154,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 121,
   },
@@ -61624,10 +61167,8 @@ const templates = [
     code: "BSHE_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "HIST 1",
@@ -61679,10 +61220,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -61729,10 +61268,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -61771,10 +61313,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "STS 1",
@@ -61820,10 +61360,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -61877,10 +61420,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "HUME 125",
@@ -61930,10 +61471,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "HNF 141",
@@ -61963,10 +61507,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HUME 200A",
@@ -61984,6 +61526,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 106,
   },
@@ -61992,10 +61539,8 @@ const templates = [
     code: "BSHE_2018_HUMAN AND FAMILY DEVELOPME",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "HIST 1",
@@ -62054,10 +61599,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -62116,10 +61659,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -62182,10 +61728,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "STS 1",
@@ -62249,10 +61793,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -62313,10 +61860,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "HUME 125",
@@ -62373,10 +61918,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 7,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "HNF 141",
@@ -62401,10 +61949,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HUME 200A",
@@ -62428,6 +61974,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 131,
   },
@@ -62436,10 +61987,8 @@ const templates = [
     code: "BSHE_2018_HUMAN SETTLEMENTS PLANNING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "HIST 1",
@@ -62498,10 +62047,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -62566,10 +62113,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -62632,10 +62182,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "STS 1",
@@ -62693,10 +62241,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -62757,10 +62308,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "HUME 125",
@@ -62830,10 +62379,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 13,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "HNF 141",
@@ -62889,10 +62441,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HUME 200A",
@@ -62916,6 +62466,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 143,
   },
@@ -62924,10 +62479,8 @@ const templates = [
     code: "BSHE_2018_SOCIAL TECHNOLOGY (ST)",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "HIST 1",
@@ -62979,10 +62532,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -63029,10 +62580,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -63077,10 +62631,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "STS 1",
@@ -63126,10 +62678,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -63182,10 +62737,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "HUME 125",
@@ -63256,10 +62809,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "HNF 141",
@@ -63324,10 +62880,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HUME 200A",
@@ -63351,6 +62905,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 129,
   },
@@ -63359,10 +62918,8 @@ const templates = [
     code: "BSIE_2018_ENGINEERING_INDUSTRY_RESEARCH",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -63422,10 +62979,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ENSC 11",
@@ -63484,10 +63039,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -63527,10 +63085,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ETHICS 1",
@@ -63584,10 +63140,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENSC 13",
@@ -63633,10 +63192,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ENSC 14A",
@@ -63682,17 +63239,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ENG 10",
@@ -63743,10 +63296,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "IE 90",
@@ -63795,6 +63346,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 145,
   },
@@ -63803,10 +63359,8 @@ const templates = [
     code: "BSIE_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -63866,10 +63420,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ENSC 11",
@@ -63928,10 +63480,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -63971,10 +63526,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ETHICS 1",
@@ -64028,10 +63581,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 5,
         courses: [
           {
             code: "IE 198",
@@ -64042,10 +63593,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENSC 13",
@@ -64091,10 +63640,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ENSC 14A",
@@ -64140,10 +63687,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 13,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ENG 10",
@@ -64188,10 +63738,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 8,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "IE 90",
@@ -64233,6 +63781,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 142,
@@ -64242,10 +63795,8 @@ const templates = [
     code: "BSIE_2018_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -64305,10 +63856,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ENSC 11",
@@ -64367,10 +63916,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -64410,10 +63962,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ETHICS 1",
@@ -64467,10 +64017,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENSC 13",
@@ -64516,10 +64069,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ENSC 14A",
@@ -64565,17 +64116,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ENG 10",
@@ -64626,10 +64173,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 11,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "IE 90",
@@ -64677,6 +64222,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 145,
@@ -64686,10 +64236,8 @@ const templates = [
     code: "BSIE_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -64749,10 +64297,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ENSC 11",
@@ -64811,10 +64357,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "PI 10",
@@ -64854,10 +64403,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ETHICS 1",
@@ -64911,10 +64458,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "ENSC 13",
@@ -64960,10 +64510,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "ENSC 14A",
@@ -65009,17 +64557,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ENG 10",
@@ -65070,10 +64614,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "IE 90",
@@ -65122,6 +64664,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 141,
   },
@@ -65130,10 +64677,8 @@ const templates = [
     code: "BSMATH_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 36",
@@ -65178,10 +64723,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 37",
@@ -65226,10 +64769,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 13,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "MATH 38",
@@ -65268,10 +64814,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "MATH 103",
@@ -65315,10 +64859,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "MATH 111",
@@ -65363,10 +64910,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "MATH 120",
@@ -65405,10 +64950,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "MATH 198",
@@ -65419,10 +64962,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MATH 135",
@@ -65460,10 +65001,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "MATH 192",
@@ -65492,6 +65031,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 104,
   },
@@ -65500,10 +65044,8 @@ const templates = [
     code: "BSMATH_2018_SP",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 36",
@@ -65548,10 +65090,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 37",
@@ -65596,10 +65136,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 13,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "MATH 38",
@@ -65638,10 +65181,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "MATH 103",
@@ -65685,10 +65226,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "MATH 111",
@@ -65727,10 +65271,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "MATH 120",
@@ -65769,10 +65311,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "MATH 198",
@@ -65783,10 +65323,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MATH 135",
@@ -65824,10 +65362,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "MATH 190",
@@ -65862,6 +65398,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 107,
   },
@@ -65870,10 +65411,8 @@ const templates = [
     code: "BSMATH_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "MATH 36",
@@ -65918,10 +65457,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "MATH 37",
@@ -65966,10 +65503,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 13,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "MATH 38",
@@ -66008,10 +65548,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "MATH 103",
@@ -66055,10 +65593,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "MATH 111",
@@ -66097,10 +65638,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "MATH 120",
@@ -66139,10 +65678,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "MATH 198",
@@ -66153,10 +65690,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MATH 135",
@@ -66194,10 +65729,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "MATH 192",
@@ -66232,6 +65765,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 106,
   },
@@ -66240,10 +65778,8 @@ const templates = [
     code: "BSME_2018_ENGINEERING_INDUSTRY_RESEARCH",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -66309,10 +65845,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -66366,10 +65900,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -66416,10 +65953,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ME 45",
@@ -66466,10 +66001,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STS 1",
@@ -66522,10 +66060,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -66579,10 +66115,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ME 198",
@@ -66593,10 +66127,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "STAT 101",
@@ -66652,10 +66184,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 0,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ME 181",
@@ -66696,6 +66226,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 92,
@@ -66705,10 +66240,8 @@ const templates = [
     code: "BSME_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -66774,10 +66307,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -66831,10 +66362,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -66881,10 +66415,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ME 45",
@@ -66931,10 +66463,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STS 1",
@@ -66987,10 +66522,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -67044,10 +66577,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ME 198",
@@ -67058,10 +66589,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "STAT 101",
@@ -67111,10 +66640,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 0,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ME 181",
@@ -67149,6 +66676,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 92,
@@ -67158,10 +66690,8 @@ const templates = [
     code: "BSME_2018_INNOVATIONEERING",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -67227,10 +66757,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -67284,10 +66812,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -67334,10 +66865,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ME 45",
@@ -67384,10 +66913,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STS 1",
@@ -67440,10 +66972,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -67497,10 +67027,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ME 198",
@@ -67511,10 +67039,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "STAT 101",
@@ -67570,10 +67096,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 0,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ME 181",
@@ -67614,6 +67138,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 92,
@@ -67623,10 +67152,8 @@ const templates = [
     code: "BSME_2018_THESIS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "KAS 1",
@@ -67692,10 +67219,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -67749,10 +67274,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -67799,10 +67327,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 9,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ME 45",
@@ -67849,10 +67375,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 10,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STS 1",
@@ -67905,10 +67434,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 12,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -67962,10 +67489,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 0,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "ME 198",
@@ -67976,10 +67501,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "STAT 101",
@@ -68035,10 +67558,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 0,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "ME 181",
@@ -68080,6 +67601,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 92,
   },
@@ -68088,10 +67614,8 @@ const templates = [
     code: "BSMST_2018_BIO",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "STS 1",
@@ -68151,10 +67675,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "KAS 1",
@@ -68213,10 +67735,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -68268,10 +67793,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 24,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "BOT 14",
@@ -68337,10 +67860,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 162",
@@ -68385,10 +67911,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -68426,10 +67950,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ARTS 1",
@@ -68465,10 +67992,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PHYS 72",
@@ -68496,6 +68021,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 136,
   },
@@ -68504,10 +68034,8 @@ const templates = [
     code: "BSMST_2018_CHEM",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "STS 1",
@@ -68567,10 +68095,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "KAS 1",
@@ -68629,10 +68155,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -68690,10 +68219,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 24,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "CHEM 160",
@@ -68759,10 +68286,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "CHEM 160.1",
@@ -68798,10 +68328,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CHEM 102",
@@ -68852,10 +68380,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "MST 190",
@@ -68892,10 +68423,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 4,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "MST 191",
@@ -68917,6 +68446,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 137,
   },
@@ -68925,10 +68459,8 @@ const templates = [
     code: "BSMST_2018_GENERAL",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "STS 1",
@@ -68988,10 +68520,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "KAS 1",
@@ -69050,10 +68580,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -69105,10 +68638,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "EDUC 122",
@@ -69173,10 +68704,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 11,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "STAT 162",
@@ -69218,10 +68752,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -69265,10 +68797,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ARTS 1",
@@ -69304,10 +68839,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 5,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PHYS 72",
@@ -69335,6 +68868,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 124,
   },
@@ -69343,10 +68881,8 @@ const templates = [
     code: "BSMST_2018_MATH",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "STS 1",
@@ -69406,10 +68942,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "KAS 1",
@@ -69467,10 +69001,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -69521,10 +69058,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 22,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "COMA 150",
@@ -69583,10 +69118,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "PHYS 71",
@@ -69631,10 +69169,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -69684,10 +69220,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ARTS 1",
@@ -69724,10 +69263,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 7,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "MST 191",
@@ -69756,6 +69293,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 136,
   },
@@ -69764,10 +69306,8 @@ const templates = [
     code: "BSMST_2018_PHYS",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "STS 1",
@@ -69827,10 +69367,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "KAS 1",
@@ -69889,10 +69427,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ETHICS 1",
@@ -69951,10 +69492,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 24,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "COMA 150",
@@ -70017,10 +69556,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 17,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "EDUC 144",
@@ -70065,10 +69607,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "COMM 10",
@@ -70113,10 +69653,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ARTS 1",
@@ -70159,10 +69702,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 3,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "MST 191",
@@ -70178,6 +69719,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 137,
   },
@@ -70186,10 +69732,8 @@ const templates = [
     code: "BSN_2018",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ARTS 1",
@@ -70248,10 +69792,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "HIST 1",
@@ -70315,10 +69857,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 25,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "MGT 101",
@@ -70383,10 +69928,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "STAT 101",
@@ -70430,10 +69973,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "HNF 142",
@@ -70473,10 +70019,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "HNF 105",
@@ -70522,10 +70066,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HNF 200",
@@ -70536,10 +70078,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 25,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "HNF 199",
@@ -70563,10 +70103,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 24,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HNF 200A",
@@ -70582,6 +70120,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 167,
   },
@@ -70590,10 +70133,8 @@ const templates = [
     code: "BSSTAT_2018",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 23,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ETHICS 1",
@@ -70653,10 +70194,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "ARTS 1",
@@ -70712,10 +70251,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "STS 1",
@@ -70779,10 +70321,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "MATH 182",
@@ -70846,10 +70386,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "COMM 10",
@@ -70894,10 +70437,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "CMSC 127",
@@ -70950,10 +70491,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "STAT 198",
@@ -70964,10 +70503,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 13,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "ENG 10",
@@ -71010,10 +70547,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 14,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "PI 10",
@@ -71056,6 +70591,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
     ],
     totalUnits: 141,
   },
@@ -71064,10 +70604,8 @@ const templates = [
     code: "CIF_2018",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "FBS 1",
@@ -71114,10 +70652,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "FBS 21",
@@ -71156,10 +70692,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 3,
-        midyear: true,
-        semUnits: 3,
+        hidden: false,
+        number: 2,
         courses: [
           {
             code: "FOR 165",
@@ -71177,10 +70711,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 16,
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "FPPS 11",
@@ -71219,10 +70751,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "FOR 31",
@@ -71261,6 +70791,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
     ],
     totalUnits: 68,
   },
@@ -71269,10 +70804,8 @@ const templates = [
     code: "DVM_2018",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 20,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "ETHICS 1",
@@ -71324,10 +70857,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "STS 1",
@@ -71379,10 +70910,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 14,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "ABME 10",
@@ -71434,10 +70968,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 19,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "COMM 10",
@@ -71476,10 +71008,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "VETA 102",
@@ -71523,10 +71058,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "VMCB 123",
@@ -71566,10 +71099,13 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 21,
+        hidden: true,
+        number: 8,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "VMCB 124",
@@ -71621,10 +71157,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "VMED 151",
@@ -71671,10 +71205,13 @@ const templates = [
         ],
       },
       {
-        year: 5,
-        sem: 1,
-        midyear: false,
-        semUnits: 19,
+        hidden: true,
+        number: 11,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 12,
         courses: [
           {
             code: "VSUR 154",
@@ -71721,10 +71258,8 @@ const templates = [
         ],
       },
       {
-        year: 5,
-        sem: 2,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 13,
         courses: [
           {
             code: "VETC 172",
@@ -71783,10 +71318,13 @@ const templates = [
         ],
       },
       {
-        year: 6,
-        sem: 1,
-        midyear: false,
-        semUnits: 12,
+        hidden: true,
+        number: 14,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 15,
         courses: [
           {
             code: "VETC 173",
@@ -71823,10 +71361,8 @@ const templates = [
         ],
       },
       {
-        year: 6,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 16,
         courses: [
           {
             code: "VETC 174",
@@ -71843,6 +71379,11 @@ const templates = [
           },
         ],
       },
+      {
+        hidden: true,
+        number: 17,
+        courses: [],
+      },
     ],
     totalUnits: 211,
   },
@@ -71851,10 +71392,8 @@ const templates = [
     code: "SHEET 12",
     sems: [
       {
-        year: 1,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 0,
         courses: [
           {
             code: "AGRI 11",
@@ -71907,10 +71446,8 @@ const templates = [
         ],
       },
       {
-        year: 1,
-        sem: 2,
-        midyear: false,
-        semUnits: 21,
+        hidden: false,
+        number: 1,
         courses: [
           {
             code: "AGRI 41",
@@ -71961,10 +71498,13 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 2,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 3,
         courses: [
           {
             code: "AGRI 61",
@@ -72010,10 +71550,8 @@ const templates = [
         ],
       },
       {
-        year: 2,
-        sem: 2,
-        midyear: false,
-        semUnits: 17,
+        hidden: false,
+        number: 4,
         courses: [
           {
             code: "ABE 1",
@@ -72064,10 +71602,13 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 1,
-        midyear: false,
-        semUnits: 15,
+        hidden: true,
+        number: 5,
+        courses: [],
+      },
+      {
+        hidden: false,
+        number: 6,
         courses: [
           {
             code: "BIO 30",
@@ -72111,10 +71652,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 2,
-        midyear: false,
-        semUnits: 15,
+        hidden: false,
+        number: 7,
         courses: [
           {
             code: "AAE 111",
@@ -72153,10 +71692,8 @@ const templates = [
         ],
       },
       {
-        year: 3,
-        sem: 3,
-        midyear: true,
-        semUnits: 1,
+        hidden: false,
+        number: 8,
         courses: [
           {
             code: "HORT 200A",
@@ -72167,10 +71704,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 1,
-        midyear: false,
-        semUnits: 18,
+        hidden: false,
+        number: 9,
         courses: [
           {
             code: "AGRI 199",
@@ -72228,10 +71763,8 @@ const templates = [
         ],
       },
       {
-        year: 4,
-        sem: 2,
-        midyear: false,
-        semUnits: 1,
+        hidden: false,
+        number: 10,
         courses: [
           {
             code: "HORT 200A",
@@ -72246,6 +71779,11 @@ const templates = [
             courseUnits: 0,
           },
         ],
+      },
+      {
+        hidden: true,
+        number: 11,
+        courses: [],
       },
     ],
     totalUnits: 121,
