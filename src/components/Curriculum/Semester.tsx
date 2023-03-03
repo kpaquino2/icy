@@ -5,6 +5,7 @@ import { Plus, X } from "phosphor-react";
 import { useState } from "react";
 import { api } from "../../utils/api";
 import { useCurriculumStore } from "../../utils/stores/curriculumStore";
+import { useModeStore } from "../../utils/stores/modeStore";
 import AddCourseModal from "./AddCourseModal";
 import Course from "./Course";
 
@@ -13,6 +14,8 @@ interface SemesterProps {
 }
 
 const Semester = ({ sem }: SemesterProps) => {
+  const semn = (sem.number % 3) + 1;
+  const year = Math.ceil((sem.number + 1) / 3);
   const deleteSemester = useCurriculumStore((state) => state.deleteSemester);
 
   let refetchTimeout: NodeJS.Timeout;
@@ -48,6 +51,8 @@ const Semester = ({ sem }: SemesterProps) => {
     deleteSemesterMutation({ id: sem.id });
   };
 
+  const mode = useModeStore((state) => state.mode);
+
   return (
     <>
       <AddCourseModal
@@ -59,7 +64,7 @@ const Semester = ({ sem }: SemesterProps) => {
       />
       <div className="group/sem peer flex h-full w-48 flex-col justify-between border-y-2 border-l-2 border-zinc-200 first:rounded-l-lg last-of-type:rounded-r-lg last-of-type:border-r-2 dark:border-zinc-800">
         <div className="flex items-center justify-between border-b-2 border-zinc-200 p-2 dark:border-zinc-800">
-          {sem.sem > 2 ? "midyear" : `year ${sem.year} sem ${sem.sem}`}
+          {semn > 2 ? "midyear" : `year ${year} sem ${semn}`}
           <div className="flex gap-1">
             <button
               type="button"
@@ -99,7 +104,7 @@ const Semester = ({ sem }: SemesterProps) => {
             </Popover.Group>
           )}
         </Droppable>
-        <div className="w-full border-t-2 border-zinc-200 py-2 text-center text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+        <div className="mt-auto w-full border-t-2 border-zinc-200 py-2 text-center text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
           total units:{" "}
           {sem.courses?.map((c) => c.units).reduce((a, b) => a + b, 0)}
         </div>

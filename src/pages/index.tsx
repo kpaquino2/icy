@@ -103,21 +103,11 @@ const Home: NextPage = () => {
 
   const handleNewSem = () => {
     if (!curriculum) return;
-    const lastsem = curriculum.sems.at(-1);
-    if (!lastsem) {
-      createSemesterMutation({
-        id: createId(),
-        curriculumId: curriculum.id,
-        year: 1,
-        sem: 1,
-      });
-      return;
-    }
     createSemesterMutation({
       id: createId(),
       curriculumId: curriculum.id,
-      year: Math.floor(lastsem.sem / 2 + lastsem.year),
-      sem: (lastsem.sem % 2) + 1,
+      number: curriculum.sems.length,
+      hidden: false,
     });
   };
 
@@ -164,6 +154,7 @@ const Home: NextPage = () => {
       result.source.index === result.destination.index
     )
       return;
+    console.log("huhh");
     const sourceSemIndex = curriculum.sems.findIndex(
       (s) => s.id === result.source.droppableId
     );
@@ -340,9 +331,10 @@ const Home: NextPage = () => {
                   <div className="relative flex flex-1 flex-col overflow-x-scroll">
                     <div className="flex h-full min-w-max flex-1 flex-nowrap px-4 pb-4 pt-2">
                       {curriculum.sems.length ? (
-                        curriculum.sems.map((sem) => (
-                          <Semester key={sem.id} sem={sem} />
-                        ))
+                        curriculum.sems.map((sem) => {
+                          if (sem.hidden) return <></>;
+                          return <Semester key={sem.id} sem={sem} />;
+                        })
                       ) : (
                         <button
                           type="button"

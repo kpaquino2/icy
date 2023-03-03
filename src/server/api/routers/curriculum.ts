@@ -7,12 +7,9 @@ export const curriculumRouter = createTRPCRouter({
       where: { userId: ctx.session?.user.id || "" },
       include: {
         sems: {
-          orderBy: [
-            {
-              year: "asc",
-            },
-            { sem: "asc" },
-          ],
+          orderBy: {
+            number: "asc",
+          },
           include: {
             courses: {
               orderBy: {
@@ -44,8 +41,8 @@ export const curriculumRouter = createTRPCRouter({
           id: z.string(),
           sems: z
             .object({
-              year: z.number(),
-              sem: z.number(),
+              hidden: z.boolean(),
+              number: z.number(),
               courses: z
                 .object({
                   code: z.string(),
@@ -67,8 +64,8 @@ export const curriculumRouter = createTRPCRouter({
           userId: ctx.session.user.id,
           sems: {
             create: input.curriculum.sems.map((sem) => ({
-              year: sem.year,
-              sem: sem.sem,
+              hidden: sem.hidden,
+              number: sem.number,
               courses: {
                 create: sem.courses.map((course) => ({
                   code: course.code,

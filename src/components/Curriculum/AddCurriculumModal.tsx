@@ -82,12 +82,12 @@ const AddCurriculumModal = ({
             userId: userId,
             createdAt: new Date(),
             updatedAt: new Date(),
-            sems: input.curriculum.sems.map((sem) => {
+            sems: input.curriculum.sems.map((sem, i) => {
               const semId = createId();
               return {
                 id: semId,
-                year: sem.year,
-                sem: sem.sem,
+                number: i,
+                hidden: sem.hidden,
                 curriculumId: input.curriculum.id,
                 createdAt: new Date(),
                 courses: sem.courses.map((course) => ({

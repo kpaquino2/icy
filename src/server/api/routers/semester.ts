@@ -6,8 +6,8 @@ export const semesterRouter = createTRPCRouter({
     .input(
       z.object({
         id: z.string(),
-        year: z.number(),
-        sem: z.number(),
+        hidden: z.boolean(),
+        number: z.number(),
         curriculumId: z.string(),
       })
     )
