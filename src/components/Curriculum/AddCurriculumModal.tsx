@@ -57,9 +57,10 @@ const AddCurriculumModal = ({
         setCurriculum({
           id: input.id,
           userId: userId,
+          sems: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
-          sems: [],
+          courses: [],
         });
         await tctx.curriculum.getCurriculum.cancel();
         const prev = tctx.curriculum.getCurriculum.getData();
@@ -80,28 +81,20 @@ const AddCurriculumModal = ({
           setCurriculum({
             id: input.curriculum.id,
             userId: userId,
+            sems: input.curriculum.sems,
             createdAt: new Date(),
             updatedAt: new Date(),
-            sems: input.curriculum.sems.map((sem, i) => {
-              const semId = createId();
-              return {
-                id: semId,
-                number: i,
-                hidden: sem.hidden,
-                curriculumId: input.curriculum.id,
-                createdAt: new Date(),
-                courses: sem.courses.map((course) => ({
-                  id: createId(),
-                  code: course.code,
-                  title: course.title,
-                  description: course.description,
-                  units: course.units,
-                  position: course.position,
-                  semesterId: semId,
-                  createdAt: new Date(),
-                })),
-              };
-            }),
+            courses: input.curriculum.courses.map((course) => ({
+              id: createId(),
+              code: course.code,
+              title: course.title,
+              description: course.description,
+              units: course.units,
+              position: course.position,
+              sem: course.sem,
+              curriculumId: input.curriculum.id,
+              createdAt: new Date(),
+            })),
           });
         }
       },
