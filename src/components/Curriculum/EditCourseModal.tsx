@@ -9,14 +9,12 @@ interface EditCourseModalProps {
   course: Course;
   editCourseOpen: boolean;
   setEditCourseOpen: Dispatch<SetStateAction<boolean>>;
-  title: string;
 }
 
 const EditCourseModal = ({
   course,
   editCourseOpen,
   setEditCourseOpen,
-  title,
 }: EditCourseModalProps) => {
   const updateCourse = useCurriculumStore((state) => state.updateCourse);
 
@@ -70,7 +68,7 @@ const EditCourseModal = ({
       isOpen={editCourseOpen}
       setIsOpen={setEditCourseOpen}
       width="w-96"
-      title={title}
+      title="edit course"
     >
       <CourseDetailsForm
         open={editCourseOpen}

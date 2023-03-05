@@ -1,26 +1,22 @@
 import { createId } from "@paralleldrive/cuid2";
 import { type Dispatch, type SetStateAction } from "react";
 import { api } from "../../utils/api";
-import { getPosition } from "../../utils/position";
 import { useCurriculumStore } from "../../utils/stores/curriculumStore";
 import CourseDetailsForm from "../Forms/CourseDetailsForm";
 import Modal from "../Modal";
 
 interface AddCourseModalProps {
-  semesterId: string;
-  lastPosition: string;
+  sem: number;
   newCourseOpen: boolean;
   setNewCourseOpen: Dispatch<SetStateAction<boolean>>;
-  title: string;
 }
 
 const AddCourseModal = ({
-  semesterId,
-  lastPosition,
+  sem,
   newCourseOpen,
   setNewCourseOpen,
-  title,
 }: AddCourseModalProps) => {
+  const curriculum = useCurriculumStore((state) => state.curriculum);
   const createCourse = useCurriculumStore((state) => state.createCourse);
 
   let refetchTimeout: NodeJS.Timeout;
@@ -56,11 +52,24 @@ const AddCourseModal = ({
     description: string;
     units: number;
   }) => {
+    if (!curriculum) return;
+    const courses = curriculum.courses
+      .filter((c) => c.sem === sem)
+      .sort((a, b) => (a.position > b.position ? 1 : -1));
+
+    let last = -2;
+
+    for (const course of courses) {
+      if (course.position - last - 2 >= 2) break;
+      last = course.position;
+    }
+
     createCourseMutation({
       ...data,
       id: createId(),
-      position: getPosition(lastPosition),
-      semesterId: semesterId,
+      position: last + 2,
+      sem: sem,
+      curriculumId: curriculum.id,
     });
   };
 
@@ -69,7 +78,7 @@ const AddCourseModal = ({
       isOpen={newCourseOpen}
       setIsOpen={setNewCourseOpen}
       width="w-96"
-      title={title}
+      title="create new course"
     >
       <CourseDetailsForm
         open={newCourseOpen}
