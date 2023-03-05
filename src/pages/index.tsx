@@ -1,5 +1,3 @@
-import { DragDropContext, type DropResult } from "@hello-pangea/dnd";
-import { createId } from "@paralleldrive/cuid2";
 import { type NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -13,18 +11,25 @@ import {
   TrashSimple,
   X,
 } from "phosphor-react";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
-import Semester from "../components/Curriculum/Semester";
 import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
-import { getPosition } from "../utils/position";
 import { useCurriculumStore } from "../utils/stores/curriculumStore";
 import { useModeStore } from "../utils/stores/modeStore";
+import GridLayout from "react-grid-layout";
+import "../../node_modules/react-grid-layout/css/styles.css";
+import SemesterHeader from "../components/Curriculum/Semester/SemesterHeader";
+import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
+import CourseItem from "../components/Curriculum/Course/CourseItem";
+import CourseDetails from "../components/Curriculum/Course/CourseDetails";
+import ConfirmActionModal from "../components/ConfirmActionModal";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
   const [showNotice, setShowNotice] = useState(false);
+
+  const [max, setMax] = useState(3);
 
   const curriculum = useCurriculumStore((state) => state.curriculum);
   const setCurriculum = useCurriculumStore((state) => state.setCurriculum);
@@ -64,13 +69,9 @@ const Home: NextPage = () => {
 
   let refetchTimeout: NodeJS.Timeout;
   const { mutate: createSemesterMutation } =
-    api.semester.createSemester.useMutation({
-      onMutate: async (input) => {
-        createSemester({
-          ...input,
-          createdAt: new Date(),
-          courses: [],
-        });
+    api.curriculum.createSemester.useMutation({
+      onMutate: async () => {
+        createSemester();
         await tctx.curriculum.getCurriculum.cancel();
         const prev = tctx.curriculum.getCurriculum.getData();
         return { prev };
@@ -94,20 +95,31 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (sessionStatus === "unauthenticated") setShowNotice(true);
-
+    setMax(
+      ((curriculum?.courses
+        .map((c) => c.position)
+        .reduce((a, b) => (a > b ? a : b), 1) || 1) +
+        2) *
+        2
+    );
     if (sessionStatus !== "loading" && (session?.user.id || "") !== userId) {
       setCurriculum(null);
       setUserId(session?.user.id || "");
     }
-  }, [sessionStatus, setCurriculum, setUserId, userId, session?.user.id]);
+  }, [
+    sessionStatus,
+    setCurriculum,
+    setUserId,
+    userId,
+    session?.user.id,
+    curriculum?.courses,
+    max,
+  ]);
 
   const handleNewSem = () => {
     if (!curriculum) return;
     createSemesterMutation({
-      id: createId(),
-      curriculumId: curriculum.id,
-      number: curriculum.sems.length,
-      hidden: false,
+      id: curriculum.id,
     });
   };
 
@@ -116,15 +128,18 @@ const Home: NextPage = () => {
     if (!curriculum) return;
     deleteCurriculumMutation({ id: curriculum.id });
   };
+
+  const semar = Array(curriculum?.sems || 0).fill(0);
+
+  const setMode = useModeStore((state) => state.setMode);
+  const mode = useModeStore((state) => state.mode);
+
+  const [courseDeets, setCourseDeets] = useState<string>("");
+
   const moveCourse = useCurriculumStore((state) => state.moveCourse);
   const { mutate: moveCourseMutation } = api.course.moveCourse.useMutation({
     onMutate: async (input) => {
-      moveCourse(
-        input.course,
-        input.sourceIndex,
-        input.sourceSemIndex,
-        input.destinationSemIndex
-      );
+      moveCourse(input.id, input.sem, input.position);
       await tctx.curriculum.getCurriculum.cancel();
       const prev = tctx.curriculum.getCurriculum.getData();
       return { prev };
@@ -146,44 +161,7 @@ const Home: NextPage = () => {
     },
   });
 
-  const handleDragEnd = (result: DropResult) => {
-    if (!curriculum) return;
-    if (!result.destination) return;
-    if (
-      result.source.droppableId === result.destination.droppableId &&
-      result.source.index === result.destination.index
-    )
-      return;
-    console.log("huhh");
-    const sourceSemIndex = curriculum.sems.findIndex(
-      (s) => s.id === result.source.droppableId
-    );
-    const destinationSemIndex = curriculum.sems.findIndex(
-      (s) => s.id === result.destination?.droppableId
-    );
-    const sourceSem = curriculum.sems[sourceSemIndex];
-    const destinationSem = curriculum.sems[destinationSemIndex];
-    if (!sourceSem || !destinationSem) return;
-    const sourceCourse = sourceSem.courses[result.source.index];
-    if (!sourceCourse) return;
-    sourceSem.courses.splice(result.source.index, 1);
-    moveCourseMutation({
-      course: {
-        ...sourceCourse,
-        position: getPosition(
-          destinationSem.courses[result.destination.index - 1]?.position ||
-            "aaa",
-          destinationSem.courses[result.destination.index]?.position || "zzz"
-        ),
-        semesterId: result.destination.droppableId,
-      },
-      sourceIndex: result.source.index,
-      sourceSemIndex: sourceSemIndex,
-      destinationSemIndex: destinationSemIndex,
-    });
-  };
-
-  const setMode = useModeStore((state) => state.setMode);
+  const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
 
   return (
     <>
@@ -192,190 +170,304 @@ const Home: NextPage = () => {
         setNewCurricOpen={setNewCurricOpen}
         title="new curriculum"
       />
-      <DragDropContext onDragEnd={handleDragEnd}>
-        <Layout
-          title="curriculum"
-          description="list of all curriculum made by the user"
-          crumbs="curriculum"
-        >
-          {isCurriculumLoading ? (
-            <div className="grid h-full w-full place-items-center">
-              <svg
-                width="72"
-                height="72"
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-                className="animate-load fill-teal-600 dark:fill-teal-400"
-              >
-                <g clipPath="url(#clip0_0_1)">
-                  <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />
-                  <path d="M22.0858 26.0858L39.5858 43.5858C40.8457 44.8457 39.9534 47 38.1716 47H22.3284C21.798 47 21.2893 46.7893 20.9142 46.4142L3.41422 28.9142C2.15429 27.6543 3.04662 25.5 4.82843 25.5L20.6716 25.5C21.202 25.5 21.7107 25.7107 22.0858 26.0858Z" />
-                  <path d="M79.0858 53.5858L96.5858 71.0858C97.8457 72.3457 96.9534 74.5 95.1716 74.5H79.3284C78.798 74.5 78.2893 74.2893 77.9142 73.9142L60.4142 56.4142C59.1543 55.1543 60.0466 53 61.8284 53H77.6716C78.202 53 78.7107 53.2107 79.0858 53.5858Z" />
-                  <path d="M79.0858 46.4142L96.5858 28.9142C97.8457 27.6543 96.9534 25.5 95.1716 25.5H79.3284C78.798 25.5 78.2893 25.7107 77.9142 26.0858L60.4142 43.5858C59.1543 44.8457 60.0466 47 61.8284 47H77.6716C78.202 47 78.7107 46.7893 79.0858 46.4142Z" />
-                  <path d="M22.0858 73.9142L39.5858 56.4142C40.8457 55.1543 39.9534 53 38.1716 53H22.3284C21.798 53 21.2893 53.2107 20.9142 53.5858L3.41422 71.0858C2.15429 72.3457 3.04662 74.5 4.82843 74.5H20.6716C21.202 74.5 21.7107 74.2893 22.0858 73.9142Z" />
-                  <path d="M26.0858 77.9142L43.5858 60.4142C44.8457 59.1543 47 60.0466 47 61.8284V77.6716C47 78.202 46.7893 78.7107 46.4142 79.0858L28.9142 96.5858C27.6543 97.8457 25.5 96.9534 25.5 95.1716V79.3284C25.5 78.798 25.7107 78.2893 26.0858 77.9142Z" />
-                  <path d="M53.5858 20.9142L71.0858 3.41421C72.3457 2.15428 74.5 3.04662 74.5 4.82843V20.6716C74.5 21.202 74.2893 21.7107 73.9142 22.0858L56.4142 39.5858C55.1543 40.8457 53 39.9534 53 38.1716V22.3284C53 21.798 53.2107 21.2893 53.5858 20.9142Z" />
-                  <path d="M46.4142 20.9142L28.9142 3.41421C27.6543 2.15428 25.5 3.04662 25.5 4.82843V20.6716C25.5 21.202 25.7107 21.7107 26.0858 22.0858L43.5858 39.5858C44.8457 40.8457 47 39.9534 47 38.1716V22.3284C47 21.798 46.7893 21.2893 46.4142 20.9142Z" />
-                </g>
-                <defs>
-                  <clipPath id="clip0_0_1">
-                    <rect width="100" height="100" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </div>
-          ) : (
-            <>
-              {showNotice && (
-                <div className="relative flex items-center justify-center bg-teal-600 p-2 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
-                  <Link
-                    className="group flex gap-2 hover:underline"
-                    href="sign-up"
-                  >
-                    create an account to access your curriculum from other
-                    devices
-                    <ArrowRight
-                      className="transition group-hover:translate-x-2"
-                      weight="bold"
-                      size={20}
-                    />
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => setShowNotice(false)}
-                    className="absolute right-4"
-                  >
-                    <X weight="bold" size={20} />
-                  </button>
-                </div>
-              )}
-              {curriculum ? (
-                <>
-                  <div className="flex justify-between px-4 pt-2">
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        onClick={handleNewSem}
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                      >
-                        <Plus size={16} weight="bold" />
-                        new semester
-                      </button>
-                      <div className="flex">
-                        <button type="button">
-                          <input
-                            type="radio"
-                            className="peer hidden"
-                            id="select"
-                            name="mode"
-                            defaultChecked
-                            onChange={() => setMode("SELECT")}
-                          />
-                          <label
-                            htmlFor="select"
-                            className="flex h-full items-center gap-2 rounded-l bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
-                          >
-                            <Cursor size={16} weight="bold" />
-                          </label>
-                        </button>
-                        <button type="button">
-                          <input
-                            type="radio"
-                            className="peer hidden"
-                            id="move"
-                            name="mode"
-                            onChange={() => setMode("MOVE")}
-                          />
-                          <label
-                            htmlFor="move"
-                            className="flex h-full items-center gap-2 bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
-                          >
-                            <ArrowsOutCardinal size={16} weight="bold" />
-                          </label>
-                        </button>
-                        <button type="button">
-                          <input
-                            type="radio"
-                            className="peer hidden"
-                            id="connect"
-                            name="mode"
-                            onChange={() => setMode("CONNECT")}
-                          />
-                          <label
-                            htmlFor="connect"
-                            className="flex h-full items-center gap-2 rounded-r bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
-                          >
-                            <FlowArrow size={16} weight="bold" />
-                          </label>
-                        </button>
-                      </div>
-                    </div>
-                    <div className="flex gap-2">
-                      <button
-                        type="button"
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                      >
-                        <Export size={16} weight="bold" />
-                        export
-                      </button>
-                      <button
-                        type="button"
-                        onClick={handleDeleteCurriculum}
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                      >
-                        <TrashSimple size={16} weight="bold" />
-                        delete
-                      </button>
-                    </div>
-                  </div>
-                  <div className="relative flex flex-1 flex-col overflow-x-scroll">
-                    <div className="flex h-full min-w-max flex-1 flex-nowrap px-4 pb-4 pt-2">
-                      {curriculum.sems.length ? (
-                        curriculum.sems.map((sem) => {
-                          if (sem.hidden) return <></>;
-                          return <Semester key={sem.id} sem={sem} />;
-                        })
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={handleNewSem}
-                          className="flex h-full w-48 flex-col items-center justify-center border-y-2 border-l-2 border-dashed border-zinc-200 text-zinc-500 first:rounded-l-lg last:rounded-r-lg last:border-r-2 only:flex hover:border-teal-600 hover:text-teal-600 dark:border-zinc-800 hover:dark:border-teal-400 hover:dark:text-teal-400"
+      <ConfirmActionModal onConfirm={onConfirm} setOnConfirm={setOnConfirm} />
+      {courseDeets && (
+        <div
+          onClick={() => setCourseDeets("")}
+          className="fixed inset-0 z-[1]"
+        />
+      )}
+      <Layout
+        title="curriculum"
+        description="list of all curriculum made by the user"
+        crumbs="curriculum"
+      >
+        {isCurriculumLoading ? (
+          <div className="grid h-full w-full place-items-center">
+            <svg
+              width="72"
+              height="72"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+              className="animate-load fill-teal-600 dark:fill-teal-400"
+            >
+              <g clipPath="url(#clip0_0_1)">
+                <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />
+                <path d="M22.0858 26.0858L39.5858 43.5858C40.8457 44.8457 39.9534 47 38.1716 47H22.3284C21.798 47 21.2893 46.7893 20.9142 46.4142L3.41422 28.9142C2.15429 27.6543 3.04662 25.5 4.82843 25.5L20.6716 25.5C21.202 25.5 21.7107 25.7107 22.0858 26.0858Z" />
+                <path d="M79.0858 53.5858L96.5858 71.0858C97.8457 72.3457 96.9534 74.5 95.1716 74.5H79.3284C78.798 74.5 78.2893 74.2893 77.9142 73.9142L60.4142 56.4142C59.1543 55.1543 60.0466 53 61.8284 53H77.6716C78.202 53 78.7107 53.2107 79.0858 53.5858Z" />
+                <path d="M79.0858 46.4142L96.5858 28.9142C97.8457 27.6543 96.9534 25.5 95.1716 25.5H79.3284C78.798 25.5 78.2893 25.7107 77.9142 26.0858L60.4142 43.5858C59.1543 44.8457 60.0466 47 61.8284 47H77.6716C78.202 47 78.7107 46.7893 79.0858 46.4142Z" />
+                <path d="M22.0858 73.9142L39.5858 56.4142C40.8457 55.1543 39.9534 53 38.1716 53H22.3284C21.798 53 21.2893 53.2107 20.9142 53.5858L3.41422 71.0858C2.15429 72.3457 3.04662 74.5 4.82843 74.5H20.6716C21.202 74.5 21.7107 74.2893 22.0858 73.9142Z" />
+                <path d="M26.0858 77.9142L43.5858 60.4142C44.8457 59.1543 47 60.0466 47 61.8284V77.6716C47 78.202 46.7893 78.7107 46.4142 79.0858L28.9142 96.5858C27.6543 97.8457 25.5 96.9534 25.5 95.1716V79.3284C25.5 78.798 25.7107 78.2893 26.0858 77.9142Z" />
+                <path d="M53.5858 20.9142L71.0858 3.41421C72.3457 2.15428 74.5 3.04662 74.5 4.82843V20.6716C74.5 21.202 74.2893 21.7107 73.9142 22.0858L56.4142 39.5858C55.1543 40.8457 53 39.9534 53 38.1716V22.3284C53 21.798 53.2107 21.2893 53.5858 20.9142Z" />
+                <path d="M46.4142 20.9142L28.9142 3.41421C27.6543 2.15428 25.5 3.04662 25.5 4.82843V20.6716C25.5 21.202 25.7107 21.7107 26.0858 22.0858L43.5858 39.5858C44.8457 40.8457 47 39.9534 47 38.1716V22.3284C47 21.798 46.7893 21.2893 46.4142 20.9142Z" />
+              </g>
+              <defs>
+                <clipPath id="clip0_0_1">
+                  <rect width="100" height="100" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        ) : (
+          <>
+            {showNotice && (
+              <div className="relative flex items-center justify-center bg-teal-600 p-2 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
+                <Link
+                  className="group flex gap-2 hover:underline"
+                  href="sign-up"
+                >
+                  create an account to access your curriculum from other devices
+                  <ArrowRight
+                    className="transition group-hover:translate-x-2"
+                    weight="bold"
+                    size={20}
+                  />
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setShowNotice(false)}
+                  className="absolute right-4"
+                >
+                  <X weight="bold" size={20} />
+                </button>
+              </div>
+            )}
+            {curriculum ? (
+              <>
+                <div className="flex justify-between border-b-2 border-zinc-200 px-4 py-2 dark:border-zinc-800">
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      onClick={handleNewSem}
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <Plus size={16} weight="bold" />
+                      new semester
+                    </button>
+                    <div className="flex">
+                      <button type="button">
+                        <input
+                          type="radio"
+                          className="peer hidden"
+                          id="select"
+                          name="mode"
+                          defaultChecked
+                          onChange={() => setMode("SELECT")}
+                        />
+                        <label
+                          htmlFor="select"
+                          className="flex h-full items-center gap-2 rounded-l bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
                         >
-                          <Plus size={32} />
-                          new sem
-                        </button>
-                      )}
+                          <Cursor size={16} weight="bold" />
+                        </label>
+                      </button>
+                      <button type="button">
+                        <input
+                          type="radio"
+                          className="peer hidden"
+                          id="move"
+                          name="mode"
+                          onChange={() => setMode("MOVE")}
+                        />
+                        <label
+                          htmlFor="move"
+                          className="flex h-full items-center gap-2 bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                        >
+                          <ArrowsOutCardinal size={16} weight="bold" />
+                        </label>
+                      </button>
+                      <button type="button">
+                        <input
+                          type="radio"
+                          className="peer hidden"
+                          id="connect"
+                          name="mode"
+                          onChange={() => setMode("CONNECT")}
+                        />
+                        <label
+                          htmlFor="connect"
+                          className="flex h-full items-center gap-2 rounded-r bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
+                        >
+                          <FlowArrow size={16} weight="bold" />
+                        </label>
+                      </button>
                     </div>
                   </div>
-                  <div className="flex border-t-2 border-zinc-200 px-4 py-2 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-                    total units:{" "}
-                    {curriculum.sems
-                      .map((s) =>
-                        s.courses.map((c) => c.units).reduce((a, b) => a + b, 0)
-                      )
-                      .reduce((a, b) => a + b, 0)}
+                  <div className="flex gap-2">
+                    <button
+                      type="button"
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <Export size={16} weight="bold" />
+                      export
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setOnConfirm(() => handleDeleteCurriculum)}
+                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <TrashSimple size={16} weight="bold" />
+                      delete
+                    </button>
                   </div>
-                </>
-              ) : (
-                <div className="m-auto flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
-                  <div className="text-3xl">no curriculum</div>
-                  <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
-                    create a new curriculum to start planning
-                  </div>
-                  <button
-                    type="button"
-                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
-                    onClick={() => setNewCurricOpen(true)}
-                  >
-                    <Plus weight="bold" size={20} />
-                    new curriculum
-                  </button>
                 </div>
-              )}
-            </>
-          )}
-        </Layout>
-      </DragDropContext>
+                <div className="relative flex flex-1 flex-col overflow-x-auto">
+                  <GridLayout
+                    width={curriculum.sems * 192}
+                    cols={curriculum.sems}
+                    className={`layout`}
+                    rowHeight={40}
+                    style={{
+                      width: curriculum.sems * 192,
+                    }}
+                    isResizable={false}
+                    isDraggable={false}
+                    margin={[0, 0]}
+                  >
+                    {semar.map((v, i) => (
+                      <div
+                        key={i}
+                        className="group/sem border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
+                        data-grid={{
+                          x: i,
+                          y: 0,
+                          w: 1,
+                          h: 1,
+                        }}
+                      >
+                        <SemesterHeader index={i} />
+                      </div>
+                    ))}
+                  </GridLayout>
+                  <GridLayout
+                    width={curriculum.sems * 192}
+                    cols={curriculum.sems}
+                    className={`layout flex-1 overflow-y-auto overflow-x-hidden bg-borderright from-transparent to-zinc-200 bg-col dark:to-zinc-800`}
+                    rowHeight={36}
+                    style={{
+                      width: curriculum.sems * 192,
+                    }}
+                    resizeHandles={[]}
+                    compactType={null}
+                    preventCollision={true}
+                    autoSize={true}
+                    useCSSTransforms={false}
+                    margin={[0, 0]}
+                    isDraggable={mode === "MOVE"}
+                    onDragStop={(l, o, n) =>
+                      moveCourseMutation({ id: n.i, sem: n.x, position: n.y })
+                    }
+                  >
+                    {curriculum.courses.map((course) => (
+                      <div
+                        className={
+                          (course.id === courseDeets ? "z-20" : "z-[2]") +
+                          " p-2"
+                        }
+                        key={course.id}
+                        data-grid={{
+                          x: course.sem,
+                          y: course.position,
+                          w: 1,
+                          h: 2,
+                        }}
+                      >
+                        {courseDeets === course.id && (
+                          <CourseDetails
+                            course={course}
+                            x={
+                              (course.sem + 1) * 192 + 256 >=
+                              curriculum.sems * 192
+                                ? course.sem * 192 - 256 < 0
+                                  ? curriculum.sems - course.sem > 1
+                                    ? 0
+                                    : -80
+                                  : -262
+                                : 180
+                            }
+                            y={
+                              course.sem > 1 || curriculum.sems - course.sem > 2
+                                ? course.position > 3
+                                  ? -129
+                                  : 0
+                                : course.position > 5
+                                ? -196
+                                : 64
+                            }
+                            close={() => setCourseDeets("")}
+                          />
+                        )}
+                        <CourseItem
+                          open={() =>
+                            mode === "SELECT"
+                              ? setCourseDeets((prev) =>
+                                  prev === course.id ? "" : course.id
+                                )
+                              : ""
+                          }
+                          course={course}
+                        />
+                      </div>
+                    ))}
+                  </GridLayout>
+                  <GridLayout
+                    width={curriculum.sems * 192}
+                    cols={curriculum.sems}
+                    className={`layout`}
+                    rowHeight={40}
+                    style={{
+                      width: curriculum.sems * 192,
+                    }}
+                    isResizable={false}
+                    isDraggable={false}
+                    margin={[0, 0]}
+                    onLayoutChange={() => console.log(2)}
+                  >
+                    {semar.map((v, i) => {
+                      const units = curriculum.courses
+                        .filter((c) => c.sem === i)
+                        .reduce((a, { units }) => a + units, 0);
+                      return (
+                        <div
+                          key={i}
+                          className="border-t-2 border-r-2 border-zinc-200 p-2 dark:border-zinc-800"
+                          data-grid={{
+                            x: i,
+                            y: 0,
+                            w: 1,
+                            h: 1,
+                          }}
+                        >
+                          <SemesterFooter units={units} />
+                        </div>
+                      );
+                    })}
+                  </GridLayout>
+                </div>
+                <div className="flex border-t-2 border-zinc-200 px-4 py-2 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+                  curriculum units:{" "}
+                  {curriculum.courses.reduce((a, { units }) => a + units, 0)}
+                </div>
+              </>
+            ) : (
+              <div className="m-auto flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
+                <div className="text-3xl">no curriculum</div>
+                <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
+                  create a new curriculum to start planning
+                </div>
+                <button
+                  type="button"
+                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
+                  onClick={() => setNewCurricOpen(true)}
+                >
+                  <Plus weight="bold" size={20} />
+                  new curriculum
+                </button>
+              </div>
+            )}
+          </>
+        )}
+      </Layout>
     </>
   );
 };

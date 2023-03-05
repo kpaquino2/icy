@@ -6,27 +6,16 @@ const prisma = new PrismaClient();
 const main = async () => {
   const input = templates;
   for (const template of input) {
-    const { program, code, sems } = template;
+    const { program, code, sems, courses } = template;
     await prisma.template.create({
       data: {
         program,
         code,
         curriculum: {
           create: {
-            sems: {
-              create: sems.map((sem) => ({
-                hidden: sem.hidden,
-                number: sem.number,
-                courses: {
-                  create: sem.courses.map((course, i) => ({
-                    code: course.code,
-                    title: course.title,
-                    description: course.description,
-                    units: course.courseUnits,
-                    position: String.fromCharCode(i + 98).repeat(3),
-                  })),
-                },
-              })),
+            sems: sems,
+            courses: {
+              create: courses,
             },
           },
         },

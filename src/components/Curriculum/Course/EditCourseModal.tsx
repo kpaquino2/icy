@@ -1,22 +1,20 @@
 import type { Course } from "@prisma/client";
 import type { Dispatch, SetStateAction } from "react";
-import { api } from "../../utils/api";
-import { useCurriculumStore } from "../../utils/stores/curriculumStore";
-import CourseDetailsForm from "../Forms/CourseDetailsForm";
-import Modal from "../Modal";
+import { api } from "../../../utils/api";
+import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
+import CourseDetailsForm from "../../Forms/CourseDetailsForm";
+import Modal from "../../Modal";
 
 interface EditCourseModalProps {
   course: Course;
   editCourseOpen: boolean;
   setEditCourseOpen: Dispatch<SetStateAction<boolean>>;
-  title: string;
 }
 
 const EditCourseModal = ({
   course,
   editCourseOpen,
   setEditCourseOpen,
-  title,
 }: EditCourseModalProps) => {
   const updateCourse = useCurriculumStore((state) => state.updateCourse);
 
@@ -68,9 +66,9 @@ const EditCourseModal = ({
   return (
     <Modal
       isOpen={editCourseOpen}
-      setIsOpen={setEditCourseOpen}
+      close={() => setEditCourseOpen(false)}
       width="w-96"
-      title={title}
+      title="edit course"
     >
       <CourseDetailsForm
         open={editCourseOpen}

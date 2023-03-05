@@ -1,18 +1,18 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { type Dispatch, Fragment, type SetStateAction } from "react";
+import { Fragment } from "react";
 
 interface ModalProps {
   isOpen: boolean;
-  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  close: () => void;
   width: string;
-  title: string;
+  title?: string;
   children: React.ReactNode;
 }
 
-const Modal = ({ isOpen, setIsOpen, width, title, children }: ModalProps) => {
+const Modal = ({ isOpen, close, width, title, children }: ModalProps) => {
   return (
     <Transition show={isOpen} as={Fragment}>
-      <Dialog onClose={() => setIsOpen(false)}>
+      <Dialog onClose={close}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -22,7 +22,7 @@ const Modal = ({ isOpen, setIsOpen, width, title, children }: ModalProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black/30" />
+          <div className="fixed inset-0 z-40 bg-black/30" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}
@@ -33,7 +33,7 @@ const Modal = ({ isOpen, setIsOpen, width, title, children }: ModalProps) => {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <div className="fixed inset-0 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <Dialog.Panel
               className={
                 `flex flex-col overflow-hidden rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900 ` +

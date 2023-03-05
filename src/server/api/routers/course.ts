@@ -10,8 +10,9 @@ export const courseRouter = createTRPCRouter({
         title: z.string().nullable(),
         description: z.string().nullable(),
         units: z.number(),
-        position: z.string(),
-        semesterId: z.string(),
+        position: z.number(),
+        sem: z.number(),
+        curriculumId: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -46,7 +47,6 @@ export const courseRouter = createTRPCRouter({
     .input(
       z.object({
         id: z.string(),
-        semesterId: z.string(),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -59,31 +59,19 @@ export const courseRouter = createTRPCRouter({
   moveCourse: protectedProcedure
     .input(
       z.object({
-        course: z.object({
-          id: z.string(),
-          code: z.string(),
-          title: z.string().nullable(),
-          description: z.string().nullable(),
-          units: z.number(),
-          position: z.string(),
-          semesterId: z.string(),
-          createdAt: z.date(),
-        }),
-        sourceIndex: z.number(),
-        sourceSemIndex: z.number(),
-        destinationSemIndex: z.number(),
+        id: z.string(),
+        sem: z.number(),
+        position: z.number(),
       })
     )
     .mutation(async ({ ctx, input }) => {
       await ctx.prisma.course.update({
         where: {
-          id: input.course.id,
+          id: input.id,
         },
         data: {
-          position: input.course.position,
-          semesterId: {
-            set: input.course.semesterId,
-          },
+          sem: input.sem,
+          position: input.position,
         },
       });
     }),
