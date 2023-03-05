@@ -7,6 +7,7 @@ export const curriculumRouter = createTRPCRouter({
       where: { userId: ctx.session?.user.id || "" },
       include: {
         courses: true,
+        connections: true,
       },
     });
     return curric;
