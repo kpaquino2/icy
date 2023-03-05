@@ -1,6 +1,5 @@
 import { courseRouter } from "./routers/course";
 import { curriculumRouter } from "./routers/curriculum";
-import { semesterRouter } from "./routers/semester";
 import { templateCurriculumRouter } from "./routers/template_curriculum";
 import { createTRPCRouter } from "./trpc";
 
@@ -11,7 +10,6 @@ import { createTRPCRouter } from "./trpc";
  */
 export const appRouter = createTRPCRouter({
   curriculum: curriculumRouter,
-  semester: semesterRouter,
   course: courseRouter,
   template_curriculum: templateCurriculumRouter,
 });
