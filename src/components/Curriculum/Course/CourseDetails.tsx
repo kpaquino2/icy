@@ -4,6 +4,7 @@ import { PencilSimpleLine, TrashSimple, X } from "phosphor-react";
 import { useState, type MouseEventHandler } from "react";
 import { api } from "../../../utils/api";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
+import ConfirmActionModal from "../../ConfirmActionModal";
 import EditCourseModal from "./EditCourseModal";
 
 interface CourseDetailsProps {
@@ -42,7 +43,12 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
     },
   });
 
+  const handleDeleteCourse = () => {
+    deleteCourseMutation({ id: course.id });
+  };
+
   const [editCourseOpen, setEditCourseOpen] = useState(false);
+  const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
 
   return (
     <>
@@ -51,6 +57,7 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
         setEditCourseOpen={setEditCourseOpen}
         course={course}
       />
+      <ConfirmActionModal onConfirm={onConfirm} setOnConfirm={setOnConfirm} />
       <Transition
         enter="transition duration-300 ease-out"
         enterFrom="opacity-0"
@@ -76,8 +83,10 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
             </button>
             <button
               onClick={(e) => {
-                deleteCourseMutation({ id: course.id });
-                close(e);
+                setOnConfirm(() => () => {
+                  handleDeleteCourse();
+                  close(e);
+                });
               }}
               className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
             >

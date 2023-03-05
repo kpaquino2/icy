@@ -23,6 +23,7 @@ import SemesterHeader from "../components/Curriculum/Semester/SemesterHeader";
 import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
 import CourseItem from "../components/Curriculum/Course/CourseItem";
 import CourseDetails from "../components/Curriculum/Course/CourseDetails";
+import ConfirmActionModal from "../components/ConfirmActionModal";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
@@ -160,6 +161,8 @@ const Home: NextPage = () => {
     },
   });
 
+  const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
+
   return (
     <>
       <AddCurriculumModal
@@ -167,6 +170,7 @@ const Home: NextPage = () => {
         setNewCurricOpen={setNewCurricOpen}
         title="new curriculum"
       />
+      <ConfirmActionModal onConfirm={onConfirm} setOnConfirm={setOnConfirm} />
       {courseDeets && (
         <div
           onClick={() => setCourseDeets("")}
@@ -299,7 +303,7 @@ const Home: NextPage = () => {
                     </button>
                     <button
                       type="button"
-                      onClick={handleDeleteCurriculum}
+                      onClick={() => setOnConfirm(() => handleDeleteCurriculum)}
                       className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                     >
                       <TrashSimple size={16} weight="bold" />

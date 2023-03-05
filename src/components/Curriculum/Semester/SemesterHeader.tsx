@@ -2,6 +2,7 @@ import { Plus, X } from "phosphor-react";
 import { useState } from "react";
 import { api } from "../../../utils/api";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
+import ConfirmActionModal from "../../ConfirmActionModal";
 import AddCourseModal from "../Course/AddCourseModal";
 
 interface SemesterProps {
@@ -42,6 +43,7 @@ const SemesterColumn = ({ index }: SemesterProps) => {
     });
 
   const [newCourseOpen, setNewCourseOpen] = useState(false);
+  const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
 
   const handleDelete = () => {
     if (!curriculum) return;
@@ -56,6 +58,7 @@ const SemesterColumn = ({ index }: SemesterProps) => {
         newCourseOpen={newCourseOpen}
         setNewCourseOpen={setNewCourseOpen}
       />
+      <ConfirmActionModal onConfirm={onConfirm} setOnConfirm={setOnConfirm} />
       <div className="flex gap-2">
         <button
           type="button"
@@ -68,7 +71,7 @@ const SemesterColumn = ({ index }: SemesterProps) => {
           <button
             type="button"
             className="group block text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
-            onClick={handleDelete}
+            onClick={() => setOnConfirm(() => handleDelete)}
           >
             <X weight="bold" />
           </button>
