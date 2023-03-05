@@ -22,7 +22,7 @@ const Modal = ({ isOpen, setIsOpen, width, title, children }: ModalProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black/30" />
+          <div className="fixed inset-0 z-40 bg-black/30" />
         </Transition.Child>
         <Transition.Child
           as={Fragment}
@@ -33,7 +33,7 @@ const Modal = ({ isOpen, setIsOpen, width, title, children }: ModalProps) => {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <div className="fixed inset-0 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <Dialog.Panel
               className={
                 `flex flex-col overflow-hidden rounded-lg bg-zinc-100 p-4 dark:bg-zinc-900 ` +
