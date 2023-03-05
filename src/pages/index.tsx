@@ -11,7 +11,7 @@ import {
   TrashSimple,
   X,
 } from "phosphor-react";
-import { Fragment, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
 import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
@@ -24,6 +24,7 @@ import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
 import CourseItem from "../components/Curriculum/Course/CourseItem";
 import CourseDetails from "../components/Curriculum/Course/CourseDetails";
 import ConfirmActionModal from "../components/ConfirmActionModal";
+import Connections from "../components/Curriculum/Connection/Connections";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
@@ -162,6 +163,48 @@ const Home: NextPage = () => {
   });
 
   const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
+
+  const [prereq, setPrereq] = useState("");
+
+  const createConnection = useCurriculumStore(
+    (state) => state.createConnection
+  );
+  const { mutate: createConnectionMutation } =
+    api.connection.createConnection.useMutation({
+      onMutate: async (input) => {
+        createConnection({ ...input, createdAt: new Date() });
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: () => {
+        // Cancel previous timeout, if any
+        clearTimeout(refetchTimeout);
+
+        // Set a new timeout to refetch after 500ms
+        refetchTimeout = setTimeout(() => {
+          async () => {
+            await tctx.curriculum.getCurriculum.refetch();
+          };
+        }, 500); // adjust the delay time as needed
+      },
+    });
+
+  const handleCreateConnection = useCallback(
+    (post: string, pre: string) => {
+      if (!curriculum) return;
+      createConnectionMutation({
+        prereqId: pre,
+        postreqId: post,
+        curriculumId: curriculum.id,
+      });
+    },
+    [createConnectionMutation, curriculum]
+  );
 
   return (
     <>
@@ -339,6 +382,7 @@ const Home: NextPage = () => {
                       </div>
                     ))}
                   </GridLayout>
+                  <Connections />
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
@@ -351,7 +395,7 @@ const Home: NextPage = () => {
                     compactType={null}
                     preventCollision={true}
                     autoSize={true}
-                    useCSSTransforms={false}
+                    // useCSSTransforms={false}
                     margin={[0, 0]}
                     isDraggable={mode === "MOVE"}
                     onDragStop={(l, o, n) =>
@@ -361,8 +405,9 @@ const Home: NextPage = () => {
                     {curriculum.courses.map((course) => (
                       <div
                         className={
-                          (course.id === courseDeets ? "z-20" : "z-[2]") +
-                          " p-2"
+                          course.id === courseDeets
+                            ? "z-20"
+                            : "z-[3]" + " flex items-center justify-center"
                         }
                         key={course.id}
                         data-grid={{
@@ -398,18 +443,30 @@ const Home: NextPage = () => {
                           />
                         )}
                         <CourseItem
-                          open={() =>
-                            mode === "SELECT"
-                              ? setCourseDeets((prev) =>
+                          open={() => {
+                            if (mode === "SELECT") {
+                              setCourseDeets((prev) =>
+                                prev === course.id ? "" : course.id
+                              );
+                              return;
+                            }
+                            if (mode === "CONNECT") {
+                              if (!prereq || prereq === course.id) {
+                                setPrereq((prev) =>
                                   prev === course.id ? "" : course.id
-                                )
-                              : ""
-                          }
+                                );
+                                return;
+                              }
+                              handleCreateConnection(course.id, prereq);
+                              setPrereq("");
+                            }
+                          }}
                           course={course}
                         />
                       </div>
                     ))}
                   </GridLayout>
+
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
@@ -421,7 +478,6 @@ const Home: NextPage = () => {
                     isResizable={false}
                     isDraggable={false}
                     margin={[0, 0]}
-                    onLayoutChange={() => console.log(2)}
                   >
                     {semar.map((v, i) => {
                       const units = curriculum.courses
