@@ -19,10 +19,10 @@ import { useCurriculumStore } from "../utils/stores/curriculumStore";
 import { useModeStore } from "../utils/stores/modeStore";
 import GridLayout from "react-grid-layout";
 import "../../node_modules/react-grid-layout/css/styles.css";
-import SemesterHeader from "../components/Curriculum/SemesterHeader";
-import SemesterFooter from "../components/Curriculum/SemesterFooter";
-import CourseItem from "../components/Curriculum/CourseItem";
-import CourseDetails from "../components/Curriculum/CourseDetails";
+import SemesterHeader from "../components/Curriculum/Semester/SemesterHeader";
+import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
+import CourseItem from "../components/Curriculum/Course/CourseItem";
+import CourseDetails from "../components/Curriculum/Course/CourseDetails";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();

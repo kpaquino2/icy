@@ -2,8 +2,8 @@ import { Transition } from "@headlessui/react";
 import { type Course } from "@prisma/client";
 import { PencilSimpleLine, TrashSimple, X } from "phosphor-react";
 import { useState, type MouseEventHandler } from "react";
-import { api } from "../../utils/api";
-import { useCurriculumStore } from "../../utils/stores/curriculumStore";
+import { api } from "../../../utils/api";
+import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import EditCourseModal from "./EditCourseModal";
 
 interface CourseDetailsProps {

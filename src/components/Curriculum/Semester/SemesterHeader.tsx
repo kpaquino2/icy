@@ -1,8 +1,8 @@
 import { Plus, X } from "phosphor-react";
 import { useState } from "react";
-import { api } from "../../utils/api";
-import { useCurriculumStore } from "../../utils/stores/curriculumStore";
-import AddCourseModal from "./AddCourseModal";
+import { api } from "../../../utils/api";
+import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
+import AddCourseModal from "../Course/AddCourseModal";
 
 interface SemesterProps {
   index: number;

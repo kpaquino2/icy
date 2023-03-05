@@ -1,9 +1,9 @@
 import { createId } from "@paralleldrive/cuid2";
 import { type Dispatch, type SetStateAction } from "react";
-import { api } from "../../utils/api";
-import { useCurriculumStore } from "../../utils/stores/curriculumStore";
-import CourseDetailsForm from "../Forms/CourseDetailsForm";
-import Modal from "../Modal";
+import { api } from "../../../utils/api";
+import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
+import CourseDetailsForm from "../../Forms/CourseDetailsForm";
+import Modal from "../../Modal";
 
 interface AddCourseModalProps {
   sem: number;
