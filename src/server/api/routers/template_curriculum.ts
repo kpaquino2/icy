@@ -42,11 +42,7 @@ export const templateCurriculumRouter = createTRPCRouter({
         include: {
           curriculum: {
             include: {
-              sems: {
-                include: {
-                  courses: true,
-                },
-              },
+              courses: true,
             },
           },
         },
