@@ -2,10 +2,8 @@ import type { Course, Prisma } from "@prisma/client";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
-type SemWithCourses = Prisma.SemesterGetPayload<{ include: { courses: true } }>;
-
 type CurricWithSemsAndCourses = Prisma.CurriculumGetPayload<{
-  include: { sems: { include: { courses: true } } };
+  include: { courses: true };
 }>;
 
 interface CurriculumState {
@@ -13,17 +11,12 @@ interface CurriculumState {
   curriculum: CurricWithSemsAndCourses | null;
   setUserId: (userId: string) => void;
   setCurriculum: (currric: CurricWithSemsAndCourses | null) => void;
-  createSemester: (sem: SemWithCourses) => void;
-  deleteSemester: (semId: string) => void;
+  createSemester: () => void;
+  deleteSemester: () => void;
   createCourse: (course: Course) => void;
   updateCourse: (course: Course) => void;
   deleteCourse: (courseId: string) => void;
-  moveCourse: (
-    course: Course,
-    sourceCourseIndex: number,
-    sourceSemIndex: number,
-    destinationSemIndex: number
-  ) => void;
+  moveCourse: (courseId: string, tsem: number, tpos: number) => void;
 }
 
 export const useCurriculumStore = create<CurriculumState>()(
@@ -36,24 +29,27 @@ export const useCurriculumStore = create<CurriculumState>()(
         set({
           curriculum: curric,
         }),
-      createSemester: (sem) =>
+      createSemester: () =>
         set((state) => {
           if (!state.curriculum) return state;
           return {
             curriculum: {
               ...state.curriculum,
-              sems: [...state.curriculum.sems, sem],
+              sems: state.curriculum.sems + 1,
               updatedAt: new Date(),
             },
           };
         }),
-      deleteSemester: (semId) =>
+      deleteSemester: () =>
         set((state) => {
           if (!state.curriculum) return state;
           return {
             curriculum: {
               ...state.curriculum,
-              sems: state.curriculum.sems.filter((s) => s.id !== semId),
+              sems: state.curriculum.sems - 1,
+              courses: state.curriculum.courses.filter(
+                (c) => c.sem !== (state.curriculum?.sems || 0) - 1
+              ),
               updatedAt: new Date(),
             },
           };
@@ -64,11 +60,7 @@ export const useCurriculumStore = create<CurriculumState>()(
           return {
             curriculum: {
               ...state.curriculum,
-              sems: state.curriculum.sems.map((s) =>
-                s.id === course.semesterId
-                  ? { ...s, courses: [...s.courses, course] }
-                  : s
-              ),
+              courses: [...state.curriculum.courses, course],
               updatedAt: new Date(),
             },
           };
@@ -79,23 +71,8 @@ export const useCurriculumStore = create<CurriculumState>()(
           return {
             curriculum: {
               ...state.curriculum,
-              sems: state.curriculum.sems.map((s) =>
-                s.id === course.semesterId
-                  ? {
-                      ...s,
-                      courses: s.courses.map((c) =>
-                        c.id === course.id
-                          ? {
-                              ...c,
-                              code: course.code,
-                              title: course.title,
-                              description: course.description,
-                              units: course.units,
-                            }
-                          : c
-                      ),
-                    }
-                  : s
+              courses: state.curriculum.courses.map((c) =>
+                c.id === course.id ? course : c
               ),
               updatedAt: new Date(),
             },
@@ -107,33 +84,22 @@ export const useCurriculumStore = create<CurriculumState>()(
           return {
             curriculum: {
               ...state.curriculum,
-              sems: state.curriculum.sems.map((s) => ({
-                ...s,
-                courses: s.courses.filter((c) => c.id !== courseId),
-              })),
+              courses: state.curriculum.courses.filter(
+                (c) => c.id !== courseId
+              ),
               updatedAt: new Date(),
             },
           };
         }),
-      moveCourse: (
-        course,
-        sourceCourseIndex,
-        sourceSemIndex,
-        destinationSemIndex
-      ) =>
+      moveCourse: (courseId, tsem, tpos) =>
         set((state) => {
           if (!state.curriculum) return state;
-          const sourceSem = state.curriculum.sems[sourceSemIndex];
-          const destinationSem = state.curriculum.sems[destinationSemIndex];
-          if (!sourceSem || !destinationSem) return state;
-          // sourceSem.courses.splice(sourceCourseIndex, 1);
-          destinationSem.courses.push(course);
-          destinationSem.courses.sort((a, b) =>
-            a.position < b.position ? -1 : 1
-          );
           return {
             curriculum: {
               ...state.curriculum,
+              courses: state.curriculum.courses.map((c) =>
+                c.id === courseId ? { ...c, sem: tsem, position: tpos } : c
+              ),
               updatedAt: new Date(),
             },
           };
