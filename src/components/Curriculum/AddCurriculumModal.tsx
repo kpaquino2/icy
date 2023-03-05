@@ -148,7 +148,7 @@ const AddCurriculumModal = ({
   return (
     <Modal
       isOpen={newCurricOpen}
-      setIsOpen={setNewCurricOpen}
+      close={() => setNewCurricOpen(false)}
       width="w-[600px]"
       title={title}
     >

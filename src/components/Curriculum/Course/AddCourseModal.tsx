@@ -76,7 +76,7 @@ const AddCourseModal = ({
   return (
     <Modal
       isOpen={newCourseOpen}
-      setIsOpen={setNewCourseOpen}
+      close={() => setNewCourseOpen(false)}
       width="w-96"
       title="create new course"
     >

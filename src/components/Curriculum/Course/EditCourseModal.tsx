@@ -66,7 +66,7 @@ const EditCourseModal = ({
   return (
     <Modal
       isOpen={editCourseOpen}
-      setIsOpen={setEditCourseOpen}
+      close={() => setEditCourseOpen(false)}
       width="w-96"
       title="edit course"
     >
