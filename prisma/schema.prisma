@@ -36,43 +36,33 @@ model Program {
 }
 
 model Curriculum {
-    id        String     @id @default(cuid())
-    userId    String?    @unique
-    user      User?      @relation(fields: [userId], references: [id], onDelete: Cascade)
-    sems      Semester[]
-    createdAt DateTime   @default(now())
-    updatedAt DateTime   @updatedAt
+    id        String    @id @default(cuid())
+    userId    String?   @unique
+    user      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+    courses   Course[]
+    createdAt DateTime  @default(now())
+    updatedAt DateTime  @updatedAt
+    sems      Int
     template  Template?
 
     @@index([userId])
 }
 
-model Semester {
-    id           String     @id @default(cuid())
-    curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
+model Course {
+    id           String         @id @default(cuid())
+    code         String
+    title        String?        @db.Text
+    description  String?        @db.Text
+    units        Int
+    position     Int
+    sem          Int
+    prereqs      Prerequisite[] @relation("post")
+    postreqs     Prerequisite[] @relation("pre")
+    curriculum   Curriculum     @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
     curriculumId String
-    hidden       Boolean    @default(false)
-    number       Int
-    createdAt    DateTime   @default(now())
-    courses      Course[]
+    createdAt    DateTime       @default(now())
 
     @@index([curriculumId])
-}
-
-model Course {
-    id          String         @id @default(cuid())
-    code        String
-    title       String?        @db.Text
-    description String?        @db.Text
-    units       Int
-    position    String
-    prereqs     Prerequisite[] @relation("post")
-    postreqs    Prerequisite[] @relation("pre")
-    semesterId  String
-    sem         Semester       @relation(fields: [semesterId], references: [id], onDelete: Cascade)
-    createdAt   DateTime       @default(now())
-
-    @@index([semesterId])
 }
 
 model Prerequisite {
