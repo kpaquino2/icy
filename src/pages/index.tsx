@@ -386,7 +386,7 @@ const Home: NextPage = () => {
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
-                    className={`layout flex-1 overflow-y-auto overflow-x-hidden bg-borderright from-transparent to-zinc-200 bg-col dark:to-zinc-800`}
+                    className={`layout flex-1 overflow-hidden bg-borderright from-transparent to-zinc-200 bg-[length:192px] dark:to-zinc-800`}
                     rowHeight={36}
                     style={{
                       width: curriculum.sems * 192,
@@ -401,13 +401,13 @@ const Home: NextPage = () => {
                     onDragStop={(l, o, n) =>
                       moveCourseMutation({ id: n.i, sem: n.x, position: n.y })
                     }
+                    isBounded={true}
                   >
                     {curriculum.courses.map((course) => (
                       <div
                         className={
-                          course.id === courseDeets
-                            ? "z-20"
-                            : "z-[3]" + " flex items-center justify-center"
+                          (course.id === courseDeets ? "z-20" : "z-[3]") +
+                          " flex items-center justify-center"
                         }
                         key={course.id}
                         data-grid={{
@@ -426,9 +426,9 @@ const Home: NextPage = () => {
                                 ? course.sem * 192 - 256 < 0
                                   ? curriculum.sems - course.sem > 1
                                     ? 0
-                                    : -80
-                                  : -262
-                                : 180
+                                    : 192 - 256 - 24 - 24
+                                  : -256 - 12
+                                : 192 - 24 - 12
                             }
                             y={
                               course.sem > 1 || curriculum.sems - course.sem > 2
@@ -436,8 +436,8 @@ const Home: NextPage = () => {
                                   ? -129
                                   : 0
                                 : course.position > 5
-                                ? -196
-                                : 64
+                                ? -256 + 36
+                                : 36
                             }
                             close={() => setCourseDeets("")}
                           />

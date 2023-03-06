@@ -10,7 +10,7 @@ const CourseItem = ({ course, open }: CourseProps) => {
   return (
     <div
       onClick={open}
-      className="z-0 flex h-full items-center rounded bg-teal-600 p-2 text-zinc-100 hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
+      className="flex h-3/4 w-36 items-center rounded bg-teal-600 p-2 text-zinc-100 hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
     >
       {course.code}
     </div>
