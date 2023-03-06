@@ -1,7 +1,11 @@
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import Line from "./Line";
 
-const Connections = () => {
+interface ConnectionsProps {
+  focused: string;
+}
+
+const Connections = ({ focused }: ConnectionsProps) => {
   const curriculum = useCurriculumStore((state) => state.curriculum);
   const offsets: number[] = [];
 
@@ -22,6 +26,7 @@ const Connections = () => {
               : 1;
             return (
               <Line
+                focused={focused === pre.id || focused === post.id}
                 key={i}
                 pre={pre}
                 post={post}

@@ -206,6 +206,8 @@ const Home: NextPage = () => {
     [createConnectionMutation, curriculum]
   );
 
+  const [focused, setFocused] = useState("");
+
   return (
     <>
       <AddCurriculumModal
@@ -382,7 +384,7 @@ const Home: NextPage = () => {
                       </div>
                     ))}
                   </GridLayout>
-                  <Connections />
+                  <Connections focused={focused} />
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
@@ -398,6 +400,7 @@ const Home: NextPage = () => {
                     // useCSSTransforms={false}
                     margin={[0, 0]}
                     isDraggable={mode === "MOVE"}
+                    // onDrag={(l, o, n) => moveCourse(n.i, n.x, n.y)}
                     onDragStop={(l, o, n) =>
                       moveCourseMutation({ id: n.i, sem: n.x, position: n.y })
                     }
@@ -433,16 +436,18 @@ const Home: NextPage = () => {
                             y={
                               course.sem > 1 || curriculum.sems - course.sem > 2
                                 ? course.position > 3
-                                  ? -129
-                                  : 0
+                                  ? -192 + 36 * 0.75
+                                  : -36 + 36 * 0.25
                                 : course.position > 5
-                                ? -256 + 36
-                                : 36
+                                ? -256 + 24
+                                : 24
                             }
                             close={() => setCourseDeets("")}
                           />
                         )}
                         <CourseItem
+                          focus={() => setFocused(course.id)}
+                          blur={() => setFocused("")}
                           open={() => {
                             if (mode === "SELECT") {
                               setCourseDeets((prev) =>
