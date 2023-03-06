@@ -54,7 +54,7 @@ const Line = ({ pre, post, offset, focused }: LineProps) => {
           className="rounded fill-teal-600 dark:fill-teal-400"
         >
           <animateMotion
-            dur={`${(dist || 1) * 0.02}`}
+            dur={`${(dist || 1) * 0.01}`}
             repeatCount="indefinite"
             rotate="auto"
             path={`M ${start[0] + 4} ${start[1]} L ${end[0] - 8 * offset} ${
