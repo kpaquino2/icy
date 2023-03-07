@@ -7,7 +7,6 @@ interface ConnectionsProps {
 
 const Connections = ({ focused }: ConnectionsProps) => {
   const curriculum = useCurriculumStore((state) => state.curriculum);
-  const offsets: number[] = [];
 
   return (
     <>
@@ -21,16 +20,12 @@ const Connections = ({ focused }: ConnectionsProps) => {
               (c) => c.id === connection.postreqId
             );
             if (!pre || !post) return <></>;
-            offsets[post.sem] = offsets[post.sem]
-              ? ((offsets[post.sem] || 0) + 1) % 8
-              : 1;
             return (
               <Line
                 focused={focused === pre.id || focused === post.id}
                 key={i}
                 pre={pre}
                 post={post}
-                offset={offsets[post.sem] || 1}
               />
             );
           })}

@@ -4,11 +4,10 @@ import { useRef } from "react";
 interface LineProps {
   pre: Course;
   post: Course;
-  offset: number;
   focused: boolean;
 }
 
-const Line = ({ pre, post, offset, focused }: LineProps) => {
+const Line = ({ pre, post, focused }: LineProps) => {
   const prereqsem = pre.sem;
   const prereqpos = pre.position;
   const postreqsem = post.sem;
@@ -22,7 +21,6 @@ const Line = ({ pre, post, offset, focused }: LineProps) => {
     (postreqpos + 1) * 36 + 40,
   ];
 
-  // const dist = Math.sqrt((start[0] - end[0]) ** 2 + (start[1] - end[1]) ** 2);
   const pathRef = useRef<SVGPathElement>(null);
   const dist = pathRef.current?.getTotalLength();
   return (
@@ -42,9 +40,11 @@ const Line = ({ pre, post, offset, focused }: LineProps) => {
       />
       <path
         ref={pathRef}
-        d={`M ${start[0] + 4} ${start[1]} L ${end[0] - 8 * offset} ${
-          start[1]
-        } L ${end[0] - 8 * offset} ${end[1]} L ${end[0]} ${end[1]}`}
+        d={`M ${start[0] + 4} ${start[1]}
+            L ${start[0] + (end[0] - start[0]) / 4} ${start[1]}
+            L ${end[0] - (end[0] - start[0]) / 4} ${end[1]}
+            L ${end[0]} ${end[1]}
+          `}
       />
       <path d={`M ${end[0] - 5.66} ${end[1] - 5.66} L ${end[0]} ${end[1]}`} />
       <path d={`M ${end[0] - 5.66} ${end[1] + 5.66} L ${end[0]} ${end[1]}`} />
@@ -57,9 +57,11 @@ const Line = ({ pre, post, offset, focused }: LineProps) => {
             dur={`${(dist || 1) * 0.01}`}
             repeatCount="indefinite"
             rotate="auto"
-            path={`M ${start[0] + 4} ${start[1]} L ${end[0] - 8 * offset} ${
-              start[1]
-            } L ${end[0] - 8 * offset} ${end[1]} L ${end[0]} ${end[1]}`}
+            path={`M ${start[0] + 4} ${start[1]}
+            L ${start[0] + (end[0] - start[0]) / 4} ${start[1]}
+            L ${end[0] - (end[0] - start[0]) / 4} ${end[1]}
+            L ${end[0]} ${end[1]}
+          `}
           />
         </polygon>
       )}
