@@ -372,7 +372,7 @@ const Home: NextPage = () => {
                     {semar.map((v, i) => (
                       <div
                         key={i}
-                        className="group/sem border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
+                        className="group/sem z-10 border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
                         data-grid={{
                           x: i,
                           y: 0,
@@ -384,7 +384,7 @@ const Home: NextPage = () => {
                       </div>
                     ))}
                   </GridLayout>
-                  <Connections focused={focused} />
+
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
@@ -471,7 +471,7 @@ const Home: NextPage = () => {
                       </div>
                     ))}
                   </GridLayout>
-
+                  <Connections focused={focused} setFocused={setFocused} />
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}

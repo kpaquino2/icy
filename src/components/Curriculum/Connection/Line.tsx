@@ -1,13 +1,15 @@
 import type { Course } from "@prisma/client";
-import { useRef } from "react";
+import { type FocusEventHandler, useRef } from "react";
 
 interface LineProps {
   pre: Course;
   post: Course;
   focused: boolean;
+  focus: FocusEventHandler;
+  blur: FocusEventHandler;
 }
 
-const Line = ({ pre, post, focused }: LineProps) => {
+const Line = ({ pre, post, focused, focus, blur }: LineProps) => {
   const prereqsem = pre.sem;
   const prereqpos = pre.position;
   const postreqsem = post.sem;
@@ -29,8 +31,11 @@ const Line = ({ pre, post, focused }: LineProps) => {
         (focused
           ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
           : "stroke-zinc-500 opacity-50 ") +
-        " fill-transparent stroke-2 transition-all"
+        " cursor-pointer fill-none stroke-2 transition-all focus:outline-none"
       }
+      tabIndex={1}
+      onFocus={focus}
+      onBlur={blur}
     >
       <path
         d={`M ${start[0]} ${start[1] - 5.66} L ${start[0] + 5.66} ${start[1]}`}
