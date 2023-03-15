@@ -5,6 +5,7 @@ import {
   ArrowRight,
   ArrowsOutCardinal,
   Cursor,
+  Eraser,
   Export,
   FlowArrow,
   Plus,
@@ -169,10 +170,39 @@ const Home: NextPage = () => {
   const createConnection = useCurriculumStore(
     (state) => state.createConnection
   );
+  const deleteConnection = useCurriculumStore(
+    (state) => state.deleteConnection
+  );
+
   const { mutate: createConnectionMutation } =
     api.connection.createConnection.useMutation({
       onMutate: async (input) => {
         createConnection({ ...input, createdAt: new Date() });
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: () => {
+        // Cancel previous timeout, if any
+        clearTimeout(refetchTimeout);
+
+        // Set a new timeout to refetch after 500ms
+        refetchTimeout = setTimeout(() => {
+          async () => {
+            await tctx.curriculum.getCurriculum.refetch();
+          };
+        }, 500); // adjust the delay time as needed
+      },
+    });
+
+  const { mutate: deleteConnectionMutation } =
+    api.connection.deleteConnection.useMutation({
+      onMutate: async (input) => {
+        deleteConnection(input.prereqId, input.postreqId);
         await tctx.curriculum.getCurriculum.cancel();
         const prev = tctx.curriculum.getCurriculum.getData();
         return { prev };
@@ -205,6 +235,15 @@ const Home: NextPage = () => {
     },
     [createConnectionMutation, curriculum]
   );
+
+  const handleDeleteConnection = () => {
+    if (!curriculum) return;
+    deleteConnectionMutation({
+      prereqId: focused.slice(0, 24),
+      postreqId: focused.slice(24),
+    });
+    setFocused("");
+  };
 
   const [focused, setFocused] = useState("");
 
@@ -337,6 +376,16 @@ const Home: NextPage = () => {
                         </label>
                       </button>
                     </div>
+                    {focused.length === 48 && (
+                      <button
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={handleDeleteConnection}
+                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                      >
+                        <Eraser size={16} weight="bold" />
+                        delete connection
+                      </button>
+                    )}
                   </div>
                   <div className="flex gap-2">
                     <button

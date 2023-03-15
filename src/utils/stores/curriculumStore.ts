@@ -18,6 +18,7 @@ interface CurriculumState {
   deleteCourse: (courseId: string) => void;
   moveCourse: (courseId: string, tsem: number, tpos: number) => void;
   createConnection: (conn: Connection) => void;
+  deleteConnection: (prereqId: string, postreqId: string) => void;
 }
 
 export const useCurriculumStore = create<CurriculumState>()(
@@ -112,6 +113,19 @@ export const useCurriculumStore = create<CurriculumState>()(
             curriculum: {
               ...state.curriculum,
               connections: [...state.curriculum.connections, conn],
+            },
+          };
+        }),
+      deleteConnection: (prereqId, postreqId) =>
+        set((state) => {
+          if (!state.curriculum) return state;
+          return {
+            curriculum: {
+              ...state.curriculum,
+              connections: state.curriculum.connections.filter(
+                (conn) =>
+                  conn.prereqId !== prereqId && conn.postreqId !== postreqId
+              ),
             },
           };
         }),
