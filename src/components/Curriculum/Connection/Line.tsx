@@ -1,28 +1,14 @@
-import type { Course } from "@prisma/client";
 import { type FocusEventHandler, useRef } from "react";
 
 interface LineProps {
-  pre: Course;
-  post: Course;
+  start: [number, number];
+  end: [number, number];
   focused: boolean;
   focus: FocusEventHandler;
   blur: FocusEventHandler;
 }
 
-const Line = ({ pre, post, focused, focus, blur }: LineProps) => {
-  const prereqsem = pre.sem;
-  const prereqpos = pre.position;
-  const postreqsem = post.sem;
-  const postreqpos = post.position;
-  const start: [number, number] = [
-    (prereqsem + 1) * 192 - 24,
-    (prereqpos + 1) * 36 + 40,
-  ];
-  const end: [number, number] = [
-    postreqsem * 192 + 24,
-    (postreqpos + 1) * 36 + 40,
-  ];
-
+const Line = ({ start, end, focused, focus, blur }: LineProps) => {
   const pathRef = useRef<SVGPathElement>(null);
   const dist = pathRef.current?.getTotalLength();
   return (

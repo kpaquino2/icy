@@ -166,6 +166,7 @@ const Home: NextPage = () => {
   const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
 
   const [prereq, setPrereq] = useState("");
+  const [postreq, setPostreq] = useState("");
 
   const createConnection = useCurriculumStore(
     (state) => state.createConnection
@@ -225,7 +226,7 @@ const Home: NextPage = () => {
     });
 
   const handleCreateConnection = useCallback(
-    (post: string, pre: string) => {
+    (pre: string, post: string) => {
       if (!curriculum) return;
       createConnectionMutation({
         prereqId: pre,
@@ -458,8 +459,13 @@ const Home: NextPage = () => {
                     {curriculum.courses.map((course) => (
                       <div
                         className={
-                          (course.id === courseDeets ? "z-20" : "z-[3]") +
-                          " pointer-events-none flex items-center justify-center"
+                          (course.id === courseDeets ? "z-20 " : "z-[3] ") +
+                          (course.id === prereq || course.id === postreq
+                            ? postreq
+                              ? "bg-teal-500/25 "
+                              : "bg-pink-500/25 "
+                            : "bg-transparent ") +
+                          "pointer-events-none flex items-center justify-center "
                         }
                         key={course.id}
                         data-grid={{
@@ -498,29 +504,49 @@ const Home: NextPage = () => {
                           focus={() => setFocused(course.id)}
                           blur={() => setFocused("")}
                           open={() => {
-                            if (mode === "SELECT") {
-                              setCourseDeets((prev) =>
-                                prev === course.id ? "" : course.id
-                              );
-                              return;
-                            }
-                            if (mode === "CONNECT") {
-                              if (!prereq || prereq === course.id) {
-                                setPrereq((prev) =>
-                                  prev === course.id ? "" : course.id
-                                );
-                                return;
-                              }
-                              handleCreateConnection(course.id, prereq);
-                              setPrereq("");
-                            }
+                            if (mode !== "SELECT") return;
+                            setCourseDeets((prev) =>
+                              prev === course.id ? "" : course.id
+                            );
+                          }}
+                          mousedown={() => {
+                            if (mode !== "CONNECT") return;
+                            setPrereq(course.id);
+                            document.addEventListener(
+                              "mouseup",
+                              () => {
+                                setPrereq("");
+                                setPostreq("");
+                              },
+                              { once: true }
+                            );
+                          }}
+                          mouseup={() => {
+                            if (mode !== "CONNECT") return;
+                            if (prereq === course.id) return;
+                            handleCreateConnection(prereq, course.id);
+                          }}
+                          mouseover={() => {
+                            if (mode !== "CONNECT") return;
+                            if (!prereq) return;
+                            setPostreq(course.id);
+                          }}
+                          mouseout={() => {
+                            if (mode !== "CONNECT") return;
+                            if (!prereq) return;
+                            setPostreq("");
                           }}
                           course={course}
                         />
                       </div>
                     ))}
                   </GridLayout>
-                  <Connections focused={focused} setFocused={setFocused} />
+                  <Connections
+                    focused={focused}
+                    setFocused={setFocused}
+                    prereq={prereq}
+                    postreq={postreq}
+                  />
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
