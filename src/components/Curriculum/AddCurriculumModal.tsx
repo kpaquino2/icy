@@ -61,6 +61,7 @@ const AddCurriculumModal = ({
           createdAt: new Date(),
           updatedAt: new Date(),
           courses: [],
+          connections: [],
         });
         await tctx.curriculum.getCurriculum.cancel();
         const prev = tctx.curriculum.getCurriculum.getData();
@@ -84,6 +85,7 @@ const AddCurriculumModal = ({
             sems: input.curriculum.sems,
             createdAt: new Date(),
             updatedAt: new Date(),
+            connections: [],
             courses: input.curriculum.courses.map((course) => ({
               id: createId(),
               code: course.code,

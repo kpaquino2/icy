@@ -1,9 +1,9 @@
-import type { Course, Prisma } from "@prisma/client";
+import type { Course, Connection, Prisma } from "@prisma/client";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
 type CurricWithSemsAndCourses = Prisma.CurriculumGetPayload<{
-  include: { courses: true };
+  include: { courses: true; connections: true };
 }>;
 
 interface CurriculumState {
@@ -17,6 +17,8 @@ interface CurriculumState {
   updateCourse: (course: Course) => void;
   deleteCourse: (courseId: string) => void;
   moveCourse: (courseId: string, tsem: number, tpos: number) => void;
+  createConnection: (conn: Connection) => void;
+  deleteConnection: (prereqId: string, postreqId: string) => void;
 }
 
 export const useCurriculumStore = create<CurriculumState>()(
@@ -101,6 +103,29 @@ export const useCurriculumStore = create<CurriculumState>()(
                 c.id === courseId ? { ...c, sem: tsem, position: tpos } : c
               ),
               updatedAt: new Date(),
+            },
+          };
+        }),
+      createConnection: (conn) =>
+        set((state) => {
+          if (!state.curriculum) return state;
+          return {
+            curriculum: {
+              ...state.curriculum,
+              connections: [...state.curriculum.connections, conn],
+            },
+          };
+        }),
+      deleteConnection: (prereqId, postreqId) =>
+        set((state) => {
+          if (!state.curriculum) return state;
+          return {
+            curriculum: {
+              ...state.curriculum,
+              connections: state.curriculum.connections.filter(
+                (conn) =>
+                  conn.prereqId !== prereqId || conn.postreqId !== postreqId
+              ),
             },
           };
         }),

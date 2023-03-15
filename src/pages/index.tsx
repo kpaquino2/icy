@@ -5,13 +5,14 @@ import {
   ArrowRight,
   ArrowsOutCardinal,
   Cursor,
+  Eraser,
   Export,
   FlowArrow,
   Plus,
   TrashSimple,
   X,
 } from "phosphor-react";
-import { Fragment, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
 import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
@@ -24,6 +25,7 @@ import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
 import CourseItem from "../components/Curriculum/Course/CourseItem";
 import CourseDetails from "../components/Curriculum/Course/CourseDetails";
 import ConfirmActionModal from "../components/ConfirmActionModal";
+import Connections from "../components/Curriculum/Connection/Connections";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
@@ -163,6 +165,89 @@ const Home: NextPage = () => {
 
   const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
 
+  const [prereq, setPrereq] = useState("");
+  const [postreq, setPostreq] = useState("");
+
+  const createConnection = useCurriculumStore(
+    (state) => state.createConnection
+  );
+  const deleteConnection = useCurriculumStore(
+    (state) => state.deleteConnection
+  );
+
+  const { mutate: createConnectionMutation } =
+    api.connection.createConnection.useMutation({
+      onMutate: async (input) => {
+        createConnection({ ...input, createdAt: new Date() });
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: () => {
+        // Cancel previous timeout, if any
+        clearTimeout(refetchTimeout);
+
+        // Set a new timeout to refetch after 500ms
+        refetchTimeout = setTimeout(() => {
+          async () => {
+            await tctx.curriculum.getCurriculum.refetch();
+          };
+        }, 500); // adjust the delay time as needed
+      },
+    });
+
+  const { mutate: deleteConnectionMutation } =
+    api.connection.deleteConnection.useMutation({
+      onMutate: async (input) => {
+        deleteConnection(input.prereqId, input.postreqId);
+        await tctx.curriculum.getCurriculum.cancel();
+        const prev = tctx.curriculum.getCurriculum.getData();
+        return { prev };
+      },
+      onError: (err, input, ctx) => {
+        if (err.data?.code === "UNAUTHORIZED") return;
+        tctx.curriculum.getCurriculum.setData(undefined, ctx?.prev);
+      },
+      onSettled: () => {
+        // Cancel previous timeout, if any
+        clearTimeout(refetchTimeout);
+
+        // Set a new timeout to refetch after 500ms
+        refetchTimeout = setTimeout(() => {
+          async () => {
+            await tctx.curriculum.getCurriculum.refetch();
+          };
+        }, 500); // adjust the delay time as needed
+      },
+    });
+
+  const handleCreateConnection = useCallback(
+    (pre: string, post: string) => {
+      if (!curriculum) return;
+      createConnectionMutation({
+        prereqId: pre,
+        postreqId: post,
+        curriculumId: curriculum.id,
+      });
+    },
+    [createConnectionMutation, curriculum]
+  );
+
+  const handleDeleteConnection = () => {
+    if (!curriculum) return;
+    deleteConnectionMutation({
+      prereqId: focused.slice(0, 24),
+      postreqId: focused.slice(24),
+    });
+    setFocused("");
+  };
+
+  const [focused, setFocused] = useState("");
+
   return (
     <>
       <AddCurriculumModal
@@ -292,6 +377,16 @@ const Home: NextPage = () => {
                         </label>
                       </button>
                     </div>
+                    {focused.length === 48 && (
+                      <button
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={handleDeleteConnection}
+                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                      >
+                        <Eraser size={16} weight="bold" />
+                        delete connection
+                      </button>
+                    )}
                   </div>
                   <div className="flex gap-2">
                     <button
@@ -327,7 +422,7 @@ const Home: NextPage = () => {
                     {semar.map((v, i) => (
                       <div
                         key={i}
-                        className="group/sem border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
+                        className="group/sem z-10 border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
                         data-grid={{
                           x: i,
                           y: 0,
@@ -339,10 +434,11 @@ const Home: NextPage = () => {
                       </div>
                     ))}
                   </GridLayout>
+
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
-                    className={`layout flex-1 overflow-y-auto overflow-x-hidden bg-borderright from-transparent to-zinc-200 bg-col dark:to-zinc-800`}
+                    className={`layout flex-1 overflow-hidden bg-borderright from-transparent to-zinc-200 bg-[length:192px] dark:to-zinc-800`}
                     rowHeight={36}
                     style={{
                       width: curriculum.sems * 192,
@@ -351,18 +447,25 @@ const Home: NextPage = () => {
                     compactType={null}
                     preventCollision={true}
                     autoSize={true}
-                    useCSSTransforms={false}
+                    // useCSSTransforms={false}
                     margin={[0, 0]}
                     isDraggable={mode === "MOVE"}
+                    // onDrag={(l, o, n) => moveCourse(n.i, n.x, n.y)}
                     onDragStop={(l, o, n) =>
                       moveCourseMutation({ id: n.i, sem: n.x, position: n.y })
                     }
+                    isBounded={true}
                   >
                     {curriculum.courses.map((course) => (
                       <div
                         className={
-                          (course.id === courseDeets ? "z-20" : "z-[2]") +
-                          " p-2"
+                          (course.id === courseDeets ? "z-20 " : "z-[3] ") +
+                          (course.id === prereq || course.id === postreq
+                            ? postreq
+                              ? "bg-teal-500/25 "
+                              : "bg-pink-500/25 "
+                            : "bg-transparent ") +
+                          "pointer-events-none flex items-center justify-center "
                         }
                         key={course.id}
                         data-grid={{
@@ -381,35 +484,69 @@ const Home: NextPage = () => {
                                 ? course.sem * 192 - 256 < 0
                                   ? curriculum.sems - course.sem > 1
                                     ? 0
-                                    : -80
-                                  : -262
-                                : 180
+                                    : 192 - 256 - 24 - 24
+                                  : -256 - 12
+                                : 192 - 24 - 12
                             }
                             y={
                               course.sem > 1 || curriculum.sems - course.sem > 2
                                 ? course.position > 3
-                                  ? -129
-                                  : 0
+                                  ? -192 + 36 * 0.75
+                                  : -36 + 36 * 0.25
                                 : course.position > 5
-                                ? -196
-                                : 64
+                                ? -256 + 24
+                                : 24
                             }
                             close={() => setCourseDeets("")}
                           />
                         )}
                         <CourseItem
-                          open={() =>
-                            mode === "SELECT"
-                              ? setCourseDeets((prev) =>
-                                  prev === course.id ? "" : course.id
-                                )
-                              : ""
-                          }
+                          focus={() => setFocused(course.id)}
+                          blur={() => setFocused("")}
+                          open={() => {
+                            if (mode !== "SELECT") return;
+                            setCourseDeets((prev) =>
+                              prev === course.id ? "" : course.id
+                            );
+                          }}
+                          mousedown={() => {
+                            if (mode !== "CONNECT") return;
+                            setPrereq(course.id);
+                            document.addEventListener(
+                              "mouseup",
+                              () => {
+                                setPrereq("");
+                                setPostreq("");
+                              },
+                              { once: true }
+                            );
+                          }}
+                          mouseup={() => {
+                            if (mode !== "CONNECT") return;
+                            if (prereq === course.id) return;
+                            handleCreateConnection(prereq, course.id);
+                          }}
+                          mouseover={() => {
+                            if (mode !== "CONNECT") return;
+                            if (!prereq) return;
+                            setPostreq(course.id);
+                          }}
+                          mouseout={() => {
+                            if (mode !== "CONNECT") return;
+                            if (!prereq) return;
+                            setPostreq("");
+                          }}
                           course={course}
                         />
                       </div>
                     ))}
                   </GridLayout>
+                  <Connections
+                    focused={focused}
+                    setFocused={setFocused}
+                    prereq={prereq}
+                    postreq={postreq}
+                  />
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
@@ -421,7 +558,6 @@ const Home: NextPage = () => {
                     isResizable={false}
                     isDraggable={false}
                     margin={[0, 0]}
-                    onLayoutChange={() => console.log(2)}
                   >
                     {semar.map((v, i) => {
                       const units = curriculum.courses

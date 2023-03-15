@@ -51,7 +51,7 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
   const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
 
   return (
-    <>
+    <div className="pointer-events-auto">
       <EditCourseModal
         editCourseOpen={editCourseOpen}
         setEditCourseOpen={setEditCourseOpen}
@@ -69,7 +69,7 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
         appear={true}
       >
         <div
-          className="absolute flex h-[186px] w-64 scale-0 flex-col rounded border-2 border-zinc-200 bg-zinc-100 p-3 transition-all dark:border-zinc-800 dark:bg-zinc-900"
+          className="absolute flex h-48 w-64 scale-0 flex-col rounded border-2 border-zinc-200 bg-zinc-100 p-3 transition-all dark:border-zinc-800 dark:bg-zinc-900"
           style={{
             transform: `translate(${x}px, ${y}px)`,
           }}
@@ -116,7 +116,7 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
           </div>
         </div>
       </Transition>
-    </>
+    </div>
   );
 };
 

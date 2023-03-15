@@ -36,45 +36,49 @@ model Program {
 }
 
 model Curriculum {
-    id        String    @id @default(cuid())
-    userId    String?   @unique
-    user      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
-    courses   Course[]
-    createdAt DateTime  @default(now())
-    updatedAt DateTime  @updatedAt
-    sems      Int
-    template  Template?
+    id          String       @id @default(cuid())
+    userId      String?      @unique
+    user        User?        @relation(fields: [userId], references: [id], onDelete: Cascade)
+    courses     Course[]
+    createdAt   DateTime     @default(now())
+    updatedAt   DateTime     @updatedAt
+    sems        Int
+    template    Template?
+    connections Connection[]
 
     @@index([userId])
 }
 
 model Course {
-    id           String         @id @default(cuid())
+    id           String       @id @default(cuid())
     code         String
-    title        String?        @db.Text
-    description  String?        @db.Text
+    title        String?      @db.Text
+    description  String?      @db.Text
     units        Int
     position     Int
     sem          Int
-    prereqs      Prerequisite[] @relation("post")
-    postreqs     Prerequisite[] @relation("pre")
-    curriculum   Curriculum     @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
+    prereqs      Connection[] @relation("post")
+    postreqs     Connection[] @relation("pre")
+    curriculum   Curriculum   @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
     curriculumId String
-    createdAt    DateTime       @default(now())
+    createdAt    DateTime     @default(now())
 
     @@index([curriculumId])
 }
 
-model Prerequisite {
-    postreqId String
-    prereqId  String
-    postreq   Course   @relation(name: "post", fields: [postreqId], references: [id], onDelete: Cascade)
-    prereq    Course   @relation(name: "pre", fields: [prereqId], references: [id], onDelete: Cascade)
-    createdAt DateTime @default(now())
+model Connection {
+    postreqId    String
+    prereqId     String
+    postreq      Course     @relation(name: "post", fields: [postreqId], references: [id], onDelete: Cascade)
+    prereq       Course     @relation(name: "pre", fields: [prereqId], references: [id], onDelete: Cascade)
+    curriculumId String
+    curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
+    createdAt    DateTime   @default(now())
 
     @@id([postreqId, prereqId])
     @@index([postreqId])
     @@index([prereqId])
+    @@index([curriculumId])
 }
 
 // Necessary for Next auth
