@@ -51,7 +51,7 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
   const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
 
   return (
-    <>
+    <div className="pointer-events-auto">
       <EditCourseModal
         editCourseOpen={editCourseOpen}
         setEditCourseOpen={setEditCourseOpen}
@@ -116,7 +116,7 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
           </div>
         </div>
       </Transition>
-    </>
+    </div>
   );
 };
 

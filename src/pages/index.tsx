@@ -410,7 +410,7 @@ const Home: NextPage = () => {
                       <div
                         className={
                           (course.id === courseDeets ? "z-20" : "z-[3]") +
-                          " flex items-center justify-center"
+                          " pointer-events-none flex items-center justify-center"
                         }
                         key={course.id}
                         data-grid={{
