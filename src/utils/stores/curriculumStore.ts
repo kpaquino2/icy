@@ -124,7 +124,7 @@ export const useCurriculumStore = create<CurriculumState>()(
               ...state.curriculum,
               connections: state.curriculum.connections.filter(
                 (conn) =>
-                  conn.prereqId !== prereqId && conn.postreqId !== postreqId
+                  conn.prereqId !== prereqId || conn.postreqId !== postreqId
               ),
             },
           };
