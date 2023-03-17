@@ -443,7 +443,7 @@ const Home: NextPage = () => {
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
-                    className={`layout flex-1 overflow-hidden bg-borderright from-transparent to-zinc-200 bg-[length:192px] dark:to-zinc-800`}
+                    className={`layout flex-1 overflow-visible bg-borderright from-transparent to-zinc-200 bg-[length:192px] dark:to-zinc-800`}
                     rowHeight={36}
                     style={{
                       width: curriculum.sems * 192,
@@ -485,22 +485,14 @@ const Home: NextPage = () => {
                             course={course}
                             x={
                               (course.sem + 1) * 192 + 256 >=
-                              curriculum.sems * 192
-                                ? course.sem * 192 - 256 < 0
-                                  ? curriculum.sems - course.sem > 1
-                                    ? 0
-                                    : 192 - 256 - 24 - 24
-                                  : -256 - 12
+                                curriculum.sems * 192 && curriculum.sems > 3
+                                ? -256 - 12
                                 : 192 - 24 - 12
                             }
                             y={
-                              course.sem > 1 || curriculum.sems - course.sem > 2
-                                ? course.position > 3
-                                  ? -192 + 36 * 0.75
-                                  : -36 + 36 * 0.25
-                                : course.position > 5
-                                ? -256 + 24
-                                : 24
+                              course.position > 3
+                                ? -192 + 36 * 0.75
+                                : -36 + 36 * 0.25
                             }
                             close={() => setCourseDeets("")}
                           />
