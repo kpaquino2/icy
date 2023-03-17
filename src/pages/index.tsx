@@ -240,8 +240,8 @@ const Home: NextPage = () => {
   const handleDeleteConnection = () => {
     if (!curriculum) return;
     deleteConnectionMutation({
-      prereqId: focused.slice(0, 24),
-      postreqId: focused.slice(24),
+      prereqId: focused.slice(0, focused.length / 2),
+      postreqId: focused.slice(focused.length / 2),
     });
     const focusedElement = document.activeElement as HTMLElement;
     if (focusedElement) {
@@ -411,7 +411,7 @@ const Home: NextPage = () => {
                     </label>
                   </button>
                 </div>
-                {focused.length === 48 && (
+                {focused.length >= 48 && (
                   <button
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={handleDeleteConnection}
