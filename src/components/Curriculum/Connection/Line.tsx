@@ -1,14 +1,38 @@
 import { type FocusEventHandler, useRef } from "react";
+import { useConstantsStore } from "../../../utils/stores/constantsStore";
 
 interface LineProps {
-  start: [number, number];
-  end: [number, number];
+  prereqpos: number;
+  prereqsem: number;
+  postreqpos: number;
+  postreqsem: number;
   focused: boolean;
   focus: FocusEventHandler;
   blur: FocusEventHandler;
 }
 
-const Line = ({ start, end, focused, focus, blur }: LineProps) => {
+const Line = ({
+  prereqpos,
+  prereqsem,
+  postreqpos,
+  postreqsem,
+  focused,
+  focus,
+  blur,
+}: LineProps) => {
+  const zoom = useConstantsStore((state) => state.zoom);
+  const rowHeight = 36 * zoom;
+  const colWidth = 192;
+
+  const start: [number, number] = [
+    (prereqsem + 1) * colWidth - 24,
+    (prereqpos + 1) * rowHeight + 40,
+  ];
+  const end: [number, number] = [
+    postreqsem * colWidth + 24,
+    (postreqpos + 1) * rowHeight + 40,
+  ];
+
   const pathRef = useRef<SVGPathElement>(null);
   const dist = pathRef.current?.getTotalLength();
   return (
