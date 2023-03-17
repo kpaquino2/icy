@@ -1,7 +1,8 @@
-import { Gear, SignIn, SquareHalf, User } from "phosphor-react";
+import { Gear, SignIn, SignOut, SquareHalf, UserCircle } from "phosphor-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { signOut, useSession } from "next-auth/react";
+import { Menu, Transition } from "@headlessui/react";
 
 const Sidebar = () => {
   const { data: session } = useSession();
@@ -34,17 +35,36 @@ const Sidebar = () => {
       </div>
       <div className="flex flex-col border-t-2 border-zinc-200 py-4 text-sm dark:border-zinc-800">
         {session ? (
-          <button
-            type="button"
-            className={`flex items-center justify-center text-zinc-600 hover:text-zinc-700 dark:text-zinc-400 hover:dark:text-zinc-300`}
-            onClick={() => void signOut()}
-          >
-            <User size={32} />
-          </button>
+          <Menu>
+            <Menu.Button className="flex items-center justify-center text-zinc-600 hover:text-teal-600 dark:text-zinc-400 hover:dark:text-teal-400">
+              <UserCircle size={32} />
+            </Menu.Button>
+            <Transition
+              enter="transition duration-100 ease-out"
+              enterFrom="transform scale-95 opacity-0"
+              enterTo="transform scale-100 opacity-100"
+              leave="transition duration-75 ease-out"
+              leaveFrom="transform scale-100 opacity-100"
+              leaveTo="transform scale-95 opacity-0"
+            >
+              <Menu.Items className="absolute w-32 translate-x-[4.25rem] -translate-y-10 rounded border-2 border-zinc-200 bg-zinc-100 p-1 dark:border-zinc-800 dark:bg-zinc-900">
+                <Menu.Item>
+                  <button
+                    className="flex w-full items-center justify-start gap-2 rounded px-1 text-base hover:bg-teal-600 hover:text-zinc-100 dark:hover:bg-teal-400"
+                    type="button"
+                    onClick={() => void signOut()}
+                  >
+                    <SignOut weight="bold" />
+                    sign out
+                  </button>
+                </Menu.Item>
+              </Menu.Items>
+            </Transition>
+          </Menu>
         ) : (
           <Link
             href="sign-in"
-            className="flex items-center justify-center text-zinc-600 hover:text-teal-600 dark:text-zinc-400 hover:dark:text-teal-400 "
+            className="flex items-center justify-center text-zinc-600 hover:text-teal-600 dark:text-zinc-400 hover:dark:text-teal-400"
           >
             <SignIn size={32} />
           </Link>
