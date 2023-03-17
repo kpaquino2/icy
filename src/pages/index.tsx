@@ -346,6 +346,13 @@ const Home: NextPage = () => {
                   </button>
                   <button
                     type="button"
+                    className="flex w-12 items-center justify-center gap-2 bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    disabled={!curriculum}
+                  >
+                    {zoom * 100}%
+                  </button>
+                  <button
+                    type="button"
                     onClick={() => setZoom(zoom - 0.25)}
                     className="flex items-center gap-2 rounded-r bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                     disabled={!curriculum}
