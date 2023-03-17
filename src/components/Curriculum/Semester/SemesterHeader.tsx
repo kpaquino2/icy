@@ -3,6 +3,7 @@ import { useState } from "react";
 import { api } from "../../../utils/api";
 import { useConstantsStore } from "../../../utils/stores/constantsStore";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
+import { useSettingsStore } from "../../../utils/stores/settingsStore";
 import ConfirmActionModal from "../../ConfirmActionModal";
 import AddCourseModal from "../Course/AddCourseModal";
 
@@ -11,8 +12,12 @@ interface SemesterProps {
 }
 
 const SemesterColumn = ({ index }: SemesterProps) => {
-  const sem = (index % 3) + 1;
-  const year = Math.ceil((index + 1) / 3);
+  const general = useSettingsStore((state) => state.general);
+
+  const sem = (index % (general.semcount + (general.hasmidyear ? 1 : 0))) + 1;
+  const year =
+    Math.floor(index / (general.semcount + (general.hasmidyear ? 1 : 0))) +
+    general.yrstart;
   const curriculum = useCurriculumStore((state) => state.curriculum);
   const deleteSemester = useCurriculumStore((state) => state.deleteSemester);
 
@@ -60,7 +65,9 @@ const SemesterColumn = ({ index }: SemesterProps) => {
           fontSize: 16 * zoom,
         }}
       >
-        {sem > 2 ? "midyear" : `year ${year} sem ${sem}`}
+        {general.hasmidyear && sem > general.semcount
+          ? "midyear"
+          : `year ${year} sem ${sem}`}
       </span>
       <AddCourseModal
         sem={index}
