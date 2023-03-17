@@ -525,15 +525,15 @@ const Home: NextPage = () => {
                           <CourseDetails
                             course={course}
                             x={
-                              (course.sem + 1) * colWidth + 256 >=
+                              (course.sem + 1) * colWidth + colWidth * 1.5 >=
                                 curriculum.sems * colWidth &&
                               curriculum.sems > 3
-                                ? -256 - 12
-                                : colWidth - 24 - 12
+                                ? -(colWidth * 1.5) - colWidth * 0.0625
+                                : colWidth - colWidth * 0.1875
                             }
                             y={
-                              course.position > 3
-                                ? -colWidth + rowHeight * 0.75
+                              course.position > 4
+                                ? -(rowHeight * 7) + rowHeight * 0.75
                                 : -rowHeight + rowHeight * 0.25
                             }
                             close={() => setCourseDeets("")}

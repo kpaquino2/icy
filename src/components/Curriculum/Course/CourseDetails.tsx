@@ -3,6 +3,7 @@ import { type Course } from "@prisma/client";
 import { PencilSimpleLine, TrashSimple, X } from "phosphor-react";
 import { useState, type MouseEventHandler } from "react";
 import { api } from "../../../utils/api";
+import { useConstantsStore } from "../../../utils/stores/constantsStore";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import ConfirmActionModal from "../../ConfirmActionModal";
 import EditCourseModal from "./EditCourseModal";
@@ -54,6 +55,10 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
     action: () => void;
   }>(null);
 
+  const zoom = useConstantsStore((state) => state.zoom);
+  const rowHeight = 36 * zoom;
+  const colWidth = 192 * zoom;
+
   return (
     <div className="pointer-events-auto">
       <EditCourseModal
@@ -73,9 +78,12 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
         appear={true}
       >
         <div
-          className="absolute flex h-48 w-64 scale-0 flex-col rounded border-2 border-zinc-200 bg-zinc-100 p-3 transition-all dark:border-zinc-800 dark:bg-zinc-900"
+          className="absolute flex scale-0 flex-col rounded border-2 border-zinc-200 bg-zinc-100 p-3 transition-all dark:border-zinc-800 dark:bg-zinc-900"
           style={{
             transform: `translate(${x}px, ${y}px)`,
+            height: rowHeight * 7,
+            width: colWidth * 1.5,
+            fontSize: 16 * zoom,
           }}
         >
           <div className="flex justify-end gap-3 ">
@@ -83,7 +91,7 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
               onClick={() => setEditCourseOpen(true)}
               className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
             >
-              <PencilSimpleLine size={16} weight="bold" />
+              <PencilSimpleLine size={16 * zoom} weight="bold" />
             </button>
             <button
               onClick={(e) => {
@@ -99,23 +107,28 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
               }}
               className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
             >
-              <TrashSimple size={16} weight="bold" />
+              <TrashSimple size={16 * zoom} weight="bold" />
             </button>
             <button
               onClick={close}
               className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
             >
-              <X size={16} weight="bold" />
+              <X size={16 * zoom} weight="bold" />
             </button>
           </div>
           <div className="flex items-center justify-between">
-            <div className="text-xl leading-none">{course.code}</div>
+            <div className="leading-none" style={{ fontSize: 20 * zoom }}>
+              {course.code}
+            </div>
             <div>
               {course.units} unit
               {course.units !== 1 && "s"}
             </div>
           </div>
-          <div className="text-sm leading-none text-zinc-600 dark:text-zinc-400">
+          <div
+            className="leading-none text-zinc-600 dark:text-zinc-400"
+            style={{ fontSize: 14 * zoom }}
+          >
             {course.title || <p className="italic">no course title</p>}
           </div>
           <div className="mt-1 overflow-auto leading-tight">
