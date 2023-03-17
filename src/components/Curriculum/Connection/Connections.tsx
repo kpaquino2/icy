@@ -48,7 +48,6 @@ const Connections = ({
             (c) => c.id === connection.postreqId
           );
           if (!pre || !post) return <></>;
-          console.log("aa");
           return (
             <Line
               focused={

@@ -40,7 +40,6 @@ const Line = ({
   const animateConnections = useSettingsStore(
     (state) => state.appearance.animateConnections
   );
-  console.log(animateConnections);
   return (
     <g>
       <path
