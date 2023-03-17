@@ -75,7 +75,7 @@ const Line = ({
           `}
       />
       <path
-        className="cursor-pointer fill-none stroke-transparent stroke-[20px]"
+        className="cursor-pointer fill-none stroke-transparent stroke-[20px] outline-none"
         d={`M ${start[0] + 4} ${start[1]}
             L ${start[0] + (end[0] - start[0]) / 4} ${start[1]}
             L ${end[0] - (end[0] - start[0]) / 4} ${end[1]}
