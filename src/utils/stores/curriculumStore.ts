@@ -109,6 +109,13 @@ export const useCurriculumStore = create<CurriculumState>()(
       createConnection: (conn) =>
         set((state) => {
           if (!state.curriculum) return state;
+          if (
+            state.curriculum.connections.findIndex(
+              (c) =>
+                c.prereqId === conn.prereqId && c.postreqId === conn.postreqId
+            ) !== -1
+          )
+            return state;
           return {
             curriculum: {
               ...state.curriculum,

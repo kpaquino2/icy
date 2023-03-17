@@ -491,7 +491,12 @@ const Home: NextPage = () => {
                         className={
                           (course.id === courseDeets ? "z-20 " : "z-[3] ") +
                           (course.id === prereq || course.id === postreq
-                            ? postreq
+                            ? postreq &&
+                              curriculum.connections.findIndex(
+                                (c) =>
+                                  c.prereqId === prereq &&
+                                  c.postreqId === postreq
+                              ) === -1
                               ? "bg-teal-500/25 "
                               : "bg-pink-500/25 "
                             : "bg-transparent ") +
@@ -547,6 +552,14 @@ const Home: NextPage = () => {
                           mouseup={() => {
                             if (mode !== "CONNECT") return;
                             if (prereq === course.id) return;
+                            if (
+                              curriculum.connections.findIndex(
+                                (c) =>
+                                  c.prereqId === prereq &&
+                                  c.postreqId === postreq
+                              ) !== -1
+                            )
+                              return;
                             handleCreateConnection(prereq, course.id);
                           }}
                           mouseover={() => {
