@@ -8,6 +8,8 @@ import {
   Eraser,
   Export,
   FlowArrow,
+  MagnifyingGlassMinus,
+  MagnifyingGlassPlus,
   Plus,
   TrashSimple,
   X,
@@ -17,7 +19,7 @@ import AddCurriculumModal from "../components/Curriculum/AddCurriculumModal";
 import Layout from "../components/Layout/Layout";
 import { api } from "../utils/api";
 import { useCurriculumStore } from "../utils/stores/curriculumStore";
-import { useModeStore } from "../utils/stores/modeStore";
+import { useConstantsStore } from "../utils/stores/constantsStore";
 import GridLayout from "react-grid-layout";
 import "../../node_modules/react-grid-layout/css/styles.css";
 import SemesterHeader from "../components/Curriculum/Semester/SemesterHeader";
@@ -29,7 +31,7 @@ import Connections from "../components/Curriculum/Connection/Connections";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
-  const [showNotice, setShowNotice] = useState(false);
+  const [showNotice, setShowNotice] = useState(true);
 
   const [max, setMax] = useState(3);
 
@@ -96,7 +98,7 @@ const Home: NextPage = () => {
     });
 
   useEffect(() => {
-    if (sessionStatus === "unauthenticated") setShowNotice(true);
+    if (sessionStatus === "authenticated") setShowNotice(false);
     setMax(
       ((curriculum?.courses
         .map((c) => c.position)
@@ -133,8 +135,8 @@ const Home: NextPage = () => {
 
   const semar = Array(curriculum?.sems || 0).fill(0);
 
-  const setMode = useModeStore((state) => state.setMode);
-  const mode = useModeStore((state) => state.mode);
+  const setMode = useConstantsStore((state) => state.setMode);
+  const mode = useConstantsStore((state) => state.mode);
 
   const [courseDeets, setCourseDeets] = useState<string>("");
 
@@ -248,6 +250,11 @@ const Home: NextPage = () => {
 
   const [focused, setFocused] = useState("");
 
+  const zoom = useConstantsStore((state) => state.zoom);
+  const setZoom = useConstantsStore((state) => state.setZoom);
+  const rowHeight = 36 * zoom;
+  const colWidth = 192;
+
   return (
     <>
       <AddCurriculumModal
@@ -328,6 +335,31 @@ const Home: NextPage = () => {
                   <Plus size={16} weight="bold" />
                   new semester
                 </button>
+                <div className="flex">
+                  <button
+                    type="button"
+                    onClick={() => setZoom(zoom + 0.25)}
+                    className="flex items-center gap-2 rounded-l bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    disabled={!curriculum || zoom >= 2.0}
+                  >
+                    <MagnifyingGlassPlus size={16} weight="bold" />
+                  </button>
+                  <button
+                    type="button"
+                    className="flex w-12 items-center justify-center gap-2 bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    disabled={!curriculum}
+                  >
+                    {zoom * 100}%
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setZoom(zoom - 0.25)}
+                    className="flex items-center gap-2 rounded-r bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    disabled={!curriculum || zoom <= 0.25}
+                  >
+                    <MagnifyingGlassMinus size={16} weight="bold" />
+                  </button>
+                </div>
                 <div className="flex">
                   <button type="button">
                     <input
@@ -412,14 +444,14 @@ const Home: NextPage = () => {
             </div>
             {curriculum ? (
               <>
-                <div className="relative flex flex-1 flex-col overflow-x-auto">
+                <div className="relative flex flex-1 flex-col overflow-x-auto overflow-y-hidden">
                   <GridLayout
-                    width={curriculum.sems * 192}
+                    width={curriculum.sems * colWidth}
                     cols={curriculum.sems}
                     className={`layout`}
                     rowHeight={40}
                     style={{
-                      width: curriculum.sems * 192,
+                      width: curriculum.sems * colWidth,
                     }}
                     isResizable={false}
                     isDraggable={false}
@@ -441,12 +473,13 @@ const Home: NextPage = () => {
                     ))}
                   </GridLayout>
                   <GridLayout
-                    width={curriculum.sems * 192}
+                    width={curriculum.sems * colWidth}
                     cols={curriculum.sems}
-                    className={`layout flex-1 overflow-visible bg-borderright from-transparent to-zinc-200 bg-[length:192px] dark:to-zinc-800`}
-                    rowHeight={36}
+                    className={`layout flex-1 overflow-visible bg-borderright from-transparent to-zinc-200 dark:to-zinc-800`}
+                    rowHeight={rowHeight}
                     style={{
-                      width: curriculum.sems * 192,
+                      width: curriculum.sems * colWidth,
+                      backgroundSize: colWidth,
                     }}
                     resizeHandles={[]}
                     compactType={null}
@@ -484,15 +517,16 @@ const Home: NextPage = () => {
                           <CourseDetails
                             course={course}
                             x={
-                              (course.sem + 1) * 192 + 256 >=
-                                curriculum.sems * 192 && curriculum.sems > 3
+                              (course.sem + 1) * colWidth + 256 >=
+                                curriculum.sems * colWidth &&
+                              curriculum.sems > 3
                                 ? -256 - 12
-                                : 192 - 24 - 12
+                                : colWidth - 24 - 12
                             }
                             y={
                               course.position > 3
-                                ? -192 + 36 * 0.75
-                                : -36 + 36 * 0.25
+                                ? -colWidth + rowHeight * 0.75
+                                : -rowHeight + rowHeight * 0.25
                             }
                             close={() => setCourseDeets("")}
                           />
@@ -545,12 +579,12 @@ const Home: NextPage = () => {
                     postreq={postreq}
                   />
                   <GridLayout
-                    width={curriculum.sems * 192}
+                    width={curriculum.sems * colWidth}
                     cols={curriculum.sems}
                     className={`layout`}
                     rowHeight={40}
                     style={{
-                      width: curriculum.sems * 192,
+                      width: curriculum.sems * colWidth,
                     }}
                     isResizable={false}
                     isDraggable={false}
@@ -563,7 +597,7 @@ const Home: NextPage = () => {
                       return (
                         <div
                           key={i}
-                          className="border-t-2 border-r-2 border-zinc-200 p-2 dark:border-zinc-800"
+                          className="z-10 border-t-2 border-r-2 border-zinc-200 bg-zinc-100/25 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900"
                           data-grid={{
                             x: i,
                             y: 0,
