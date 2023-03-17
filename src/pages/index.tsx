@@ -31,7 +31,7 @@ import Connections from "../components/Curriculum/Connection/Connections";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
-  const [showNotice, setShowNotice] = useState(false);
+  const [showNotice, setShowNotice] = useState(true);
 
   const [max, setMax] = useState(3);
 
@@ -98,7 +98,7 @@ const Home: NextPage = () => {
     });
 
   useEffect(() => {
-    if (sessionStatus === "unauthenticated") setShowNotice(true);
+    if (sessionStatus === "authenticated") setShowNotice(false);
     setMax(
       ((curriculum?.courses
         .map((c) => c.position)
