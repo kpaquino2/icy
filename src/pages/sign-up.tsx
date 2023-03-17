@@ -41,7 +41,7 @@ const SignUpPage = () => {
                 </clipPath>
               </defs>
             </svg>
-            <span className="text-xl font-thin">icy planner</span>
+            <span className="text-xl font-thin">icy manager</span>
           </div>
           <div>
             <div className="text-3xl font-light">get started</div>
