@@ -607,7 +607,7 @@ const Home: NextPage = () => {
               <div className="m-auto flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
                 <div className="text-3xl">no curriculum</div>
                 <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
-                  create a new curriculum to start planning
+                  create a new curriculum to start
                 </div>
                 <button
                   type="button"
