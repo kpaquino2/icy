@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar";
 interface LayoutProps {
   title: string;
   description: string;
-  crumbs: string;
   children: React.ReactNode;
 }
 
@@ -20,9 +19,9 @@ const Layout = ({ title, description, children }: LayoutProps) => {
       </Head>
       <div className="flex h-screen flex-col">
         <Header />
-        <div className="flex h-full">
+        <div className="flex h-full overflow-hidden">
           <Sidebar />
-          <main className="flex w-full flex-1 flex-col overflow-hidden">
+          <main className="flex w-full flex-1 flex-col overflow-x-hidden">
             {children}
           </main>
         </div>

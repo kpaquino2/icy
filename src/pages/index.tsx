@@ -20,7 +20,6 @@ import { api } from "../utils/api";
 import { useCurriculumStore } from "../utils/stores/curriculumStore";
 import { useConstantsStore } from "../utils/stores/constantsStore";
 import GridLayout from "react-grid-layout";
-import "../../node_modules/react-grid-layout/css/styles.css";
 import SemesterHeader from "../components/Curriculum/Semester/SemesterHeader";
 import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
 import CourseItem from "../components/Curriculum/Course/CourseItem";
@@ -244,7 +243,10 @@ const Home: NextPage = () => {
       prereqId: focused.slice(0, 24),
       postreqId: focused.slice(24),
     });
-    setFocused("");
+    const focusedElement = document.activeElement as HTMLElement;
+    if (focusedElement) {
+      focusedElement.blur();
+    }
   };
 
   const [focused, setFocused] = useState("");
@@ -252,7 +254,7 @@ const Home: NextPage = () => {
   const zoom = useConstantsStore((state) => state.zoom);
   const setZoom = useConstantsStore((state) => state.setZoom);
   const rowHeight = 36 * zoom;
-  const colWidth = 192;
+  const colWidth = 192 * zoom;
 
   return (
     <>
@@ -271,7 +273,6 @@ const Home: NextPage = () => {
       <Layout
         title="curriculum"
         description="list of all curriculum made by the user"
-        crumbs="curriculum"
       >
         {isCurriculumLoading ? (
           <div className="grid h-full w-full place-items-center">
@@ -339,7 +340,7 @@ const Home: NextPage = () => {
                     type="button"
                     onClick={() => setZoom(zoom + 0.25)}
                     className="flex items-center gap-2 rounded-l bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                    disabled={!curriculum || zoom >= 2.0}
+                    disabled={!curriculum || zoom >= 1.5}
                   >
                     <MagnifyingGlassPlus size={16} weight="bold" />
                   </button>
@@ -354,7 +355,7 @@ const Home: NextPage = () => {
                     type="button"
                     onClick={() => setZoom(zoom - 0.25)}
                     className="flex items-center gap-2 rounded-r bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                    disabled={!curriculum || zoom <= 0.25}
+                    disabled={!curriculum || zoom <= 0.5}
                   >
                     <MagnifyingGlassMinus size={16} weight="bold" />
                   </button>
@@ -440,7 +441,7 @@ const Home: NextPage = () => {
                     width={curriculum.sems * colWidth}
                     cols={curriculum.sems}
                     className={`layout`}
-                    rowHeight={40}
+                    rowHeight={40 * zoom}
                     style={{
                       width: curriculum.sems * colWidth,
                     }}
@@ -573,7 +574,7 @@ const Home: NextPage = () => {
                     width={curriculum.sems * colWidth}
                     cols={curriculum.sems}
                     className={`layout`}
-                    rowHeight={40}
+                    rowHeight={40 * zoom}
                     style={{
                       width: curriculum.sems * colWidth,
                     }}
@@ -588,7 +589,7 @@ const Home: NextPage = () => {
                       return (
                         <div
                           key={i}
-                          className="z-10 border-t-2 border-r-2 border-zinc-200 bg-zinc-100/25 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900"
+                          className="z-10 border-t-2 border-r-2 border-zinc-200 bg-zinc-100/75 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900"
                           data-grid={{
                             x: i,
                             y: 0,

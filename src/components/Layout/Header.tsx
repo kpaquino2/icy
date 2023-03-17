@@ -3,7 +3,7 @@ import { GithubLogo, Question } from "phosphor-react";
 
 const Header = () => {
   return (
-    <div className="h-16 border-b-2 border-zinc-200 dark:border-zinc-800">
+    <div className="min-h-[4rem] border-b-2 border-zinc-200 dark:border-zinc-800">
       <div className="flex h-full items-center justify-between gap-2 px-4">
         <div className="flex items-center gap-3">
           <svg

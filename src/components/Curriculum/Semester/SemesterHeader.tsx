@@ -1,7 +1,9 @@
 import { Plus, X } from "phosphor-react";
 import { useState } from "react";
 import { api } from "../../../utils/api";
+import { useConstantsStore } from "../../../utils/stores/constantsStore";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
+import { useSettingsStore } from "../../../utils/stores/settingsStore";
 import ConfirmActionModal from "../../ConfirmActionModal";
 import AddCourseModal from "../Course/AddCourseModal";
 
@@ -10,8 +12,12 @@ interface SemesterProps {
 }
 
 const SemesterColumn = ({ index }: SemesterProps) => {
-  const sem = (index % 3) + 1;
-  const year = Math.ceil((index + 1) / 3);
+  const general = useSettingsStore((state) => state.general);
+
+  const sem = (index % (general.semcount + (general.hasmidyear ? 1 : 0))) + 1;
+  const year =
+    Math.floor(index / (general.semcount + (general.hasmidyear ? 1 : 0))) +
+    general.yrstart;
   const curriculum = useCurriculumStore((state) => state.curriculum);
   const deleteSemester = useCurriculumStore((state) => state.deleteSemester);
 
@@ -50,9 +56,19 @@ const SemesterColumn = ({ index }: SemesterProps) => {
     deleteSemesterMutation({ id: curriculum.id });
   };
 
+  const zoom = useConstantsStore((state) => state.zoom);
+
   return (
     <div className="flex h-full items-center justify-between">
-      {sem > 2 ? "midyear" : `year ${year} sem ${sem}`}
+      <span
+        style={{
+          fontSize: 16 * zoom,
+        }}
+      >
+        {general.hasmidyear && sem > general.semcount
+          ? "midyear"
+          : `year ${year} sem ${sem}`}
+      </span>
       <AddCourseModal
         sem={index}
         newCourseOpen={newCourseOpen}
@@ -65,14 +81,14 @@ const SemesterColumn = ({ index }: SemesterProps) => {
           className="flex text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
           onClick={() => setNewCourseOpen(true)}
         >
-          <Plus weight="bold" />
+          <Plus size={16 * zoom} weight="bold" />
         </button>
         <button
           type="button"
           className="group hidden text-zinc-400 hover:text-teal-600 group-last-of-type/sem:block group-only-of-type/sem:hidden hover:dark:text-teal-400"
           onClick={() => setOnConfirm(() => handleDelete)}
         >
-          <X weight="bold" />
+          <X size={16 * zoom} weight="bold" />
         </button>
       </div>
     </div>

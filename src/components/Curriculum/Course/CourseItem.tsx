@@ -1,5 +1,6 @@
 import { type Course } from "@prisma/client";
 import type { FocusEventHandler, MouseEventHandler } from "react";
+import { useConstantsStore } from "../../../utils/stores/constantsStore";
 
 interface CourseProps {
   course: Course;
@@ -22,6 +23,7 @@ const CourseItem = ({
   mouseover,
   mouseout,
 }: CourseProps) => {
+  const zoom = useConstantsStore((state) => state.zoom);
   return (
     <button
       onFocus={focus}
@@ -31,7 +33,10 @@ const CourseItem = ({
       onMouseUp={mouseup}
       onMouseOver={mouseover}
       onMouseOut={mouseout}
-      className="pointer-events-auto flex h-3/4 w-3/4 items-center rounded bg-teal-600 p-2 text-zinc-100 hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
+      className="pointer-events-auto flex h-3/4 w-3/4 items-center justify-start rounded bg-teal-600 p-2 text-start text-zinc-100 hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
+      style={{
+        fontSize: 16 * zoom,
+      }}
     >
       {course.code}
     </button>

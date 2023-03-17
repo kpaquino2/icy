@@ -11,9 +11,6 @@ module.exports = {
         borderright:
           "repeating-linear-gradient(270deg, var(--tw-gradient-stops) 0 2px, transparent 0 100%)",
       },
-      backgroundSize: {
-        col: "192px",
-      },
     },
   },
   plugins: [],
