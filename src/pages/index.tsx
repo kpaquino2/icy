@@ -302,7 +302,7 @@ const Home: NextPage = () => {
           </div>
         ) : (
           <>
-            {showNotice && (
+            {showNotice && sessionStatus !== "authenticated" && (
               <div className="relative flex items-center justify-center bg-teal-600 p-2 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
                 <Link
                   className="group flex gap-2 hover:underline"
