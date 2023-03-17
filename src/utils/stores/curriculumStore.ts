@@ -23,7 +23,7 @@ interface CurriculumState {
 
 export const useCurriculumStore = create<CurriculumState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       userId: "",
       curriculum: null,
       setUserId: (userId) => set({ userId: userId }),
@@ -42,20 +42,22 @@ export const useCurriculumStore = create<CurriculumState>()(
             },
           };
         }),
-      deleteSemester: () =>
+      deleteSemester: () => {
         set((state) => {
           if (!state.curriculum) return state;
           return {
             curriculum: {
               ...state.curriculum,
               sems: state.curriculum.sems - 1,
-              courses: state.curriculum.courses.filter(
-                (c) => c.sem !== (state.curriculum?.sems || 0) - 1
-              ),
               updatedAt: new Date(),
             },
           };
-        }),
+        });
+        get().curriculum?.courses.forEach((c) => {
+          if (c.sem !== (get().curriculum?.sems || 0)) return;
+          get().deleteCourse(c.id);
+        });
+      },
       createCourse: (course) =>
         set((state) => {
           if (!state.curriculum) return state;
@@ -83,6 +85,7 @@ export const useCurriculumStore = create<CurriculumState>()(
       deleteCourse: (courseId) =>
         set((state) => {
           if (!state.curriculum) return state;
+          console.log(courseId);
           return {
             curriculum: {
               ...state.curriculum,
