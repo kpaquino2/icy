@@ -67,15 +67,13 @@ const SemesterColumn = ({ index }: SemesterProps) => {
         >
           <Plus weight="bold" />
         </button>
-        {index > 1 && (
-          <button
-            type="button"
-            className="group block text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
-            onClick={() => setOnConfirm(() => handleDelete)}
-          >
-            <X weight="bold" />
-          </button>
-        )}
+        <button
+          type="button"
+          className="group hidden text-zinc-400 hover:text-teal-600 group-last-of-type/sem:block group-only-of-type/sem:hidden hover:dark:text-teal-400"
+          onClick={() => setOnConfirm(() => handleDelete)}
+        >
+          <X weight="bold" />
+        </button>
       </div>
     </div>
   );

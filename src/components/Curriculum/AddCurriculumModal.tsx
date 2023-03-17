@@ -57,7 +57,7 @@ const AddCurriculumModal = ({
         setCurriculum({
           id: input.id,
           userId: userId,
-          sems: 2,
+          sems: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
           courses: [],

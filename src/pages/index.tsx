@@ -317,95 +317,101 @@ const Home: NextPage = () => {
                 </button>
               </div>
             )}
+            <div className="flex justify-between border-b-2 border-zinc-200 px-4 py-2 dark:border-zinc-800">
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  onClick={handleNewSem}
+                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                  disabled={!curriculum}
+                >
+                  <Plus size={16} weight="bold" />
+                  new semester
+                </button>
+                <div className="flex">
+                  <button type="button">
+                    <input
+                      type="radio"
+                      className="peer hidden"
+                      id="select"
+                      name="mode"
+                      defaultChecked
+                      onChange={() => setMode("SELECT")}
+                      disabled={!curriculum}
+                    />
+                    <label
+                      htmlFor="select"
+                      className="flex h-full items-center gap-2 rounded-l bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <Cursor size={16} weight="bold" />
+                    </label>
+                  </button>
+                  <button type="button">
+                    <input
+                      type="radio"
+                      className="peer hidden"
+                      id="move"
+                      name="mode"
+                      onChange={() => setMode("MOVE")}
+                      disabled={!curriculum}
+                    />
+                    <label
+                      htmlFor="move"
+                      className="flex h-full items-center gap-2 bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <ArrowsOutCardinal size={16} weight="bold" />
+                    </label>
+                  </button>
+                  <button type="button">
+                    <input
+                      type="radio"
+                      className="peer hidden"
+                      id="connect"
+                      name="mode"
+                      onChange={() => setMode("CONNECT")}
+                      disabled={!curriculum}
+                    />
+                    <label
+                      htmlFor="connect"
+                      className="flex h-full items-center gap-2 rounded-r bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    >
+                      <FlowArrow size={16} weight="bold" />
+                    </label>
+                  </button>
+                </div>
+                {focused.length === 48 && (
+                  <button
+                    onMouseDown={(e) => e.preventDefault()}
+                    onClick={handleDeleteConnection}
+                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                  >
+                    <Eraser size={16} weight="bold" />
+                    delete connection
+                  </button>
+                )}
+              </div>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                  disabled={!curriculum}
+                >
+                  <Export size={16} weight="bold" />
+                  export
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setOnConfirm(() => handleDeleteCurriculum)}
+                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                  disabled={!curriculum}
+                >
+                  <TrashSimple size={16} weight="bold" />
+                  delete
+                </button>
+              </div>
+            </div>
             {curriculum ? (
               <>
-                <div className="flex justify-between border-b-2 border-zinc-200 px-4 py-2 dark:border-zinc-800">
-                  <div className="flex gap-2">
-                    <button
-                      type="button"
-                      onClick={handleNewSem}
-                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                    >
-                      <Plus size={16} weight="bold" />
-                      new semester
-                    </button>
-                    <div className="flex">
-                      <button type="button">
-                        <input
-                          type="radio"
-                          className="peer hidden"
-                          id="select"
-                          name="mode"
-                          defaultChecked
-                          onChange={() => setMode("SELECT")}
-                        />
-                        <label
-                          htmlFor="select"
-                          className="flex h-full items-center gap-2 rounded-l bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
-                        >
-                          <Cursor size={16} weight="bold" />
-                        </label>
-                      </button>
-                      <button type="button">
-                        <input
-                          type="radio"
-                          className="peer hidden"
-                          id="move"
-                          name="mode"
-                          onChange={() => setMode("MOVE")}
-                        />
-                        <label
-                          htmlFor="move"
-                          className="flex h-full items-center gap-2 bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
-                        >
-                          <ArrowsOutCardinal size={16} weight="bold" />
-                        </label>
-                      </button>
-                      <button type="button">
-                        <input
-                          type="radio"
-                          className="peer hidden"
-                          id="connect"
-                          name="mode"
-                          onChange={() => setMode("CONNECT")}
-                        />
-                        <label
-                          htmlFor="connect"
-                          className="flex h-full items-center gap-2 rounded-r bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 peer-checked:brightness-125 dark:bg-teal-400 dark:text-zinc-900"
-                        >
-                          <FlowArrow size={16} weight="bold" />
-                        </label>
-                      </button>
-                    </div>
-                    {focused.length === 48 && (
-                      <button
-                        onMouseDown={(e) => e.preventDefault()}
-                        onClick={handleDeleteConnection}
-                        className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                      >
-                        <Eraser size={16} weight="bold" />
-                        delete connection
-                      </button>
-                    )}
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      type="button"
-                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                    >
-                      <Export size={16} weight="bold" />
-                      export
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setOnConfirm(() => handleDeleteCurriculum)}
-                      className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                    >
-                      <TrashSimple size={16} weight="bold" />
-                      delete
-                    </button>
-                  </div>
-                </div>
                 <div className="relative flex flex-1 flex-col overflow-x-auto">
                   <GridLayout
                     width={curriculum.sems * 192}
@@ -434,11 +440,10 @@ const Home: NextPage = () => {
                       </div>
                     ))}
                   </GridLayout>
-
                   <GridLayout
                     width={curriculum.sems * 192}
                     cols={curriculum.sems}
-                    className={`layout flex-1 overflow-hidden bg-borderright from-transparent to-zinc-200 bg-[length:192px] dark:to-zinc-800`}
+                    className={`layout flex-1 overflow-visible bg-borderright from-transparent to-zinc-200 bg-[length:192px] dark:to-zinc-800`}
                     rowHeight={36}
                     style={{
                       width: curriculum.sems * 192,
@@ -480,22 +485,14 @@ const Home: NextPage = () => {
                             course={course}
                             x={
                               (course.sem + 1) * 192 + 256 >=
-                              curriculum.sems * 192
-                                ? course.sem * 192 - 256 < 0
-                                  ? curriculum.sems - course.sem > 1
-                                    ? 0
-                                    : 192 - 256 - 24 - 24
-                                  : -256 - 12
+                                curriculum.sems * 192 && curriculum.sems > 3
+                                ? -256 - 12
                                 : 192 - 24 - 12
                             }
                             y={
-                              course.sem > 1 || curriculum.sems - course.sem > 2
-                                ? course.position > 3
-                                  ? -192 + 36 * 0.75
-                                  : -36 + 36 * 0.25
-                                : course.position > 5
-                                ? -256 + 24
-                                : 24
+                              course.position > 3
+                                ? -192 + 36 * 0.75
+                                : -36 + 36 * 0.25
                             }
                             close={() => setCourseDeets("")}
                           />
@@ -580,10 +577,6 @@ const Home: NextPage = () => {
                     })}
                   </GridLayout>
                 </div>
-                <div className="flex border-t-2 border-zinc-200 px-4 py-2 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-                  curriculum units:{" "}
-                  {curriculum.courses.reduce((a, { units }) => a + units, 0)}
-                </div>
               </>
             ) : (
               <div className="m-auto flex w-full max-w-[700px] flex-col items-center rounded-xl border-4 border-dashed border-zinc-200 py-5 dark:border-zinc-800">
@@ -601,6 +594,11 @@ const Home: NextPage = () => {
                 </button>
               </div>
             )}
+            <div className="flex border-t-2 border-zinc-200 px-4 py-2 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+              curriculum units:{" "}
+              {curriculum?.courses.reduce((a, { units }) => a + units, 0) ||
+                "0"}
+            </div>
           </>
         )}
       </Layout>

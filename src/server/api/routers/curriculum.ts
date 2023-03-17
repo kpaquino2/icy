@@ -20,7 +20,7 @@ export const curriculumRouter = createTRPCRouter({
     )
     .mutation(async ({ ctx, input }) => {
       await ctx.prisma.curriculum.create({
-        data: { id: input.id, userId: ctx.session?.user.id, sems: 2 },
+        data: { id: input.id, userId: ctx.session?.user.id, sems: 1 },
       });
       return;
     }),
