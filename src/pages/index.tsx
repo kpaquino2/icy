@@ -244,7 +244,10 @@ const Home: NextPage = () => {
       prereqId: focused.slice(0, 24),
       postreqId: focused.slice(24),
     });
-    setFocused("");
+    const focusedElement = document.activeElement as HTMLElement;
+    if (focusedElement) {
+      focusedElement.blur();
+    }
   };
 
   const [focused, setFocused] = useState("");
