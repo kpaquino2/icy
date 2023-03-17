@@ -21,11 +21,11 @@ const TempLine = ({
 }: TempLineProps) => {
   const zoom = useConstantsStore((state) => state.zoom);
   const rowHeight = 36 * zoom;
-  const colWidth = 192;
+  const colWidth = 192 * zoom;
 
   const start: [number, number] = [
-    (prereqsem + 1) * colWidth - 24,
-    (prereqpos + 1) * rowHeight + 40,
+    (prereqsem + 1) * colWidth - colWidth * 0.125,
+    (prereqpos + 1) * rowHeight + 40 * zoom,
   ];
 
   const [mousepos, setMousePos] = useState<[number, number]>(start);
@@ -41,7 +41,10 @@ const TempLine = ({
 
   const end: [number, number] =
     postreqpos && postreqsem
-      ? [postreqsem * colWidth + 24, (postreqpos + 1) * rowHeight + 40]
+      ? [
+          postreqsem * colWidth + colWidth * 0.125,
+          (postreqpos + 1) * rowHeight + 40 * zoom,
+        ]
       : mousepos;
 
   return (
