@@ -89,6 +89,10 @@ export const useCurriculumStore = create<CurriculumState>()(
               courses: state.curriculum.courses.filter(
                 (c) => c.id !== courseId
               ),
+              connections: state.curriculum.connections.filter(
+                (conn) =>
+                  conn.prereqId !== courseId && conn.postreqId !== courseId
+              ),
               updatedAt: new Date(),
             },
           };
