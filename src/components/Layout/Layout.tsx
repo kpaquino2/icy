@@ -9,7 +9,7 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
-const Layout = ({ title, description, crumbs, children }: LayoutProps) => {
+const Layout = ({ title, description, children }: LayoutProps) => {
   return (
     <>
       <Head>
@@ -18,12 +18,14 @@ const Layout = ({ title, description, crumbs, children }: LayoutProps) => {
         <meta name="description" content={description} />
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <div className="flex h-screen">
-        <Sidebar />
-        <main className="flex w-full flex-1 flex-col overflow-hidden">
-          <Header crumbs={crumbs} />
-          {children}
-        </main>
+      <div className="flex h-screen flex-col">
+        <Header />
+        <div className="flex h-full">
+          <Sidebar />
+          <main className="flex w-full flex-1 flex-col overflow-hidden">
+            {children}
+          </main>
+        </div>
       </div>
     </>
   );
