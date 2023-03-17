@@ -16,7 +16,7 @@ const SignUpPage = () => {
         <link rel="icon" href="/logo.svg" />
       </Head>
       <main className="flex min-h-screen flex-1 flex-shrink-0 flex-col items-center justify-center border-r-2 border-zinc-200 px-5 dark:border-zinc-800">
-        <div className="grid w-96 grid-cols-1 gap-4">
+        <div className="grid w-96 grid-cols-1 gap-2">
           <div className="flex items-center gap-2">
             <svg
               width="30"
@@ -44,12 +44,12 @@ const SignUpPage = () => {
             <span className="text-xl font-thin">icy planner</span>
           </div>
           <div>
-            <div className="text-3xl font-light">Get started</div>
-            <div className="text-sm">Create an account</div>
+            <div className="text-3xl font-light">get started</div>
+            <div className="text-sm">create an account</div>
           </div>
           <button
             type="button"
-            className="flex items-center justify-center gap-2 rounded bg-[#5865F2] py-1 text-white"
+            className="my-2 flex items-center justify-center gap-2 rounded bg-[#5865F2] py-2 text-white"
             onClick={() => void handleSignIn("discord")}
           >
             <svg
@@ -72,14 +72,13 @@ const SignUpPage = () => {
             Continue with Discord
           </button>
           <div className="place-self-center text-sm">
-            <span className="text-zinc-500">Have an account? </span>
+            <span className="text-zinc-500">have an account? </span>
             <Link href="/sign-in" className="underline">
-              Sign in now
+              sign in now
             </Link>
           </div>
         </div>
       </main>
-      <aside className="hidden basis-2/3 lg:flex"></aside>
     </div>
   );
 };
