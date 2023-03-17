@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GithubLogo, Question } from "phosphor-react";
+import { GithubLogo } from "phosphor-react";
 
 const Header = () => {
   return (
@@ -32,12 +32,6 @@ const Header = () => {
           <span className="text-xl font-thin">icy manager</span>
         </div>
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            className="rounded text-zinc-500 transition hover:text-teal-600 hover:dark:text-teal-400"
-          >
-            <Question size={24} weight="bold" />
-          </button>
           <Link
             href="https://github.com/kpaquino2/icy"
             className="rounded text-zinc-500 transition hover:text-teal-600 hover:dark:text-teal-400"
