@@ -7,9 +7,16 @@ type GeneralSettings = {
   hasmidyear: boolean;
 };
 
+type AppearanceSettings = {
+  dark: boolean;
+  animateConnections: boolean;
+};
+
 interface SettingsStore {
   general: GeneralSettings;
+  appearance: AppearanceSettings;
   setGeneral: (g: GeneralSettings) => void;
+  setAppearance: (a: AppearanceSettings) => void;
 }
 
 export const useSettingsStore = create<SettingsStore>()(
@@ -20,7 +27,12 @@ export const useSettingsStore = create<SettingsStore>()(
         yrstart: 1,
         hasmidyear: true,
       },
+      appearance: {
+        dark: false,
+        animateConnections: true,
+      },
       setGeneral: (g) => set({ general: g }),
+      setAppearance: (a) => set({ appearance: a }),
     }),
     { name: "icysettings" }
   )
