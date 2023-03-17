@@ -5,6 +5,7 @@ import {
   type Dispatch,
   type SetStateAction,
 } from "react";
+import { useConstantsStore } from "../../../utils/stores/constantsStore";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import Line from "./Line";
 
@@ -36,15 +37,19 @@ const Connections = ({
     };
   }, []);
 
+  const zoom = useConstantsStore((state) => state.zoom);
+  const rowHeight = 36 * zoom;
+  const colWidth = 192;
+
   if (!curriculum) return <></>;
   const selpre = curriculum.courses.find((c) => c.id === prereq);
   const selpost = curriculum.courses.find((c) => c.id === postreq);
 
   const selstart: [number, number] | null = selpre
-    ? [(selpre.sem + 1) * 192 - 24, (selpre.position + 1) * 36 + 40]
+    ? [(selpre.sem + 1) * colWidth - 24, (selpre.position + 1) * rowHeight + 40]
     : null;
   const selend: [number, number] = selpost
-    ? [selpost.sem * 192 + 24, (selpost.position + 1) * 36 + 40]
+    ? [selpost.sem * colWidth + 24, (selpost.position + 1) * rowHeight + 40]
     : mousepos;
 
   return (
@@ -75,12 +80,12 @@ const Connections = ({
           const postreqsem = post.sem;
           const postreqpos = post.position;
           const start: [number, number] = [
-            (prereqsem + 1) * 192 - 24,
-            (prereqpos + 1) * 36 + 40,
+            (prereqsem + 1) * colWidth - 24,
+            (prereqpos + 1) * rowHeight + 40,
           ];
           const end: [number, number] = [
-            postreqsem * 192 + 24,
-            (postreqpos + 1) * 36 + 40,
+            postreqsem * colWidth + 24,
+            (postreqpos + 1) * rowHeight + 40,
           ];
           return (
             <Line
