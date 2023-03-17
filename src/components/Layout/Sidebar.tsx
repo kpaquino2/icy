@@ -17,7 +17,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="flex h-full w-16 flex-col justify-between border-r-2 border-zinc-200 dark:border-zinc-800">
+    <div className="z-20 flex h-full w-16 flex-col justify-between border-r-2 border-zinc-200 dark:border-zinc-800">
       <div className="flex grow flex-col gap-2">
         {sidebarItems.map((item, index) => (
           <Link
@@ -47,10 +47,10 @@ const Sidebar = () => {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Menu.Items className="absolute w-32 translate-x-[4.25rem] -translate-y-10 rounded border-2 border-zinc-200 bg-zinc-100 p-1 dark:border-zinc-800 dark:bg-zinc-900">
+              <Menu.Items className="absolute w-32 translate-x-[4.25rem] -translate-y-10 scale-100 rounded border-2 border-zinc-200 bg-zinc-100 p-1 dark:border-zinc-800 dark:bg-zinc-900">
                 <Menu.Item>
                   <button
-                    className="flex w-full items-center justify-start gap-2 rounded px-1 text-base hover:bg-teal-600 hover:text-zinc-100 dark:hover:bg-teal-400"
+                    className="flex w-full items-center justify-start gap-2 rounded px-1 text-base hover:bg-teal-600 hover:text-zinc-100 dark:hover:bg-teal-400 dark:hover:text-zinc-900"
                     type="button"
                     onClick={() => void signOut()}
                   >
