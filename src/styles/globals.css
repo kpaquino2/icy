@@ -11,3 +11,8 @@ html {
 body {
   @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100;
 }
+
+.react-grid-item.react-grid-placeholder {
+  background: rgb(20 184 166) !important;
+  opacity: 0.25 !important;
+}
