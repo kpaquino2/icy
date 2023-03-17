@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="min-h-[4rem] border-b-2 border-zinc-200 dark:border-zinc-800">
       <div className="flex h-full items-center justify-between gap-2 px-4">
-        <div className="flex items-center gap-3">
+        <Link tabIndex={0} href="/" className="flex items-center gap-3">
           <svg
             width="30"
             height="30"
@@ -29,8 +29,8 @@ const Header = () => {
               </clipPath>
             </defs>
           </svg>
-          <span className="text-xl font-thin">icy manager</span>
-        </div>
+          <span className="text-2xl font-thin">icy manager</span>
+        </Link>
         <div className="flex items-center gap-3">
           <Link
             href="https://github.com/kpaquino2/icy"
