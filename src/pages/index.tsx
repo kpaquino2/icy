@@ -20,7 +20,6 @@ import { api } from "../utils/api";
 import { useCurriculumStore } from "../utils/stores/curriculumStore";
 import { useConstantsStore } from "../utils/stores/constantsStore";
 import GridLayout from "react-grid-layout";
-import "../../node_modules/react-grid-layout/css/styles.css";
 import SemesterHeader from "../components/Curriculum/Semester/SemesterHeader";
 import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
 import CourseItem from "../components/Curriculum/Course/CourseItem";
