@@ -613,7 +613,7 @@ const Home: NextPage = () => {
                       return (
                         <div
                           key={i}
-                          className="z-10 border-t-2 border-r-2 border-zinc-200 bg-zinc-100/75 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900"
+                          className="z-10 border-t-2 border-r-2 border-zinc-200 bg-zinc-100/90 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/90"
                           data-grid={{
                             x: i,
                             y: 0,
