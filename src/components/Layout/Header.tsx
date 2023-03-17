@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GithubLogo, Question } from "phosphor-react";
 
 const Header = () => {
@@ -37,12 +38,13 @@ const Header = () => {
           >
             <Question size={24} weight="bold" />
           </button>
-          <button
-            type="button"
+          <Link
+            href="https://github.com/kpaquino2/icy"
             className="rounded text-zinc-500 transition hover:text-teal-600 hover:dark:text-teal-400"
+            target="_blank"
           >
             <GithubLogo size={24} weight="bold" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
