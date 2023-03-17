@@ -18,7 +18,7 @@ const Sidebar = () => {
 
   return (
     <div className="z-20 flex h-full w-16 flex-col justify-between border-r-2 border-zinc-200 dark:border-zinc-800">
-      <div className="flex grow flex-col gap-2">
+      <div className="flex grow flex-col gap-2 py-2">
         {sidebarItems.map((item, index) => (
           <Link
             href={item.url}
@@ -27,7 +27,7 @@ const Sidebar = () => {
               item.url === router.asPath
                 ? "text-zinc-900 dark:text-zinc-100"
                 : "text-zinc-500 "
-            } flex items-center justify-center pt-4 hover:text-teal-600 hover:dark:text-teal-400`}
+            } flex items-center justify-center py-2 hover:text-teal-600 hover:dark:text-teal-400`}
           >
             {item.icon}
           </Link>
