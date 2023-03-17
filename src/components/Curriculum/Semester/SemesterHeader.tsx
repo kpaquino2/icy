@@ -49,7 +49,11 @@ const SemesterColumn = ({ index }: SemesterProps) => {
     });
 
   const [newCourseOpen, setNewCourseOpen] = useState(false);
-  const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
+  const [onConfirm, setOnConfirm] = useState<null | {
+    title: string;
+    message: string;
+    action: () => void;
+  }>(null);
 
   const handleDelete = () => {
     if (!curriculum) return;
@@ -86,7 +90,14 @@ const SemesterColumn = ({ index }: SemesterProps) => {
         <button
           type="button"
           className="group hidden text-zinc-400 hover:text-teal-600 group-last-of-type/sem:block group-only-of-type/sem:hidden hover:dark:text-teal-400"
-          onClick={() => setOnConfirm(() => handleDelete)}
+          onClick={() =>
+            setOnConfirm({
+              title: "delete semester",
+              message:
+                "the courses in this sem and their connections will also be deleted. are you sure you want to delete this semester?",
+              action: () => handleDelete,
+            })
+          }
         >
           <X size={16 * zoom} weight="bold" />
         </button>

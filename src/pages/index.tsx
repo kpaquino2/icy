@@ -163,7 +163,11 @@ const Home: NextPage = () => {
     },
   });
 
-  const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
+  const [onConfirm, setOnConfirm] = useState<null | {
+    title: string;
+    message: string;
+    action: () => void;
+  }>(null);
 
   const [prereq, setPrereq] = useState("");
   const [postreq, setPostreq] = useState("");
@@ -425,7 +429,14 @@ const Home: NextPage = () => {
               <div className="flex gap-2">
                 <button
                   type="button"
-                  onClick={() => setOnConfirm(() => handleDeleteCurriculum)}
+                  onClick={() =>
+                    setOnConfirm({
+                      title: "delete curriculum",
+                      message:
+                        "are you sure you want to delete this curriculum?",
+                      action: () => handleDeleteCurriculum,
+                    })
+                  }
                   className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                   disabled={!curriculum}
                 >

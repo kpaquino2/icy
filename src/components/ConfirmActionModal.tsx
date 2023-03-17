@@ -1,9 +1,15 @@
 import type { Dispatch, SetStateAction } from "react";
 import Modal from "./Modal";
 
+type onConfirmType = {
+  title: string;
+  message: string;
+  action: () => void;
+};
+
 interface ConfirmActionModalProps {
-  onConfirm: null | (() => void);
-  setOnConfirm: Dispatch<SetStateAction<null | (() => void)>>;
+  onConfirm: null | onConfirmType;
+  setOnConfirm: Dispatch<SetStateAction<null | onConfirmType>>;
 }
 
 const ConfirmActionModal = ({
@@ -14,10 +20,10 @@ const ConfirmActionModal = ({
     <Modal
       isOpen={!!onConfirm}
       close={() => setOnConfirm(null)}
-      width="w-72"
-      title="confirm action"
+      width="w-96"
+      title={onConfirm?.title}
     >
-      {"are you sure you want to do this?"}
+      <div className="py-2">{onConfirm?.message}</div>
       <div className="mt-2 flex justify-end gap-3">
         <button
           type="button"
@@ -28,7 +34,7 @@ const ConfirmActionModal = ({
         </button>
         <button
           onClick={() => {
-            onConfirm && onConfirm();
+            onConfirm && onConfirm.action();
             setOnConfirm(null);
           }}
           className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"

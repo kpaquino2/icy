@@ -48,7 +48,11 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
   };
 
   const [editCourseOpen, setEditCourseOpen] = useState(false);
-  const [onConfirm, setOnConfirm] = useState<null | (() => void)>(null);
+  const [onConfirm, setOnConfirm] = useState<null | {
+    title: string;
+    message: string;
+    action: () => void;
+  }>(null);
 
   return (
     <div className="pointer-events-auto">
@@ -83,9 +87,14 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
             </button>
             <button
               onClick={(e) => {
-                setOnConfirm(() => () => {
-                  handleDeleteCourse();
-                  close(e);
+                setOnConfirm({
+                  title: "delete course",
+                  message:
+                    "all the connections to this course will also be deleted. are you sure you want to delete this course?",
+                  action: () => {
+                    handleDeleteCourse();
+                    close(e);
+                  },
                 });
               }}
               className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
