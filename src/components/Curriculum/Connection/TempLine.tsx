@@ -40,7 +40,7 @@ const TempLine = ({
   });
 
   const end: [number, number] =
-    postreqpos && postreqsem
+    postreqpos !== undefined && postreqsem !== undefined
       ? [
           postreqsem * colWidth + colWidth * 0.125,
           (postreqpos + 1) * rowHeight + 40 * zoom,
