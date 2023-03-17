@@ -78,15 +78,16 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
         appear={true}
       >
         <div
-          className="absolute flex scale-0 flex-col rounded border-2 border-zinc-200 bg-zinc-100 p-3 transition-all dark:border-zinc-800 dark:bg-zinc-900"
+          className="absolute flex scale-0 flex-col rounded border-2 border-zinc-200 bg-zinc-100 transition-all dark:border-zinc-800 dark:bg-zinc-900"
           style={{
             transform: `translate(${x}px, ${y}px)`,
             height: rowHeight * 7,
             width: colWidth * 1.5,
             fontSize: 16 * zoom,
+            padding: 12 * zoom,
           }}
         >
-          <div className="flex justify-end gap-3 ">
+          <div className="flex justify-end" style={{ gap: 12 * zoom }}>
             <button
               onClick={() => setEditCourseOpen(true)}
               className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
