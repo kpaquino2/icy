@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar";
 interface LayoutProps {
   title: string;
   description: string;
-  crumbs: string;
   children: React.ReactNode;
 }
 

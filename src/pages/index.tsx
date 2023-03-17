@@ -273,7 +273,6 @@ const Home: NextPage = () => {
       <Layout
         title="curriculum"
         description="list of all curriculum made by the user"
-        crumbs="curriculum"
       >
         {isCurriculumLoading ? (
           <div className="grid h-full w-full place-items-center">
