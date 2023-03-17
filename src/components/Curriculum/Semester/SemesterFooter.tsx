@@ -8,7 +8,7 @@ const SemesterFooter = ({ units }: SemesterProps) => {
   const zoom = useConstantsStore((state) => state.zoom);
   return (
     <div
-      className="flex items-center justify-between"
+      className="flex h-full items-center justify-between"
       style={{
         fontSize: 16 * zoom,
       }}
