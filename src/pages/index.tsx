@@ -6,7 +6,6 @@ import {
   ArrowsOutCardinal,
   Cursor,
   Eraser,
-  Export,
   FlowArrow,
   MagnifyingGlassMinus,
   MagnifyingGlassPlus,
@@ -423,14 +422,6 @@ const Home: NextPage = () => {
                 )}
               </div>
               <div className="flex gap-2">
-                <button
-                  type="button"
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                  disabled={!curriculum}
-                >
-                  <Export size={16} weight="bold" />
-                  export
-                </button>
                 <button
                   type="button"
                   onClick={() => setOnConfirm(() => handleDeleteCurriculum)}
