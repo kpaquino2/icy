@@ -1,28 +1,51 @@
-# Create T3 App
+<h1 align="center">
+  <img src="public/logo.svg" width="32" height="32"> icy
+</h1>
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+**icy** is a web application that allows users to manage their academic curriculum. It gets its name from the abbreviation 'IC' meaning intuitive curriculum, which inspired the development of this web application.
 
-## What's next? How do I make an app with this?
+## Features
+- start a curriculum from a list of templates (currently only has UPLB programs)
+- add, edit, and delete courses
+- organize courses into semesters
+- drag and drop courses between semesters
+- create connections between courses (prerequisites)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Built With
+* [create-t3-app](https://create.t3.gg/)
+* [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Local Setup
+1. Clone the repository
+```bash
+git clone https://github.com/kpaquino2/icy/
+```
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+2. After cloning the repository, install the dependencies.
+```bash
+pnpm install
+```
 
-## Learn More
+3. Set up your .env file
+```bash
+cp .env-example .env
+# now edit the .env file
+```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+4. Push the schema to the database
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+```bash
+npx prisma db push
+```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+5. Run in development mode
 
-## How do I deploy this?
+```bash
+pnpm run dev
+```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+## Contributing
+If you have a feature request or a bug to report, please add it as an issue or fork the repository and submit a pull request.
+
+## License
+This project is licensed under the AGPL 3.0 license. See the LICENSE file for more details.
