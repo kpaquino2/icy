@@ -434,7 +434,7 @@ const Home: NextPage = () => {
                       title: "delete curriculum",
                       message:
                         "are you sure you want to delete this curriculum?",
-                      action: () => handleDeleteCurriculum,
+                      action: handleDeleteCurriculum,
                     })
                   }
                   className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"

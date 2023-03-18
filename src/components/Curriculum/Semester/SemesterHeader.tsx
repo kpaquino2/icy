@@ -95,7 +95,7 @@ const SemesterColumn = ({ index }: SemesterProps) => {
               title: "delete semester",
               message:
                 "the courses in this sem and their connections will also be deleted. are you sure you want to delete this semester?",
-              action: () => handleDelete,
+              action: handleDelete,
             })
           }
         >

@@ -34,7 +34,8 @@ const ConfirmActionModal = ({
         </button>
         <button
           onClick={() => {
-            onConfirm && onConfirm.action();
+            if (!onConfirm) return;
+            onConfirm.action();
             setOnConfirm(null);
           }}
           className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
