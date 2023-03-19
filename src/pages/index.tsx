@@ -26,6 +26,7 @@ import CourseItem from "../components/Curriculum/Course/CourseItem";
 import CourseDetails from "../components/Curriculum/Course/CourseDetails";
 import ConfirmActionModal from "../components/ConfirmActionModal";
 import Connections from "../components/Curriculum/Connection/Connections";
+import Button from "../components/UI/Button";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
@@ -330,104 +331,97 @@ const Home: NextPage = () => {
             )}
             <div className="flex justify-between border-b-2 border-zinc-200 px-4 py-2 dark:border-zinc-800">
               <div className="flex gap-2">
-                <button
+                <Button
                   type="button"
                   onClick={handleNewSem}
-                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                   disabled={!curriculum}
+                  variant="primary"
+                  size="md"
                 >
                   <Plus size={16} weight="bold" />
                   new semester
-                </button>
+                </Button>
                 <div className="flex">
-                  <button
+                  <Button
                     type="button"
                     onClick={() => setZoom(zoom + 0.25)}
-                    className="flex items-center gap-2 rounded-l bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                     disabled={!curriculum || zoom >= 1.5}
+                    variant="primary"
+                    size="md"
+                    grouped
                   >
                     <MagnifyingGlassPlus size={16} weight="bold" />
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     type="button"
-                    className="flex w-12 items-center justify-center gap-2 bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                     disabled={!curriculum}
+                    variant="primary"
+                    size="md"
+                    grouped
                   >
                     {zoom * 100}%
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     type="button"
                     onClick={() => setZoom(zoom - 0.25)}
-                    className="flex items-center gap-2 rounded-r bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                     disabled={!curriculum || zoom <= 0.5}
+                    variant="primary"
+                    size="md"
+                    grouped
                   >
                     <MagnifyingGlassMinus size={16} weight="bold" />
-                  </button>
+                  </Button>
                 </div>
                 <div className="flex">
-                  <button type="button">
-                    <input
-                      type="radio"
-                      className="peer hidden"
-                      id="select"
-                      name="mode"
-                      defaultChecked
-                      onChange={() => setMode("SELECT")}
-                      disabled={!curriculum}
-                    />
-                    <label
-                      htmlFor="select"
-                      className="flex h-full items-center gap-2 rounded-l bg-teal-500 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 dark:text-zinc-900"
-                    >
-                      <Cursor size={16} weight="bold" />
-                    </label>
-                  </button>
-                  <button type="button">
-                    <input
-                      type="radio"
-                      className="peer hidden"
-                      id="move"
-                      name="mode"
-                      onChange={() => setMode("MOVE")}
-                      disabled={!curriculum}
-                    />
-                    <label
-                      htmlFor="move"
-                      className="flex h-full items-center gap-2 bg-teal-500 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:text-zinc-900"
-                    >
-                      <ArrowsOutCardinal size={16} weight="bold" />
-                    </label>
-                  </button>
-                  <button type="button">
-                    <input
-                      type="radio"
-                      className="peer hidden"
-                      id="connect"
-                      name="mode"
-                      onChange={() => setMode("CONNECT")}
-                      disabled={!curriculum}
-                    />
-                    <label
-                      htmlFor="connect"
-                      className="flex h-full items-center gap-2 rounded-r bg-teal-500 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:text-zinc-900"
-                    >
-                      <FlowArrow size={16} weight="bold" />
-                    </label>
-                  </button>
+                  <Button
+                    type="button"
+                    onClick={() => setMode("SELECT")}
+                    disabled={!curriculum}
+                    variant="primary"
+                    size="md"
+                    grouped
+                    active={mode === "SELECT"}
+                  >
+                    <Cursor size={16} weight="bold" />
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => setMode("MOVE")}
+                    disabled={!curriculum}
+                    variant="primary"
+                    size="md"
+                    grouped
+                    active={mode === "MOVE"}
+                  >
+                    <ArrowsOutCardinal size={16} weight="bold" />
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => setMode("CONNECT")}
+                    disabled={!curriculum}
+                    variant="primary"
+                    size="md"
+                    grouped
+                    active={mode === "CONNECT"}
+                  >
+                    <FlowArrow size={16} weight="bold" />
+                  </Button>
                 </div>
                 {focused.length >= 48 && (
-                  <button
+                  <Button
+                    type="button"
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={handleDeleteConnection}
-                    className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:text-zinc-900"
+                    variant="primary"
+                    size="md"
                   >
                     <Eraser size={16} weight="bold" />
                     delete connection
-                  </button>
+                  </Button>
                 )}
               </div>
               <div className="flex gap-2">
-                <button
+                <Button
                   type="button"
                   onClick={() =>
                     setOnConfirm({
@@ -437,12 +431,13 @@ const Home: NextPage = () => {
                       action: handleDeleteCurriculum,
                     })
                   }
-                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                   disabled={!curriculum}
+                  variant="primary"
+                  size="md"
                 >
                   <TrashSimple size={16} weight="bold" />
                   delete
-                </button>
+                </Button>
               </div>
             </div>
             {curriculum ? (
@@ -634,14 +629,15 @@ const Home: NextPage = () => {
                 <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
                   create a new curriculum to start
                 </div>
-                <button
+                <Button
                   type="button"
-                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 dark:text-zinc-900"
                   onClick={() => setNewCurricOpen(true)}
+                  variant="primary"
+                  size="lg"
                 >
                   <Plus weight="bold" size={20} />
                   new curriculum
-                </button>
+                </Button>
               </div>
             )}
             <div className="flex border-t-2 border-zinc-200 px-4 py-2 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">

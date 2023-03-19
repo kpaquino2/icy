@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
 import { useCurriculumStore } from "../../utils/stores/curriculumStore";
+import Button from "../UI/Button";
 
 interface AddCurriculumModalProps {
   newCurricOpen: boolean;
@@ -171,7 +172,7 @@ const AddCurriculumModal = ({
               <button
                 type="button"
                 onClick={createFromScratch}
-                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-600 dark:text-zinc-600"
+                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-600 dark:text-zinc-600 dark:hover:border-teal-500 dark:hover:text-teal-500"
               >
                 <ProjectorScreen size={32} />
                 create from scratch
@@ -179,7 +180,7 @@ const AddCurriculumModal = ({
               <button
                 type="button"
                 onClick={handleNext}
-                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-600 dark:text-zinc-600"
+                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-600 dark:text-zinc-600 dark:hover:border-teal-500 dark:hover:text-teal-500"
               >
                 <ProjectorScreenChart size={32} />
                 use a template
@@ -272,20 +273,23 @@ const AddCurriculumModal = ({
             </div>
             <div className="flex flex-row-reverse items-center justify-between">
               <div className="flex gap-3">
-                <button
+                <Button
                   type="button"
                   onClick={handleBack}
-                  className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition hover:brightness-110 disabled:opacity-50"
                   disabled={isSubmitting}
+                  variant="base"
+                  size="md"
                 >
                   back
-                </button>
-                <button
-                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
+                </Button>
+                <Button
+                  type="submit"
                   disabled={isSubmitting || !isDirty}
+                  variant="primary"
+                  size="md"
                 >
                   confirm
-                </button>
+                </Button>
               </div>
               {isSubmitting && (
                 <svg

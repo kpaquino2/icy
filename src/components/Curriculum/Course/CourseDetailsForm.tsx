@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import InputField from "./InputField";
-import TextArea from "./TextArea";
+import InputField from "../../Forms/InputField";
+import TextArea from "../../Forms/TextArea";
 import { type Dispatch, type SetStateAction, useEffect } from "react";
+import Button from "../../UI/Button";
 
 const schema = z.object({
   code: z.string().min(1, "course code is required"),
@@ -34,7 +35,7 @@ const CourseDetailsForm = ({
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting, isDirty },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: defaultData,
@@ -77,19 +78,23 @@ const CourseDetailsForm = ({
         />
       </div>
       <div className="flex justify-end gap-3">
-        <button
+        <Button
           type="button"
           onClick={() => setOpen(false)}
-          className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition hover:brightness-110"
+          disabled={isSubmitting || !isDirty}
+          variant="base"
+          size="md"
         >
           cancel
-        </button>
-        <button
+        </Button>
+        <Button
           type="submit"
-          className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
+          disabled={isSubmitting || !isDirty}
+          variant="primary"
+          size="md"
         >
           submit
-        </button>
+        </Button>
       </div>
     </form>
   );

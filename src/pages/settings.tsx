@@ -5,6 +5,7 @@ import { useController, useForm } from "react-hook-form";
 import { z } from "zod";
 import InputField from "../components/Forms/InputField";
 import Layout from "../components/Layout/Layout";
+import Button from "../components/UI/Button";
 import { useSettingsStore } from "../utils/stores/settingsStore";
 
 const generalschema = z.object({
@@ -129,27 +130,29 @@ const Settings: NextPage = () => {
                 </div>
               </div>
               <div className="col-span-12 flex justify-end gap-3">
-                <button
+                <Button
                   type="button"
                   onClick={() => generalForm.reset()}
-                  className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition enabled:hover:brightness-110 disabled:opacity-50"
                   disabled={
                     generalForm.formState.isSubmitting ||
                     !generalForm.formState.isDirty
                   }
+                  variant="base"
+                  size="md"
                 >
                   cancel
-                </button>
-                <button
+                </Button>
+                <Button
                   type="submit"
-                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
                   disabled={
                     generalForm.formState.isSubmitting ||
                     !generalForm.formState.isDirty
                   }
+                  variant="primary"
+                  size="md"
                 >
                   save
-                </button>
+                </Button>
               </div>
             </div>
           </form>
@@ -223,27 +226,29 @@ const Settings: NextPage = () => {
                 </div>
               </div>
               <div className="col-span-12 flex justify-end gap-3">
-                <button
+                <Button
                   type="button"
                   onClick={() => appearanceForm.reset()}
-                  className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition enabled:hover:brightness-110 disabled:opacity-50"
                   disabled={
                     appearanceForm.formState.isSubmitting ||
                     !appearanceForm.formState.isDirty
                   }
+                  variant="base"
+                  size="md"
                 >
                   cancel
-                </button>
-                <button
+                </Button>
+                <Button
                   type="submit"
-                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
                   disabled={
                     appearanceForm.formState.isSubmitting ||
                     !appearanceForm.formState.isDirty
                   }
+                  variant="primary"
+                  size="md"
                 >
                   save
-                </button>
+                </Button>
               </div>
             </div>
           </form>
