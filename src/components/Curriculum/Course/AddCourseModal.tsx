@@ -3,7 +3,7 @@ import { type Dispatch, type SetStateAction } from "react";
 import { api } from "../../../utils/api";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import CourseDetailsForm from "./CourseDetailsForm";
-import Modal from "../../Modal";
+import Modal from "../../UI/Modals/Modal";
 
 interface AddCourseModalProps {
   sem: number;

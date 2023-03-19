@@ -24,7 +24,7 @@ import SemesterHeader from "../components/Curriculum/Semester/SemesterHeader";
 import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
 import CourseItem from "../components/Curriculum/Course/CourseItem";
 import CourseDetails from "../components/Curriculum/Course/CourseDetails";
-import ConfirmActionModal from "../components/ConfirmActionModal";
+import ConfirmActionModal from "../components/UI/Modals/ConfirmActionModal";
 import Connections from "../components/Curriculum/Connection/Connections";
 import Button from "../components/UI/Button";
 

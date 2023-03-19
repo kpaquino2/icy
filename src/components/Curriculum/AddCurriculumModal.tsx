@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
-import Modal from "../Modal";
+import Modal from "../UI/Modals/Modal";
 import {
   Check,
   MagnifyingGlass,

@@ -4,7 +4,7 @@ import { api } from "../../../utils/api";
 import { useConstantsStore } from "../../../utils/stores/constantsStore";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import { useSettingsStore } from "../../../utils/stores/settingsStore";
-import ConfirmActionModal from "../../ConfirmActionModal";
+import ConfirmActionModal from "../../UI/Modals/ConfirmActionModal";
 import AddCourseModal from "../Course/AddCourseModal";
 
 interface SemesterProps {

@@ -5,7 +5,7 @@ import { useState, type MouseEventHandler } from "react";
 import { api } from "../../../utils/api";
 import { useConstantsStore } from "../../../utils/stores/constantsStore";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
-import ConfirmActionModal from "../../ConfirmActionModal";
+import ConfirmActionModal from "../../UI/Modals/ConfirmActionModal";
 import EditCourseModal from "./EditCourseModal";
 
 interface CourseDetailsProps {

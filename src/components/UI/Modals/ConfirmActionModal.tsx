@@ -1,4 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
+import Button from "../Button";
 import Modal from "./Modal";
 
 type onConfirmType = {
@@ -25,23 +26,26 @@ const ConfirmActionModal = ({
     >
       <div className="py-2">{onConfirm?.message}</div>
       <div className="mt-2 flex justify-end gap-3">
-        <button
+        <Button
           type="button"
           onClick={() => setOnConfirm(null)}
-          className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition hover:brightness-110"
+          variant="base"
+          size="md"
         >
           cancel
-        </button>
-        <button
+        </Button>
+        <Button
+          type="button"
           onClick={() => {
             if (!onConfirm) return;
             onConfirm.action();
             setOnConfirm(null);
           }}
-          className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
+          variant="error"
+          size="md"
         >
           confirm
-        </button>
+        </Button>
       </div>
     </Modal>
   );
