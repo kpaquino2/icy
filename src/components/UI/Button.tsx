@@ -1,4 +1,9 @@
-import type { MouseEventHandler, ReactNode } from "react";
+import Link from "next/link";
+import type {
+  HTMLAttributeAnchorTarget,
+  MouseEventHandler,
+  ReactNode,
+} from "react";
 
 interface ButtonProps {
   variant: "primary" | "base" | "error";
@@ -11,6 +16,8 @@ interface ButtonProps {
   disabled?: boolean;
   grouped?: boolean;
   active?: boolean;
+  href?: string;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const Button = (props: ButtonProps) => {
@@ -30,11 +37,28 @@ const Button = (props: ButtonProps) => {
 
   const sizes = {
     md: "h-8 px-2 text-base ",
-    lg: "h-10 px-4 text-lg ",
-    xl: "h-12 px-6 text-xl ",
+    lg: "h-12 px-3 text-lg ",
+    xl: "h-16 px-4 text-xl ",
   };
 
-  return (
+  return props.href ? (
+    <Link
+      href={props.href}
+      target={props.target}
+      type={props.type}
+      onClick={props.onClick}
+      onMouseDown={props.onMouseDown}
+      className={
+        "flex items-center justify-center gap-2 transition disabled:pointer-events-none disabled:opacity-50 " +
+        sizes[props.size] +
+        (props.fill ? "w-full " : "") +
+        (props.grouped ? "first:rounded-l last:rounded-r " : "rounded ") +
+        variants[props.variant]
+      }
+    >
+      {props.children}
+    </Link>
+  ) : (
     <button
       type={props.type}
       onClick={props.onClick}
