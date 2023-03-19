@@ -504,7 +504,7 @@ const Home: NextPage = () => {
                                   c.postreqId === postreq
                               ) === -1
                               ? "bg-teal-500/25 "
-                              : "bg-pink-500/25 "
+                              : "bg-rose-500/25 "
                             : "bg-transparent ") +
                           "pointer-events-none flex items-center justify-center "
                         }
