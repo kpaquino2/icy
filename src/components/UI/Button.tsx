@@ -4,6 +4,7 @@ import type {
   MouseEventHandler,
   ReactNode,
 } from "react";
+import { forwardRef } from "react";
 
 interface ButtonProps {
   variant: "primary" | "base" | "error";
@@ -20,7 +21,7 @@ interface ButtonProps {
   target?: HTMLAttributeAnchorTarget;
 }
 
-const Button = (props: ButtonProps) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const variants = {
     primary:
       "text-zinc-100 dark:text-zinc-900 active:bg-teal-600 " +
@@ -49,7 +50,7 @@ const Button = (props: ButtonProps) => {
       onClick={props.onClick}
       onMouseDown={props.onMouseDown}
       className={
-        "flex items-center justify-center gap-2 transition disabled:pointer-events-none disabled:opacity-50 " +
+        "flex items-center gap-2 transition disabled:pointer-events-none disabled:opacity-50 " +
         sizes[props.size] +
         (props.fill ? "w-full " : "") +
         (props.grouped ? "first:rounded-l last:rounded-r " : "rounded ") +
@@ -65,16 +66,19 @@ const Button = (props: ButtonProps) => {
       onMouseDown={props.onMouseDown}
       disabled={props.disabled}
       className={
-        "flex items-center justify-center gap-2 transition disabled:pointer-events-none disabled:opacity-50 " +
+        "flex items-center gap-2 transition disabled:pointer-events-none disabled:opacity-50 " +
         sizes[props.size] +
         (props.fill ? "w-full " : "") +
         (props.grouped ? "first:rounded-l last:rounded-r " : "rounded ") +
         variants[props.variant]
       }
+      ref={ref}
     >
       {props.children}
     </button>
   );
-};
+});
+
+Button.displayName = "Button";
 
 export default Button;
