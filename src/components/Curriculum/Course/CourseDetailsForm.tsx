@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import InputField from "../../Forms/InputField";
-import TextArea from "../../Forms/TextArea";
+import InputField from "../../UI/Forms/InputField";
+import TextArea from "../../UI/Forms/TextArea";
 import { type Dispatch, type SetStateAction, useEffect } from "react";
 import Button from "../../UI/Button";
 

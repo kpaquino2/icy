@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { type NextPage } from "next";
 import { useController, useForm } from "react-hook-form";
 import { z } from "zod";
-import InputField from "../components/Forms/InputField";
+import InputField from "../components/UI/Forms/InputField";
 import Layout from "../components/Layout/Layout";
 import Button from "../components/UI/Button";
 import { useSettingsStore } from "../utils/stores/settingsStore";
