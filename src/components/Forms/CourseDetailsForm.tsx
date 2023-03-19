@@ -80,13 +80,13 @@ const CourseDetailsForm = ({
         <button
           type="button"
           onClick={() => setOpen(false)}
-          className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition hover:brightness-110 dark:border-teal-400 dark:text-teal-400"
+          className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition hover:brightness-110"
         >
           cancel
         </button>
         <button
           type="submit"
-          className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
+          className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
         >
           submit
         </button>

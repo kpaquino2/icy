@@ -27,7 +27,7 @@ const Sidebar = () => {
               item.url === router.asPath
                 ? "text-zinc-900 dark:text-zinc-100"
                 : "text-zinc-500 "
-            } flex items-center justify-center py-2 hover:text-teal-600 hover:dark:text-teal-400`}
+            } flex items-center justify-center py-2 hover:text-teal-500`}
           >
             {item.icon}
           </Link>
@@ -36,7 +36,7 @@ const Sidebar = () => {
       <div className="flex flex-col border-t-2 border-zinc-200 py-4 text-sm dark:border-zinc-800">
         {session ? (
           <Menu>
-            <Menu.Button className="flex items-center justify-center text-zinc-600 hover:text-teal-600 dark:text-zinc-400 hover:dark:text-teal-400">
+            <Menu.Button className="flex items-center justify-center text-zinc-600 hover:text-teal-500 dark:text-zinc-400">
               <UserCircle size={32} />
             </Menu.Button>
             <Transition
@@ -50,7 +50,7 @@ const Sidebar = () => {
               <Menu.Items className="absolute w-32 translate-x-[4.25rem] -translate-y-10 scale-100 rounded border-2 border-zinc-200 bg-zinc-100 p-1 dark:border-zinc-800 dark:bg-zinc-900">
                 <Menu.Item>
                   <button
-                    className="flex w-full items-center justify-start gap-2 rounded px-1 text-base hover:bg-teal-600 hover:text-zinc-100 dark:hover:bg-teal-400 dark:hover:text-zinc-900"
+                    className="flex w-full items-center justify-start gap-2 rounded px-1 text-base hover:bg-teal-500 hover:text-zinc-100 dark:hover:text-zinc-900"
                     type="button"
                     onClick={() => void signOut()}
                   >
@@ -64,7 +64,7 @@ const Sidebar = () => {
         ) : (
           <Link
             href="sign-in"
-            className="flex items-center justify-center text-zinc-600 hover:text-teal-600 dark:text-zinc-400 hover:dark:text-teal-400"
+            className="flex items-center justify-center text-zinc-600 hover:text-teal-500 dark:text-zinc-400"
           >
             <SignIn size={32} />
           </Link>

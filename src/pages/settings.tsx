@@ -107,7 +107,7 @@ const Settings: NextPage = () => {
                     name="hasmidyear"
                     className={`${
                       hasmidyearController.field.value
-                        ? "bg-teal-600 dark:bg-teal-400"
+                        ? "bg-teal-500"
                         : "bg-zinc-200 dark:bg-zinc-800"
                     } relative inline-flex h-7 min-w-[44px] items-center rounded-full transition-colors duration-150`}
                   >
@@ -132,7 +132,7 @@ const Settings: NextPage = () => {
                 <button
                   type="button"
                   onClick={() => generalForm.reset()}
-                  className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition enabled:hover:brightness-110 disabled:opacity-50 dark:border-teal-400 dark:text-teal-400"
+                  className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition enabled:hover:brightness-110 disabled:opacity-50"
                   disabled={
                     generalForm.formState.isSubmitting ||
                     !generalForm.formState.isDirty
@@ -142,7 +142,7 @@ const Settings: NextPage = () => {
                 </button>
                 <button
                   type="submit"
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
+                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
                   disabled={
                     generalForm.formState.isSubmitting ||
                     !generalForm.formState.isDirty
@@ -171,7 +171,7 @@ const Settings: NextPage = () => {
                     name="midyear"
                     className={`${
                       darkController.field.value
-                        ? "bg-teal-600 dark:bg-teal-400"
+                        ? "bg-teal-500"
                         : "bg-zinc-200 dark:bg-zinc-800"
                     } relative inline-flex h-7 min-w-[44px] items-center rounded-full transition-colors duration-150`}
                   >
@@ -202,7 +202,7 @@ const Settings: NextPage = () => {
                     name="midyear"
                     className={`${
                       animateConnectionsController.field.value
-                        ? "bg-teal-600 dark:bg-teal-400"
+                        ? "bg-teal-500"
                         : "bg-zinc-200 dark:bg-zinc-800"
                     } relative inline-flex h-7 min-w-[44px] items-center rounded-full transition-colors duration-150`}
                   >
@@ -226,7 +226,7 @@ const Settings: NextPage = () => {
                 <button
                   type="button"
                   onClick={() => appearanceForm.reset()}
-                  className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition enabled:hover:brightness-110 disabled:opacity-50 dark:border-teal-400 dark:text-teal-400"
+                  className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition enabled:hover:brightness-110 disabled:opacity-50"
                   disabled={
                     appearanceForm.formState.isSubmitting ||
                     !appearanceForm.formState.isDirty
@@ -236,7 +236,7 @@ const Settings: NextPage = () => {
                 </button>
                 <button
                   type="submit"
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
+                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
                   disabled={
                     appearanceForm.formState.isSubmitting ||
                     !appearanceForm.formState.isDirty

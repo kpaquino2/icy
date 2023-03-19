@@ -171,7 +171,7 @@ const AddCurriculumModal = ({
               <button
                 type="button"
                 onClick={createFromScratch}
-                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-600 dark:text-zinc-600 dark:hover:border-teal-400 dark:hover:text-teal-400"
+                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-600 dark:text-zinc-600"
               >
                 <ProjectorScreen size={32} />
                 create from scratch
@@ -179,7 +179,7 @@ const AddCurriculumModal = ({
               <button
                 type="button"
                 onClick={handleNext}
-                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-600 hover:text-teal-600 dark:border-zinc-600 dark:text-zinc-600 hover:dark:border-teal-400 hover:dark:text-teal-400"
+                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-600 dark:text-zinc-600"
               >
                 <ProjectorScreenChart size={32} />
                 use a template
@@ -195,13 +195,13 @@ const AddCurriculumModal = ({
               <input
                 type="text"
                 disabled={isSubmitting}
-                className="peer w-full rounded border-2 border-zinc-200 bg-inherit px-3 py-1 pl-8 focus:border-teal-600 focus:outline-none focus:ring-1 focus:ring-teal-600 dark:border-zinc-800 focus:dark:border-teal-400 focus:dark:ring-teal-400"
+                className="peer w-full rounded border-2 border-zinc-200 bg-inherit px-3 py-1 pl-8 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500 dark:border-zinc-800"
                 onChange={(e) => setSearch(e.target.value.toLowerCase().trim())}
               />
               <MagnifyingGlass
                 size={20}
                 weight="bold"
-                className="absolute bottom-0 top-0 left-2 my-auto text-zinc-500 peer-focus:text-teal-600 dark:peer-focus:text-teal-400 "
+                className="absolute bottom-0 top-0 left-2 my-auto text-zinc-500 peer-focus:text-teal-500 "
               />
             </div>
             <div
@@ -243,8 +243,8 @@ const AddCurriculumModal = ({
                             className={
                               (isSubmitting
                                 ? ""
-                                : "hover:bg-teal-600 hover:text-zinc-100 dark:hover:bg-teal-400 dark:hover:text-zinc-900") +
-                              " flex justify-between border-zinc-200 px-4 py-1.5 last:border-b-2  peer-checked:text-teal-600 dark:border-zinc-800 dark:peer-checked:text-teal-400"
+                                : "hover:bg-teal-500 hover:text-zinc-100 dark:hover:text-zinc-900") +
+                              " flex justify-between border-zinc-200 px-4 py-1.5 last:border-b-2  peer-checked:text-teal-500 dark:border-zinc-800 "
                             }
                           >
                             <input
@@ -275,13 +275,13 @@ const AddCurriculumModal = ({
                 <button
                   type="button"
                   onClick={handleBack}
-                  className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition hover:brightness-110 disabled:opacity-50 dark:border-teal-400 dark:text-teal-400"
+                  className="rounded border-2 border-teal-500 px-2 py-1 text-teal-500 transition hover:brightness-110 disabled:opacity-50"
                   disabled={isSubmitting}
                 >
                   back
                 </button>
                 <button
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
+                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:text-zinc-900"
                   disabled={isSubmitting || !isDirty}
                 >
                   confirm
@@ -293,7 +293,7 @@ const AddCurriculumModal = ({
                   height="32"
                   viewBox="0 0 100 100"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="animate-load fill-teal-600 dark:fill-teal-400"
+                  className="animate-load fill-teal-500"
                 >
                   <g clipPath="url(#clip0_0_1)">
                     <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />

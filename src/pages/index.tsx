@@ -285,7 +285,7 @@ const Home: NextPage = () => {
               height="72"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
-              className="animate-load fill-teal-600 dark:fill-teal-400"
+              className="animate-load fill-teal-500"
             >
               <g clipPath="url(#clip0_0_1)">
                 <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />
@@ -307,7 +307,7 @@ const Home: NextPage = () => {
         ) : (
           <>
             {showNotice && sessionStatus !== "authenticated" && (
-              <div className="relative flex items-center justify-center bg-teal-600 p-2 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
+              <div className="relative flex items-center justify-center bg-teal-500 p-2 text-sm text-zinc-100 dark:text-zinc-900">
                 <Link
                   className="group flex gap-2 hover:underline"
                   href="sign-up"
@@ -333,7 +333,7 @@ const Home: NextPage = () => {
                 <button
                   type="button"
                   onClick={handleNewSem}
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                   disabled={!curriculum}
                 >
                   <Plus size={16} weight="bold" />
@@ -343,14 +343,14 @@ const Home: NextPage = () => {
                   <button
                     type="button"
                     onClick={() => setZoom(zoom + 0.25)}
-                    className="flex items-center gap-2 rounded-l bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    className="flex items-center gap-2 rounded-l bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                     disabled={!curriculum || zoom >= 1.5}
                   >
                     <MagnifyingGlassPlus size={16} weight="bold" />
                   </button>
                   <button
                     type="button"
-                    className="flex w-12 items-center justify-center gap-2 bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    className="flex w-12 items-center justify-center gap-2 bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                     disabled={!curriculum}
                   >
                     {zoom * 100}%
@@ -358,7 +358,7 @@ const Home: NextPage = () => {
                   <button
                     type="button"
                     onClick={() => setZoom(zoom - 0.25)}
-                    className="flex items-center gap-2 rounded-r bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    className="flex items-center gap-2 rounded-r bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                     disabled={!curriculum || zoom <= 0.5}
                   >
                     <MagnifyingGlassMinus size={16} weight="bold" />
@@ -377,7 +377,7 @@ const Home: NextPage = () => {
                     />
                     <label
                       htmlFor="select"
-                      className="flex h-full items-center gap-2 rounded-l bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
+                      className="flex h-full items-center gap-2 rounded-l bg-teal-500 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 dark:text-zinc-900"
                     >
                       <Cursor size={16} weight="bold" />
                     </label>
@@ -393,7 +393,7 @@ const Home: NextPage = () => {
                     />
                     <label
                       htmlFor="move"
-                      className="flex h-full items-center gap-2 bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                      className="flex h-full items-center gap-2 bg-teal-500 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:text-zinc-900"
                     >
                       <ArrowsOutCardinal size={16} weight="bold" />
                     </label>
@@ -409,7 +409,7 @@ const Home: NextPage = () => {
                     />
                     <label
                       htmlFor="connect"
-                      className="flex h-full items-center gap-2 rounded-r bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                      className="flex h-full items-center gap-2 rounded-r bg-teal-500 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:text-zinc-900"
                     >
                       <FlowArrow size={16} weight="bold" />
                     </label>
@@ -419,7 +419,7 @@ const Home: NextPage = () => {
                   <button
                     onMouseDown={(e) => e.preventDefault()}
                     onClick={handleDeleteConnection}
-                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:text-zinc-900"
                   >
                     <Eraser size={16} weight="bold" />
                     delete connection
@@ -437,7 +437,7 @@ const Home: NextPage = () => {
                       action: handleDeleteCurriculum,
                     })
                   }
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:text-zinc-900"
                   disabled={!curriculum}
                 >
                   <TrashSimple size={16} weight="bold" />
@@ -636,7 +636,7 @@ const Home: NextPage = () => {
                 </div>
                 <button
                   type="button"
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
+                  className="flex items-center gap-2 rounded bg-teal-500 px-2 py-1 text-zinc-100 transition hover:brightness-110 dark:text-zinc-900"
                   onClick={() => setNewCurricOpen(true)}
                 >
                   <Plus weight="bold" size={20} />

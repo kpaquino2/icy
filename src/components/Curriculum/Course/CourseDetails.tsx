@@ -90,7 +90,7 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
           <div className="flex justify-end" style={{ gap: 12 * zoom }}>
             <button
               onClick={() => setEditCourseOpen(true)}
-              className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+              className="rounded text-zinc-400 hover:text-teal-500"
             >
               <PencilSimpleLine size={16 * zoom} weight="bold" />
             </button>
@@ -106,13 +106,13 @@ const CourseDetails = ({ course, x, y, close }: CourseDetailsProps) => {
                   },
                 });
               }}
-              className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+              className="rounded text-zinc-400 hover:text-teal-500"
             >
               <TrashSimple size={16 * zoom} weight="bold" />
             </button>
             <button
               onClick={close}
-              className="rounded text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+              className="rounded text-zinc-400 hover:text-teal-500"
             >
               <X size={16 * zoom} weight="bold" />
             </button>

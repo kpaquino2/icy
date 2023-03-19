@@ -45,7 +45,7 @@ const Line = ({
       <path
         className={
           (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
+            ? "stroke-teal-500 opacity-100"
             : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
         }
         d={`M ${start[0]} ${start[1] - 5.66} L ${start[0] + 5.66} ${start[1]}`}
@@ -53,7 +53,7 @@ const Line = ({
       <path
         className={
           (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
+            ? "stroke-teal-500 opacity-100"
             : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
         }
         d={`M ${start[0]} ${start[1] + 5.66} L ${start[0] + 5.66} ${start[1]}`}
@@ -61,7 +61,7 @@ const Line = ({
       <path
         className={
           (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
+            ? "stroke-teal-500 opacity-100"
             : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
         }
         ref={pathRef}
@@ -85,7 +85,7 @@ const Line = ({
       <path
         className={
           (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
+            ? "stroke-teal-500 opacity-100"
             : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
         }
         d={`M ${end[0] - 5.66} ${end[1] - 5.66} L ${end[0]} ${end[1]}`}
@@ -93,16 +93,13 @@ const Line = ({
       <path
         className={
           (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
+            ? "stroke-teal-500 opacity-100"
             : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
         }
         d={`M ${end[0] - 5.66} ${end[1] + 5.66} L ${end[0]} ${end[1]}`}
       />
       {focused && animateConnections && (
-        <polygon
-          points="0,-3 3,0 0,3 -3,0"
-          className="rounded fill-teal-600 dark:fill-teal-400"
-        >
+        <polygon points="0,-3 3,0 0,3 -3,0" className="rounded fill-teal-500">
           <animateMotion
             dur={`${(dist || 1) * 0.01}`}
             repeatCount="indefinite"
