@@ -48,17 +48,23 @@ const TempLine = ({
       : mousepos;
 
   return (
-    <g>
+    <g
+      className="fill-none stroke-zinc-500 opacity-50"
+      style={{
+        strokeWidth: 2 * zoom,
+      }}
+    >
       <path
-        className="stroke-zinc-500 stroke-2 opacity-50"
-        d={`M ${start[0]} ${start[1] - 5.66} L ${start[0] + 5.66} ${start[1]}`}
+        d={`M ${start[0]} ${start[1] - 5.66 * zoom} L ${
+          start[0] + 5.66 * zoom
+        } ${start[1]}`}
       />
       <path
-        className="stroke-zinc-500 stroke-2 opacity-50"
-        d={`M ${start[0]} ${start[1] + 5.66} L ${start[0] + 5.66} ${start[1]}`}
+        d={`M ${start[0]} ${start[1] + 5.66 * zoom} L ${
+          start[0] + 5.66 * zoom
+        } ${start[1]}`}
       />
       <path
-        className="fill-none stroke-zinc-500  stroke-2 opacity-50"
         d={`M ${start[0] + 4} ${start[1]}
             L ${start[0] + (end[0] - start[0]) / 4} ${start[1]}
             L ${end[0] - (end[0] - start[0]) / 4} ${end[1]}
@@ -66,12 +72,14 @@ const TempLine = ({
           `}
       />
       <path
-        className="stroke-zinc-500 stroke-2 opacity-50"
-        d={`M ${end[0] - 5.66} ${end[1] - 5.66} L ${end[0]} ${end[1]}`}
+        d={`M ${end[0] - 5.66 * zoom} ${end[1] - 5.66 * zoom} L ${end[0]} ${
+          end[1]
+        }`}
       />
       <path
-        className="stroke-zinc-500 stroke-2 opacity-50"
-        d={`M ${end[0] - 5.66} ${end[1] + 5.66} L ${end[0]} ${end[1]}`}
+        d={`M ${end[0] - 5.66 * zoom} ${end[1] + 5.66 * zoom} L ${end[0]} ${
+          end[1]
+        }`}
       />
     </g>
   );
