@@ -1,7 +1,11 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { GithubLogo } from "phosphor-react";
+import { SignIn } from "phosphor-react";
+import Button from "../UI/Button";
+import UserMenu from "../UI/Menu/UserMenu";
 
 const Header = () => {
+  const { data: session } = useSession();
   return (
     <div className="min-h-[4rem] border-b-2 border-zinc-200 dark:border-zinc-800">
       <div className="flex h-full items-center justify-between gap-2 px-4">
@@ -31,14 +35,14 @@ const Header = () => {
           </svg>
           <span className="text-2xl font-thin">icy manager</span>
         </Link>
-        <div className="flex items-center gap-3">
-          <Link
-            href="https://github.com/kpaquino2/icy"
-            className="rounded text-zinc-500 transition hover:text-teal-500"
-            target="_blank"
-          >
-            <GithubLogo size={24} weight="bold" />
-          </Link>
+        <div className="relative z-10 flex items-center gap-3">
+          {session ? (
+            <UserMenu />
+          ) : (
+            <Button href="sign-in" variant="base" size="lg">
+              <SignIn size={32} />
+            </Button>
+          )}
         </div>
       </div>
     </div>
