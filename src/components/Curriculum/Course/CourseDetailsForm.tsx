@@ -81,7 +81,7 @@ const CourseDetailsForm = ({
         <Button
           type="button"
           onClick={() => setOpen(false)}
-          disabled={isSubmitting || !isDirty}
+          disabled={isSubmitting}
           variant="base"
           size="md"
         >
