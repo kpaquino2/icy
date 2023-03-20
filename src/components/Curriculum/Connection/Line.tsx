@@ -46,7 +46,7 @@ const Line = ({
       className={
         (focused
           ? "stroke-teal-500 opacity-100"
-          : "stroke-zinc-500 opacity-50 ") + " fill-none"
+          : "stroke-zinc-900/10 dark:stroke-zinc-50/10 ") + " fill-none"
       }
       style={{
         strokeWidth: 2 * zoom,

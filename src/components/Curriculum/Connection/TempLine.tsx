@@ -49,7 +49,7 @@ const TempLine = ({
 
   return (
     <g
-      className="fill-none stroke-zinc-500 opacity-50"
+      className="fill-none stroke-teal-500"
       style={{
         strokeWidth: 2 * zoom,
       }}
