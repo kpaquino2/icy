@@ -1,4 +1,3 @@
-import { Switch } from "@headlessui/react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type NextPage } from "next";
 import { useController, useForm } from "react-hook-form";
@@ -7,6 +6,7 @@ import InputField from "../components/UI/Forms/InputField";
 import Layout from "../components/Layout/Layout";
 import Button from "../components/UI/Button";
 import { useSettingsStore } from "../utils/stores/settingsStore";
+import Toggle from "../components/UI/Forms/Toggle";
 
 const generalschema = z.object({
   semcount: z.coerce
@@ -102,24 +102,11 @@ const Settings: NextPage = () => {
               <div className="col-span-12 text-lg md:col-span-5">semesters</div>
               <div className="col-span-12 flex flex-col gap-2 md:col-span-7">
                 <div className="my-2 flex gap-4">
-                  <Switch
+                  <Toggle
                     checked={hasmidyearController.field.value}
                     onChange={hasmidyearController.field.onChange}
                     name="hasmidyear"
-                    className={`${
-                      hasmidyearController.field.value
-                        ? "bg-teal-500"
-                        : "bg-zinc-200 dark:bg-zinc-800"
-                    } relative inline-flex h-7 min-w-[44px] items-center rounded-full transition-colors duration-150`}
-                  >
-                    <span
-                      className={`${
-                        hasmidyearController.field.value
-                          ? "translate-x-5 bg-white"
-                          : "translate-x-1 bg-zinc-100 dark:bg-zinc-900"
-                      } inline-block h-5 w-5 transform rounded-full shadow-lg transition`}
-                    />
-                  </Switch>
+                  />
                   <div className="flex flex-col">
                     <span>midyear</span>
                     <span className="text-sm text-zinc-400 dark:text-zinc-600">
@@ -168,24 +155,11 @@ const Settings: NextPage = () => {
               <div className="col-span-12 text-lg md:col-span-5">theme</div>
               <div className="col-span-12 flex flex-col gap-2 md:col-span-7">
                 <div className="my-2 flex gap-4">
-                  <Switch
+                  <Toggle
                     checked={darkController.field.value}
                     onChange={darkController.field.onChange}
                     name="midyear"
-                    className={`${
-                      darkController.field.value
-                        ? "bg-teal-500"
-                        : "bg-zinc-200 dark:bg-zinc-800"
-                    } relative inline-flex h-7 min-w-[44px] items-center rounded-full transition-colors duration-150`}
-                  >
-                    <span
-                      className={`${
-                        darkController.field.value
-                          ? "translate-x-5 bg-white"
-                          : "translate-x-1 bg-zinc-100 dark:bg-zinc-900"
-                      } inline-block h-5 w-5 transform rounded-full shadow-lg transition`}
-                    />
-                  </Switch>
+                  />
                   <div className="flex flex-col">
                     <span>dark mode</span>
                     <span className="text-sm text-zinc-400 dark:text-zinc-600">
@@ -199,24 +173,12 @@ const Settings: NextPage = () => {
               </div>
               <div className="col-span-12 flex flex-col gap-2 md:col-span-7">
                 <div className="my-2 flex gap-4">
-                  <Switch
+                  <Toggle
                     checked={animateConnectionsController.field.value}
                     onChange={animateConnectionsController.field.onChange}
                     name="midyear"
-                    className={`${
-                      animateConnectionsController.field.value
-                        ? "bg-teal-500"
-                        : "bg-zinc-200 dark:bg-zinc-800"
-                    } relative inline-flex h-7 min-w-[44px] items-center rounded-full transition-colors duration-150`}
-                  >
-                    <span
-                      className={`${
-                        animateConnectionsController.field.value
-                          ? "translate-x-5 bg-white"
-                          : "translate-x-1 bg-zinc-100 dark:bg-zinc-900"
-                      } inline-block h-5 w-5 transform rounded-full shadow-lg transition`}
-                    />
-                  </Switch>
+                  />
+
                   <div className="flex flex-col">
                     <span>animate connections</span>
                     <span className="text-sm text-zinc-400 dark:text-zinc-600">
