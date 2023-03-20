@@ -411,7 +411,14 @@ const Home: NextPage = () => {
                   <Button
                     type="button"
                     onMouseDown={(e) => e.preventDefault()}
-                    onClick={handleDeleteConnection}
+                    onClick={() =>
+                      setOnConfirm({
+                        title: "delete connection",
+                        message:
+                          "are you sure you want to delete this connection?",
+                        action: handleDeleteConnection,
+                      })
+                    }
                     variant="primary"
                     size="md"
                   >
