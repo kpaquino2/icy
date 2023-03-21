@@ -7,13 +7,17 @@ import { type Dispatch, type SetStateAction, useEffect } from "react";
 import Button from "../../UI/Button";
 
 const schema = z.object({
-  code: z.string().min(1, "course code is required"),
-  title: z.string(),
-  description: z.string(),
+  code: z
+    .string()
+    .min(1, "course code is required")
+    .max(20, "course code is too long"),
+  title: z.string().max(256, "title is too long"),
+  description: z.string().max(2000, "description is too long"),
   units: z.coerce
     .number({ invalid_type_error: "expected a number" })
     .int("must be an integer")
-    .gte(0, "can not be negative"),
+    .gte(0, "can not be negative")
+    .max(64, "use a smaller value"),
 });
 
 type Schema = z.infer<typeof schema>;
