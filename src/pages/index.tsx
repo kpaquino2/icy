@@ -272,7 +272,7 @@ const Home: NextPage = () => {
       {courseDeets && (
         <div
           onClick={() => setCourseDeets("")}
-          className="fixed inset-0 z-[1]"
+          className="fixed inset-0 z-[4]"
         />
       )}
       <Layout
@@ -465,7 +465,7 @@ const Home: NextPage = () => {
                     {semar.map((v, i) => (
                       <div
                         key={i}
-                        className="group/sem z-10 border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
+                        className="group/sem z-[3] border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
                         data-grid={{
                           x: i,
                           y: 0,
@@ -502,7 +502,7 @@ const Home: NextPage = () => {
                     {curriculum.courses.map((course) => (
                       <div
                         className={
-                          (course.id === courseDeets ? "z-20 " : "z-[3] ") +
+                          (course.id === courseDeets ? "z-20 " : "z-[4] ") +
                           (course.id === prereq || course.id === postreq
                             ? postreq &&
                               curriculum.connections.findIndex(
@@ -615,7 +615,7 @@ const Home: NextPage = () => {
                       return (
                         <div
                           key={i}
-                          className="z-10 border-t-2 border-r-2 border-zinc-200 bg-zinc-100/90 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/90"
+                          className="z-[3] border-t-2 border-r-2 border-zinc-200 bg-zinc-100/90 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/90"
                           data-grid={{
                             x: i,
                             y: 0,
