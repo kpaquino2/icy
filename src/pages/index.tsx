@@ -137,7 +137,12 @@ const Home: NextPage = () => {
   const setMode = useConstantsStore((state) => state.setMode);
   const mode = useConstantsStore((state) => state.mode);
 
-  const [courseDeets, setCourseDeets] = useState<string>("");
+  const [courseDetails, setCourseDetails] = useState<{
+    id: string;
+    sem: number;
+    pos: number;
+    open: boolean;
+  }>({ id: "", sem: 0, pos: 0, open: false });
 
   const moveCourse = useCurriculumStore((state) => state.moveCourse);
   const { mutate: moveCourseMutation } = api.course.moveCourse.useMutation({
@@ -269,12 +274,6 @@ const Home: NextPage = () => {
         title="new curriculum"
       />
       <ConfirmActionModal onConfirm={onConfirm} setOnConfirm={setOnConfirm} />
-      {courseDeets && (
-        <div
-          onClick={() => setCourseDeets("")}
-          className="fixed inset-0 z-[4]"
-        />
-      )}
       <Layout
         title="curriculum"
         description="list of all curriculum made by the user"
@@ -386,7 +385,10 @@ const Home: NextPage = () => {
                   </Button>
                   <Button
                     type="button"
-                    onClick={() => setMode("MOVE")}
+                    onClick={() => {
+                      setCourseDetails((prev) => ({ ...prev, open: false }));
+                      setMode("MOVE");
+                    }}
                     disabled={!curriculum}
                     variant="primary"
                     size="md"
@@ -397,7 +399,10 @@ const Home: NextPage = () => {
                   </Button>
                   <Button
                     type="button"
-                    onClick={() => setMode("CONNECT")}
+                    onClick={() => {
+                      setCourseDetails((prev) => ({ ...prev, open: false }));
+                      setMode("CONNECT");
+                    }}
                     disabled={!curriculum}
                     variant="primary"
                     size="md"
@@ -477,6 +482,12 @@ const Home: NextPage = () => {
                       </div>
                     ))}
                   </GridLayout>
+                  <CourseDetails
+                    courseDetails={courseDetails}
+                    close={() =>
+                      setCourseDetails((prev) => ({ ...prev, open: false }))
+                    }
+                  />
                   <GridLayout
                     width={curriculum.sems * colWidth}
                     cols={curriculum.sems}
@@ -502,7 +513,6 @@ const Home: NextPage = () => {
                     {curriculum.courses.map((course) => (
                       <div
                         className={
-                          (course.id === courseDeets ? "z-20 " : "z-[4] ") +
                           (course.id === prereq || course.id === postreq
                             ? postreq &&
                               curriculum.connections.findIndex(
@@ -513,7 +523,7 @@ const Home: NextPage = () => {
                               ? "bg-teal-500/25 "
                               : "bg-rose-500/25 "
                             : "bg-transparent ") +
-                          "pointer-events-none flex items-center justify-center "
+                          "pointer-events-none z-[3] flex items-center justify-center "
                         }
                         key={course.id}
                         data-grid={{
@@ -523,32 +533,17 @@ const Home: NextPage = () => {
                           h: 2,
                         }}
                       >
-                        {courseDeets === course.id && (
-                          <CourseDetails
-                            course={course}
-                            x={
-                              (course.sem + 1) * colWidth + colWidth * 1.5 >=
-                                curriculum.sems * colWidth &&
-                              curriculum.sems > 3
-                                ? -(colWidth * 1.5) - colWidth * 0.0625
-                                : colWidth - colWidth * 0.1875
-                            }
-                            y={
-                              course.position > 4
-                                ? -(rowHeight * 7) + rowHeight * 0.75
-                                : -rowHeight + rowHeight * 0.25
-                            }
-                            close={() => setCourseDeets("")}
-                          />
-                        )}
                         <CourseItem
                           focus={() => setFocused(course.id)}
                           blur={() => setFocused("")}
                           open={() => {
                             if (mode !== "SELECT") return;
-                            setCourseDeets((prev) =>
-                              prev === course.id ? "" : course.id
-                            );
+                            setCourseDetails((prev) => ({
+                              id: course.id,
+                              sem: course.sem,
+                              pos: course.position,
+                              open: prev.id !== course.id || !prev.open,
+                            }));
                           }}
                           mousedown={() => {
                             if (mode !== "CONNECT") return;
@@ -615,7 +610,7 @@ const Home: NextPage = () => {
                       return (
                         <div
                           key={i}
-                          className="z-[3] border-t-2 border-r-2 border-zinc-200 bg-zinc-100/90 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/90"
+                          className="pointer-events-none z-[4] border-t-2 border-r-2 border-zinc-200 bg-zinc-100/90 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/90"
                           data-grid={{
                             x: i,
                             y: 0,
