@@ -16,3 +16,7 @@ body {
   background: rgb(20 184 166) !important;
   opacity: 0.25 !important;
 }
+
+.react-grid-item.react-draggable-dragging {
+  z-index: 4 !important;
+}
