@@ -2,8 +2,8 @@ import type { Course } from "@prisma/client";
 import type { Dispatch, SetStateAction } from "react";
 import { api } from "../../../utils/api";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
-import CourseDetailsForm from "../../Forms/CourseDetailsForm";
-import Modal from "../../Modal";
+import CourseDetailsForm from "./CourseDetailsForm";
+import Modal from "../../UI/Modals/Modal";
 
 interface EditCourseModalProps {
   course: Course;

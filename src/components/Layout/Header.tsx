@@ -1,7 +1,11 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { GithubLogo } from "phosphor-react";
+import { SignIn } from "phosphor-react";
+import Button from "../UI/Button";
+import UserMenu from "../UI/Menu/UserMenu";
 
 const Header = () => {
+  const { data: session } = useSession();
   return (
     <div className="min-h-[4rem] border-b-2 border-zinc-200 dark:border-zinc-800">
       <div className="flex h-full items-center justify-between gap-2 px-4">
@@ -11,7 +15,7 @@ const Header = () => {
             height="30"
             viewBox="0 0 100 100"
             xmlns="http://www.w3.org/2000/svg"
-            className="fill-teal-600 dark:fill-teal-400"
+            className="fill-teal-500"
           >
             <g clipPath="url(#clip0_0_1)">
               <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />
@@ -31,14 +35,14 @@ const Header = () => {
           </svg>
           <span className="text-2xl font-thin">icy manager</span>
         </Link>
-        <div className="flex items-center gap-3">
-          <Link
-            href="https://github.com/kpaquino2/icy"
-            className="rounded text-zinc-500 transition hover:text-teal-600 hover:dark:text-teal-400"
-            target="_blank"
-          >
-            <GithubLogo size={24} weight="bold" />
-          </Link>
+        <div className="relative z-10 flex items-center gap-3">
+          {session ? (
+            <UserMenu />
+          ) : (
+            <Button href="sign-in" variant="base" size="lg">
+              <SignIn size={32} />
+            </Button>
+          )}
         </div>
       </div>
     </div>

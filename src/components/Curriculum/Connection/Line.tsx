@@ -24,6 +24,7 @@ const Line = ({
   const zoom = useConstantsStore((state) => state.zoom);
   const rowHeight = 36 * zoom;
   const colWidth = 192 * zoom;
+  const crawlerSize = 3 * zoom;
 
   const start: [number, number] = [
     (prereqsem + 1) * colWidth - colWidth * 0.125,
@@ -35,37 +36,38 @@ const Line = ({
   ];
 
   const pathRef = useRef<SVGPathElement>(null);
-  const dist = pathRef.current?.getTotalLength();
+  const dist = (pathRef.current?.getTotalLength() || 1) / zoom;
 
   const animateConnections = useSettingsStore(
     (state) => state.appearance.animateConnections
   );
   return (
-    <g>
+    <g
+      className={
+        (focused
+          ? "stroke-teal-500 opacity-100"
+          : "stroke-zinc-900/10 dark:stroke-zinc-50/10 ") + " fill-none"
+      }
+      style={{
+        strokeWidth: 2 * zoom,
+      }}
+    >
       <path
-        className={
-          (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
-            : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
-        }
-        d={`M ${start[0]} ${start[1] - 5.66} L ${start[0] + 5.66} ${start[1]}`}
+        d={`M ${start[0]} ${start[1] - 5.66 * zoom} L ${
+          start[0] + 5.66 * zoom
+        } ${start[1]}`}
       />
       <path
-        className={
-          (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
-            : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
-        }
-        d={`M ${start[0]} ${start[1] + 5.66} L ${start[0] + 5.66} ${start[1]}`}
+        style={{
+          strokeWidth: 2 * zoom,
+        }}
+        d={`M ${start[0]} ${start[1] + 5.66 * zoom} L ${
+          start[0] + 5.66 * zoom
+        } ${start[1]}`}
       />
       <path
-        className={
-          (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
-            : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
-        }
         ref={pathRef}
-        d={`M ${start[0] + 4} ${start[1]}
+        d={`M ${start[0] + 4 * zoom} ${start[1]}
             L ${start[0] + (end[0] - start[0]) / 4} ${start[1]}
             L ${end[0] - (end[0] - start[0]) / 4} ${end[1]}
             L ${end[0]} ${end[1]}
@@ -73,7 +75,7 @@ const Line = ({
       />
       <path
         className="cursor-pointer fill-none stroke-transparent stroke-[20px] outline-none"
-        d={`M ${start[0] + 4} ${start[1]}
+        d={`M ${start[0] + 4 * zoom} ${start[1]}
             L ${start[0] + (end[0] - start[0]) / 4} ${start[1]}
             L ${end[0] - (end[0] - start[0]) / 4} ${end[1]}
             L ${end[0]} ${end[1]}
@@ -83,31 +85,25 @@ const Line = ({
         onBlur={blur}
       />
       <path
-        className={
-          (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
-            : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
-        }
-        d={`M ${end[0] - 5.66} ${end[1] - 5.66} L ${end[0]} ${end[1]}`}
+        d={`M ${end[0] - 5.66 * zoom} ${end[1] - 5.66 * zoom} L ${end[0]} ${
+          end[1]
+        }`}
       />
       <path
-        className={
-          (focused
-            ? "stroke-teal-600 opacity-100 dark:stroke-teal-400"
-            : "stroke-zinc-500 opacity-50 ") + " fill-none stroke-2"
-        }
-        d={`M ${end[0] - 5.66} ${end[1] + 5.66} L ${end[0]} ${end[1]}`}
+        d={`M ${end[0] - 5.66 * zoom} ${end[1] + 5.66 * zoom} L ${end[0]} ${
+          end[1]
+        }`}
       />
       {focused && animateConnections && (
         <polygon
-          points="0,-3 3,0 0,3 -3,0"
-          className="rounded fill-teal-600 dark:fill-teal-400"
+          points={`0,${-crawlerSize} ${crawlerSize},0 0,${crawlerSize} ${-crawlerSize},0`}
+          className="rounded fill-teal-500"
         >
           <animateMotion
-            dur={`${(dist || 1) * 0.01}`}
+            dur={`${dist * 0.01}`}
             repeatCount="indefinite"
             rotate="auto"
-            path={`M ${start[0] + 4} ${start[1]}
+            path={`M ${start[0] + 4 * zoom} ${start[1]}
             L ${start[0] + (end[0] - start[0]) / 4} ${start[1]}
             L ${end[0] - (end[0] - start[0]) / 4} ${end[1]}
             L ${end[0]} ${end[1]}

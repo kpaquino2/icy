@@ -85,7 +85,6 @@ export const useCurriculumStore = create<CurriculumState>()(
       deleteCourse: (courseId) =>
         set((state) => {
           if (!state.curriculum) return state;
-          console.log(courseId);
           return {
             curriculum: {
               ...state.curriculum,

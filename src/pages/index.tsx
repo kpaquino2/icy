@@ -24,8 +24,9 @@ import SemesterHeader from "../components/Curriculum/Semester/SemesterHeader";
 import SemesterFooter from "../components/Curriculum/Semester/SemesterFooter";
 import CourseItem from "../components/Curriculum/Course/CourseItem";
 import CourseDetails from "../components/Curriculum/Course/CourseDetails";
-import ConfirmActionModal from "../components/ConfirmActionModal";
+import ConfirmActionModal from "../components/UI/Modals/ConfirmActionModal";
 import Connections from "../components/Curriculum/Connection/Connections";
+import Button from "../components/UI/Button";
 
 const Home: NextPage = () => {
   const { data: session, status: sessionStatus } = useSession();
@@ -136,7 +137,12 @@ const Home: NextPage = () => {
   const setMode = useConstantsStore((state) => state.setMode);
   const mode = useConstantsStore((state) => state.mode);
 
-  const [courseDeets, setCourseDeets] = useState<string>("");
+  const [courseDetails, setCourseDetails] = useState<{
+    id: string;
+    sem: number;
+    pos: number;
+    open: boolean;
+  }>({ id: "", sem: 0, pos: 0, open: false });
 
   const moveCourse = useCurriculumStore((state) => state.moveCourse);
   const { mutate: moveCourseMutation } = api.course.moveCourse.useMutation({
@@ -268,12 +274,6 @@ const Home: NextPage = () => {
         title="new curriculum"
       />
       <ConfirmActionModal onConfirm={onConfirm} setOnConfirm={setOnConfirm} />
-      {courseDeets && (
-        <div
-          onClick={() => setCourseDeets("")}
-          className="fixed inset-0 z-[1]"
-        />
-      )}
       <Layout
         title="curriculum"
         description="list of all curriculum made by the user"
@@ -285,7 +285,7 @@ const Home: NextPage = () => {
               height="72"
               viewBox="0 0 100 100"
               xmlns="http://www.w3.org/2000/svg"
-              className="animate-load fill-teal-600 dark:fill-teal-400"
+              className="animate-load fill-teal-500"
             >
               <g clipPath="url(#clip0_0_1)">
                 <path d="M73.9142 77.9142L56.4142 60.4142C55.1543 59.1543 53 60.0466 53 61.8284V77.6716C53 78.202 53.2107 78.7107 53.5858 79.0858L71.0858 96.5858C72.3457 97.8457 74.5 96.9534 74.5 95.1716V79.3284C74.5 78.798 74.2893 78.2893 73.9142 77.9142Z" />
@@ -307,7 +307,7 @@ const Home: NextPage = () => {
         ) : (
           <>
             {showNotice && sessionStatus !== "authenticated" && (
-              <div className="relative flex items-center justify-center bg-teal-600 p-2 text-sm text-zinc-100 dark:bg-teal-400 dark:text-zinc-900">
+              <div className="relative flex items-center justify-center bg-teal-500 p-2 text-sm text-zinc-100 dark:text-zinc-900">
                 <Link
                   className="group flex gap-2 hover:underline"
                   href="sign-up"
@@ -330,119 +330,126 @@ const Home: NextPage = () => {
             )}
             <div className="flex justify-between border-b-2 border-zinc-200 px-4 py-2 dark:border-zinc-800">
               <div className="flex gap-2">
-                <button
+                <Button
                   type="button"
                   onClick={handleNewSem}
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                   disabled={!curriculum}
+                  variant="primary"
+                  size="md"
                 >
                   <Plus size={16} weight="bold" />
                   new semester
-                </button>
+                </Button>
                 <div className="flex">
-                  <button
+                  <Button
                     type="button"
                     onClick={() => setZoom(zoom + 0.25)}
-                    className="flex items-center gap-2 rounded-l bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                     disabled={!curriculum || zoom >= 1.5}
+                    variant="primary"
+                    size="md"
+                    grouped
                   >
                     <MagnifyingGlassPlus size={16} weight="bold" />
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     type="button"
-                    className="flex w-12 items-center justify-center gap-2 bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                     disabled={!curriculum}
+                    variant="primary"
+                    size="md"
+                    grouped
                   >
                     {zoom * 100}%
-                  </button>
-                  <button
+                  </Button>
+                  <Button
                     type="button"
                     onClick={() => setZoom(zoom - 0.25)}
-                    className="flex items-center gap-2 rounded-r bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                     disabled={!curriculum || zoom <= 0.5}
+                    variant="primary"
+                    size="md"
+                    grouped
                   >
                     <MagnifyingGlassMinus size={16} weight="bold" />
-                  </button>
+                  </Button>
                 </div>
                 <div className="flex">
-                  <button type="button">
-                    <input
-                      type="radio"
-                      className="peer hidden"
-                      id="select"
-                      name="mode"
-                      defaultChecked
-                      onChange={() => setMode("SELECT")}
-                      disabled={!curriculum}
-                    />
-                    <label
-                      htmlFor="select"
-                      className="flex h-full items-center gap-2 rounded-l bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
-                    >
-                      <Cursor size={16} weight="bold" />
-                    </label>
-                  </button>
-                  <button type="button">
-                    <input
-                      type="radio"
-                      className="peer hidden"
-                      id="move"
-                      name="mode"
-                      onChange={() => setMode("MOVE")}
-                      disabled={!curriculum}
-                    />
-                    <label
-                      htmlFor="move"
-                      className="flex h-full items-center gap-2 bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                    >
-                      <ArrowsOutCardinal size={16} weight="bold" />
-                    </label>
-                  </button>
-                  <button type="button">
-                    <input
-                      type="radio"
-                      className="peer hidden"
-                      id="connect"
-                      name="mode"
-                      onChange={() => setMode("CONNECT")}
-                      disabled={!curriculum}
-                    />
-                    <label
-                      htmlFor="connect"
-                      className="flex h-full items-center gap-2 rounded-r bg-teal-600 px-2 text-zinc-100 transition hover:brightness-110 peer-checked:brightness-125 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
-                    >
-                      <FlowArrow size={16} weight="bold" />
-                    </label>
-                  </button>
+                  <Button
+                    type="button"
+                    onClick={() => setMode("SELECT")}
+                    disabled={!curriculum}
+                    variant="primary"
+                    size="md"
+                    grouped
+                    active={mode === "SELECT"}
+                  >
+                    <Cursor size={16} weight="bold" />
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => {
+                      setCourseDetails((prev) => ({ ...prev, open: false }));
+                      setMode("MOVE");
+                    }}
+                    disabled={!curriculum}
+                    variant="primary"
+                    size="md"
+                    grouped
+                    active={mode === "MOVE"}
+                  >
+                    <ArrowsOutCardinal size={16} weight="bold" />
+                  </Button>
+                  <Button
+                    type="button"
+                    onClick={() => {
+                      setCourseDetails((prev) => ({ ...prev, open: false }));
+                      setMode("CONNECT");
+                    }}
+                    disabled={!curriculum}
+                    variant="primary"
+                    size="md"
+                    grouped
+                    active={mode === "CONNECT"}
+                  >
+                    <FlowArrow size={16} weight="bold" />
+                  </Button>
                 </div>
                 {focused.length >= 48 && (
-                  <button
+                  <Button
+                    type="button"
                     onMouseDown={(e) => e.preventDefault()}
-                    onClick={handleDeleteConnection}
-                    className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 peer-disabled:opacity-50 peer-disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
+                    onClick={() =>
+                      setOnConfirm({
+                        title: "delete connection",
+                        message:
+                          "are you sure you want to delete this connection?",
+                        action: handleDeleteConnection,
+                      })
+                    }
+                    variant="primary"
+                    size="md"
                   >
                     <Eraser size={16} weight="bold" />
                     delete connection
-                  </button>
+                  </Button>
                 )}
               </div>
               <div className="flex gap-2">
-                <button
+                <Button
                   type="button"
                   onClick={() =>
                     setOnConfirm({
                       title: "delete curriculum",
                       message:
                         "are you sure you want to delete this curriculum?",
-                      action: () => handleDeleteCurriculum,
+                      action: handleDeleteCurriculum,
                     })
                   }
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 disabled:opacity-50 disabled:hover:brightness-100 dark:bg-teal-400 dark:text-zinc-900"
                   disabled={!curriculum}
+                  variant="primary"
+                  size="md"
                 >
                   <TrashSimple size={16} weight="bold" />
                   delete
-                </button>
+                </Button>
               </div>
             </div>
             {curriculum ? (
@@ -463,7 +470,7 @@ const Home: NextPage = () => {
                     {semar.map((v, i) => (
                       <div
                         key={i}
-                        className="group/sem z-10 border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
+                        className="group/sem z-[3] border-b-2 border-r-2 border-zinc-200 px-2 dark:border-zinc-800"
                         data-grid={{
                           x: i,
                           y: 0,
@@ -475,6 +482,12 @@ const Home: NextPage = () => {
                       </div>
                     ))}
                   </GridLayout>
+                  <CourseDetails
+                    courseDetails={courseDetails}
+                    close={() =>
+                      setCourseDetails((prev) => ({ ...prev, open: false }))
+                    }
+                  />
                   <GridLayout
                     width={curriculum.sems * colWidth}
                     cols={curriculum.sems}
@@ -500,7 +513,6 @@ const Home: NextPage = () => {
                     {curriculum.courses.map((course) => (
                       <div
                         className={
-                          (course.id === courseDeets ? "z-20 " : "z-[3] ") +
                           (course.id === prereq || course.id === postreq
                             ? postreq &&
                               curriculum.connections.findIndex(
@@ -509,9 +521,9 @@ const Home: NextPage = () => {
                                   c.postreqId === postreq
                               ) === -1
                               ? "bg-teal-500/25 "
-                              : "bg-pink-500/25 "
+                              : "bg-rose-500/25 "
                             : "bg-transparent ") +
-                          "pointer-events-none flex items-center justify-center "
+                          "pointer-events-none z-[3] flex items-center justify-center "
                         }
                         key={course.id}
                         data-grid={{
@@ -521,32 +533,17 @@ const Home: NextPage = () => {
                           h: 2,
                         }}
                       >
-                        {courseDeets === course.id && (
-                          <CourseDetails
-                            course={course}
-                            x={
-                              (course.sem + 1) * colWidth + colWidth * 1.5 >=
-                                curriculum.sems * colWidth &&
-                              curriculum.sems > 3
-                                ? -(colWidth * 1.5) - colWidth * 0.0625
-                                : colWidth - colWidth * 0.1875
-                            }
-                            y={
-                              course.position > 4
-                                ? -(rowHeight * 7) + rowHeight * 0.75
-                                : -rowHeight + rowHeight * 0.25
-                            }
-                            close={() => setCourseDeets("")}
-                          />
-                        )}
                         <CourseItem
                           focus={() => setFocused(course.id)}
                           blur={() => setFocused("")}
                           open={() => {
                             if (mode !== "SELECT") return;
-                            setCourseDeets((prev) =>
-                              prev === course.id ? "" : course.id
-                            );
+                            setCourseDetails((prev) => ({
+                              id: course.id,
+                              sem: course.sem,
+                              pos: course.position,
+                              open: prev.id !== course.id || !prev.open,
+                            }));
                           }}
                           mousedown={() => {
                             if (mode !== "CONNECT") return;
@@ -613,7 +610,7 @@ const Home: NextPage = () => {
                       return (
                         <div
                           key={i}
-                          className="z-10 border-t-2 border-r-2 border-zinc-200 bg-zinc-100/90 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/90"
+                          className="pointer-events-none z-[4] border-t-2 border-r-2 border-zinc-200 bg-zinc-100/90 p-2 backdrop-blur-sm dark:border-zinc-800 dark:bg-zinc-900/90"
                           data-grid={{
                             x: i,
                             y: 0,
@@ -634,14 +631,15 @@ const Home: NextPage = () => {
                 <div className="mb-2 text-lg text-zinc-600 dark:text-zinc-400">
                   create a new curriculum to start
                 </div>
-                <button
+                <Button
                   type="button"
-                  className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition hover:brightness-110 dark:bg-teal-400 dark:text-zinc-900"
                   onClick={() => setNewCurricOpen(true)}
+                  variant="primary"
+                  size="lg"
                 >
                   <Plus weight="bold" size={20} />
                   new curriculum
-                </button>
+                </Button>
               </div>
             )}
             <div className="flex border-t-2 border-zinc-200 px-4 py-2 text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">

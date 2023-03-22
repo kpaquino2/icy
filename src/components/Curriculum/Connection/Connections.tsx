@@ -29,17 +29,6 @@ const Connections = ({
         className="absolute z-[2] h-full w-full scale-100 overflow-visible"
         ref={svgref}
       >
-        {!!selpre && svgref.current && (
-          <TempLine
-            focused={false}
-            prereqsem={selpre.sem}
-            prereqpos={selpre.position}
-            postreqsem={selpost?.sem}
-            postreqpos={selpost?.position}
-            boundleft={svgref.current.getBoundingClientRect().left}
-            boundtop={svgref.current.getBoundingClientRect().top}
-          />
-        )}
         {curriculum.connections.map((connection, i) => {
           const pre = curriculum.courses.find(
             (c) => c.id === connection.prereqId
@@ -65,6 +54,17 @@ const Connections = ({
             />
           );
         })}
+        {!!selpre && svgref.current && (
+          <TempLine
+            focused={false}
+            prereqsem={selpre.sem}
+            prereqpos={selpre.position}
+            postreqsem={selpost?.sem}
+            postreqpos={selpost?.position}
+            boundleft={svgref.current.getBoundingClientRect().left}
+            boundtop={svgref.current.getBoundingClientRect().top}
+          />
+        )}
       </svg>
     </>
   );

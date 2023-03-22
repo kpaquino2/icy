@@ -4,7 +4,7 @@ import { api } from "../../../utils/api";
 import { useConstantsStore } from "../../../utils/stores/constantsStore";
 import { useCurriculumStore } from "../../../utils/stores/curriculumStore";
 import { useSettingsStore } from "../../../utils/stores/settingsStore";
-import ConfirmActionModal from "../../ConfirmActionModal";
+import ConfirmActionModal from "../../UI/Modals/ConfirmActionModal";
 import AddCourseModal from "../Course/AddCourseModal";
 
 interface SemesterProps {
@@ -82,20 +82,20 @@ const SemesterColumn = ({ index }: SemesterProps) => {
       <div className="flex gap-2">
         <button
           type="button"
-          className="flex text-zinc-400 hover:text-teal-600 hover:dark:text-teal-400"
+          className="flex text-zinc-400 hover:text-teal-500"
           onClick={() => setNewCourseOpen(true)}
         >
           <Plus size={16 * zoom} weight="bold" />
         </button>
         <button
           type="button"
-          className="group hidden text-zinc-400 hover:text-teal-600 group-last-of-type/sem:block group-only-of-type/sem:hidden hover:dark:text-teal-400"
+          className="group hidden text-zinc-400 hover:text-teal-500 group-last-of-type/sem:block group-only-of-type/sem:hidden"
           onClick={() =>
             setOnConfirm({
               title: "delete semester",
               message:
                 "the courses in this sem and their connections will also be deleted. are you sure you want to delete this semester?",
-              action: () => handleDelete,
+              action: handleDelete,
             })
           }
         >

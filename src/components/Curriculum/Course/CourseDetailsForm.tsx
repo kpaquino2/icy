@@ -1,18 +1,23 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import InputField from "./InputField";
-import TextArea from "./TextArea";
+import InputField from "../../UI/Forms/InputField";
+import TextArea from "../../UI/Forms/TextArea";
 import { type Dispatch, type SetStateAction, useEffect } from "react";
+import Button from "../../UI/Button";
 
 const schema = z.object({
-  code: z.string().min(1, "course code is required"),
-  title: z.string(),
-  description: z.string(),
+  code: z
+    .string()
+    .min(1, "course code is required")
+    .max(20, "course code is too long"),
+  title: z.string().max(256, "title is too long"),
+  description: z.string().max(2000, "description is too long"),
   units: z.coerce
     .number({ invalid_type_error: "expected a number" })
     .int("must be an integer")
-    .gte(0, "can not be negative"),
+    .gte(0, "can not be negative")
+    .max(64, "use a smaller value"),
 });
 
 type Schema = z.infer<typeof schema>;
@@ -34,7 +39,7 @@ const CourseDetailsForm = ({
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitting, isDirty },
   } = useForm<Schema>({
     resolver: zodResolver(schema),
     defaultValues: defaultData,
@@ -77,19 +82,23 @@ const CourseDetailsForm = ({
         />
       </div>
       <div className="flex justify-end gap-3">
-        <button
+        <Button
           type="button"
           onClick={() => setOpen(false)}
-          className="rounded border-2 border-teal-600 px-2 py-1 text-teal-600 transition hover:brightness-110 dark:border-teal-400 dark:text-teal-400"
+          disabled={isSubmitting}
+          variant="base"
+          size="md"
         >
           cancel
-        </button>
-        <button
+        </Button>
+        <Button
           type="submit"
-          className="flex items-center gap-2 rounded bg-teal-600 px-2 py-1 text-zinc-100 transition enabled:hover:brightness-110 disabled:opacity-50 dark:bg-teal-400 dark:text-zinc-900"
+          disabled={isSubmitting || !isDirty}
+          variant="primary"
+          size="md"
         >
           submit
-        </button>
+        </Button>
       </div>
     </form>
   );
