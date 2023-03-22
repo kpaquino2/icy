@@ -72,7 +72,6 @@ const CourseDetails = ({ courseDetails, close }: CourseDetailsProps) => {
       (bgref.current?.getBoundingClientRect().height || 0) ||
     course.position < 4;
 
-  console.log(rowHeight * (courseDetails.pos + 1) + rowHeight * 7);
   const x = right
     ? colWidth * (courseDetails.sem + 1) - colWidth * 0.0625
     : colWidth * courseDetails.sem - colWidth * 1.5 + colWidth * 0.0625;
@@ -99,7 +98,7 @@ const CourseDetails = ({ courseDetails, close }: CourseDetailsProps) => {
         leaveTo="opacity-0"
         show={courseDetails.open}
         appear={true}
-        className="pointer-events-auto absolute z-20 flex scale-0 flex-col rounded border-2 border-zinc-200 bg-zinc-100 transition-all dark:border-zinc-800 dark:bg-zinc-900"
+        className="pointer-events-auto absolute z-20 flex flex-col rounded border-2 border-zinc-200 bg-zinc-100 transition-all dark:border-zinc-800 dark:bg-zinc-900"
         style={{
           transform: `translate(${x}px, ${y}px)`,
           height: rowHeight * 7,
