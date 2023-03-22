@@ -172,7 +172,7 @@ const AddCurriculumModal = ({
               <button
                 type="button"
                 onClick={createFromScratch}
-                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-600 dark:text-zinc-600 dark:hover:border-teal-500 dark:hover:text-teal-500"
+                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-200 py-8 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-800 dark:hover:border-teal-500 dark:hover:text-teal-500"
               >
                 <ProjectorScreen size={32} />
                 create from scratch
@@ -180,7 +180,7 @@ const AddCurriculumModal = ({
               <button
                 type="button"
                 onClick={handleNext}
-                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-400 py-8 text-zinc-400 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-600 dark:text-zinc-600 dark:hover:border-teal-500 dark:hover:text-teal-500"
+                className="flex w-full flex-col items-center justify-center rounded border-2 border-zinc-200 py-8 hover:border-teal-500 hover:text-teal-500 dark:border-zinc-800 dark:hover:border-teal-500 dark:hover:text-teal-500"
               >
                 <ProjectorScreenChart size={32} />
                 use a template
