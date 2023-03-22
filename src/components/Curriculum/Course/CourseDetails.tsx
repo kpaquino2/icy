@@ -59,7 +59,7 @@ const CourseDetails = ({ courseDetails, close }: CourseDetailsProps) => {
     deleteCourseMutation({ id: course.id });
   };
   const bgref = useRef<HTMLDivElement>(null);
-  if (!course) return <></>;
+
   const width = Math.max(
     bgref.current?.getBoundingClientRect().width || 0,
     (curriculum?.sems || 0) * colWidth
@@ -68,10 +68,11 @@ const CourseDetails = ({ courseDetails, close }: CourseDetailsProps) => {
     colWidth * (courseDetails.sem + 1) - colWidth * 0.0625 + colWidth * 1.5 <
       width || courseDetails.sem < 1.5;
   const bottom =
+    (course?.position || 0) < 4 ||
     rowHeight * (courseDetails.pos + 1) + rowHeight * 7 <
-      (bgref.current?.getBoundingClientRect().height || 0) ||
-    course.position < 4;
+      (bgref.current?.getBoundingClientRect().height || 0);
 
+  console.log(bgref.current?.getBoundingClientRect().height);
   const x = right
     ? colWidth * (courseDetails.sem + 1) - colWidth * 0.0625
     : colWidth * courseDetails.sem - colWidth * 1.5 + colWidth * 0.0625;
