@@ -271,7 +271,7 @@ const AddCurriculumModal = ({
             <div className="text-end text-xs italic text-zinc-500">
               source: https://amis.uplb.edu.ph/curriculums-management/
             </div>
-            <div className="flex flex-row-reverse items-center justify-between">
+            <div className="mt-auto flex flex-row-reverse items-center justify-between">
               <div className="flex gap-3">
                 <Button
                   type="button"
