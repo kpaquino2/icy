@@ -15,16 +15,6 @@ datasource db {
     relationMode = "prisma"
 }
 
-model Template {
-    id           Int        @id @default(autoincrement())
-    program      String     @db.Text
-    code         String     @unique
-    curriculum   Curriculum @relation(fields: [curriculumId], references: [id], onDelete: Cascade)
-    curriculumId String     @unique
-
-    @@index([curriculumId])
-}
-
 model Program {
     id        String   @id @default(cuid())
     name      String
@@ -43,7 +33,6 @@ model Curriculum {
     createdAt   DateTime     @default(now())
     updatedAt   DateTime     @updatedAt
     sems        Int
-    template    Template?
     connections Connection[]
 
     @@index([userId])
