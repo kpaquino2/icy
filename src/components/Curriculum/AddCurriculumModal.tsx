@@ -14,6 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { createId } from "@paralleldrive/cuid2";
 import { useCurriculumStore } from "../../utils/stores/curriculumStore";
 import Button from "../UI/Button";
+import templates from "../../utils/templates/templates";
 
 interface AddCurriculumModalProps {
   newCurricOpen: boolean;
@@ -43,9 +44,21 @@ const AddCurriculumModal = ({
   const [stepIndex, setStepIndex] = useState(0);
   const [search, setSearch] = useState("");
 
-  const { data: templates } = api.template_curriculum.getTemplates.useQuery();
-  const { mutateAsync: getTemplateByCode } =
-    api.template_curriculum.getTemplateByCode.useMutation();
+  const temps = templates.reduce(
+    (group: { program: string; currics: string[] }[], template) => {
+      const index = group.findIndex((v) => v.program === template.program);
+      if (group[index]) {
+        group[index]?.currics.push(template.code);
+        return group;
+      }
+      group.push({
+        program: template.program,
+        currics: [template.code],
+      });
+      return group;
+    },
+    []
+  );
 
   const userId = useCurriculumStore((state) => state.userId);
   const setCurriculum = useCurriculumStore((state) => state.setCurriculum);
@@ -138,12 +151,14 @@ const AddCurriculumModal = ({
 
   // dont just copy from template
   const onSubmit = async (data: Schema) => {
-    const template = await getTemplateByCode({ code: data.template });
+    const template = templates.find((t) => {
+      if (data.template === t.code) return t;
+    });
     if (!template) return;
     try {
       await createNewCurriculumFromTemplateMutation({
         curriculum: {
-          ...template.curriculum,
+          ...template,
           id: createId(),
         },
       });
@@ -217,7 +232,7 @@ const AddCurriculumModal = ({
                   " rounded border-r-2 border-zinc-200 dark:border-zinc-800"
                 }
               >
-                {templates
+                {temps
                   ?.filter(
                     (p) =>
                       p.program.toLowerCase().includes(search) ||
